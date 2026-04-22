@@ -1,0 +1,2541 @@
+{
+  "generated": "2026-04-22",
+  "period": "2025-10-01 to 2026-04-21",
+  "top_n": 50,
+  "total_unique_skus": 3197,
+  "total_revenue_all_channels": 1310296.0,
+  "products": [
+    {
+      "sku": "900033",
+      "name": "Poštovné e-shop",
+      "category": "Práce - gravírování, servis, montáž...",
+      "vendor": "Ostatní bez určení",
+      "channels": {
+        "erp_eshop": {
+          "qty": 745.0,
+          "revenue": 51351.0,
+          "profit": 51351.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 51351.0,
+      "total_qty": 745.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370310",
+      "name": "Smart nábyt.zámek Q20 bez otisku",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 18.0,
+          "revenue": 29707.0,
+          "profit": 15106.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 29707.0,
+      "total_qty": 18.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370351",
+      "name": "Star depozit 1+5 komplet",
+      "category": "Hotely",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 24998.0,
+          "profit": 15205.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 24998.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "205905",
+      "name": "BURG-WÄCHTER - Trezor DUAL SAFE 415 E FP",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "channels": {
+        "erp_eshop": {
+          "qty": 0,
+          "revenue": 0,
+          "profit": 0
+        },
+        "alza": {
+          "qty": 2.0,
+          "revenue": 24369.0,
+          "orders": 2
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 24369.0,
+      "total_qty": 2.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "060216",
+      "name": "Star Mazadlo na zámky a cylindrické vložky, 150 ml",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "channels": {
+        "erp_eshop": {
+          "qty": 0,
+          "revenue": 0,
+          "profit": 0
+        },
+        "alza": {
+          "qty": 189.0,
+          "revenue": 23521.0,
+          "orders": 177
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 2,
+          "cost": 7.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 23521.0,
+      "total_qty": 189.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "220113",
+      "name": "FUHR radio fingerscan",
+      "category": "Přístupové systémy",
+      "vendor": "Fuhr",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 23323.0,
+          "profit": 12018.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 23323.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "383124",
+      "name": "ISEO Palmo 92mm panik.hrazda černá PP",
+      "category": "Panikové dveřní kování",
+      "vendor": "ISEO",
+      "channels": {
+        "erp_eshop": {
+          "qty": 8.0,
+          "revenue": 22664.0,
+          "profit": 12860.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 22664.0,
+      "total_qty": 8.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "199927",
+      "name": "Půloliva AMBRA A",
+      "category": "Okenní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 103.0,
+          "revenue": 18812.0,
+          "profit": 11184.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 18812.0,
+      "total_qty": 103.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "061179",
+      "name": "Oliva AMBRA A",
+      "category": "Okenní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 75.0,
+          "revenue": 17663.0,
+          "profit": 9935.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 17663.0,
+      "total_qty": 75.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "060207",
+      "name": "Mazadlo Star 30ml",
+      "category": "Chemie",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 3.0,
+          "revenue": 317.0,
+          "profit": 251.0
+        },
+        "alza": {
+          "qty": 189.0,
+          "revenue": 17081.0,
+          "orders": 181
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 17398.0,
+      "total_qty": 192.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "141490",
+      "name": "Rozvora ELOX F1",
+      "category": "Okenní kování",
+      "vendor": "Ghidini",
+      "channels": {
+        "erp_eshop": {
+          "qty": 77.0,
+          "revenue": 16991.0,
+          "profit": 9653.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 1,
+          "cost": 4.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 16991.0,
+      "total_qty": 77.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370391",
+      "name": "Smart keybox",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 7.0,
+          "revenue": 16193.0,
+          "profit": 8815.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 3,
+          "cost": 32.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 16193.0,
+      "total_qty": 7.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "806019",
+      "name": "SCHURING zástrč VHT - Rohová SL 150mm",
+      "category": "Stavěče, zástrče a dorazy",
+      "vendor": "Schüring",
+      "channels": {
+        "erp_eshop": {
+          "qty": 24.0,
+          "revenue": 13924.0,
+          "profit": 7521.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 13924.0,
+      "total_qty": 24.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "060203",
+      "name": "Mazadlo Super Lube tuk 85g",
+      "category": "Chemie",
+      "vendor": "Ostatní železářské zboží",
+      "channels": {
+        "erp_eshop": {
+          "qty": 52.0,
+          "revenue": 12850.0,
+          "profit": 7659.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 12850.0,
+      "total_qty": 52.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "220011",
+      "name": "FUHR zámek 834-35-92-8-U24-1790 motor.",
+      "category": "El.mech.a motorické zámky",
+      "vendor": "Fuhr",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 12805.0,
+          "profit": 8197.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 12805.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370295",
+      "name": "Smart st?nová jednotka K3Q QR code",
+      "category": "P?ístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 3.0,
+          "revenue": 10468.0,
+          "profit": 8069.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 10468.0,
+      "total_qty": 3.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "001035",
+      "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "channels": {
+        "erp_eshop": {
+          "qty": 40.0,
+          "revenue": 10340.0,
+          "profit": 4521.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 10340.0,
+      "total_qty": 40.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370314",
+      "name": "Smart stěnová jednotka K3F DESFire",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 4.0,
+          "revenue": 9511.0,
+          "profit": 6559.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 9511.0,
+      "total_qty": 4.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370901",
+      "name": "Smart stěnová jednotka VF6 FP+Face s WIFI/BLE",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 9218.0,
+          "profit": 7094.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 9218.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "198155",
+      "name": "Závěs pružinový 175mm/50kg sur.",
+      "category": "Panty",
+      "vendor": "Ostatní železářské zboží",
+      "channels": {
+        "erp_eshop": {
+          "qty": 12.0,
+          "revenue": 9124.0,
+          "profit": 4006.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 9124.0,
+      "total_qty": 12.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "220118",
+      "name": "FUHR konektor kabelu k 881/834",
+      "category": "Nezařazené a náhr.díly zámků/protiplechů",
+      "vendor": "Fuhr",
+      "channels": {
+        "erp_eshop": {
+          "qty": 15.0,
+          "revenue": 8802.0,
+          "profit": 5203.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8802.0,
+      "total_qty": 15.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "142183",
+      "name": "METRO-R VISION kl/kl BB/ SH1004-53 kulatá rozeta",
+      "category": "Interiérové rozetové dveřní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 25.0,
+          "revenue": 8657.0,
+          "profit": 6653.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8657.0,
+      "total_qty": 25.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "016116",
+      "name": "AA zavírač DC110 s ramínkem stř.",
+      "category": "Vlastní zavírač",
+      "vendor": "Assa Abloy",
+      "channels": {
+        "erp_eshop": {
+          "qty": 13.0,
+          "revenue": 8621.0,
+          "profit": 5246.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 4,
+          "cost": 31.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8621.0,
+      "total_qty": 13.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "102044",
+      "name": "MADLO balkonové bílé Star  (K435)",
+      "category": "Ostatní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 16.0,
+          "revenue": 1045.0,
+          "profit": 925.0
+        },
+        "alza": {
+          "qty": 143.0,
+          "revenue": 7529.0,
+          "orders": 120
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8573.0,
+      "total_qty": 159.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "205133",
+      "name": "BW SecuENTRYeasy + 5652 FP",
+      "category": "Přístupové systémy",
+      "vendor": "Burg Wachter",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 8300.0,
+          "profit": 17.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8300.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "001005",
+      "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "channels": {
+        "erp_eshop": {
+          "qty": 33.0,
+          "revenue": 5221.0,
+          "profit": 488.0
+        },
+        "alza": {
+          "qty": 14.0,
+          "revenue": 3068.0,
+          "orders": 12
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 2,
+          "cost": 12.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8288.0,
+      "total_qty": 47.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "156050",
+      "name": "GEZE Zavírač TS 2000 stř.",
+      "category": "Vlastní zavírač",
+      "vendor": "Geze",
+      "channels": {
+        "erp_eshop": {
+          "qty": 6.0,
+          "revenue": 8046.0,
+          "profit": 5376.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 6,
+          "cost": 57.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 8046.0,
+      "total_qty": 6.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "156079",
+      "name": "GEZE Jezdec kluzné lišty TS 3000/5000",
+      "category": "Příslušenství zavírače a koordinátory",
+      "vendor": "Geze",
+      "channels": {
+        "erp_eshop": {
+          "qty": 35.0,
+          "revenue": 7852.0,
+          "profit": 5842.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7852.0,
+      "total_qty": 35.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "159002",
+      "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "channels": {
+        "erp_eshop": {
+          "qty": 10.0,
+          "revenue": 7844.0,
+          "profit": 4931.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7844.0,
+      "total_qty": 10.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "306062",
+      "name": "Zámek přídavný S1590 bílý s vl. 70S",
+      "category": "Vlastní vrchní zámek",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 5.0,
+          "revenue": 7810.0,
+          "profit": 5168.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7810.0,
+      "total_qty": 5.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "159005",
+      "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "OC",
+      "channels": {
+        "erp_eshop": {
+          "qty": 8.0,
+          "revenue": 7782.0,
+          "profit": 4950.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7782.0,
+      "total_qty": 8.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370315",
+      "name": "Smart motor Star (NUKI)",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 3.0,
+          "revenue": 7436.0,
+          "profit": 3632.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 39,
+          "cost": 245.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7436.0,
+      "total_qty": 3.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370338",
+      "name": "Star smart vložka E32,5/32,5",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 7433.0,
+          "profit": 5597.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7433.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "001038",
+      "name": "Zámek HOBES K 052 P/L 72/45/20 PZ BZn",
+      "category": "Střelkový jednobod.zadl.zámek",
+      "vendor": "Hobes",
+      "channels": {
+        "erp_eshop": {
+          "qty": 25.0,
+          "revenue": 7149.0,
+          "profit": 3285.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7149.0,
+      "total_qty": 25.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "204026",
+      "name": "BW Trezor HomeSafe H 210 E",
+      "category": "Trezory",
+      "vendor": "Burg Wachter",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 7021.0,
+          "profit": 3117.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 7021.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "132052",
+      "name": "Zámek 8080 UFO pár dodávka",
+      "category": "Nezařazeno",
+      "vendor": "Meroni",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 6849.0,
+          "profit": 3787.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6849.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "196092",
+      "name": "El.otvírač BEFO 31211 reverz.12V",
+      "category": "Vlastní elektr.otvírač",
+      "vendor": "Assa Abloy otvírače Befo",
+      "channels": {
+        "erp_eshop": {
+          "qty": 4.0,
+          "revenue": 6661.0,
+          "profit": 3174.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 1,
+          "cost": 9.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6661.0,
+      "total_qty": 4.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "079690",
+      "name": "OTLAV Závěs 055/14 VD BZn CF055140H010",
+      "category": "Panty",
+      "vendor": "Otlav",
+      "channels": {
+        "erp_eshop": {
+          "qty": 806.0,
+          "revenue": 6661.0,
+          "profit": 3064.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6661.0,
+      "total_qty": 806.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "370215",
+      "name": "Star software Depozit + HW klíč",
+      "category": "Přístupové systémy",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 6609.0,
+          "profit": 5446.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6609.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "205317",
+      "name": "BW Trezor CityLine CW 5 350 S",
+      "category": "Mechanické trezory",
+      "vendor": "Burg Wachter",
+      "channels": {
+        "erp_eshop": {
+          "qty": 1.0,
+          "revenue": 6537.0,
+          "profit": 3908.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6537.0,
+      "total_qty": 1.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "156053",
+      "name": "GEZE Zavírač TS 3000 stř.",
+      "category": "Vlastní zavírač",
+      "vendor": "Geze",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 6489.0,
+          "profit": 4125.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6489.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "159203",
+      "name": "OC Elektromagnet MEX50SW1, 500N, 12/24Vdc, relé",
+      "category": "Vlastní magnety",
+      "vendor": "OC",
+      "channels": {
+        "erp_eshop": {
+          "qty": 3.0,
+          "revenue": 6362.0,
+          "profit": 4250.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6362.0,
+      "total_qty": 3.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "156056",
+      "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+      "category": "Vlastní zavírač",
+      "vendor": "Geze",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 6235.0,
+          "profit": 3849.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0.0,
+          "revenue": 0.0,
+          "clicks": 9,
+          "cost": 107.0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6235.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "205132",
+      "name": "BURG-WÄCHTER Entry 7711",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "channels": {
+        "erp_eshop": {
+          "qty": 0,
+          "revenue": 0,
+          "profit": 0
+        },
+        "alza": {
+          "qty": 1.0,
+          "revenue": 6162.0,
+          "orders": 1
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6162.0,
+      "total_qty": 1.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "205131",
+      "name": "BURG-WÄCHTER Entry Active 7700 Nuki",
+      "category": "Nezařazeno",
+      "vendor": "Neznámý",
+      "channels": {
+        "erp_eshop": {
+          "qty": 0,
+          "revenue": 0,
+          "profit": 0
+        },
+        "alza": {
+          "qty": 1.0,
+          "revenue": 6162.0,
+          "orders": 1
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6162.0,
+      "total_qty": 1.0,
+      "primary_channel": "alza"
+    },
+    {
+      "sku": "141466",
+      "name": "OVAL/Star kl/ma PZ/90/F9  bez překrytu",
+      "category": "Bezpečnostní dveřní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 6.0,
+          "revenue": 6055.0,
+          "profit": 3708.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 6055.0,
+      "total_qty": 6.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "161753",
+      "name": "CISA panika FAST Push 2-b. 59016.10",
+      "category": "Vlastní panik.vrchní mech.zámek",
+      "vendor": "CISA",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 5962.0,
+          "profit": 4149.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 5962.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "011088",
+      "name": "Vložka 21320 30/35 3kl.VARIANT",
+      "category": "Cylindrické vložky",
+      "vendor": "Assa Abloy vložky a klíče",
+      "channels": {
+        "erp_eshop": {
+          "qty": 2.0,
+          "revenue": 5894.0,
+          "profit": 3557.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 5894.0,
+      "total_qty": 2.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "199926",
+      "name": "Půloliva AMBRA Ni-SAT",
+      "category": "Okenní kování",
+      "vendor": "STAR",
+      "channels": {
+        "erp_eshop": {
+          "qty": 28.0,
+          "revenue": 5762.0,
+          "profit": 3973.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 5762.0,
+      "total_qty": 28.0,
+      "primary_channel": "erp_eshop"
+    },
+    {
+      "sku": "079691",
+      "name": "OTLAV Závěs 055/14 SD BZn CG055140H008",
+      "category": "Panty",
+      "vendor": "Otlav",
+      "channels": {
+        "erp_eshop": {
+          "qty": 625.0,
+          "revenue": 5682.0,
+          "profit": 2574.0
+        },
+        "alza": {
+          "qty": 0,
+          "revenue": 0,
+          "orders": 0
+        },
+        "heureka": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0
+        },
+        "zbozi": {
+          "qty": 0,
+          "revenue": 0,
+          "clicks": 0,
+          "cost": 0,
+          "impressions": 0
+        },
+        "google_shopping": {
+          "in_feed": false
+        }
+      },
+      "total_revenue": 5682.0,
+      "total_qty": 625.0,
+      "primary_channel": "erp_eshop"
+    }
+  ],
+  "summary_by_category": {
+    "Nezařazeno": {
+      "erp_eshop": 87424.0,
+      "alza": 99093.0,
+      "heureka": 1342.0,
+      "zbozi": 0,
+      "total": 187859.0,
+      "product_count": 2414
+    },
+    "Přístupové systémy": {
+      "erp_eshop": 145052.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 145052.0,
+      "product_count": 19
+    },
+    "Okenní kování": {
+      "erp_eshop": 76486.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 76486.0,
+      "product_count": 13
+    },
+    "Střelkový jednobod.zadl.zámek": {
+      "erp_eshop": 64252.0,
+      "alza": 5405.0,
+      "heureka": 396.0,
+      "zbozi": 0,
+      "total": 70052.0,
+      "product_count": 57
+    },
+    "Panty": {
+      "erp_eshop": 60272.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 60272.0,
+      "product_count": 63
+    },
+    "Práce - gravírování, servis, montáž...": {
+      "erp_eshop": 54177.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 54177.0,
+      "product_count": 8
+    },
+    "Vlastní elektr.otvírač": {
+      "erp_eshop": 48106.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 48106.0,
+      "product_count": 16
+    },
+    "Vlastní zavírač": {
+      "erp_eshop": 47582.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 47582.0,
+      "product_count": 11
+    },
+    "Chemie": {
+      "erp_eshop": 28144.0,
+      "alza": 17081.0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 45225.0,
+      "product_count": 9
+    },
+    "Panikové dveřní kování": {
+      "erp_eshop": 28019.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 28019.0,
+      "product_count": 2
+    },
+    "Příslušenství klíčů": {
+      "erp_eshop": 27279.0,
+      "alza": 0,
+      "heureka": 454.0,
+      "zbozi": 0,
+      "total": 27733.0,
+      "product_count": 133
+    },
+    "Hotely": {
+      "erp_eshop": 24998.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 24998.0,
+      "product_count": 1
+    },
+    "Bezp.cylin.vložky na zubatý klíč": {
+      "erp_eshop": 23508.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 23508.0,
+      "product_count": 19
+    },
+    "Stavěče, zástrče a dorazy": {
+      "erp_eshop": 21808.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 21808.0,
+      "product_count": 11
+    },
+    "Vlastní vrchní zámek": {
+      "erp_eshop": 20341.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 20341.0,
+      "product_count": 7
+    },
+    "Trezory": {
+      "erp_eshop": 13992.0,
+      "alza": 0,
+      "heureka": 5895.0,
+      "zbozi": 0,
+      "total": 19887.0,
+      "product_count": 4
+    },
+    "Visací zámky": {
+      "erp_eshop": 18885.0,
+      "alza": 320.0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 19206.0,
+      "product_count": 24
+    },
+    "Zadlabací panikové mech.zámky": {
+      "erp_eshop": 19004.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 19004.0,
+      "product_count": 5
+    },
+    "Střelkový lištový vícebod.zámek": {
+      "erp_eshop": 18881.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 18881.0,
+      "product_count": 6
+    },
+    "Mechanické zámky": {
+      "erp_eshop": 16530.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 16530.0,
+      "product_count": 5
+    },
+    "Nábytkové a schránkové zámky": {
+      "erp_eshop": 16243.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 16243.0,
+      "product_count": 21
+    },
+    "Bezp.cylindr.vložky na důlkový klíč": {
+      "erp_eshop": 15215.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 15215.0,
+      "product_count": 8
+    },
+    "Příslušenství panik.mech.vrchního zámku": {
+      "erp_eshop": 14678.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 14678.0,
+      "product_count": 6
+    },
+    "Nezařazené a náhr.díly zámků/protiplechů": {
+      "erp_eshop": 12986.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 12986.0,
+      "product_count": 6
+    },
+    "El.mech.a motorické zámky": {
+      "erp_eshop": 12805.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 12805.0,
+      "product_count": 1
+    },
+    "Bezp.cylindr.vložky na d?lkový klí?": {
+      "erp_eshop": 12628.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 12628.0,
+      "product_count": 5
+    },
+    "Mechanické trezory": {
+      "erp_eshop": 11718.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 11718.0,
+      "product_count": 3
+    },
+    "Příslušenství zavírače a koordinátory": {
+      "erp_eshop": 11623.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 11623.0,
+      "product_count": 6
+    },
+    "Cylindrické vložky": {
+      "erp_eshop": 11336.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 11336.0,
+      "product_count": 5
+    },
+    "Interiérové rozetové dveřní kování": {
+      "erp_eshop": 10960.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 10960.0,
+      "product_count": 3
+    },
+    "P?ístupové systémy": {
+      "erp_eshop": 10468.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 10468.0,
+      "product_count": 1
+    },
+    "Přívěšky na klíče": {
+      "erp_eshop": 9663.0,
+      "alza": 0,
+      "heureka": 170.0,
+      "zbozi": 0,
+      "total": 9833.0,
+      "product_count": 44
+    },
+    "Bezpečnostní dveřní kování": {
+      "erp_eshop": 9675.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 9675.0,
+      "product_count": 3
+    },
+    "Nářadí a nástroje": {
+      "erp_eshop": 8742.0,
+      "alza": 0,
+      "heureka": 299.0,
+      "zbozi": 0,
+      "total": 9041.0,
+      "product_count": 18
+    },
+    "Interiérové štítové dveřní kování": {
+      "erp_eshop": 8809.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 8809.0,
+      "product_count": 10
+    },
+    "Ostatní kování": {
+      "erp_eshop": 1255.0,
+      "alza": 7529.0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 8783.0,
+      "product_count": 3
+    },
+    "Zubaté klíče cylindr.vložek": {
+      "erp_eshop": 8370.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 8370.0,
+      "product_count": 16
+    },
+    "Dálkové ovladače a čipy": {
+      "erp_eshop": 8142.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 8142.0,
+      "product_count": 11
+    },
+    "Stavební vložky": {
+      "erp_eshop": 8111.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 8111.0,
+      "product_count": 11
+    },
+    "Poštovní schránky": {
+      "erp_eshop": 7511.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 7511.0,
+      "product_count": 6
+    },
+    "Schránky a věšáky na klíče": {
+      "erp_eshop": 7075.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 7075.0,
+      "product_count": 5
+    },
+    "Vlastní magnety": {
+      "erp_eshop": 6362.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 6362.0,
+      "product_count": 1
+    },
+    "Tvarové klíče": {
+      "erp_eshop": 6184.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 6184.0,
+      "product_count": 27
+    },
+    "Vlastní panik.vrchní mech.zámek": {
+      "erp_eshop": 5962.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 5962.0,
+      "product_count": 1
+    },
+    "Nezařazené a náhr.díly kování": {
+      "erp_eshop": 5920.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 5920.0,
+      "product_count": 13
+    },
+    "Válečkový jednobod.zadl.zámek": {
+      "erp_eshop": 5403.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 5403.0,
+      "product_count": 6
+    },
+    "Nezařazené a náhradní díly": {
+      "erp_eshop": 5253.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 5253.0,
+      "product_count": 7
+    },
+    "Příslušenství rozvor.zámků": {
+      "erp_eshop": 4959.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 4959.0,
+      "product_count": 1
+    },
+    "Bezpe?nostní dve?ní kování": {
+      "erp_eshop": 4808.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 4808.0,
+      "product_count": 2
+    },
+    "Protiplechy zámků": {
+      "erp_eshop": 4711.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 4711.0,
+      "product_count": 13
+    },
+    "Přídavný jednobod.zadl.zámek": {
+      "erp_eshop": 4648.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 4648.0,
+      "product_count": 5
+    },
+    "Hákový jednobod.zadl.zámek": {
+      "erp_eshop": 4380.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 4380.0,
+      "product_count": 6
+    },
+    "Neza?azené a náhradní díly": {
+      "erp_eshop": 2727.0,
+      "alza": 0,
+      "heureka": 1574.0,
+      "zbozi": 0,
+      "total": 4301.0,
+      "product_count": 3
+    },
+    "Klíče": {
+      "erp_eshop": 3806.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 3806.0,
+      "product_count": 11
+    },
+    "Elektromechanické trezory": {
+      "erp_eshop": 3293.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 3293.0,
+      "product_count": 1
+    },
+    "Zubaté klí?e cylindr.vložek": {
+      "erp_eshop": 3230.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 3230.0,
+      "product_count": 3
+    },
+    "Servis cyl.vložek": {
+      "erp_eshop": 3096.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 3096.0,
+      "product_count": 8
+    },
+    "Bezp.cylin.vložky na zubatý klí?": {
+      "erp_eshop": 2951.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 2951.0,
+      "product_count": 4
+    },
+    "Interiérové štítové dve?ní kování": {
+      "erp_eshop": 2655.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 2655.0,
+      "product_count": 1
+    },
+    "Bezpečnostní schránky a pokladny": {
+      "erp_eshop": 2574.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 2574.0,
+      "product_count": 5
+    },
+    "St?elkový lištový vícebod.zámek": {
+      "erp_eshop": 1963.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1963.0,
+      "product_count": 1
+    },
+    "Příslušentství elektr.otvírače": {
+      "erp_eshop": 1913.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1913.0,
+      "product_count": 4
+    },
+    "Jednobodový zadl.zámek": {
+      "erp_eshop": 1875.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 1875.0,
+      "product_count": 4
+    },
+    "Otvírací technika a nářadí": {
+      "erp_eshop": 1818.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1818.0,
+      "product_count": 1
+    },
+    "Cyklo a moto zámky": {
+      "erp_eshop": 1750.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1750.0,
+      "product_count": 4
+    },
+    "Schránky a v?šáky na klí?e": {
+      "erp_eshop": 1716.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1716.0,
+      "product_count": 2
+    },
+    "Ostatní mechanické zámky": {
+      "erp_eshop": 1626.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1626.0,
+      "product_count": 1
+    },
+    "Alarmy": {
+      "erp_eshop": 1579.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1579.0,
+      "product_count": 1
+    },
+    "Dálkové ovlada?e a ?ipy": {
+      "erp_eshop": 1463.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1463.0,
+      "product_count": 4
+    },
+    "St?elkový jednobod.zadl.zámek": {
+      "erp_eshop": 1390.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 1390.0,
+      "product_count": 4
+    },
+    "Důlkované klíče cylindr.vložek": {
+      "erp_eshop": 1326.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 1326.0,
+      "product_count": 2
+    },
+    "Kukátka": {
+      "erp_eshop": 1216.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 1216.0,
+      "product_count": 4
+    },
+    "Dveřní kování": {
+      "erp_eshop": 990.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 990.0,
+      "product_count": 1
+    },
+    "Klíče cylindrických vložek": {
+      "erp_eshop": 827.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 827.0,
+      "product_count": 4
+    },
+    "Doplňkové zabezpečení": {
+      "erp_eshop": 793.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 793.0,
+      "product_count": 1
+    },
+    "D?lkované klí?e cylindr.vložek": {
+      "erp_eshop": 627.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 627.0,
+      "product_count": 2
+    },
+    "Materiál pro gravírování": {
+      "erp_eshop": 625.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 625.0,
+      "product_count": 5
+    },
+    "Ostatní cylindr.vložky": {
+      "erp_eshop": 427.0,
+      "alza": 0,
+      "heureka": 0.0,
+      "zbozi": 0,
+      "total": 427.0,
+      "product_count": 1
+    },
+    "Trezorové klíče": {
+      "erp_eshop": 318.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 318.0,
+      "product_count": 3
+    },
+    "Tvarové klí?e": {
+      "erp_eshop": 262.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 262.0,
+      "product_count": 3
+    },
+    "Klíče lamelových zámků": {
+      "erp_eshop": 236.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 236.0,
+      "product_count": 3
+    },
+    "Neza?azené a náhr.díly kování": {
+      "erp_eshop": 165.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 165.0,
+      "product_count": 2
+    },
+    "P?ív?šky na klí?e": {
+      "erp_eshop": 70.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 70.0,
+      "product_count": 1
+    },
+    "Protiplechy zámk?": {
+      "erp_eshop": 50.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 50.0,
+      "product_count": 1
+    },
+    "P?íslušenství klí??": {
+      "erp_eshop": 39.0,
+      "alza": 0,
+      "heureka": 0,
+      "zbozi": 0,
+      "total": 39.0,
+      "product_count": 1
+    }
+  }
+}

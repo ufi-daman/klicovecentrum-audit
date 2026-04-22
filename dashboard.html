@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit klicovecentrum.cz — Interaktivní dashboard nápravných opatření</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    padding: 24px;
+    line-height: 1.5;
+  }
+  header {
+    max-width: 1400px;
+    margin: 0 auto 32px;
+    padding: 32px;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 16px;
+    border: 1px solid #334155;
+    backdrop-filter: blur(10px);
+  }
+  h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; color: #f1f5f9; }
+  .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .kpi-card {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+  }
+  .kpi-label { color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+  .kpi-value { font-size: 28px; font-weight: 700; color: #f1f5f9; }
+  .kpi-sub { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .kpi-positive { color: #10b981; }
+  .kpi-negative { color: #ef4444; }
+  .kpi-warning { color: #f59e0b; }
+
+  .tabs {
+    max-width: 1400px;
+    margin: 0 auto 24px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tab {
+    padding: 12px 20px;
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid #334155;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tab:hover { background: rgba(51, 65, 85, 0.8); }
+  .tab.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+  }
+  .tab-badge {
+    background: rgba(239, 68, 68, 0.8);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tab.active .tab-badge { background: rgba(255, 255, 255, 0.3); }
+
+  .filters {
+    max-width: 1400px;
+    margin: 0 auto 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 12px;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 10px;
+  }
+  .filter-label { font-size: 13px; color: #94a3b8; margin-right: 8px; }
+  .filter-btn {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1px solid #475569;
+    border-radius: 16px;
+    color: #cbd5e1;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { border-color: #64748b; }
+  .filter-btn.active { background: #3b82f6; border-color: #3b82f6; color: white; }
+
+  main { max-width: 1400px; margin: 0 auto; }
+
+  .finding {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  .finding:hover { border-color: #475569; }
+  .finding-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .priority {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .P0 { background: #dc2626; color: white; }
+  .P1 { background: #ea580c; color: white; }
+  .P2 { background: #ca8a04; color: white; }
+  .finding-body { flex: 1; }
+  .finding-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f1f5f9;
+    margin-bottom: 4px;
+  }
+  .finding-id { color: #64748b; font-size: 12px; }
+  .finding-metric {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+  .finding-metric strong { color: #f1f5f9; }
+  .impact {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .impact-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #10b981;
+  }
+  .impact-label {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 2px;
+  }
+  .impact-negative { color: #ef4444; }
+  .expand-icon {
+    color: #64748b;
+    transition: transform 0.2s;
+    font-size: 14px;
+  }
+  .finding.open .expand-icon { transform: rotate(180deg); }
+
+  .finding-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    background: rgba(15, 23, 42, 0.6);
+    border-top: 1px solid #334155;
+  }
+  .finding.open .finding-detail { max-height: 1200px; }
+  .detail-content {
+    padding: 24px;
+  }
+  .detail-section { margin-bottom: 20px; }
+  .detail-section:last-child { margin-bottom: 0; }
+  .detail-section h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+  }
+  .detail-section p {
+    color: #cbd5e1;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .action-list { list-style: none; }
+  .action-list li {
+    padding: 10px 14px;
+    background: rgba(30, 41, 59, 0.5);
+    border-left: 3px solid #3b82f6;
+    margin-bottom: 6px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+  .action-list li.done { opacity: 0.5; border-left-color: #10b981; text-decoration: line-through; }
+  .action-check {
+    margin-right: 8px;
+    cursor: pointer;
+    color: #64748b;
+  }
+  .action-check.checked { color: #10b981; }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .metric-box {
+    background: rgba(15, 23, 42, 0.5);
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+  }
+  .metric-label { color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .metric-value { font-size: 20px; font-weight: 700; color: #f1f5f9; margin-top: 4px; }
+
+  .timeline-bar {
+    display: flex;
+    height: 8px;
+    background: #1e293b;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0 4px;
+  }
+  .timeline-segment {
+    height: 100%;
+  }
+  .tl-1w { background: #dc2626; }
+  .tl-1m { background: #ea580c; }
+  .tl-3m { background: #ca8a04; }
+  .timeline-legend {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #64748b;
+  }
+
+  .progress-overview {
+    max-width: 1400px;
+    margin: 32px auto 0;
+    padding: 24px;
+    background: rgba(30, 41, 59, 0.4);
+    border-radius: 12px;
+    border: 1px solid #334155;
+  }
+  .progress-overview h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+  }
+  .progress-bar {
+    height: 24px;
+    background: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #3b82f6);
+    transition: width 0.3s;
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .hidden { display: none !important; }
+
+  /* ── nové sekce: kampaně + produkty ── */
+  .view-section { max-width: 1400px; margin: 0 auto; }
+  .chart-card {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .chart-card h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+  }
+  .chart-wrap { position: relative; height: 360px; }
+
+  .data-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .data-filters select {
+    padding: 8px 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid #475569;
+    border-radius: 8px;
+    color: #e2e8f0;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #334155;
+    font-size: 13px;
+  }
+  .data-table th {
+    text-align: left;
+    padding: 12px 14px;
+    background: rgba(15, 23, 42, 0.8);
+    color: #94a3b8;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #334155;
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e293b;
+    color: #cbd5e1;
+  }
+  .data-table tr:hover td { background: rgba(51, 65, 85, 0.3); }
+  .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .data-table td.good { color: #10b981; font-weight: 600; }
+  .data-table td.bad { color: #ef4444; font-weight: 600; }
+  .data-table td.warn { color: #f59e0b; font-weight: 600; }
+
+  .cat-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .cat-PRODUCT { background: #1d4ed8; color: white; }
+  .cat-BRAND   { background: #059669; color: white; }
+  .cat-LOCAL   { background: #7c3aed; color: white; }
+  .cat-RTG     { background: #6b7280; color: white; }
+  .cat-SEARCH  { background: #db2777; color: white; }
+
+  .ch-bar {
+    display: inline-block;
+    height: 4px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  .channel-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 768px) {
+    .finding-header { flex-direction: column; }
+    .impact { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔍 Audit klicovecentrum.cz — Nápravný plán</h1>
+  <div class="subtitle">Období: říjen 2025 – duben 2026 · 30+ identifikovaných nálezů · Prioritizovaný plán s odhadem dopadu</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">Odhadovaný roční dopad nápravy</div>
+      <div class="kpi-value kpi-positive">+1,1 M Kč</div>
+      <div class="kpi-sub">přímé úspory + ušlý zisk + Alza reaktivace</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Aktuální ztráty identifikované</div>
+      <div class="kpi-value kpi-negative">~190 k Kč</div>
+      <div class="kpi-sub">přímé plýtvání v 6 měsíců</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Kritických nálezů (P0)</div>
+      <div class="kpi-value kpi-negative">16</div>
+      <div class="kpi-sub">vyžaduje okamžitou akci</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Skutečný obrat (ERP + Alza)</div>
+      <div class="kpi-value kpi-positive">1,3 M Kč</div>
+      <div class="kpi-sub">ERP 1,17 M + Alza skrytě 129 k</div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs" id="tabs">
+  <div class="tab active" data-cat="all">📋 Vše <span class="tab-badge" id="count-all">30</span></div>
+  <div class="tab" data-cat="analytics">📊 Měření & analytika <span class="tab-badge" id="count-analytics">5</span></div>
+  <div class="tab" data-cat="gads">🎯 Google Ads <span class="tab-badge" id="count-gads">5</span></div>
+  <div class="tab" data-cat="sklik">🔵 Sklik <span class="tab-badge" id="count-sklik">5</span></div>
+  <div class="tab" data-cat="feed">📦 Feedy & srovnávače <span class="tab-badge" id="count-feed">5</span></div>
+  <div class="tab" data-cat="local">📍 Lokální & pobočky <span class="tab-badge" id="count-local">5</span></div>
+  <div class="tab" data-cat="alza">🛒 Alza marketplace <span class="tab-badge" id="count-alza">5</span></div>
+  <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
+  <div class="tab" data-view="products">📦 Produkty (data)</div>
+</div>
+
+<div class="filters">
+  <span class="filter-label">Priorita:</span>
+  <button class="filter-btn active" data-prio="all">Všechny</button>
+  <button class="filter-btn" data-prio="P0">P0 — Kritické</button>
+  <button class="filter-btn" data-prio="P1">P1 — Závažné</button>
+  <button class="filter-btn" data-prio="P2">P2 — Střední</button>
+</div>
+
+<main id="findings"></main>
+
+<section id="campaigns-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>📊 Výkon kampaní dle kategorie a kanálu</h3>
+    <div class="data-filters">
+      <select id="cmp-channel">
+        <option value="all">Všechny kanály</option>
+        <option value="Google Ads">Google Ads</option>
+        <option value="Sklik">Sklik</option>
+        <option value="Heuréka">Heuréka</option>
+      </select>
+      <select id="cmp-category">
+        <option value="all">Všechny kategorie</option>
+        <option value="SEARCH">SEARCH</option>
+        <option value="PRODUCT">PRODUCT</option>
+        <option value="BRAND">BRAND</option>
+        <option value="LOCAL">LOCAL</option>
+        <option value="RTG">RTG</option>
+      </select>
+    </div>
+    <div class="chart-wrap"><canvas id="chart-campaigns"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Tabulka kampaní</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-campaigns">
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th>Kat.</th>
+            <th>Kampaň</th>
+            <th>Stav</th>
+            <th style="text-align:right">Imp.</th>
+            <th style="text-align:right">Kliky</th>
+            <th style="text-align:right">Náklady Kč</th>
+            <th style="text-align:right">Konv.</th>
+            <th style="text-align:right">Hodnota Kč</th>
+            <th style="text-align:right">ROAS</th>
+            <th style="text-align:right">IS %</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="products-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>📦 Top 20 produktů — rozpad obratu podle kanálu</h3>
+    <div class="data-filters">
+      <select id="prod-category">
+        <option value="all">Všechny kategorie</option>
+      </select>
+      <select id="prod-vendor">
+        <option value="all">Všichni výrobci</option>
+      </select>
+      <select id="prod-channel">
+        <option value="all">Všechny primární kanály</option>
+        <option value="erp_eshop">E-shop (ERP)</option>
+        <option value="alza">Alza</option>
+        <option value="heureka">Heuréka</option>
+        <option value="zbozi">Zboží.cz</option>
+      </select>
+    </div>
+    <div class="chart-wrap"><canvas id="chart-products"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Summary dle kategorie × kanál</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-cat-summary">
+        <thead>
+          <tr>
+            <th>Kategorie</th>
+            <th style="text-align:right">Produkty</th>
+            <th style="text-align:right">E-shop Kč</th>
+            <th style="text-align:right">Alza Kč</th>
+            <th style="text-align:right">Heuréka Kč</th>
+            <th style="text-align:right">Zboží Kč</th>
+            <th style="text-align:right">Celkem Kč</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Top 50 produktů dle celkového obratu</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-products">
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Produkt</th>
+            <th>Kategorie</th>
+            <th>Výrobce</th>
+            <th style="text-align:right">E-shop</th>
+            <th style="text-align:right">Alza</th>
+            <th style="text-align:right">Heuréka</th>
+            <th style="text-align:right">Zboží</th>
+            <th style="text-align:right">Celkem Kč</th>
+            <th>Primární</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="progress-overview">
+  <h3>📈 Postup realizace nápravy</h3>
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill" style="width: 0%">0 / 25 dokončeno</div>
+  </div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────
+const findings = [
+  // === ANALYTICS ===
+  {
+    id: 1, cat: 'analytics', prio: 'P0',
+    title: 'Konverze nafouklé 578× — Smart Bidding se učí na šumu',
+    metric: 'Agentura reportuje <strong>370 870 konverzí</strong>, skutečných nákupů <strong>641</strong>',
+    impact: 'Veškerý PPC rozpočet',
+    impactNote: 'každá optimalizace = falešná',
+    problem: 'Jako primární konverze jsou označeny micro-eventy (time_on_web-180s = 144 832, view_item = 126 437). Smart Bidding v Google Ads i Skliku se optimalizuje na uživatele, kteří strávili 3 min na webu, ne na ty co nakoupili.',
+    actions: [
+      'GA4 Admin → Conversions → ponechat POUZE purchase jako Primary',
+      'Všechny micro-eventy přesunout na Secondary nebo odstranit',
+      'Google Ads → reimport konverzí z GA4',
+      'Sklik → opravit OCM tracking pro purchase event',
+      'Počítat s relearning fází 2–4 týdny (dočasný pokles výkonu)'
+    ],
+    expected: 'Po 4 týdnech reálná data → Smart Bidding konverzní poměr vzroste 3–5×',
+    timeline: [40, 30, 30]
+  },
+  {
+    id: 2, cat: 'analytics', prio: 'P0',
+    title: 'Bot útok 1,5 M sessions neřešen (březen 2026)',
+    metric: '<strong>1,5 milionu falešných sessions</strong> z USA/DE/HK/SG s bounce 92 %, avg 4–5 s',
+    impact: 'Data března nepoužitelná',
+    impactNote: 'potvrzeno ERP: GA4 +54 % vs reality',
+    problem: 'V březnu 2026 přišlo 1,5 M sessions ze zahraničí s bot charakteristikou. GA4 to zobrazilo jako +54 % obratu vs. ERP (důkaz nafouknutí). Agentura neaktivovala bot filter ani nereagovala.',
+    actions: [
+      'GA4 Admin → Data Settings → Data Filters → ✅ Bot filtering',
+      'Nastavit IP filter pro interní provoz',
+      'Označit březnová data jako anomálii (Data annotation)',
+      'Nastavit upozornění na +300 % denní sessions',
+      'Re-export březnových metrik s vyloučením bot trafficu'
+    ],
+    expected: 'Čistá atribuční data, reporty zbavené falešných signálů',
+    timeline: [80, 20, 0]
+  },
+  {
+    id: 3, cat: 'analytics', prio: 'P0',
+    title: 'Direct traffic 90 % — atribuce kompletně rozbitá',
+    metric: '<strong>1 796 846 sessions (90 %)</strong> klasifikováno jako Direct; norma 20–35 %',
+    impact: 'Nelze měřit žádný kanál',
+    impactNote: 'neefektivní rozdělení rozpočtu',
+    problem: 'Bot traffic přichází bez referer → Direct. Chybí UTM na placených kampaních. Pravděpodobný self-referral problém. Interní provoz není filtrován.',
+    actions: [
+      'UTM audit — všechny aktivní kampaně (Google Ads, Sklik, emaily, Heuréka)',
+      'Přidat klicovecentrum.cz do Referral Exclusions v GA4',
+      'Firmy.cz provoz označit utm_source=seznam&utm_medium=local',
+      'Otestovat v GA4 DebugView'
+    ],
+    expected: 'Direct klesne na <30 %, reálná atribuce PPC kanálů',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 4, cat: 'analytics', prio: 'P1',
+    title: 'OCM tracking selhává u srovnávačů a LOCAL kampaní',
+    metric: 'Sklik <strong>88 % rozpočtu</strong> (44 k) bez konverzí · Zboží.cz <strong>0 konverzí</strong> · Heuréka 12 orders atribuce 0/0',
+    impact: 'Neměřitelný výkon 40+ k Kč',
+    impactNote: 'nelze optimalizovat bidding',
+    problem: 'OCM API klíče pro Sklik, Heuréku i Zboží.cz jsou nasazené, ale eshop konverze neposílá správně. Agentura nemá data pro vyhodnocení LOCAL a PRODUCT Sklik kampaní.',
+    actions: [
+      'Ověřit, že eshop posílá orderId, itemId, unitPrice pro všechny objednávky',
+      'Zboží.cz: /action/61575/conversion/backend POST test',
+      'Heuréka OCM: ověřit konverzní atribuci free vs bidded',
+      'Testovací objednávka → sledovat v admin.sklik.cz / partnerei.heureka.cz',
+      'Sklik OCM: implementovat itemId per produkt'
+    ],
+    expected: 'Vidět skutečný ROAS per kampaň → správně rozdělit rozpočet',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 5, cat: 'analytics', prio: 'P1',
+    title: 'GTM přístup u agentury — bez kontroly nad tagováním',
+    metric: 'Klient nemá přístup do vlastního GTM containeru',
+    impact: 'Blokace ověření tagování',
+    impactNote: 'agentura může přidávat/měnit tagy libovolně',
+    problem: 'GTM je majetek klienta, agentura nemá právo přístup odmítat. Bez přístupu nelze ověřit, co se odesílá do GA4, Segmentu, Heuréky atd.',
+    actions: [
+      'Vyžádat admin přístup do GTM containeru písemně',
+      'Pokud agentura odmítne → klonovat container / vytvořit nový',
+      'Chrome Tag Assistant Companion — rychlá kontrola bez GTM',
+      'dataLayer Inspector+ — co se reálně odesílá'
+    ],
+    expected: 'Kontrola nad tagováním, schopnost audit provést bez agentury',
+    timeline: [100, 0, 0]
+  },
+
+  // === GOOGLE ADS ===
+  {
+    id: 6, cat: 'gads', prio: 'P0',
+    title: 'LOCAL kampaně ROAS 7,58× — 13+ poboček bez lokální kampaně',
+    metric: 'Plzeň-Lochotín ROAS <strong>13,22×</strong> · 4 PMax LOCAL pokrývají jen 4 pobočky z 17',
+    impact: '+100 k Kč / měsíc potenciál',
+    impactNote: 'ušlý zisk z chybějících poboček',
+    impactPositive: true,
+    problem: 'Od 2018 agentura odstranila 42 lokálních kampaní (Cheb, Ostrava, Plzeň, Praha + Remarketing). Dnes zbývá 5 PMax LOCAL kampaní pro 4 pobočky. Přitom ROAS je nejvyšší ze všech kategorií.',
+    actions: [
+      'Vytvořit PMax Local pro 13+ chybějících poboček (Praha, Sokolov, Ostrava, Cheb, Vodňany, atd.)',
+      'Radius targeting 50 km kolem každé pobočky',
+      'Propojit s GBP pro store visit conversions',
+      'Budget start: 1 000 Kč/den per pobočka, škálovat dle ROAS',
+      'Přesunout rozpočet z PMax_All (3,13× ROAS) do LOCAL (7,58× ROAS)'
+    ],
+    expected: 'Při ROAS 5× a 500 Kč/den × 13 poboček = +195 k Kč hodnoty/měsíc',
+    timeline: [20, 50, 30]
+  },
+  {
+    id: 7, cat: 'gads', prio: 'P1',
+    title: 'REVIZE: 32 % rozpočtu v krajích bez pobočky — ale konverze existují',
+    metric: '<strong>74 k Kč</strong> v krajích bez pobočky → <strong>867 konverzí</strong> · efektivita 11,69 konv/1000 Kč (vs 9,87 s pobočkou)',
+    impact: 'Není to plýtvání',
+    impactNote: 'PŮVODNÍ NÁLEZ CHYBNÝ — viz poznámka',
+    impactPositive: true,
+    problem: 'PŮVODNĚ jsme tvrdili „61 % rozpočtu (141 k) do krajů bez pobočky = plýtvání". Reálná data z Geo split (Google Ads) ukazují: jen 32 % (74 k Kč) v krajích bez pobočky a konverzní efektivita je tam dokonce vyšší (11,69 vs 9,87 konv/1000 Kč). PMax_All celostátní PRODUCT kampaň = e-commerce prodej, pobočka není potřeba. Středočeský kraj (22 %, 570 konv) jsou lidé kolem Prahy kupující online. POZOR: konverze mohou být zkreslené nálezem #1 (nafouklé konverze).',
+    actions: [
+      'PMax_All: ponechat celostátně (ROAS 3,13× je OK pro e-commerce)',
+      'LOCAL PMax: stále geo-omezit na 50 km (platí pro pobočkové kampaně)',
+      'Po opravě konverzí (nález #1) znovu vyhodnotit CPA per kraj',
+      'Zvážit dedikované PRODUCT kampaně pro kraje bez pobočky (CPA 86 Kč je lepší)'
+    ],
+    expected: 'Revizí se ušetří čas — není potřeba restrikce celostátního PMaxu',
+    timeline: [20, 50, 30]
+  },
+  {
+    id: 8, cat: 'gads', prio: 'P0',
+    title: 'PMax_All ROAS 3,13× pod benchmarkem B2C (4–6×)',
+    metric: '104 k Kč útrata · 370 konverzí · 326 k Kč hodnota',
+    impact: 'Ušlý zisk ~100–200 k',
+    impactNote: 'při ROAS 5× by 520 k místo 326 k',
+    problem: 'Hlavní PRODUCT kampaň PMax_All má podprůměrný ROAS. Zřejmě je to důsledek falešných konverzí (finding #1) — Smart Bidding optimalizuje na špatný signál.',
+    actions: [
+      'Prerekvizita: opravit konverze (finding #1)',
+      'PMax signals: přidat Customer Match z CRM',
+      'PMax negatives: blokovat nerelevantní search dotazy',
+      'Product feed: odstranit mrtvé produkty (finding #14)',
+      'Target ROAS: nastavit na 4,0× (ne maximize conversions)'
+    ],
+    expected: 'Po relearning fázi ROAS 4,5–5,5×',
+    timeline: [20, 50, 30]
+  },
+  {
+    id: 9, cat: 'gads', prio: 'P1',
+    title: 'Connected TV: 2 662 Kč útrata, 0 kliků, 0 konverzí',
+    metric: 'PMax automaticky zahrnul Connected TV (Smart TV, Chromecast)',
+    impact: '2 662 Kč / 6 měsíců',
+    impactNote: 'přímá ztráta, dá se okamžitě ukončit',
+    problem: 'Na e-shop s fyzickými produkty nemá Smart TV reklama smysl. Nebyla aktivně vyloučena z PMax kampaní.',
+    actions: [
+      'Google Ads → Devices → Connected TV → Excluded',
+      'Platí pro všechny PMax kampaně (nelze to per-campaign u PMax)',
+      'Zvážit vyloučení i pro tablet + audio (pokud nekonvertují)'
+    ],
+    expected: 'Okamžitá úspora ~5 300 Kč/rok',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 10, cat: 'gads', prio: 'P1',
+    title: 'Chybí produktové search kampaně pro klíčové kategorie',
+    metric: 'Historicky existovaly: Autoklíče, Bezpečnostní cylindry, Trezory, Zabezpečení — všechny odstraněné 2018',
+    impact: 'Ztráta search intent provozu',
+    impactNote: 'PMax nepokrývá specifický search intent',
+    problem: 'Specialized search kampaně pro produktové kategorie (cylindrické vložky, trezory, zámky) nejsou aktivní. Veškerý placený search jde přes brand (BR_SR_All) nebo PMax.',
+    actions: [
+      'Spustit search kampaně pro top 5 kategorií podle ERP (Přístupové systémy, Panty, Zavírače)',
+      'Budget start: 200–500 Kč/den per kampaň',
+      'KW research: použít Google Ads Keyword Planner + SC dotazy',
+      'Negative KW: vyloučit brand, pobočky (mají vlastní LOCAL kampaně)'
+    ],
+    expected: '+10–20 % search coverage pro high-intent dotazy',
+    timeline: [10, 50, 40]
+  },
+
+  // === SKLIK ===
+  {
+    id: 11, cat: 'sklik', prio: 'P0',
+    title: 'Brand search "0 VG Brand" ROAS 23,89× ale jen 3,4 % rozpočtu',
+    metric: '1 694 Kč útrata · 43 konverzí · <strong>40 468 Kč hodnoty</strong>',
+    impact: 'Nejvýnosnější kanál v celém auditu',
+    impactNote: '+400 k Kč potenciál při 10× navýšení',
+    impactPositive: true,
+    problem: 'Agentura dává do nejziskovější kampaně 3,4 % rozpočtu. Kdyby ji 10× navýšili (16 940 Kč) a udrželi ROAS nad 10×, přináší +150 k Kč hodnoty za 6 měsíců.',
+    actions: [
+      'Navýšit denní rozpočet 10× (z ~10 Kč/den na ~100 Kč/den)',
+      'Monitorovat ROAS denně během scale-up',
+      'Pokud drží nad 10×, pokračovat v navyšování',
+      'Přidat brand KW varianty: "klíče centrum pobočka", "klíčové centrum slevy"',
+      'Zvážit brand search v Google Ads (už existuje BR_SR_All s ROAS 5,86×)'
+    ],
+    expected: 'Při udržení ROAS 15× a 100 Kč/den = +90 k Kč / 6 měs.',
+    timeline: [50, 50, 0]
+  },
+  {
+    id: 12, cat: 'sklik', prio: 'P0',
+    title: '88 % Sklik rozpočtu (44 k Kč) bez funkčního trackingu',
+    metric: 'PRODUCT (Zboží.cz) + 8 LOCAL kampaní: <strong>0 konverzí</strong> kvůli OCM',
+    impact: 'Neměřitelný výkon 43 988 Kč',
+    impactNote: 'odstranit nebo změřit',
+    problem: 'OCM klíč je nasazen, ale PRODUCT a LOCAL kampaně nevracejí žádné konverze. Reálně pravděpodobně konvertují (ROAS Google Ads LOCAL 7,58× je srovnatelný), ale nevidíme to.',
+    actions: [
+      'Ověřit implementaci OCM na eshopu (itemId, unitPrice, orderId)',
+      'Testovací objednávka → ověřit v admin.sklik.cz',
+      'Pokud OCM nefunguje → nahradit conversionem na utm_source=sklik',
+      'Srovnat reporty ze Sklik s atribucí v GA4 (cross-check)'
+    ],
+    expected: 'Odhalit skrytý ROAS → alokovat rozpočet na základě dat',
+    timeline: [30, 70, 0]
+  },
+  {
+    id: 13, cat: 'sklik', prio: 'P0',
+    title: 'Impression share 7,4 % — 92,5 % zobrazení ztraceno kvůli rozpočtu',
+    metric: 'Vyhledávací síť: kvalita <strong>9/10</strong>, ROAS 1,24×, ale IS 7,4 %',
+    impact: 'Obrovský ušlý zisk',
+    impactNote: 'peníze leží na stole',
+    problem: 'Vyhledávací síť má excelentní kvalitu reklamy (9/10), mírně pozitivní ROAS 1,24×, ale rozpočet je tak nízký, že reklama se zobrazí jen v 7,4 % relevantních vyhledávání. 92,5 % potenciálních prokliků končí u konkurence.',
+    actions: [
+      'Navýšit denní rozpočet vyhledávací sítě na max, kde drží ROAS > 1,0×',
+      'Cíl: impression share 50 %+ (z dnešních 7,4 %)',
+      'Monitorovat denně kvalitu reklam a pozici',
+      'Při hrozbě pádu kvality: zastavit scale-up'
+    ],
+    expected: 'Při IS 50 % a ROAS 1,24× → +140 k Kč hodnoty / 6 měs.',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 14, cat: 'sklik', prio: 'P0',
+    title: 'Obsahová síť ROAS 0,30× — ztráta 12 099 Kč',
+    metric: '17 238 Kč útrata · 27 konverzí · jen 5 139 Kč hodnota',
+    impact: '−12 099 Kč přímá ztráta',
+    impactNote: 'okamžitě pozastavit',
+    problem: 'Obsahová síť na B2B+B2C zámky prakticky nefunguje — zákazníci s nákupním záměrem jsou na search. Agentura utrácí přes 12 k Kč čisté ztráty za 6 měsíců.',
+    actions: [
+      'Pozastavit obsahovou síť / remarketing display kampaně',
+      'Ponechat pouze RTG (DRMKT) pro konverzi „téměř-zákazníků"',
+      'Rozpočet přesunout do vyhledávací sítě (ROAS 1,24×)',
+      'Po 3 měsících přehodnotit (test kampaň se signály)'
+    ],
+    expected: 'Okamžitá úspora 24 k Kč/rok + přealokace do profitabilnější sítě',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 15, cat: 'sklik', prio: 'P1',
+    title: 'Zboží.cz: 82 % rozpočtu bez konverze (25 886 Kč)',
+    metric: '410 produktů se spotřebovaným rozpočtem bez jediné konverze',
+    impact: '25 886 Kč plýtvání',
+    impactNote: 'plus 78 % feedu „možno vylepšit"',
+    problem: 'Top wasted produkty: Zámek STAR Europortal (745 Kč, 143 kliků), Škrabka lota (570 Kč), bezpečnostní vložka FAB (549 Kč). Feed má 78 % produktů s označením "možno vylepšit" v Sklik diagnostice.',
+    actions: [
+      'V Mergadu přidat custom label "no_conv_180d" pro produkty bez konverze',
+      'Sklik Nákupy kampaň: exclude tento label',
+      '355 produktů bez kategorie → přidat kategorii',
+      'Škrabky, baterie, drobné spotřební → zvážit vyřazení z feedu',
+      'Recenze: spustit kampaň na získání reviews na Zboží.cz (dnes rating = null)'
+    ],
+    expected: 'Úspora 50–70 % Zboží.cz rozpočtu při stejném prodeji',
+    timeline: [20, 60, 20]
+  },
+
+  // === FEED & SROVNÁVAČE ===
+  {
+    id: 16, cat: 'feed', prio: 'P0',
+    title: '80 % produktů ve feedu mrtvé — 45 % obratu MIMO feed',
+    metric: '1 746 z 2 175 produktů <strong>0 prodejů</strong> za 7M · 450 bestsellerů <strong>chybí</strong> ve feedu',
+    impact: '527 118 Kč obratu mimo PPC',
+    impactNote: 'nelze přidělit placenou kampaň',
+    impactPositive: true,
+    problem: 'Feed je strukturálně odpojený od reality eshopu. Bestsellery (Smart Q20 lock, ISEO Palmo panic hrazda, Mazadlo Super Lube) nejsou v Mergadu, zatímco tam je spousta mrtvých položek.',
+    actions: [
+      'Export bestsellerů z ERP (450 produktů) → přidat do Mergada',
+      '1 746 mrtvých produktů: označit custom label no_sales_7m, exclude z biddingu',
+      'Opravit export variant (item_group_id, per-variant availability)',
+      'Doplnit MPN pro všech 2 175 produktů',
+      'Opravit 33 produktů bez GTIN',
+      '5 produktů bez description'
+    ],
+    expected: 'Z 527 k Kč skrytého obratu zachytit 30–50 % = +160–260 k Kč / 6 měs.',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 17, cat: 'feed', prio: 'P0',
+    title: 'Heuréka ROAS 1,44× — ztrátová v 5 ze 7 měsíců',
+    metric: '7 037 Kč útrata · 12 objednávek · <strong>ROAS 0,00–2,49× po měsících</strong>',
+    impact: '4 136 Kč na produkty bez konverze',
+    impactNote: '59 % Heuréka rozpočtu',
+    problem: 'Nejdražší Heuréka produkt: Victorinox Škrabka na rajčata (732 Kč, ROAS 0,41×). Kuchyňský doplněk v e-shopu zámky/bezpečnost. Šeptá to o nekurátovaném feedu.',
+    actions: [
+      'Opravit OCM tracking (atribuce bidded vs free)',
+      'Pozastavit bidding na nerelevantní produkty (Victorinox kitchen)',
+      'V Mergadu filtrovat Heuréka feed dle kategorií přiřazených produktům',
+      'Zvýšit bidding na bestsellery (smart locks, safes, mechanické zámky)'
+    ],
+    expected: 'ROAS cíl 3–4× (z 1,44×), úspora 60 % nákladů bez konverze',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 18, cat: 'feed', prio: 'P0',
+    title: 'Zboží.cz: 31 655 Kč za 7M, 0 konverzí sledovaných',
+    metric: 'Traffic <strong>−75 % pokles</strong> (Oct 47k → Apr 11k zobrazení)',
+    impact: '31 655 Kč neměřitelné',
+    impactNote: 'možná funguje, možná ne',
+    problem: 'OCM klíč existuje, ale konverze nedorazí. Zboží.cz sám snižuje expozici e-shopu (padá quality score feedu → nižší rank). Rating = null (0 recenzí).',
+    actions: [
+      'Opravit OCM — testovací objednávka + ověření v admin.zbozi.cz',
+      'Opravit 78 % produktů s diagnostikou "možno vylepšit"',
+      'Doplnit kategorie pro 355 produktů bez kategorie',
+      'Spustit kampaň na získání recenzí (email po nákupu s linkem na Zboží)',
+      'Po opravě feedu sledovat recovery impression sharu'
+    ],
+    expected: 'Po opravě trackingu + feedu = viditelný ROAS a bidding optimizace',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 19, cat: 'feed', prio: 'P1',
+    title: '1 338 produktů Merchant Center disapproved (availability)',
+    metric: 'Z 2 239 produktů Merchant Center <strong>1 338 (60 %) odmítnuto</strong>',
+    impact: 'Nezobrazují se v Google Shopping',
+    impactNote: 'ztráta organického i placeného trafficu',
+    problem: 'Feed nakupy.xml obsahuje jen rodičovské produkty, ne varianty. Google Shopping kontroluje availability na úrovni SKU variant → když variant není ve feedu, product je disapproved.',
+    actions: [
+      'Opravit export variant ve feedu (vývojář eshopu)',
+      'Přidat item_group_id + per-variant availability',
+      'Testovat: po opravě should být disapproved count < 5 %',
+      'Současně doplnit MPN pro 100 % produktů'
+    ],
+    expected: 'Google Shopping CTR 1,46 % → cca 3 % po opravě (+100 % trafficu)',
+    timeline: [10, 30, 60]
+  },
+  {
+    id: 20, cat: 'feed', prio: 'P1',
+    title: 'Search Console CTR 1,88 %, top stránky 0,4–0,6 %',
+    metric: '/cylindricke-vlozky/ CTR <strong>0,6 %</strong> na pozici 7 · /trezory/ 0,4 % · /dverni-kovani/ 0,5 %',
+    impact: '~6 100 kliků / měsíc ztráta',
+    impactNote: 'cca +73 k organických kliků/rok',
+    impactPositive: true,
+    problem: 'Stránka /navod-jak-urcit-orientaci-dveri/ je na pozici 4 (!) s CTR 0,5 %. To signalizuje špatný title tag nebo chybějící meta description. Rich snippets nejsou implementovány.',
+    actions: [
+      'Title tagy a meta descriptions: /cylindricke-vlozky/, /trezory/, /dverni-kovani/',
+      'Product schema pro produktové kategorie',
+      'LocalBusiness schema pro 16 poboček',
+      'BreadcrumbList schema',
+      'A/B test title tagů v Search Console'
+    ],
+    expected: 'CTR +1 % na top stránkách = +6 000 kliků/měs organicky',
+    timeline: [10, 60, 30]
+  },
+
+  // === LOKÁLNÍ & POBOČKY ===
+  {
+    id: 21, cat: 'local', prio: 'P0',
+    title: 'Firmy.cz: duplicitní profil Plzeň Žatecká (rozdělená autorita)',
+    metric: '2 aktivní profily: 598704 (10 506 zobr, CTR 25 %) + 2662342 (2 610 zobr, CTR 18 %)',
+    impact: 'Rozdělená autorita + matoucí zákazník',
+    impactNote: 'okamžitě řešit',
+    problem: 'Na stejné adrese (Plzeň, Žatecká — pobočka + výdej e-shopu) existují dva Firmy.cz profily. Rozdělené recenze, zobrazení, matou zákazníka.',
+    actions: [
+      'Požádat Firmy.cz o sloučení profilů → zachovat 598704',
+      'Nebo smazat 2662342 a přesměrovat obsah',
+      'Po sloučení ověřit, že URL adresy profilů přesměrovávají',
+      'Google Search odstraní starý profil z indexu'
+    ],
+    expected: 'Koncentrovaná autorita → vyšší CTR + lepší rank na Seznamu',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 22, cat: 'local', prio: 'P0',
+    title: 'GBP + Firmy.cz: 3 pobočky s kriticky nízkým call rate',
+    metric: 'Chomutov 11 510 zobr → <strong>8 volání</strong> · Plzeň Gerská 5 415 → 9 · Praha Václavské 2 657 → <strong>1</strong>',
+    impact: 'Ztráta lokálních zákazníků',
+    impactNote: 'ale vysoká viditelnost = potenciál',
+    problem: 'Chomutov je 3. nejviditelnější pobočka (11 510 zobrazení), ale druhá nejnižší engagement. Profil má nejasné informace, možná staré fotky nebo nezajímavý popis činnosti.',
+    actions: [
+      'Audit každé pobočky — porovnat GBP + Firmy.cz',
+      'Kvalitní fotky (min. 10 fotek per profil)',
+      'Aktualizace popisu (klíčová slova: zámečnictví, klíče, trezor)',
+      'Ověřit otevírací dobu (14,6 % kliků na Firmy.cz jde na dobu)',
+      'Pravidelné posty / novinky (GBP)',
+      'Response rate na recenze — všechny'
+    ],
+    expected: 'Zdvojnásobit call rate u Chomutov → +10 volání/měs.',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 23, cat: 'local', prio: 'P1',
+    title: 'Firmy.cz provoz (263 návštěv/měs.) není sledován',
+    metric: '1 845 prokliků na web · 710 plánovaných tras · 256 volání — neobjevuje se v atribučním modelu',
+    impact: 'Skrytý kanál ~263 návštěv/měs.',
+    impactNote: 'pravděpodobně Direct v GA4',
+    problem: 'Provoz z Firmy.cz dnes pravděpodobně přichází do GA4 jako Direct (agentura nemá UTM na odkazech). Klient nevidí, jaký přínos má Firmy.cz investice.',
+    actions: [
+      'Přidat UTM parametry k webovým odkazům v 14 Firmy.cz profilech',
+      'utm_source=seznam & utm_medium=local & utm_campaign=firmy_[pobocka]',
+      'GA4: referral exclusion pro seznam.cz, firmy.cz',
+      'Vytvořit vlastní channel grouping v GA4 pro Firmy.cz'
+    ],
+    expected: 'Kompletní atribuce lokálního kanálu, ROI vyhodnocení Firmy.cz',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 24, cat: 'local', prio: 'P1',
+    title: 'Pobočka Košice — nefunkční webový odkaz v GBP',
+    metric: 'Košice (slovenská pobočka) má v GBP odkaz na neplatnou URL',
+    impact: 'Ztráta zákazníků z Košic',
+    impactNote: 'snadno opravitelné',
+    problem: 'Slovenské pobočky mají vlastní eshop a feed (jiný od klicovecentrum.cz). V GBP profilu je nefunkční link.',
+    actions: [
+      'Aktualizovat URL v GBP profilu Košice',
+      'Ověřit všech 16 poboček (link, telefon, otevírací doba, adresa)',
+      'Nastavit automatické připomenutí 1× za 3 měsíce'
+    ],
+    expected: 'Znovu funkční odkaz = návratnost ztracených zákazníků',
+    timeline: [100, 0, 0]
+  },
+  {
+    id: 25, cat: 'local', prio: 'P1',
+    title: 'GBP není propojen s Google Ads (store visit conversions)',
+    metric: 'GBP profily neslouží jako konverzní bod pro LOCAL kampaně',
+    impact: 'Nelze měřit store visit',
+    impactNote: 'pro LOCAL kampaně klíčové KPI',
+    problem: 'LOCAL kampaně (ROAS 7,58×) se dnes hodnotí přes online konverze. Reálný cíl je ale návštěva pobočky — pro kterou musí být propojený GBP → Google Ads.',
+    actions: [
+      'Google Ads → Tools → Linked accounts → Google Business Profile → Link',
+      'Ověřit, že všech 16 poboček je verified',
+      'Aktivovat store visit conversions (vyžaduje 500+ měsíčních návštěv)',
+      'V LOCAL kampaních nastavit store visit jako sekundární konverzi'
+    ],
+    expected: 'Reálný ROAS LOCAL kampaní (včetně offline návštěv) = reálně 10–15×',
+    timeline: [30, 70, 0]
+  },
+
+  // === ALZA MARKETPLACE ===
+  {
+    id: 26, cat: 'alza', prio: 'P0',
+    title: 'Alza prodej 112 350 Kč mimo ERP — skrytý kanál',
+    metric: '<strong>514 kusů / 112 350 Kč</strong> prodáno přes Alzu, není v ERP (1 z 31 SKU match)',
+    impact: '+10 % obratu skrytě',
+    impactNote: 'celkem 1,3 M Kč (ERP 1,17 M + Alza)',
+    impactPositive: true,
+    problem: 'Alza funguje jako paralelní fulfillment (pravděpodobně FBA). 602 objednávek / 129 k Kč za 7 měsíců — ale v ERP to nevidíme. Agentura ani klient nemají přehled o skutečném obratu firmy. Při reportingu ERP 1,17 M + Alza 129 k = reálně 1,3 M.',
+    actions: [
+      'Zajistit export Alza prodejů do ERP (API Alza Marketplace)',
+      'Spárovat SKU mezi Alza a interní účetnictví',
+      'Přidat Alza do měsíčního reportingu obratu',
+      'Odhadnout reálný celkový obrat firmy (ERP + Alza + Heuréka + jiné)',
+      'Nastavit KPI pro Alza kanál (GMV, marže, fulfillment ratio)'
+    ],
+    expected: 'Kompletní přehled o obchodním výkonu (dnes agentura vidí jen ~90 %)',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 27, cat: 'alza', prio: 'P0',
+    title: '95 produktů „Prodej skončil" — polovina Alza katalogu ležící',
+    metric: '<strong>50,3 % katalogu (95/189)</strong> se stavem „Prodej skončil" — aktivní ale neprodává',
+    impact: 'Ušlý obrat desítky tisíc',
+    impactNote: 'nikdo nereaktivuje',
+    impactPositive: true,
+    problem: 'BURG-WÄCHTER Trezory P 1 S/E, STAR mySafe, STAR visací zámky 20HS série, TSA zámky — Alza je automaticky vypnula (nedostupnost, konkurence, cena), ale nikdo je nereaktivoval. Klasický problém chybějícího kurátorstva marketplace kanálu.',
+    actions: [
+      'Manuálně projít 95 produktů — identifikovat důvod pozastavení',
+      'Pokud skladem + konkurenční cena → reaktivovat',
+      'Pokud nedostupné → odstranit z katalogu (nebo upravit dodací dobu)',
+      'Nastavit automatický alert při „Prodej skončil" → okamžitá kontrola',
+      'Měsíční revize stavu produktů na Alze'
+    ],
+    expected: 'Reaktivace 30–50 produktů → +50–80 k Kč obratu / rok',
+    timeline: [40, 40, 20]
+  },
+  {
+    id: 28, cat: 'alza', prio: 'P1',
+    title: 'Agentura nespravuje Alza kanál — 129 k Kč na autopilotu',
+    metric: 'Alza generuje 129 k Kč / 7M <strong>bez řízení kampaní</strong>',
+    impact: 'Potenciál 2–3× růst',
+    impactNote: 'Alza Ads nevyužity',
+    impactPositive: true,
+    problem: 'Alza má vlastní reklamní platformu (Alza Ads), dynamické ceny přes API, VIP dodavatel pozice. Agentura se Alzou nezabývá: žádná koordinace PPC (Google PMax pro e-shop vs. Alza pro marketplace), žádné reporty klientovi, žádné kampaně.',
+    actions: [
+      'Určit, kdo je zodpovědný za Alza kanál (agentura / interní tým / nikdo)',
+      'Aktivovat Alza Ads pro top-seller produkty (mazadla 378 ks, madla 143 ks)',
+      'Nastavit dynamické ceny přes Alza Marketplace API',
+      'Koordinovat s Google Ads — PMax pro e-shop, Alza pro marketplace',
+      'Měsíční report Alza výkonu klientovi'
+    ],
+    expected: 'Při aktivní správě 2–3× růst objemu → +260–390 k Kč / rok',
+    timeline: [20, 50, 30]
+  },
+  {
+    id: 29, cat: 'alza', prio: 'P1',
+    title: 'Alza publikum je jiné — AOV 271 Kč vs. e-shop 1 535 Kč',
+    metric: 'Top Alza: mazadla (378 ks), madla (143 ks) · Top e-shop: smart locks, panic hrazdy',
+    impact: 'Strategická diferenciace',
+    impactNote: 'dva různé kanály, různé produkty',
+    problem: 'Alza AOV je 5,6× nižší než e-shop — prodává se drobný konzumní sortiment. E-shop ale prodává high-value smart zámky a panic hrazdy. Stejný katalog, jiné publikum, jiná cesta k nákupu.',
+    actions: [
+      'Pro Alza prioritizovat drobný konzumní sortiment (mazadla, baterie, visací zámky do 500 Kč)',
+      'Pro e-shop tlačit high-value produkty (smart locks, motorické zámky, panic hrazdy)',
+      'Alza produktové tituly optimalizovat na „cena + značka + popis" (search na Alze)',
+      'E-shop produktové tituly optimalizovat na SEO + expert (navod-jak-urcit-orientaci-dveri)',
+      'Nevést křížový remarketing — Alza publikum nekupuje smart locks'
+    ],
+    expected: 'Každý kanál optimalizovaný na vlastní publikum = vyšší konverzní poměr',
+    timeline: [20, 50, 30]
+  },
+  {
+    id: 30, cat: 'alza', prio: 'P2',
+    title: 'Alza ceny dobře nastavené — jen 1 produkt „Dražší než ostatní"',
+    metric: '0,5 % katalogu má cenovou nevýhodu (M.A.T. Group schránka Radim)',
+    impact: 'Pozitivní benchmark',
+    impactNote: 'cenový monitoring funguje',
+    impactPositive: true,
+    problem: 'Jeden z mála pozitivních nálezů. Cenový monitoring je dobře vyřešený, zbytek katalogu je konkurenceschopný. Lze použít jako model pro ostatní kanály (Heuréka, Zboží.cz — tam je cenové monitorování pravděpodobně slabší).',
+    actions: [
+      'Opravit cenu u M.A.T. Group schránka Radim M šedá',
+      'Replikovat cenový monitoring i do Heuréky a Zboží.cz',
+      'Zvážit dynamické ceny (Pricetrade, Heureka Repricer)',
+      'Sledovat top 20 konkurenčních produktů týdně'
+    ],
+    expected: 'Udržení konkurenceschopnosti, prevence budoucích cenových ztrát',
+    timeline: [50, 30, 20]
+  }
+];
+
+// ─── RENDER ─────────────────────────────────────────────────────
+let activeCategory = 'all';
+let activePriority = 'all';
+const doneSet = new Set(JSON.parse(localStorage.getItem('audit_done') || '[]'));
+
+function render() {
+  const container = document.getElementById('findings');
+  const filtered = findings.filter(f =>
+    (activeCategory === 'all' || f.cat === activeCategory) &&
+    (activePriority === 'all' || f.prio === activePriority)
+  );
+
+  container.innerHTML = filtered.map(f => {
+    const isDone = doneSet.has(f.id);
+    const impactClass = f.impactPositive ? '' : 'impact-negative';
+    const tlBar = f.timeline.map((pct, i) => {
+      if (pct === 0) return '';
+      const cls = ['tl-1w', 'tl-1m', 'tl-3m'][i];
+      return `<div class="timeline-segment ${cls}" style="width:${pct}%"></div>`;
+    }).join('');
+
+    return `
+      <div class="finding ${isDone ? 'done' : ''}" data-id="${f.id}">
+        <div class="finding-header" onclick="toggleDetail(${f.id})">
+          <span class="priority ${f.prio}">${f.prio}</span>
+          <div class="finding-body">
+            <div class="finding-title">${f.title}</div>
+            <div class="finding-id">Nález #${f.id} · ${f.cat.toUpperCase()}</div>
+            <div class="finding-metric">${f.metric}</div>
+          </div>
+          <div class="impact">
+            <div class="impact-value ${impactClass}">${f.impact}</div>
+            <div class="impact-label">${f.impactNote}</div>
+          </div>
+          <span class="expand-icon">▼</span>
+        </div>
+        <div class="finding-detail">
+          <div class="detail-content">
+            <div class="detail-section">
+              <h4>📌 Problém</h4>
+              <p>${f.problem}</p>
+            </div>
+            <div class="detail-section">
+              <h4>🔧 Plán nápravy</h4>
+              <ul class="action-list">
+                ${f.actions.map((a, i) => `<li><span class="action-check" onclick="toggleAction(event, ${f.id}, ${i})">☐</span> ${a}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4>📈 Očekávaný dopad</h4>
+              <p><strong>${f.expected}</strong></p>
+            </div>
+            <div class="detail-section">
+              <h4>⏱️ Časová osa realizace</h4>
+              <div class="timeline-bar">${tlBar}</div>
+              <div class="timeline-legend">
+                <span>🔴 Týden 1 (${f.timeline[0]}%)</span>
+                <span>🟠 Měsíc 1 (${f.timeline[1]}%)</span>
+                <span>🟡 3 měsíce (${f.timeline[2]}%)</span>
+              </div>
+            </div>
+            <div class="detail-section">
+              <button onclick="markDone(${f.id})" style="padding: 10px 20px; background: ${isDone ? '#10b981' : '#3b82f6'}; border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">
+                ${isDone ? '✅ Hotovo' : '☐ Označit jako hotové'}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // aktualizuj progress
+  const total = findings.length;
+  const done = doneSet.size;
+  const pct = total > 0 ? (done / total * 100) : 0;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-fill').textContent = `${done} / ${total} dokončeno (${Math.round(pct)} %)`;
+}
+
+function toggleDetail(id) {
+  const el = document.querySelector(`.finding[data-id="${id}"]`);
+  el.classList.toggle('open');
+}
+
+function toggleAction(ev, findingId, actionIdx) {
+  ev.stopPropagation();
+  const el = ev.target;
+  el.classList.toggle('checked');
+  el.textContent = el.classList.contains('checked') ? '✓' : '☐';
+  el.parentElement.classList.toggle('done');
+}
+
+function markDone(id) {
+  if (doneSet.has(id)) doneSet.delete(id);
+  else doneSet.add(id);
+  localStorage.setItem('audit_done', JSON.stringify([...doneSet]));
+  render();
+}
+
+// view switching (findings / campaigns / products)
+function showView(view) {
+  document.getElementById('findings').classList.toggle('hidden', view !== 'findings');
+  document.querySelector('.filters').classList.toggle('hidden', view !== 'findings');
+  document.querySelector('.progress-overview').classList.toggle('hidden', view !== 'findings');
+  document.getElementById('campaigns-view').classList.toggle('hidden', view !== 'campaigns');
+  document.getElementById('products-view').classList.toggle('hidden', view !== 'products');
+}
+
+// tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    if (tab.dataset.view === 'campaigns') {
+      showView('campaigns');
+      loadCampaigns();
+    } else if (tab.dataset.view === 'products') {
+      showView('products');
+      loadProducts();
+    } else {
+      showView('findings');
+      activeCategory = tab.dataset.cat;
+      render();
+    }
+  });
+});
+
+// ─── CAMPAIGNS VIEW ────────────────────────────────────────────
+let campaignsData = null;
+let campaignsChart = null;
+
+async function loadCampaigns() {
+  if (!campaignsData) {
+    try {
+      const res = await fetch('data/campaigns.json');
+      campaignsData = await res.json();
+    } catch (e) {
+      console.error('Chyba načtení campaigns.json:', e);
+      return;
+    }
+  }
+  renderCampaigns();
+}
+
+function renderCampaigns() {
+  const chF = document.getElementById('cmp-channel').value;
+  const caF = document.getElementById('cmp-category').value;
+  const filtered = campaignsData.campaigns.filter(c =>
+    (chF === 'all' || c.channel === chF) &&
+    (caF === 'all' || c.category === caF)
+  );
+
+  // tabulka
+  const tbody = document.querySelector('#table-campaigns tbody');
+  tbody.innerHTML = filtered.sort((a, b) => b.cost - a.cost).map(c => {
+    const roasCls = c.roas >= 3 ? 'good' : (c.roas >= 1 ? 'warn' : 'bad');
+    const is = c.impression_share != null ? c.impression_share.toFixed(0) + '%' : '—';
+    return `<tr>
+      <td>${c.channel}</td>
+      <td><span class="cat-badge cat-${c.category}">${c.category}</span></td>
+      <td>${c.name.substring(0, 60)}</td>
+      <td>${c.status}</td>
+      <td class="num">${c.impressions != null ? c.impressions.toLocaleString('cs-CZ') : '—'}</td>
+      <td class="num">${c.clicks.toLocaleString('cs-CZ')}</td>
+      <td class="num">${c.cost.toLocaleString('cs-CZ', {maximumFractionDigits: 0})}</td>
+      <td class="num">${c.conversions.toLocaleString('cs-CZ', {maximumFractionDigits: 0})}</td>
+      <td class="num">${c.conversion_value.toLocaleString('cs-CZ', {maximumFractionDigits: 0})}</td>
+      <td class="num ${roasCls}">${c.roas.toFixed(2)}×</td>
+      <td class="num">${is}</td>
+    </tr>`;
+  }).join('');
+
+  // chart: souhrn per kanál × kategorie (náklady)
+  const channels = ['Google Ads', 'Sklik', 'Heuréka'];
+  const categories = ['SEARCH', 'PRODUCT', 'BRAND', 'LOCAL', 'RTG'];
+  const catColors = {
+    SEARCH:  '#db2777',
+    PRODUCT: '#1d4ed8',
+    BRAND:   '#059669',
+    LOCAL:   '#7c3aed',
+    RTG:     '#6b7280',
+  };
+
+  const datasets = categories.map(cat => ({
+    label: cat,
+    data: channels.map(ch => {
+      const s = (campaignsData.summary_by_category[ch] || {})[cat];
+      return s ? s.cost : 0;
+    }),
+    backgroundColor: catColors[cat],
+  }));
+
+  if (campaignsChart) campaignsChart.destroy();
+  const ctx = document.getElementById('chart-campaigns').getContext('2d');
+  campaignsChart = new Chart(ctx, {
+    type: 'bar',
+    data: { labels: channels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#e2e8f0' } },
+        title: { display: true, text: 'Náklady v Kč per kategorie × kanál', color: '#e2e8f0' },
+      },
+      scales: {
+        x: { stacked: true, ticks: { color: '#cbd5e1' }, grid: { color: '#334155' } },
+        y: { stacked: true, ticks: { color: '#cbd5e1' }, grid: { color: '#334155' } },
+      },
+    },
+  });
+}
+
+document.getElementById('cmp-channel').addEventListener('change', renderCampaigns);
+document.getElementById('cmp-category').addEventListener('change', renderCampaigns);
+
+// ─── PRODUCTS VIEW ─────────────────────────────────────────────
+let productsData = null;
+let productsChart = null;
+
+async function loadProducts() {
+  if (!productsData) {
+    try {
+      const res = await fetch('data/products.json');
+      productsData = await res.json();
+      populateProductFilters();
+    } catch (e) {
+      console.error('Chyba načtení products.json:', e);
+      return;
+    }
+  }
+  renderProducts();
+}
+
+function populateProductFilters() {
+  const cats = [...new Set(productsData.products.map(p => p.category))].sort();
+  const vendors = [...new Set(productsData.products.map(p => p.vendor))].sort();
+  const catSel = document.getElementById('prod-category');
+  const venSel = document.getElementById('prod-vendor');
+  cats.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; catSel.appendChild(o); });
+  vendors.forEach(v => { const o = document.createElement('option'); o.value = v; o.textContent = v; venSel.appendChild(o); });
+}
+
+function renderProducts() {
+  const catF = document.getElementById('prod-category').value;
+  const venF = document.getElementById('prod-vendor').value;
+  const chF  = document.getElementById('prod-channel').value;
+
+  const filtered = productsData.products.filter(p =>
+    (catF === 'all' || p.category === catF) &&
+    (venF === 'all' || p.vendor === venF) &&
+    (chF === 'all'  || p.primary_channel === chF)
+  );
+
+  // tabulka top 50
+  const tbody = document.querySelector('#table-products tbody');
+  tbody.innerHTML = filtered.map(p => {
+    const ch = p.channels;
+    const prim = p.primary_channel || '—';
+    return `<tr>
+      <td>${p.sku}</td>
+      <td title="${p.name}">${p.name.substring(0, 45)}</td>
+      <td>${p.category}</td>
+      <td>${p.vendor}</td>
+      <td class="num">${ch.erp_eshop.revenue.toLocaleString('cs-CZ')}</td>
+      <td class="num">${ch.alza.revenue.toLocaleString('cs-CZ')}</td>
+      <td class="num">${ch.heureka.revenue.toLocaleString('cs-CZ')}</td>
+      <td class="num">${ch.zbozi.revenue.toLocaleString('cs-CZ')}</td>
+      <td class="num good">${p.total_revenue.toLocaleString('cs-CZ')}</td>
+      <td>${prim}</td>
+    </tr>`;
+  }).join('');
+
+  // category summary tabulka
+  const summaryBody = document.querySelector('#table-cat-summary tbody');
+  const summary = productsData.summary_by_category;
+  summaryBody.innerHTML = Object.entries(summary).map(([cat, s]) => `
+    <tr>
+      <td>${cat}</td>
+      <td class="num">${s.product_count}</td>
+      <td class="num">${Math.round(s.erp_eshop).toLocaleString('cs-CZ')}</td>
+      <td class="num">${Math.round(s.alza).toLocaleString('cs-CZ')}</td>
+      <td class="num">${Math.round(s.heureka).toLocaleString('cs-CZ')}</td>
+      <td class="num">${Math.round(s.zbozi).toLocaleString('cs-CZ')}</td>
+      <td class="num good">${Math.round(s.total).toLocaleString('cs-CZ')}</td>
+    </tr>
+  `).join('');
+
+  // chart: top 20 s rozpadem dle kanálu (stacked bar)
+  const top20 = filtered.slice(0, 20);
+  const labels = top20.map(p => p.name.substring(0, 30));
+  const chMap = {
+    'E-shop':  p => p.channels.erp_eshop.revenue,
+    'Alza':    p => p.channels.alza.revenue,
+    'Heuréka': p => p.channels.heureka.revenue,
+    'Zboží':   p => p.channels.zbozi.revenue,
+  };
+  const chColors = {
+    'E-shop':  '#3b82f6',
+    'Alza':    '#f59e0b',
+    'Heuréka': '#10b981',
+    'Zboží':   '#ef4444',
+  };
+  const datasets = Object.entries(chMap).map(([name, fn]) => ({
+    label: name,
+    data: top20.map(fn),
+    backgroundColor: chColors[name],
+  }));
+
+  if (productsChart) productsChart.destroy();
+  const ctx = document.getElementById('chart-products').getContext('2d');
+  productsChart = new Chart(ctx, {
+    type: 'bar',
+    data: { labels, datasets },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      plugins: {
+        legend: { labels: { color: '#e2e8f0' } },
+        title: { display: true, text: 'Obrat (Kč) per produkt × kanál', color: '#e2e8f0' },
+      },
+      scales: {
+        x: { stacked: true, ticks: { color: '#cbd5e1' }, grid: { color: '#334155' } },
+        y: { stacked: true, ticks: { color: '#cbd5e1', font: { size: 10 } }, grid: { color: '#334155' } },
+      },
+    },
+  });
+}
+
+document.getElementById('prod-category').addEventListener('change', renderProducts);
+document.getElementById('prod-vendor').addEventListener('change', renderProducts);
+document.getElementById('prod-channel').addEventListener('change', renderProducts);
+
+// priority filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activePriority = btn.dataset.prio;
+    render();
+  });
+});
+
+// počty pro taby
+function updateCounts() {
+  document.getElementById('count-all').textContent = findings.length;
+  ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza'].forEach(cat => {
+    const count = findings.filter(f => f.cat === cat).length;
+    document.getElementById('count-' + cat).textContent = count;
+  });
+}
+
+updateCounts();
+render();
+</script>
+</body>
+</html>
