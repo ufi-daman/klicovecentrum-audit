@@ -39,26 +39,26 @@
       "source": "SQL kosik (web_id=1) + Alza orders.csv + všechny PPC kanály spend"
     },
     "gaps": {
-      "pno_gap": "22.9 % (ag.) vs 21.2 % (real) — rozdíl jen 1.7 %, ale agenturní tracking chybí 54 % objednávek",
-      "order_gap": "GA4 641 vs SQL 1398 = 54 % neviditelných objednávek (neviditelných = agentura je nezná)",
-      "revenue_gap": "GA4 984 387 Kč vs SQL+Alza 1 512 639 Kč = agentura vidí 65 % reality",
-      "organic_gap": "Agentura hlásí 1409 Kč organic revenue, reálně organic dělá ~30-40 % SQL obratu = 400-550 k Kč"
+      "pno_gap": "22.9 % (tracking) vs 21.2 % (real) — rozdíl jen 1.7 %, ale tracking zachycuje 46 % objednávek",
+      "order_gap": "GA4 641 vs SQL 1398 = 54 % objednávek mimo tracking",
+      "revenue_gap": "GA4 984 387 Kč vs SQL+Alza 1 512 639 Kč = tracking zachytí 65 % reality",
+      "organic_gap": "Tracking hlásí 1409 Kč organic revenue, reálně organic dělá ~30–40 % SQL obratu = 400–550 k Kč"
     }
   },
   "brand_vs_nonbrand_agency_comparison": {
     "_note": "Agentura neposkytuje rozdělení brand/non-brand. Naše analýza z campaigns.json:",
     "agency_reports": {
-      "rozdeleni": "NEPOSKYTUJE",
+      "rozdeleni": "Není v reportingu",
       "pouze_celkove_pno": 38.01,
       "pouze_celkovy_roas": 2.63,
-      "note": "6letý avg, ale vychází z nafouknutých konverzí (#1)"
+      "note": "6letý průměr z konverzí zahrnujících micro-events (viz nález #1)"
     },
     "our_analysis_7m": {
       "total": { "pno_pct": 22.9, "roas": 4.37, "spend": 282858 },
       "brand": { "pno_pct": 14.6, "roas": 6.86, "spend": 30694, "share_of_spend_pct": 10.9 },
       "non_brand": { "pno_pct": 24.6, "roas": 4.07, "spend": 252164, "share_of_spend_pct": 89.1 }
     },
-    "insight": "Brand dělá jen 11 % rozpočtu ale drží overall ROAS nahoře. Non-brand non-brandBrand ROAS 4.07× je pořád OK. Ale agentura tvrdí 2.63× (6 let). Rozdíl je nafouknutí konverzí + starší horší roky (2020-2022) v agenturním avg."
+    "insight": "Brand kampaně zabírají 11 % rozpočtu, ale drží overall ROAS nahoře. Non-brand ROAS 4,07× je pořád v OK rozmezí. Rozdíl vůči celkovému 6letému PNO 38 % / ROAS 2,63× je způsoben starším trackingem (2020–2022) + mix konverzí vč. micro-events."
   },
   "yearly_spend_approx": {
     "_note": "Odhad z PDF grafů (roční sloupcové grafy). Přesné čísla vyžadují export z Looker Studio (Agenda/tabulka).",
@@ -109,45 +109,45 @@
     "issues": [
       {
         "severity": "P0",
-        "issue": "Organic tracking rozbitý",
-        "detail": "Ukazuje 14 899 Kč obrat / 14 měsíců, reálně jen SQL B2C dělá 1,38 M Kč za 7 měsíců. Organic = 30-40 % e-shop provozu → should be ~400 k Kč + v audit period",
-        "fix": "Konfigurovat GA4 purchase event správně (transaction_id, value, currency, items[]). Připojit GA4 k Looker přes GA4 konektor, ne UA."
+        "issue": "Organic tracking nepřesný",
+        "detail": "Looker ukazuje 14 899 Kč organic obrat / 14 měsíců, SQL B2C vygeneruje 1,38 M Kč za 7 měsíců (organic tvoří ~30–40 % e-shop provozu, očekávané ~400 k Kč+ v audit period).",
+        "fix": "Zkonfigurovat GA4 purchase event (transaction_id, value, currency, items[]) a zapojit GA4 konektor do Looker."
       },
       {
         "severity": "P0",
-        "issue": "Direct (none) v březnu 2026 1,5 M sessions — není flagováno",
-        "detail": "Agentura reportuje 1 543 120 direct sessions v březnu, ale nekomunikuje bot útok klientovi",
-        "fix": "Přidat do Looker alert card: 'Session spike >300 % vs 7-day avg' s automatickou notifikací"
+        "issue": "Direct traffic spike březen 2026 (1,5 M sessions) není zvýrazněn",
+        "detail": "V březnu zaznamenán spike 1 543 120 direct sessions, v reportingu chybí upozornění na anomálii / bot aktivitu.",
+        "fix": "Přidat do Looker alert card: 'Session spike >300 % vs 7-day avg' s notifikací."
       },
       {
         "severity": "P1",
-        "issue": "PNO počítané z nafouknutých konverzí (micro-events jako primary)",
-        "detail": "Agentura reportuje PNO 38 % jako 6letý avg, ale zahrnuje time_on_web-180s a view_item jako konverze",
-        "fix": "Přepsat zdrojová data v Looker — použít pouze purchase event s transaction_id"
+        "issue": "PNO počítáno z mix konverzí (primary = micro-events + purchase)",
+        "detail": "Aktuální PNO 38 % (6letý avg) zahrnuje time_on_web-180s a view_item jako primary konverze, nejen purchase.",
+        "fix": "Upravit zdrojová data v Looker — použít pouze purchase event s transaction_id."
       },
       {
         "severity": "P1",
         "issue": "Chybí rozdělení brand vs non-brand PNO",
-        "detail": "Looker reportuje jen celkové PNO. Brand kampaně mají ROAS 6,86×, non-brand 4,07× — zásadní rozdíl",
-        "fix": "Přidat segment 'Campaign Type' s dimenzí Brand/Non-brand/Product/Local"
+        "detail": "Reportuje se celkové PNO. Brand kampaně mají ROAS 6,86×, non-brand 4,07× — rozdělení je zásadní pro optimalizaci.",
+        "fix": "Přidat segment 'Campaign Type' s dimenzí Brand / Non-brand / Product / Local."
       },
       {
         "severity": "P1",
-        "issue": "Neobsahuje SQL ground truth",
-        "detail": "Agentura nemá přístup k eshopovým SQL objednávkám, Looker počítá jen z GA4 → 46 % reality",
-        "fix": "Setup BigQuery export SQL objednávek + napojit do Looker jako 2. datasource"
+        "issue": "Chybí SQL ground truth (objednávky z eshopu)",
+        "detail": "Looker počítá z GA4, které zachycuje 46 % reálných objednávek (SQL 1 398 vs GA4 641).",
+        "fix": "Setup BigQuery export SQL objednávek + zapojit do Looker jako druhý datasource."
       },
       {
         "severity": "P2",
         "issue": "Chybí Alza marketplace data",
-        "detail": "129 k Kč / 7M obratu z Alzy není v Looker (je to jiný systém)",
-        "fix": "Alza API → BigQuery → Looker panel 'Alza Marketplace'"
+        "detail": "129 k Kč / 7M obratu z Alzy není v reportingu (separátní systém, FBA fulfillment).",
+        "fix": "Alza API → BigQuery → Looker panel 'Alza Marketplace'."
       },
       {
         "severity": "P2",
         "issue": "Chybí per-pobočka lokální KPI",
-        "detail": "GBP data (call rate, direction requests per pobočka) není v Looker",
-        "fix": "Google Business Profile API → BigQuery daily export"
+        "detail": "GBP data (call rate, direction requests per pobočka) není v reportingu.",
+        "fix": "Google Business Profile API → BigQuery daily export."
       }
     ],
     "recommended_new_kpis": [

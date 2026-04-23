@@ -611,8 +611,8 @@
   <div class="chart-card">
     <h3>5️⃣ KPI které není třeba reportovat (vanity metriky)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
-      Metriky, které agentura dnes reportuje, ale nemají actionable hodnotu pro klienta —
-      buď klamou (bot/tracking zkreslení), nebo bez kontextu neinformují.
+      Metriky, které jsou součástí současného reportingu, ale bez kontextu neposkytují actionable hodnotu —
+      jsou zkreslené (bot/tracking) nebo informují pouze o reach, nikoli o obchodním dopadu.
     </p>
     <div id="agency-deprioritize-list"></div>
   </div>
@@ -769,12 +769,12 @@ const findings = [
     metric: 'Klient nemá přístup do vlastního GTM containeru',
     impact: 'Blokace ověření tagování',
     impactNote: 'agentura může přidávat/měnit tagy libovolně',
-    problem: 'GTM je majetek klienta, agentura nemá právo přístup odmítat. Bez přístupu nelze ověřit, co se odesílá do GA4, Segmentu, Heuréky atd.',
+    problem: 'Admin přístup do GTM containeru není aktuálně k dispozici pro klientskou stranu. Bez přístupu nelze ověřit, jaké tagy se odesílají do GA4, Segmentu, Heuréky a dalších systémů.',
     actions: [
-      'Vyžádat admin přístup do GTM containeru písemně',
-      'Pokud agentura odmítne → klonovat container / vytvořit nový',
-      'Chrome Tag Assistant Companion — rychlá kontrola bez GTM',
-      'dataLayer Inspector+ — co se reálně odesílá'
+      'Získat admin přístup do GTM containeru',
+      'Alternativně: vytvořit vlastní container + paralelní nasazení',
+      'Pro rychlou kontrolu bez GTM: Chrome Tag Assistant Companion',
+      'dataLayer Inspector+ pro ověření odesílaných eventů'
     ],
     expected: 'Kontrola nad tagováním, schopnost audit provést bez agentury',
     timeline: [100, 0, 0]
@@ -801,19 +801,19 @@ const findings = [
   },
   {
     id: 7, cat: 'gads', prio: 'P1',
-    title: 'REVIZE: 32 % rozpočtu v krajích bez pobočky — ale konverze existují',
+    title: '32 % rozpočtu v krajích bez pobočky — konverze existují',
     metric: '<strong>74 k Kč</strong> v krajích bez pobočky → <strong>867 konverzí</strong> · efektivita 11,69 konv/1000 Kč (vs 9,87 s pobočkou)',
-    impact: 'Není to plýtvání',
-    impactNote: 'PŮVODNÍ NÁLEZ CHYBNÝ — viz poznámka',
+    impact: 'E-commerce funguje',
+    impactNote: 'Středočeský 408 obj/283 k Kč bez pobočky',
     impactPositive: true,
-    problem: 'PŮVODNĚ jsme tvrdili „61 % rozpočtu (141 k) do krajů bez pobočky = plýtvání". Reálná data z Geo split (Google Ads) ukazují: jen 32 % (74 k Kč) v krajích bez pobočky a konverzní efektivita je tam dokonce vyšší (11,69 vs 9,87 konv/1000 Kč). PMax_All celostátní PRODUCT kampaň = e-commerce prodej, pobočka není potřeba. Středočeský kraj (22 %, 570 konv) jsou lidé kolem Prahy kupující online. POZOR: konverze mohou být zkreslené nálezem #1 (nafouklé konverze).',
+    problem: 'Geo split (Google Ads): 32 % rozpočtu (74 k Kč) cílí do krajů bez fyzické pobočky. Konverzní efektivita je tam dokonce vyšší než v krajích s pobočkou (11,69 vs 9,87 konv/1000 Kč, CPA 86 vs 101 Kč). Středočeský kraj (22 % rozpočtu, 570 konverzí) jsou online zákazníci z okolí Prahy. PMax celostátní kampaň pro e-commerce funguje i bez prodejny. Poznámka: konverze mohou být zkreslené nálezem #1.',
     actions: [
-      'PMax_All: ponechat celostátně (ROAS 3,13× je OK pro e-commerce)',
-      'LOCAL PMax: stále geo-omezit na 50 km (platí pro pobočkové kampaně)',
-      'Po opravě konverzí (nález #1) znovu vyhodnotit CPA per kraj',
+      'PMax_All ponechat celostátně (ROAS 3,13× je OK pro e-commerce)',
+      'LOCAL PMax geo-omezit na 50 km (platí pro pobočkové kampaně)',
+      'Po nápravě konverzí (nález #1) znovu vyhodnotit CPA per kraj',
       'Zvážit dedikované PRODUCT kampaně pro kraje bez pobočky (CPA 86 Kč je lepší)'
     ],
-    expected: 'Revizí se ušetří čas — není potřeba restrikce celostátního PMaxu',
+    expected: 'PMax celostátně je efektivní pro e-commerce, geo-restrikce není potřeba',
     timeline: [20, 50, 30]
   },
   {
@@ -1079,7 +1079,7 @@ const findings = [
     metric: '1 845 prokliků na web · 710 plánovaných tras · 256 volání — neobjevuje se v atribučním modelu',
     impact: 'Skrytý kanál ~263 návštěv/měs.',
     impactNote: 'pravděpodobně Direct v GA4',
-    problem: 'Provoz z Firmy.cz dnes pravděpodobně přichází do GA4 jako Direct (agentura nemá UTM na odkazech). Klient nevidí, jaký přínos má Firmy.cz investice.',
+    problem: 'Provoz z Firmy.cz dnes pravděpodobně přichází do GA4 jako Direct (odkazy nemají UTM parametry). Bez UTM není v reportingu viditelný přínos Firmy.cz investice.',
     actions: [
       'Přidat UTM parametry k webovým odkazům v 14 Firmy.cz profilech',
       'utm_source=seznam & utm_medium=local & utm_campaign=firmy_[pobocka]',
@@ -1165,13 +1165,13 @@ const findings = [
     impact: 'Potenciál 2–3× růst',
     impactNote: 'Alza Ads nevyužity',
     impactPositive: true,
-    problem: 'Alza má vlastní reklamní platformu (Alza Ads), dynamické ceny přes API, VIP dodavatel pozice. Agentura se Alzou nezabývá: žádná koordinace PPC (Google PMax pro e-shop vs. Alza pro marketplace), žádné reporty klientovi, žádné kampaně.',
+    problem: 'Alza nabízí vlastní reklamní platformu (Alza Ads), dynamické ceny přes API a VIP dodavatelské pozice. Současně tento kanál nemá aktivní správu: chybí koordinace PPC (Google PMax pro e-shop vs. Alza pro marketplace) a výkon není v reportingu.',
     actions: [
-      'Určit, kdo je zodpovědný za Alza kanál (agentura / interní tým / nikdo)',
+      'Určit zodpovědnou osobu za Alza kanál',
       'Aktivovat Alza Ads pro top-seller produkty (mazadla 378 ks, madla 143 ks)',
       'Nastavit dynamické ceny přes Alza Marketplace API',
       'Koordinovat s Google Ads — PMax pro e-shop, Alza pro marketplace',
-      'Měsíční report Alza výkonu klientovi'
+      'Zařadit Alza výkon do měsíčního reportingu'
     ],
     expected: 'Při aktivní správě 2–3× růst objemu → +260–390 k Kč / rok',
     timeline: [20, 50, 30]
@@ -1745,12 +1745,12 @@ function renderAgencyKpi() {
 
     <!-- Gap rozbor -->
     <div class="metric-box" style="grid-column:1/-1;background:rgba(220,38,38,0.08);border-color:#dc2626">
-      <div style="color:#fca5a5;font-size:13px;font-weight:600;margin-bottom:8px">⚠️ Tracking gapy (agentura vs realita)</div>
+      <div style="color:#fca5a5;font-size:13px;font-weight:600;margin-bottom:8px">⚠️ Tracking gapy (reporting vs realita)</div>
       <div style="font-size:13px;color:#cbd5e1;line-height:1.6">
-        <div>• <strong>Obj. gap 54 %</strong>: agentura vidí ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (SQL)</div>
+        <div>• <strong>Objednávky gap 54 %</strong>: reporting ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (SQL)</div>
         <div>• <strong>Revenue gap 35 %</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs SQL+Alza ${fmt(re.total_real_revenue)} Kč</div>
-        <div>• <strong>Organic rozbit</strong>: agentura hlásí ${fmt(ag.organic_revenue_reported)} Kč, organic skutečně tvoří ~400-550 k Kč (30-40 % obratu)</div>
-        <div>• <strong>Alza 129 k Kč</strong> v agentuře vůbec není (FBA kanál)</div>
+        <div>• <strong>Organic nepřesný</strong>: reporting hlásí ${fmt(ag.organic_revenue_reported)} Kč, skutečný organic tvoří ~400–550 k Kč (30–40 % obratu)</div>
+        <div>• <strong>Alza 129 k Kč</strong> není součástí trackingu (FBA kanál)</div>
       </div>
     </div>
   `;
