@@ -1705,43 +1705,97 @@ function renderAgencyKpi() {
   const d = agencyKpiData;
   const fmt = n => (n == null ? '—' : Number(n).toLocaleString('cs-CZ'));
 
-  // 1️⃣ Celkové
+  // 1️⃣ Celkové — AGENTURA (6 let) vs SKUTEČNOST (audit 7M)
   const t = d.total_2020_2026;
+  const r = d.reality_vs_agency_audit_period;
+  const ag = r.agency_tracking, re = r.reality;
   document.getElementById('agency-totals-grid').innerHTML = `
-    <div class="metric-box"><div class="metric-label">Celkový spend</div>
-      <div class="metric-value">${fmt(t.spend)} Kč</div>
-      <div style="color:#64748b;font-size:11px">PPC google + seznam</div></div>
-    <div class="metric-box"><div class="metric-label">Celkový obrat PPC</div>
-      <div class="metric-value" style="color:#10b981">${fmt(t.revenue_ppc)} Kč</div>
-      <div style="color:#64748b;font-size:11px">dle agenturního tracking</div></div>
-    <div class="metric-box"><div class="metric-label">Celkový PNO</div>
-      <div class="metric-value" style="color:#f59e0b">${t.pno_pct} %</div>
-      <div style="color:#64748b;font-size:11px">ROAS ${t.roas}×</div></div>
-    <div class="metric-box"><div class="metric-label">Impressions</div>
-      <div class="metric-value">${fmt(t.impressions)}</div>
-      <div style="color:#64748b;font-size:11px">CTR ${t.ctr_pct} %</div></div>
-    <div class="metric-box"><div class="metric-label">Kliky</div>
-      <div class="metric-value">${fmt(t.clicks)}</div>
-      <div style="color:#64748b;font-size:11px">CPC ${t.cpc_kc} Kč</div></div>
+    <!-- Agenturní data 6 let -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(148,163,184,0.08);border-color:#475569">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📊 Agenturní tracking (Looker 6 let 2020–2026)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <div><span style="color:#64748b;font-size:11px">Spend PPC</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(t.spend)} Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Obrat PPC</span><div style="font-size:20px;font-weight:700;color:#10b981">${fmt(t.revenue_ppc)} Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#f59e0b">${t.pno_pct} %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#93c5fd">${t.roas}×</div></div>
+        <div><span style="color:#64748b;font-size:11px">Kliky / CTR</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(t.clicks)} · ${t.ctr_pct}%</div></div>
+      </div>
+    </div>
+
+    <!-- Skutečnost audit 7M -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.08);border-color:#10b981">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">✅ Skutečnost (SQL + Alza, audit 7 měsíců)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <div><span style="color:#64748b;font-size:11px">PPC spend (vše)</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(re.ppc_spend_total)} Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Skutečný obrat</span><div style="font-size:20px;font-weight:700;color:#10b981">${fmt(re.total_real_revenue)} Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO (skutečný)</span><div style="font-size:20px;font-weight:700;color:#10b981">${re.real_pno_pct} %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS (skutečný)</span><div style="font-size:20px;font-weight:700;color:#10b981">${re.real_roas}×</div></div>
+        <div><span style="color:#64748b;font-size:11px">Obj. celkem</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(re.total_real_orders)} (SQL + Alza)</div></div>
+      </div>
+    </div>
+
+    <!-- Gap rozbor -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(220,38,38,0.08);border-color:#dc2626">
+      <div style="color:#fca5a5;font-size:13px;font-weight:600;margin-bottom:8px">⚠️ Tracking gapy (agentura vs realita)</div>
+      <div style="font-size:13px;color:#cbd5e1;line-height:1.6">
+        <div>• <strong>Obj. gap 54 %</strong>: agentura vidí ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (SQL)</div>
+        <div>• <strong>Revenue gap 35 %</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs SQL+Alza ${fmt(re.total_real_revenue)} Kč</div>
+        <div>• <strong>Organic rozbit</strong>: agentura hlásí ${fmt(ag.organic_revenue_reported)} Kč, organic skutečně tvoří ~400-550 k Kč (30-40 % obratu)</div>
+        <div>• <strong>Alza 129 k Kč</strong> v agentuře vůbec není (FBA kanál)</div>
+      </div>
+    </div>
   `;
 
-  // 2️⃣ PNO brand vs non-brand
-  const p = d.pno_breakdown_audit_period;
+  // 2️⃣ PNO brand vs non-brand — AGENTURA vs SKUTEČNOST
+  const p = d.brand_vs_nonbrand_agency_comparison;
   document.getElementById('agency-pno-grid').innerHTML = `
-    <div class="metric-box" style="background:rgba(59,130,246,0.1);border-color:#3b82f6">
-      <div class="metric-label">Celkem (audit 7M)</div>
-      <div class="metric-value" style="color:#93c5fd">${p.total.pno_pct} %</div>
-      <div style="color:#64748b;font-size:11px">ROAS ${p.total.roas}× · spend ${fmt(p.total.spend)}</div>
+    <!-- Agenturní report -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(148,163,184,0.08);border-color:#475569">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📊 Agenturní report (Looker)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <div>
+          <span style="color:#64748b;font-size:11px">Rozdělení brand/non-brand</span>
+          <div style="font-size:16px;font-weight:700;color:#ef4444;margin-top:4px">❌ ${p.agency_reports.rozdeleni}</div>
+          <div style="color:#94a3b8;font-size:11px;margin-top:2px">Jen celkové číslo za 6 let</div>
+        </div>
+        <div>
+          <span style="color:#64748b;font-size:11px">Celkové PNO (6 let)</span>
+          <div style="font-size:24px;font-weight:700;color:#f59e0b">${p.agency_reports.pouze_celkove_pno} %</div>
+          <div style="color:#94a3b8;font-size:11px">ROAS ${p.agency_reports.pouze_celkovy_roas}×</div>
+        </div>
+        <div>
+          <span style="color:#64748b;font-size:11px">Poznámka</span>
+          <div style="color:#fca5a5;font-size:12px;margin-top:4px">${p.agency_reports.note}</div>
+        </div>
+      </div>
     </div>
-    <div class="metric-box" style="background:rgba(16,185,129,0.1);border-color:#10b981">
-      <div class="metric-label">🟢 Brand kampaně</div>
-      <div class="metric-value" style="color:#10b981">${p.brand_only.pno_pct} %</div>
-      <div style="color:#64748b;font-size:11px">ROAS ${p.brand_only.roas}× · spend ${fmt(p.brand_only.spend)}</div>
+
+    <!-- Naše analýza (audit 7M) -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.08);border-color:#10b981">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">✅ Naše analýza (campaigns.json, audit 7 měsíců)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+        <div style="padding:10px;background:rgba(59,130,246,0.1);border-radius:6px;border:1px solid #3b82f6">
+          <span style="color:#64748b;font-size:11px">Celkem</span>
+          <div style="font-size:22px;font-weight:700;color:#93c5fd">${p.our_analysis_7m.total.pno_pct} %</div>
+          <div style="color:#94a3b8;font-size:11px">ROAS ${p.our_analysis_7m.total.roas}× · ${fmt(p.our_analysis_7m.total.spend)} Kč</div>
+        </div>
+        <div style="padding:10px;background:rgba(16,185,129,0.1);border-radius:6px;border:1px solid #10b981">
+          <span style="color:#64748b;font-size:11px">🟢 Brand (${p.our_analysis_7m.brand.share_of_spend_pct} % rozpočtu)</span>
+          <div style="font-size:22px;font-weight:700;color:#10b981">${p.our_analysis_7m.brand.pno_pct} %</div>
+          <div style="color:#94a3b8;font-size:11px">ROAS ${p.our_analysis_7m.brand.roas}× · ${fmt(p.our_analysis_7m.brand.spend)} Kč</div>
+        </div>
+        <div style="padding:10px;background:rgba(245,158,11,0.1);border-radius:6px;border:1px solid #f59e0b">
+          <span style="color:#64748b;font-size:11px">🟡 Non-brand (${p.our_analysis_7m.non_brand.share_of_spend_pct} % rozpočtu)</span>
+          <div style="font-size:22px;font-weight:700;color:#fcd34d">${p.our_analysis_7m.non_brand.pno_pct} %</div>
+          <div style="color:#94a3b8;font-size:11px">ROAS ${p.our_analysis_7m.non_brand.roas}× · ${fmt(p.our_analysis_7m.non_brand.spend)} Kč</div>
+        </div>
+      </div>
     </div>
-    <div class="metric-box" style="background:rgba(245,158,11,0.1);border-color:#f59e0b">
-      <div class="metric-label">🟡 Non-brand</div>
-      <div class="metric-value" style="color:#fcd34d">${p.without_brand.pno_pct} %</div>
-      <div style="color:#64748b;font-size:11px">ROAS ${p.without_brand.roas}× · spend ${fmt(p.without_brand.spend)}</div>
+
+    <!-- Insight -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(59,130,246,0.08);border-color:#3b82f6">
+      <div style="color:#93c5fd;font-size:13px;font-weight:600;margin-bottom:6px">💡 Klíčový insight</div>
+      <div style="color:#cbd5e1;font-size:13px;line-height:1.5">${p.insight}</div>
     </div>
   `;
 

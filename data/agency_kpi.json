@@ -13,6 +13,53 @@
     "roas": 2.63,
     "note": "6letá agregace z první stránky PDF 'Data PPC / Celkový součet'"
   },
+  "reality_vs_agency_audit_period": {
+    "_note": "Porovnání agenturních čísel vs skutečnost za audit period 2025-10 až 2026-04 (7 měsíců)",
+    "agency_tracking": {
+      "ppc_spend_total": 282858,
+      "ppc_revenue_tracked": 1237205,
+      "pno_pct": 22.9,
+      "roas": 4.37,
+      "ga4_purchase_orders": 641,
+      "ga4_revenue": 984387,
+      "organic_revenue_reported": 1409,
+      "source": "Agenturní Looker + GA4 purchase event"
+    },
+    "reality": {
+      "ppc_spend_total": 321382,
+      "real_eshop_revenue_sql": 1383208,
+      "real_eshop_orders_sql": 1398,
+      "alza_revenue": 129431,
+      "alza_orders": 602,
+      "total_real_revenue": 1512639,
+      "total_real_orders": 2000,
+      "real_pno_pct": 21.2,
+      "real_roas": 4.71,
+      "ga4_miss_pct": 54,
+      "source": "SQL kosik (web_id=1) + Alza orders.csv + všechny PPC kanály spend"
+    },
+    "gaps": {
+      "pno_gap": "22.9 % (ag.) vs 21.2 % (real) — rozdíl jen 1.7 %, ale agenturní tracking chybí 54 % objednávek",
+      "order_gap": "GA4 641 vs SQL 1398 = 54 % neviditelných objednávek (neviditelných = agentura je nezná)",
+      "revenue_gap": "GA4 984 387 Kč vs SQL+Alza 1 512 639 Kč = agentura vidí 65 % reality",
+      "organic_gap": "Agentura hlásí 1409 Kč organic revenue, reálně organic dělá ~30-40 % SQL obratu = 400-550 k Kč"
+    }
+  },
+  "brand_vs_nonbrand_agency_comparison": {
+    "_note": "Agentura neposkytuje rozdělení brand/non-brand. Naše analýza z campaigns.json:",
+    "agency_reports": {
+      "rozdeleni": "NEPOSKYTUJE",
+      "pouze_celkove_pno": 38.01,
+      "pouze_celkovy_roas": 2.63,
+      "note": "6letý avg, ale vychází z nafouknutých konverzí (#1)"
+    },
+    "our_analysis_7m": {
+      "total": { "pno_pct": 22.9, "roas": 4.37, "spend": 282858 },
+      "brand": { "pno_pct": 14.6, "roas": 6.86, "spend": 30694, "share_of_spend_pct": 10.9 },
+      "non_brand": { "pno_pct": 24.6, "roas": 4.07, "spend": 252164, "share_of_spend_pct": 89.1 }
+    },
+    "insight": "Brand dělá jen 11 % rozpočtu ale drží overall ROAS nahoře. Non-brand non-brandBrand ROAS 4.07× je pořád OK. Ale agentura tvrdí 2.63× (6 let). Rozdíl je nafouknutí konverzí + starší horší roky (2020-2022) v agenturním avg."
+  },
   "yearly_spend_approx": {
     "_note": "Odhad z PDF grafů (roční sloupcové grafy). Přesné čísla vyžadují export z Looker Studio (Agenda/tabulka).",
     "2020": { "spend_est": 280000, "source": "8 měsíců v PDF (leden-červenec), extrapolace" },
