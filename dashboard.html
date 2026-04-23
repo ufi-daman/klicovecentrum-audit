@@ -563,72 +563,77 @@
 
 <section id="looker-view" class="view-section hidden">
   <div class="chart-card">
-    <h3>📈 Looker Studio — agenturní report</h3>
-    <p style="color:#94a3b8;font-size:14px;margin-bottom:18px">PDF export agenturního Looker reportu za roky 2020–2026 (82 stran, 6 let PPC + SEO dat). Iframe Looker embeddingu je zakázán vlastníkem.</p>
+    <h3>📈 Agenturní přehled — Looker Studio 2020–2026</h3>
+    <p style="color:#94a3b8;font-size:14px;margin-bottom:14px">6 let PPC dat (google + seznam) dle Looker reportu agentury. Data byla analyzována a doporučena k doplnění/opravě.</p>
+    <a href="https://datastudio.google.com/s/mxk7x__LZk0" target="_blank" rel="noopener"
+       style="padding:14px 24px;background:#3b82f6;color:white;text-decoration:none;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;gap:8px">
+      🔗 Otevřít živý Looker report
+    </a>
+  </div>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-      <a href="agency-report-2026.pdf" target="_blank" rel="noopener"
-         style="padding:14px 24px;background:#3b82f6;color:white;text-decoration:none;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;gap:8px">
-        📄 Otevřít PDF (82 stran)
-      </a>
-      <a href="agency-report-2026.pdf" download="Klicove_centrum_agenturni_report_2026.pdf"
-         style="padding:14px 24px;background:rgba(59,130,246,0.15);color:#93c5fd;text-decoration:none;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1px solid #3b82f6">
-        ⬇️ Stáhnout PDF (8 MB)
-      </a>
-      <a href="https://datastudio.google.com/s/mxk7x__LZk0" target="_blank" rel="noopener"
-         style="padding:14px 24px;background:rgba(148,163,184,0.1);color:#cbd5e1;text-decoration:none;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1px solid #475569">
-        🔗 Živý Looker report
-      </a>
-    </div>
+  <div class="chart-card">
+    <h3>1️⃣ Klíčová čísla celkem (6 let)</h3>
+    <div class="metrics-grid" id="agency-totals-grid"></div>
+  </div>
 
-    <h4 style="color:#f1f5f9;margin:24px 0 12px;font-size:16px">Klíčová čísla z agenturního reportu (2020–2026)</h4>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px">
-      <div style="background:rgba(15,23,42,0.5);padding:14px;border-radius:8px;border:1px solid #334155">
-        <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Celkový spend (6 let)</div>
-        <div style="font-size:24px;font-weight:700;color:#f1f5f9;margin-top:6px">2 249 804 Kč</div>
-        <div style="color:#64748b;font-size:11px;margin-top:2px">PPC google + seznam</div>
-      </div>
-      <div style="background:rgba(15,23,42,0.5);padding:14px;border-radius:8px;border:1px solid #334155">
-        <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Celkový obrat PPC</div>
-        <div style="font-size:24px;font-weight:700;color:#10b981;margin-top:6px">5 918 624 Kč</div>
-        <div style="color:#64748b;font-size:11px;margin-top:2px">dle agenturního trackingu</div>
-      </div>
-      <div style="background:rgba(15,23,42,0.5);padding:14px;border-radius:8px;border:1px solid #334155">
-        <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Průměrný PNO</div>
-        <div style="font-size:24px;font-weight:700;color:#f59e0b;margin-top:6px">38 %</div>
-        <div style="color:#64748b;font-size:11px;margin-top:2px">ROAS ~2,6× (6letý avg)</div>
-      </div>
-      <div style="background:rgba(15,23,42,0.5);padding:14px;border-radius:8px;border:1px solid #334155">
-        <div style="color:#94a3b8;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">Google Ads 2024-2025</div>
-        <div style="font-size:24px;font-weight:700;color:#f1f5f9;margin-top:6px">2 157 obj.</div>
-        <div style="color:#64748b;font-size:11px;margin-top:2px">dle agentury, 12 měsíců</div>
-      </div>
-      <div style="background:rgba(220,38,38,0.1);padding:14px;border-radius:8px;border:1px solid #dc2626">
-        <div style="color:#fca5a5;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">🔴 Organic obrat (14M)</div>
-        <div style="font-size:24px;font-weight:700;color:#fca5a5;margin-top:6px">14 899 Kč</div>
-        <div style="color:#fca5a5;font-size:11px;margin-top:2px">absurdně nízké — tracking rozbitý</div>
-      </div>
-      <div style="background:rgba(220,38,38,0.1);padding:14px;border-radius:8px;border:1px solid #dc2626">
-        <div style="color:#fca5a5;font-size:11px;text-transform:uppercase;letter-spacing:0.5px">🔴 Organic purchase conv. rate</div>
-        <div style="font-size:24px;font-weight:700;color:#fca5a5;margin-top:6px">0,01 %</div>
-        <div style="color:#fca5a5;font-size:11px;margin-top:2px">258 nákupů / 43 589 návštěv</div>
-      </div>
+  <div class="chart-card">
+    <h3>2️⃣ Roční spend (odhad z PDF grafů)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-agency-yearly">
+        <thead>
+          <tr>
+            <th>Rok</th>
+            <th style="text-align:right">Spend Kč (odhad)</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
+    <p style="color:#64748b;font-size:12px;margin-top:10px">
+      ℹ️ Přesná roční data vyžadují export z Looker Studio (Agenda → Table → Export CSV).
+      PDF obsahuje jen sloupcové grafy ze kterých odečíst bez tabulky je obtížné.
+    </p>
+  </div>
 
-    <div style="background:rgba(220,38,38,0.1);border:1px solid #dc2626;border-radius:8px;padding:16px;font-size:13px;color:#fca5a5;margin-bottom:16px">
-      <strong>⚠️ Kritický nález z agenturního reportu:</strong> Organic traffic ukazuje 43 589 návštěv za 14 měsíců, ale jen <strong>14 899 Kč obrat</strong> a <strong>0,01 % conv. rate</strong>. To je <strong>důkaz, že tracking je rozbitý napříč všemi kanály</strong> — SQL DB ukazuje 1,38 M Kč B2C obratu za 7 měsíců, drtivá většina přichází přes organic / direct.
-    </div>
-    <div style="background:rgba(245,158,11,0.1);border:1px solid #f59e0b;border-radius:8px;padding:14px;font-size:13px;color:#fcd34d">
-      <strong>⚠️ Embed Looker nefunguje</strong> — vlastník reportu zakázal zobrazení na jiných webech.
-      V Looker Studio: <code style="background:rgba(0,0,0,0.3);padding:2px 6px;border-radius:4px;margin:0 4px">File → Report settings → Embed → Allow embedding</code>
-      Pokud nemáš práva, požádej agenturu (nebo si udělej vlastní kopii reportu).
+  <div class="chart-card">
+    <h3>3️⃣ PNO brand vs non-brand (audit period 7 měsíců)</h3>
+    <div class="metrics-grid" id="agency-pno-grid"></div>
+    <p style="color:#64748b;font-size:12px;margin-top:10px">
+      💡 Kritický insight: Brand kampaně (ROAS 6,86×, PNO 14,6 %) drží overall ROAS nahoře.
+      Bez brand kampaní je non-brand ROAS 4,07× — což je stále OK, ale ne 38 %/2,63× jak agentura reportuje.
+      <strong>Rozpor = agenturní report měří na nafouknutých konverzích (nález #1).</strong>
+    </p>
+  </div>
+
+  <div class="chart-card">
+    <h3>4️⃣ Audit agenturního Lookeru — identifikované problémy</h3>
+    <div id="agency-audit-issues"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>5️⃣ Doporučená KPI k doplnění do Lookeru</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-agency-recommend">
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Vzorec / definice</th>
+            <th>Aktuální stav</th>
+            <th>Cíl</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
   </div>
 </section>
 
 <section id="products-view" class="view-section hidden">
+  <div class="chart-card" id="shipping-box" style="background:rgba(245,158,11,0.08);border-color:#f59e0b"></div>
+
   <div class="chart-card">
-    <h3>📦 Top 20 produktů — rozpad obratu podle kanálu</h3>
+    <h3>📦 Top 20 produktů — rozpad obratu podle kanálu (bez poštovného)</h3>
     <div class="data-filters">
       <select id="prod-category">
         <option value="all">Všechny kategorie</option>
@@ -1343,6 +1348,7 @@ document.querySelectorAll('.tab').forEach(tab => {
       loadProducts();
     } else if (tab.dataset.view === 'looker') {
       showView('looker');
+      loadAgencyKpi();
     } else if (tab.dataset.view === 'kpi') {
       showView('kpi');
       loadKpi();
@@ -1474,7 +1480,28 @@ function renderProducts() {
   const venF = document.getElementById('prod-vendor').value;
   const chF  = document.getElementById('prod-channel').value;
 
+  // Poštovné oddělit — není to produkt, je to poplatek
+  const isShipping = p => p.name.toLowerCase().includes('poštovné') || p.sku === '900033';
+  const shipping = productsData.products.filter(isShipping);
+  const shippingTotal = shipping.reduce((s, p) => s + p.total_revenue, 0);
+  const shippingQty = shipping.reduce((s, p) => s + p.total_qty, 0);
+
+  // Zobraz poštovné v samostatné kartě
+  const shipBox = document.getElementById('shipping-box');
+  if (shipBox) {
+    shipBox.innerHTML = shipping.length > 0 ? `
+      <div class="metric-label">🚚 Poštovné (mimo produkty)</div>
+      <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:8px">
+        <div><span style="color:#64748b;font-size:11px">Obrat</span><div style="font-size:22px;font-weight:700;color:#f1f5f9">${Math.round(shippingTotal).toLocaleString('cs-CZ')} Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Zásilek</span><div style="font-size:22px;font-weight:700;color:#f1f5f9">${Math.round(shippingQty).toLocaleString('cs-CZ')}</div></div>
+        <div><span style="color:#64748b;font-size:11px">Průměr</span><div style="font-size:22px;font-weight:700;color:#f1f5f9">${shippingQty > 0 ? Math.round(shippingTotal/shippingQty) : 0} Kč/zásilka</div></div>
+      </div>
+      <div style="color:#94a3b8;font-size:12px;margin-top:6px">Poplatek za dopravu, není to prodávaný produkt — vyloučeno z grafu + tabulky top 50</div>
+    ` : '';
+  }
+
   const filtered = productsData.products.filter(p =>
+    !isShipping(p) &&
     (catF === 'all' || p.category === catF) &&
     (venF === 'all' || p.vendor === venF) &&
     (chF === 'all'  || p.primary_channel === chF)
@@ -1680,6 +1707,101 @@ function renderKpi() {
       <div style="color:#94a3b8;font-size:11px;margin-top:4px">7 měsíců · ~2,59 M Kč/rok extrapolace · neuvažováno B2B hbgroup.cz (4,86 M paralelně)</div>
     </div>
   `;
+}
+
+// ─── AGENCY LOOKER KPI ─────────────────────────────────────────
+let agencyKpiData = null;
+async function loadAgencyKpi() {
+  if (!agencyKpiData) {
+    try {
+      const res = await fetch('data/agency_kpi.json');
+      agencyKpiData = await res.json();
+    } catch (e) { console.error(e); return; }
+  }
+  renderAgencyKpi();
+}
+
+function renderAgencyKpi() {
+  const d = agencyKpiData;
+  const fmt = n => (n == null ? '—' : Number(n).toLocaleString('cs-CZ'));
+
+  // 1️⃣ Celkové
+  const t = d.total_2020_2026;
+  document.getElementById('agency-totals-grid').innerHTML = `
+    <div class="metric-box"><div class="metric-label">Celkový spend</div>
+      <div class="metric-value">${fmt(t.spend)} Kč</div>
+      <div style="color:#64748b;font-size:11px">PPC google + seznam</div></div>
+    <div class="metric-box"><div class="metric-label">Celkový obrat PPC</div>
+      <div class="metric-value" style="color:#10b981">${fmt(t.revenue_ppc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">dle agenturního tracking</div></div>
+    <div class="metric-box"><div class="metric-label">Celkový PNO</div>
+      <div class="metric-value" style="color:#f59e0b">${t.pno_pct} %</div>
+      <div style="color:#64748b;font-size:11px">ROAS ${t.roas}×</div></div>
+    <div class="metric-box"><div class="metric-label">Impressions</div>
+      <div class="metric-value">${fmt(t.impressions)}</div>
+      <div style="color:#64748b;font-size:11px">CTR ${t.ctr_pct} %</div></div>
+    <div class="metric-box"><div class="metric-label">Kliky</div>
+      <div class="metric-value">${fmt(t.clicks)}</div>
+      <div style="color:#64748b;font-size:11px">CPC ${t.cpc_kc} Kč</div></div>
+  `;
+
+  // 2️⃣ Roční spend
+  const ye = d.yearly_spend_approx;
+  const rows = [];
+  for (const yr of Object.keys(ye).filter(k => !k.startsWith('_')).sort()) {
+    rows.push(`<tr>
+      <td><strong>${yr}</strong></td>
+      <td class="num">${fmt(ye[yr].spend_est)}</td>
+      <td style="font-size:12px;color:#94a3b8">${ye[yr].source}</td>
+    </tr>`);
+  }
+  document.querySelector('#table-agency-yearly tbody').innerHTML = rows.join('');
+
+  // 3️⃣ PNO brand vs non-brand
+  const p = d.pno_breakdown_audit_period;
+  document.getElementById('agency-pno-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(59,130,246,0.1);border-color:#3b82f6">
+      <div class="metric-label">Celkem (audit 7M)</div>
+      <div class="metric-value" style="color:#93c5fd">${p.total.pno_pct} %</div>
+      <div style="color:#64748b;font-size:11px">ROAS ${p.total.roas}× · spend ${fmt(p.total.spend)}</div>
+    </div>
+    <div class="metric-box" style="background:rgba(16,185,129,0.1);border-color:#10b981">
+      <div class="metric-label">🟢 Brand kampaně</div>
+      <div class="metric-value" style="color:#10b981">${p.brand_only.pno_pct} %</div>
+      <div style="color:#64748b;font-size:11px">ROAS ${p.brand_only.roas}× · spend ${fmt(p.brand_only.spend)}</div>
+    </div>
+    <div class="metric-box" style="background:rgba(245,158,11,0.1);border-color:#f59e0b">
+      <div class="metric-label">🟡 Non-brand</div>
+      <div class="metric-value" style="color:#fcd34d">${p.without_brand.pno_pct} %</div>
+      <div style="color:#64748b;font-size:11px">ROAS ${p.without_brand.roas}× · spend ${fmt(p.without_brand.spend)}</div>
+    </div>
+  `;
+
+  // 4️⃣ Audit issues
+  const issues = d.agency_looker_audit.issues;
+  document.getElementById('agency-audit-issues').innerHTML = issues.map(i => {
+    const color = i.severity === 'P0' ? '#dc2626' : (i.severity === 'P1' ? '#ea580c' : '#ca8a04');
+    const bg = i.severity === 'P0' ? 'rgba(220,38,38,0.1)' : (i.severity === 'P1' ? 'rgba(234,88,12,0.1)' : 'rgba(202,138,4,0.1)');
+    return `<div style="background:${bg};border-left:3px solid ${color};padding:14px;border-radius:6px;margin-bottom:10px">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
+        <span style="background:${color};color:white;padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">${i.severity}</span>
+        <strong style="color:#f1f5f9;font-size:15px">${i.issue}</strong>
+      </div>
+      <div style="color:#cbd5e1;font-size:13px;margin-bottom:6px">${i.detail}</div>
+      <div style="color:#94a3b8;font-size:12px"><strong style="color:#10b981">Fix:</strong> ${i.fix}</div>
+    </div>`;
+  }).join('');
+
+  // 5️⃣ Doporučená KPI
+  const recs = d.agency_looker_audit.recommended_new_kpis;
+  document.querySelector('#table-agency-recommend tbody').innerHTML = recs.map(r => `
+    <tr>
+      <td><strong>${r.kpi}</strong></td>
+      <td style="font-size:12px;color:#94a3b8">${r.formula}</td>
+      <td class="num bad">${r.current}</td>
+      <td class="num good">${r.target}</td>
+    </tr>
+  `).join('');
 }
 
 // priority filter

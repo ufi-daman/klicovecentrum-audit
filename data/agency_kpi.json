@@ -1,0 +1,119 @@
+{
+  "period": "2020-01-01 to 2026-04-22",
+  "source": "Looker Studio export (82 stran PDF)",
+  "generated_from_pdf": "Klíčové_centrum_2026.pdf",
+  "total_2020_2026": {
+    "spend": 2249804,
+    "impressions": 40167604,
+    "clicks": 633896,
+    "ctr_pct": 1.58,
+    "cpc_kc": 3.55,
+    "revenue_ppc": 5918624,
+    "pno_pct": 38.01,
+    "roas": 2.63,
+    "note": "6letá agregace z první stránky PDF 'Data PPC / Celkový součet'"
+  },
+  "yearly_spend_approx": {
+    "_note": "Odhad z PDF grafů (roční sloupcové grafy). Přesné čísla vyžadují export z Looker Studio (Agenda/tabulka).",
+    "2020": { "spend_est": 280000, "source": "8 měsíců v PDF (leden-červenec), extrapolace" },
+    "2021": { "spend_est": 310000, "source": "z grafu" },
+    "2022": { "spend_est": 340000, "source": "z grafu (2020-2022 jsou menší)" },
+    "2023": { "spend_est": 430000, "source": "z ročního grafu - vyšší sloupce" },
+    "2024": { "spend_est": 430000, "source": "z grafu" },
+    "2025": { "spend_est": 400000, "source": "z grafu" },
+    "2026": {
+      "spend_est": 150000,
+      "source": "jen Q1+duben, extrapolace na rok 450 k Kč",
+      "q1_plus_apr": true
+    }
+  },
+  "brand_campaigns_identified": [
+    "0 VG Brand (Sklik)",
+    "P4M_GA_CZ_CZ_BR_SR_All (Google Ads)",
+    "1 VG PLA Brands High (Sklik, 2020)",
+    "OS_Klicovecentrum.cz_Praha (Sklik OldSystem)",
+    "OS_Klicovecentrum.cz_Ostrava (Sklik OldSystem)",
+    "VS_Klicovecentrum.cz_reg._* (Sklik, brand + kategorie)"
+  ],
+  "pno_breakdown_audit_period": {
+    "_note": "Audit period only (říjen 2025 - duben 2026), 7 měsíců. Vypočteno z campaigns.json.",
+    "total": {
+      "spend": 282858,
+      "value": 1237205,
+      "pno_pct": 22.9,
+      "roas": 4.37
+    },
+    "brand_only": {
+      "spend": 30694,
+      "value": 210468,
+      "pno_pct": 14.6,
+      "roas": 6.86,
+      "campaigns": ["0 VG Brand (Sklik)", "P4M_GA_CZ_CZ_BR_SR_All (GAds)"]
+    },
+    "without_brand": {
+      "spend": 252164,
+      "value": 1026737,
+      "pno_pct": 24.6,
+      "roas": 4.07,
+      "note": "Bez brand kampaní ROAS klesá z 4,37× na 4,07× — brand nese ~6 % ROAS overall"
+    }
+  },
+  "agency_looker_audit": {
+    "issues": [
+      {
+        "severity": "P0",
+        "issue": "Organic tracking rozbitý",
+        "detail": "Ukazuje 14 899 Kč obrat / 14 měsíců, reálně jen SQL B2C dělá 1,38 M Kč za 7 měsíců. Organic = 30-40 % e-shop provozu → should be ~400 k Kč + v audit period",
+        "fix": "Konfigurovat GA4 purchase event správně (transaction_id, value, currency, items[]). Připojit GA4 k Looker přes GA4 konektor, ne UA."
+      },
+      {
+        "severity": "P0",
+        "issue": "Direct (none) v březnu 2026 1,5 M sessions — není flagováno",
+        "detail": "Agentura reportuje 1 543 120 direct sessions v březnu, ale nekomunikuje bot útok klientovi",
+        "fix": "Přidat do Looker alert card: 'Session spike >300 % vs 7-day avg' s automatickou notifikací"
+      },
+      {
+        "severity": "P1",
+        "issue": "PNO počítané z nafouknutých konverzí (micro-events jako primary)",
+        "detail": "Agentura reportuje PNO 38 % jako 6letý avg, ale zahrnuje time_on_web-180s a view_item jako konverze",
+        "fix": "Přepsat zdrojová data v Looker — použít pouze purchase event s transaction_id"
+      },
+      {
+        "severity": "P1",
+        "issue": "Chybí rozdělení brand vs non-brand PNO",
+        "detail": "Looker reportuje jen celkové PNO. Brand kampaně mají ROAS 6,86×, non-brand 4,07× — zásadní rozdíl",
+        "fix": "Přidat segment 'Campaign Type' s dimenzí Brand/Non-brand/Product/Local"
+      },
+      {
+        "severity": "P1",
+        "issue": "Neobsahuje SQL ground truth",
+        "detail": "Agentura nemá přístup k eshopovým SQL objednávkám, Looker počítá jen z GA4 → 46 % reality",
+        "fix": "Setup BigQuery export SQL objednávek + napojit do Looker jako 2. datasource"
+      },
+      {
+        "severity": "P2",
+        "issue": "Chybí Alza marketplace data",
+        "detail": "129 k Kč / 7M obratu z Alzy není v Looker (je to jiný systém)",
+        "fix": "Alza API → BigQuery → Looker panel 'Alza Marketplace'"
+      },
+      {
+        "severity": "P2",
+        "issue": "Chybí per-pobočka lokální KPI",
+        "detail": "GBP data (call rate, direction requests per pobočka) není v Looker",
+        "fix": "Google Business Profile API → BigQuery daily export"
+      }
+    ],
+    "recommended_new_kpis": [
+      { "kpi": "SQL vs GA4 gap %", "formula": "(SQL orders - GA4 purchase) / SQL orders", "current": "54 %", "target": "< 10 %" },
+      { "kpi": "Brand PNO vs Non-brand PNO", "formula": "split dle campaign_type", "current": "14.6 % vs 24.6 %", "target": "brand < 10 %, non-brand < 30 %" },
+      { "kpi": "Impression Share lost (budget)", "formula": "Sklik/GAds IS budget loss", "current": "92.5 % Sklik search", "target": "< 30 %" },
+      { "kpi": "Organic conversion rate", "formula": "purchase / sessions", "current": "0.01 %", "target": "> 1.5 %" },
+      { "kpi": "Bot session rate", "formula": "sessions where bounce>90% & duration<10s", "current": "neměří se", "target": "alert nad 5 %" },
+      { "kpi": "Feed health %", "formula": "OK products / total feed items", "current": "21 % (Zboží diagnostika)", "target": "> 80 %" },
+      { "kpi": "Store visits (GBP)", "formula": "GBP call + direction + website clicks", "current": "neměří se v Looker", "target": "per pobočka monthly trend" },
+      { "kpi": "LOCAL campaign ROAS", "formula": "jen kampaně targetované na pobočku", "current": "7.58× (Google Ads)", "target": "> 5×" },
+      { "kpi": "B2C vs B2B revenue split", "formula": "SQL web_id=1 vs web_id=2", "current": "1.38M vs 4.86M", "target": "trending both" },
+      { "kpi": "Alza marketplace AOV", "formula": "revenue / orders", "current": "271 Kč", "target": "> 400 Kč (zvýšit cross-sell)" }
+    ]
+  }
+}
