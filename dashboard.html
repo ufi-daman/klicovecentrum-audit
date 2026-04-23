@@ -1356,7 +1356,7 @@ let campaignsChart = null;
 async function loadCampaigns() {
   if (!campaignsData) {
     try {
-      const res = await fetch('data/campaigns.json');
+      const res = await fetch('data/campaigns.json?v=' + Date.now());
       campaignsData = await res.json();
     } catch (e) {
       console.error('Chyba načtení campaigns.json:', e);
@@ -1444,7 +1444,7 @@ let productsChart = null;
 async function loadProducts() {
   if (!productsData) {
     try {
-      const res = await fetch('data/products.json');
+      const res = await fetch('data/products.json?v=' + Date.now());
       productsData = await res.json();
       populateProductFilters();
     } catch (e) {
@@ -1582,7 +1582,7 @@ let kpiData = null;
 async function loadKpi() {
   if (!kpiData) {
     try {
-      const res = await fetch('data/kpi_breakdown.json');
+      const res = await fetch('data/kpi_breakdown.json?v=' + Date.now());
       kpiData = await res.json();
     } catch (e) {
       console.error('Chyba načtení kpi_breakdown.json:', e);
@@ -1703,7 +1703,7 @@ let agencyKpiData = null;
 async function loadAgencyKpi() {
   if (!agencyKpiData) {
     try {
-      const res = await fetch('data/agency_kpi.json');
+      const res = await fetch('data/agency_kpi.json?v=' + Date.now());
       agencyKpiData = await res.json();
     } catch (e) { console.error(e); return; }
   }
