@@ -533,14 +533,16 @@
   </div>
 
   <div class="chart-card">
-    <h3>3️⃣ Konverze — 3 zdroje pravdy (SQL vs agentura direct vs agentura organic)</h3>
+    <h3>3️⃣ Konverze — 4 zdroje pravdy (SQL × ERP × Ag. Direct × Ag. Organic)</h3>
     <div style="overflow-x:auto">
       <table class="data-table" id="table-conv-compare">
         <thead>
           <tr>
             <th>Měsíc</th>
-            <th style="text-align:right">SQL B2C obj.</th>
-            <th style="text-align:right">SQL obrat Kč</th>
+            <th style="text-align:right">SQL obj.</th>
+            <th style="text-align:right">SQL obrat</th>
+            <th style="text-align:right">ERP obrat</th>
+            <th style="text-align:right">ERP marže %</th>
             <th style="text-align:right">Ag. Direct sess.</th>
             <th style="text-align:right">Ag. Direct nákupy</th>
             <th style="text-align:right">Ag. Organic sess.</th>
@@ -1613,7 +1615,7 @@ function renderKpi() {
     </tr>
   `).join('');
 
-  // Tabulka 3: konverze porovnání
+  // Tabulka 3: konverze porovnání (SQL + ERP + Direct + Organic)
   const compare = kpiData.summary_tables.conversions_comparison;
   document.querySelector('#table-conv-compare tbody').innerHTML = compare.map(c => {
     const directSessions = c.agency_direct_sessions || 0;
@@ -1622,6 +1624,8 @@ function renderKpi() {
       <td>${c.month}</td>
       <td class="num good">${fmt(c.sql_b2c)}</td>
       <td class="num">${fmt(c.sql_revenue)}</td>
+      <td class="num">${fmt(c.erp_revenue)}</td>
+      <td class="num">${c.erp_margin != null ? c.erp_margin.toFixed(1) + ' %' : '—'}</td>
       <td class="num ${directSessions > 100000 ? 'bad' : ''}">${fmt(c.agency_direct_sessions)}</td>
       <td class="num">${fmt(c.agency_direct_purchases)}</td>
       <td class="num">${fmt(c.agency_organic_sessions)}</td>
@@ -1630,32 +1634,45 @@ function renderKpi() {
     </tr>`;
   }).join('');
 
-  // Summary grid - 4 zdroje obratu
+  // Summary grid - 5 zdrojů obratu (vč. ERP)
   const sql = kpiData.sql_ground_truth_b2c.total;
+  const erp = kpiData.erp_mo_eshop.total;
   const alza = kpiData.alza_marketplace.total;
   const direct = kpiData.traffic_sources_agency_pdf.direct_none.total;
   const organic = kpiData.traffic_sources_agency_pdf.organic.total;
+  const gap = sql.revenue_excl - erp.revenue_excl;
+  const gapPct = (gap / sql.revenue_excl * 100).toFixed(1);
 
   document.getElementById('kpi-summary-grid').innerHTML = `
     <div class="metric-box">
-      <div class="metric-label">SQL B2C obrat</div>
+      <div class="metric-label">SQL B2C obrat (ground truth)</div>
       <div class="metric-value" style="color:#10b981">${fmt(sql.revenue_excl)} Kč</div>
       <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(sql.orders)} obj. · AOV ${Math.round(sql.revenue_excl/sql.orders)} Kč</div>
     </div>
     <div class="metric-box">
+      <div class="metric-label">ERP MO e-shop</div>
+      <div class="metric-value" style="color:#3b82f6">${fmt(erp.revenue_excl)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">zisk ${fmt(erp.profit)} · marže ${erp.margin_pct}% · ${fmt(erp.sales_lines)} řádků</div>
+    </div>
+    <div class="metric-box">
       <div class="metric-label">Alza marketplace</div>
       <div class="metric-value" style="color:#f59e0b">${fmt(Math.round(alza.revenue_excl))} Kč</div>
-      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(alza.orders)} obj. · mimo ERP/SQL B2C</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(alza.orders)} obj. · paralelně mimo ERP</div>
     </div>
     <div class="metric-box">
       <div class="metric-label">Ag. Direct obrat (včetně bot)</div>
       <div class="metric-value" style="color:#ef4444">${fmt(direct.revenue)} Kč</div>
-      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(direct.purchases)} nákupů · 1,79 M sessions z toho bot</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(direct.purchases)} nákupů · 1,79 M sessions bot</div>
     </div>
     <div class="metric-box">
       <div class="metric-label">Ag. Organic obrat</div>
       <div class="metric-value" style="color:#ef4444">${fmt(organic.revenue)} Kč</div>
       <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(organic.purchases)} nákupů — <b>tracking rozbit</b></div>
+    </div>
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(59,130,246,0.1);border-color:#3b82f6">
+      <div class="metric-label">SQL vs ERP gap</div>
+      <div class="metric-value" style="color:#93c5fd">+${fmt(gap)} Kč (${gapPct} %)</div>
+      <div style="color:#94a3b8;font-size:11px;margin-top:4px">ERP je filtrovaný jen na „MO" maloobchod — SQL zahrnuje všechny typy objednávek</div>
     </div>
     <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.1);border-color:#10b981">
       <div class="metric-label">Celkový skutečný obrat (SQL B2C + Alza)</div>

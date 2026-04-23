@@ -226,6 +226,74 @@
     },
     "note": "Kompletní seznam objednávek z kosik tabulky (web_id=1), AOV 992 Kč"
   },
+  "erp_mo_eshop": {
+    "total": {
+      "revenue_excl": 1170741,
+      "profit": 692432,
+      "qty": 8436,
+      "sales_lines": 2567,
+      "margin_pct": 59.1
+    },
+    "monthly": {
+      "2025-10": {
+        "revenue_excl": 277707,
+        "profit": 150405,
+        "margin_pct": 54.2,
+        "qty": 2034,
+        "sales_lines": 370,
+        "products": 207
+      },
+      "2025-11": {
+        "revenue_excl": 143464,
+        "profit": 84291,
+        "margin_pct": 58.8,
+        "qty": 914,
+        "sales_lines": 330,
+        "products": 182
+      },
+      "2025-12": {
+        "revenue_excl": 156718,
+        "profit": 101228,
+        "margin_pct": 64.6,
+        "qty": 1022,
+        "sales_lines": 518,
+        "products": 231
+      },
+      "2026-01": {
+        "revenue_excl": 179847,
+        "profit": 107628,
+        "margin_pct": 59.8,
+        "qty": 1526,
+        "sales_lines": 558,
+        "products": 257
+      },
+      "2026-02": {
+        "revenue_excl": 175098,
+        "profit": 108656,
+        "margin_pct": 62.1,
+        "qty": 1532,
+        "sales_lines": 361,
+        "products": 187
+      },
+      "2026-03": {
+        "revenue_excl": 130138,
+        "profit": 71100,
+        "margin_pct": 54.6,
+        "qty": 775,
+        "sales_lines": 211,
+        "products": 115
+      },
+      "2026-04": {
+        "revenue_excl": 107769,
+        "profit": 69124,
+        "margin_pct": 64.1,
+        "qty": 633,
+        "sales_lines": 219,
+        "products": 129
+      }
+    },
+    "note": "ERP export prodejů MO e-shop (řádky, ne objednávky). Gap vs SQL = ~18 % (ERP filtruje jen maloobchod)"
+  },
   "alza_marketplace": {
     "total": {
       "orders": 602,
@@ -328,6 +396,9 @@
         "month": "2025-10",
         "sql_b2c": 207,
         "sql_revenue": 305835,
+        "erp_revenue": 277707,
+        "erp_profit": 150405,
+        "erp_margin": 54.2,
         "agency_direct_sessions": null,
         "agency_direct_purchases": null,
         "agency_organic_sessions": 1704,
@@ -337,6 +408,9 @@
         "month": "2025-11",
         "sql_b2c": 189,
         "sql_revenue": 169809,
+        "erp_revenue": 143464,
+        "erp_profit": 84291,
+        "erp_margin": 58.8,
         "agency_direct_sessions": 18636,
         "agency_direct_purchases": 11,
         "agency_organic_sessions": 1470,
@@ -346,6 +420,9 @@
         "month": "2025-12",
         "sql_b2c": 303,
         "sql_revenue": 197654,
+        "erp_revenue": 156718,
+        "erp_profit": 101228,
+        "erp_margin": 64.6,
         "agency_direct_sessions": 17618,
         "agency_direct_purchases": 9,
         "agency_organic_sessions": 1437,
@@ -355,6 +432,9 @@
         "month": "2026-01",
         "sql_b2c": 276,
         "sql_revenue": 221056,
+        "erp_revenue": 179847,
+        "erp_profit": 107628,
+        "erp_margin": 59.8,
         "agency_direct_sessions": 28216,
         "agency_direct_purchases": 10,
         "agency_organic_sessions": 1710,
@@ -364,6 +444,9 @@
         "month": "2026-02",
         "sql_b2c": 190,
         "sql_revenue": 241853,
+        "erp_revenue": 175098,
+        "erp_profit": 108656,
+        "erp_margin": 62.1,
         "agency_direct_sessions": 24524,
         "agency_direct_purchases": 8,
         "agency_organic_sessions": 1819,
@@ -373,6 +456,9 @@
         "month": "2026-03",
         "sql_b2c": 189,
         "sql_revenue": 207174,
+        "erp_revenue": 130138,
+        "erp_profit": 71100,
+        "erp_margin": 54.6,
         "agency_direct_sessions": 1543120,
         "agency_direct_purchases": 26,
         "agency_organic_sessions": 1628,
@@ -382,6 +468,9 @@
         "month": "2026-04",
         "sql_b2c": 44,
         "sql_revenue": 39827,
+        "erp_revenue": 107769,
+        "erp_profit": 69124,
+        "erp_margin": 64.1,
         "agency_direct_sessions": 161580,
         "agency_direct_purchases": 12,
         "agency_organic_sessions": 2610,
