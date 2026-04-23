@@ -161,6 +161,58 @@
       { "kpi": "LOCAL campaign ROAS", "formula": "jen kampaně targetované na pobočku", "current": "7.58× (Google Ads)", "target": "> 5×" },
       { "kpi": "B2C vs B2B revenue split", "formula": "SQL web_id=1 vs web_id=2", "current": "1.38M vs 4.86M", "target": "trending both" },
       { "kpi": "Alza marketplace AOV", "formula": "revenue / orders", "current": "271 Kč", "target": "> 400 Kč (zvýšit cross-sell)" }
+    ],
+    "kpi_to_deprioritize": [
+      {
+        "kpi": "Celková zobrazení (impressions)",
+        "reason": "Vanity metrika — 40 M imp za 6 let nic neříká o obchodním dopadu. Bez ROAS/konverze je to jen reach.",
+        "instead": "Impressions per kategorie + impression share (kolik % IS zabíráš vs konkurence)"
+      },
+      {
+        "kpi": "Celkové CTR (všechny kampaně)",
+        "reason": "Míchá brand (CTR 20-30 %) + display (CTR 0,6 %) — výsledek 1,58 % je meaningless avg.",
+        "instead": "CTR per campaign type (brand / non-brand search / display / shopping)"
+      },
+      {
+        "kpi": "Průměrné CPC celkem",
+        "reason": "Agregát přes display (1-3 Kč) + search (5-10 Kč). Bez kontextu nepoužitelné.",
+        "instead": "CPC per campaign + IS vs quality score per ad group"
+      },
+      {
+        "kpi": "6letý PNO průměr (38 %)",
+        "reason": "Zahrnuje roky 2020-2022 se špatným trackingem (PNO 88 000 % apod.). Nereprezentuje aktuální stav.",
+        "instead": "Rolling 12M PNO nebo YoY comparison brand vs non-brand"
+      },
+      {
+        "kpi": "Bounce rate GA4 (obecný)",
+        "reason": "Zkreslený bot traffic (březen +54 %). Sám o sobě nic neříká — low bounce = ať na landing page mají něco ke čtení, ne nutně že koupí.",
+        "instead": "Engagement rate GA4 (≥10s or conversion) + per channel rozpad"
+      },
+      {
+        "kpi": "Session duration / Pages per session",
+        "reason": "Agentura může ukázat 3 min průměr = stejně dělají i boti. Nic neřekne o nákupním záměru.",
+        "instead": "Scroll depth + add_to_cart + begin_checkout funnel"
+      },
+      {
+        "kpi": "Direct traffic (none) bez bot filtru",
+        "reason": "90 % 'Direct' v GA4 je bot. Samotné číslo bez filtru klame. V březnu 1,5 M sessions direct = boti, ne klienti.",
+        "instead": "Direct filtered (min 10s engagement) + referral exclusion klicovecentrum.cz"
+      },
+      {
+        "kpi": "Organic sessions bez konverzí",
+        "reason": "Agentura reportuje 43 589 organic návštěv. Bez purchase tracking (#1) je to vanity — 0,01 % conv rate znamená že neumíš měřit.",
+        "instead": "Organic → qualified sessions (scroll 50% + visit ≥2 pages) + click → add_to_cart rate"
+      },
+      {
+        "kpi": "Počet kampaní celkem",
+        "reason": "GAds má 113 kampaní, z toho 103 removed od 2018. Počet nerozhoduje. Jen aktivní kampaně s výsledky.",
+        "instead": "Aktivní kampaně s minimálním spendem (>1000 Kč/měs) + jejich ROAS"
+      },
+      {
+        "kpi": "Měsíční trend celkového obratu PPC",
+        "reason": "Pokud je tracking rozbitý, graf 'obrat PPC po měsících' ukazuje jen když tracking selže, ne když prodej klesne.",
+        "instead": "SQL obrat per měsíc jako ground truth + % z PPC (kolik si PPC atribuje)"
+      }
     ]
   }
 }

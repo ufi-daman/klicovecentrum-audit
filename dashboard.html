@@ -607,6 +607,15 @@
       </table>
     </div>
   </div>
+
+  <div class="chart-card">
+    <h3>5️⃣ KPI které není třeba reportovat (vanity metriky)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Metriky, které agentura dnes reportuje, ale nemají actionable hodnotu pro klienta —
+      buď klamou (bot/tracking zkreslení), nebo bez kontextu neinformují.
+    </p>
+    <div id="agency-deprioritize-list"></div>
+  </div>
 </section>
 
 <section id="products-view" class="view-section hidden">
@@ -1814,7 +1823,7 @@ function renderAgencyKpi() {
     </div>`;
   }).join('');
 
-  // 5️⃣ Doporučená KPI
+  // 4️⃣ Doporučená KPI
   const recs = d.agency_looker_audit.recommended_new_kpis;
   document.querySelector('#table-agency-recommend tbody').innerHTML = recs.map(r => `
     <tr>
@@ -1823,6 +1832,21 @@ function renderAgencyKpi() {
       <td class="num bad">${r.current}</td>
       <td class="num good">${r.target}</td>
     </tr>
+  `).join('');
+
+  // 5️⃣ KPI k neřešení
+  const deprio = d.agency_looker_audit.kpi_to_deprioritize || [];
+  document.getElementById('agency-deprioritize-list').innerHTML = deprio.map(k => `
+    <div style="background:rgba(107,114,128,0.1);border-left:3px solid #6b7280;padding:14px;border-radius:6px;margin-bottom:10px">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
+        <span style="background:#6b7280;color:white;padding:3px 9px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">VANITY</span>
+        <strong style="color:#f1f5f9;font-size:15px">${k.kpi}</strong>
+      </div>
+      <div style="color:#cbd5e1;font-size:13px;margin-bottom:6px">
+        <strong style="color:#fca5a5">Proč neinformuje:</strong> ${k.reason}
+      </div>
+      <div style="color:#94a3b8;font-size:12px"><strong style="color:#10b981">Reportuj místo toho:</strong> ${k.instead}</div>
+    </div>
   `).join('');
 }
 
