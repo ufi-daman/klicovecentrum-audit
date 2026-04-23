@@ -577,27 +577,7 @@
   </div>
 
   <div class="chart-card">
-    <h3>2️⃣ Roční spend (odhad z PDF grafů)</h3>
-    <div style="overflow-x:auto">
-      <table class="data-table" id="table-agency-yearly">
-        <thead>
-          <tr>
-            <th>Rok</th>
-            <th style="text-align:right">Spend Kč (odhad)</th>
-            <th>Poznámka</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p style="color:#64748b;font-size:12px;margin-top:10px">
-      ℹ️ Přesná roční data vyžadují export z Looker Studio (Agenda → Table → Export CSV).
-      PDF obsahuje jen sloupcové grafy ze kterých odečíst bez tabulky je obtížné.
-    </p>
-  </div>
-
-  <div class="chart-card">
-    <h3>3️⃣ PNO brand vs non-brand (audit period 7 měsíců)</h3>
+    <h3>2️⃣ PNO brand vs non-brand (audit period 7 měsíců)</h3>
     <div class="metrics-grid" id="agency-pno-grid"></div>
     <p style="color:#64748b;font-size:12px;margin-top:10px">
       💡 Kritický insight: Brand kampaně (ROAS 6,86×, PNO 14,6 %) drží overall ROAS nahoře.
@@ -607,12 +587,12 @@
   </div>
 
   <div class="chart-card">
-    <h3>4️⃣ Audit agenturního Lookeru — identifikované problémy</h3>
+    <h3>3️⃣ Audit agenturního Lookeru — identifikované problémy</h3>
     <div id="agency-audit-issues"></div>
   </div>
 
   <div class="chart-card">
-    <h3>5️⃣ Doporučená KPI k doplnění do Lookeru</h3>
+    <h3>4️⃣ Doporučená KPI k doplnění do Lookeru</h3>
     <div style="overflow-x:auto">
       <table class="data-table" id="table-agency-recommend">
         <thead>
@@ -1745,19 +1725,7 @@ function renderAgencyKpi() {
       <div style="color:#64748b;font-size:11px">CPC ${t.cpc_kc} Kč</div></div>
   `;
 
-  // 2️⃣ Roční spend
-  const ye = d.yearly_spend_approx;
-  const rows = [];
-  for (const yr of Object.keys(ye).filter(k => !k.startsWith('_')).sort()) {
-    rows.push(`<tr>
-      <td><strong>${yr}</strong></td>
-      <td class="num">${fmt(ye[yr].spend_est)}</td>
-      <td style="font-size:12px;color:#94a3b8">${ye[yr].source}</td>
-    </tr>`);
-  }
-  document.querySelector('#table-agency-yearly tbody').innerHTML = rows.join('');
-
-  // 3️⃣ PNO brand vs non-brand
+  // 2️⃣ PNO brand vs non-brand
   const p = d.pno_breakdown_audit_period;
   document.getElementById('agency-pno-grid').innerHTML = `
     <div class="metric-box" style="background:rgba(59,130,246,0.1);border-color:#3b82f6">
