@@ -1,0 +1,392 @@
+{
+  "period": "2025-10-01 to 2026-04-22",
+  "months": 7,
+  "campaign_matrix": {
+    "Google Ads": {
+      "BRAND": {
+        "spend": 29000.0,
+        "clicks": 10030,
+        "impressions": 41539,
+        "conversions": 61.2,
+        "value": 170000.0,
+        "count": 1
+      },
+      "PRODUCT": {
+        "spend": 114000.0,
+        "clicks": 23928,
+        "impressions": 1318908,
+        "conversions": 448.0,
+        "value": 344000.0,
+        "count": 4
+      },
+      "LOCAL": {
+        "spend": 88000.0,
+        "clicks": 3125,
+        "impressions": 493285,
+        "conversions": 798.8,
+        "value": 667000.0,
+        "count": 5
+      }
+    },
+    "Sklik": {
+      "RTG": {
+        "spend": 4026.88,
+        "clicks": 1689,
+        "impressions": 360285,
+        "conversions": 27.0,
+        "value": 5139.0,
+        "count": 4
+      },
+      "BRAND": {
+        "spend": 1693.63,
+        "clicks": 1535,
+        "impressions": 6569,
+        "conversions": 43.0,
+        "value": 40468.0,
+        "count": 1
+      },
+      "PRODUCT": {
+        "spend": 30541.71,
+        "clicks": 5427,
+        "impressions": 232075,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 1
+      },
+      "LOCAL": {
+        "spend": 13445.829999999998,
+        "clicks": 4068,
+        "impressions": 479026,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 8
+      },
+      "SEARCH": {
+        "spend": 126.0,
+        "clicks": 126,
+        "impressions": 19568,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 1
+      }
+    },
+    "Heuréka": {
+      "PRODUCT": {
+        "spend": 6900.54,
+        "clicks": 1106,
+        "impressions": 0,
+        "conversions": 12.0,
+        "value": 10130.0,
+        "count": 1
+      },
+      "SEARCH": {
+        "spend": 37.5,
+        "clicks": 10,
+        "impressions": 0,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 1
+      },
+      "RTG": {
+        "spend": 98.49000000000001,
+        "clicks": 40,
+        "impressions": 0,
+        "conversions": 0.0,
+        "value": 0.0,
+        "count": 2
+      }
+    }
+  },
+  "traffic_sources_agency_pdf": {
+    "direct_none": {
+      "total": {
+        "visits": 1793694,
+        "purchases": 76,
+        "revenue": 157687
+      },
+      "monthly": {
+        "2025-10": {
+          "visits": null,
+          "purchases": null,
+          "revenue": null
+        },
+        "2025-11": {
+          "visits": 18636,
+          "purchases": 11,
+          "revenue": 16936
+        },
+        "2025-12": {
+          "visits": 17618,
+          "purchases": 9,
+          "revenue": 18024
+        },
+        "2026-01": {
+          "visits": 28216,
+          "purchases": 10,
+          "revenue": 35538
+        },
+        "2026-02": {
+          "visits": 24524,
+          "purchases": 8,
+          "revenue": 5539
+        },
+        "2026-03": {
+          "visits": 1543120,
+          "purchases": 26,
+          "revenue": 60319
+        },
+        "2026-04": {
+          "visits": 161580,
+          "purchases": 12,
+          "revenue": 21331
+        }
+      },
+      "note": "Zahrnuje bot útok březen+duben 2026 (1,7M sessions)"
+    },
+    "organic": {
+      "total": {
+        "visits": 12378,
+        "purchases": 43,
+        "revenue": 1586
+      },
+      "monthly": {
+        "2025-10": {
+          "visits": 1704,
+          "purchases": 5,
+          "revenue": 177
+        },
+        "2025-11": {
+          "visits": 1470,
+          "purchases": 6,
+          "revenue": 47
+        },
+        "2025-12": {
+          "visits": 1437,
+          "purchases": 10,
+          "revenue": 420
+        },
+        "2026-01": {
+          "visits": 1710,
+          "purchases": 5,
+          "revenue": 0
+        },
+        "2026-02": {
+          "visits": 1819,
+          "purchases": 7,
+          "revenue": 735
+        },
+        "2026-03": {
+          "visits": 1628,
+          "purchases": 9,
+          "revenue": 185
+        },
+        "2026-04": {
+          "visits": 2610,
+          "purchases": 1,
+          "revenue": 22
+        }
+      },
+      "note": "Trackování organic je rozbité — purchases hlášeny 43, reálně přes organic nakupuje ~30–40 % zákazníků"
+    }
+  },
+  "sql_ground_truth_b2c": {
+    "total": {
+      "orders": 1398,
+      "revenue_excl": 1383208
+    },
+    "monthly": {
+      "2025-10": {
+        "orders": 207,
+        "revenue_excl": 305835
+      },
+      "2025-11": {
+        "orders": 189,
+        "revenue_excl": 169809
+      },
+      "2025-12": {
+        "orders": 303,
+        "revenue_excl": 197654
+      },
+      "2026-01": {
+        "orders": 276,
+        "revenue_excl": 221056
+      },
+      "2026-02": {
+        "orders": 190,
+        "revenue_excl": 241853
+      },
+      "2026-03": {
+        "orders": 189,
+        "revenue_excl": 207174
+      },
+      "2026-04": {
+        "orders": 44,
+        "revenue_excl": 39827
+      }
+    },
+    "note": "Kompletní seznam objednávek z kosik tabulky (web_id=1), AOV 992 Kč"
+  },
+  "alza_marketplace": {
+    "total": {
+      "orders": 602,
+      "revenue_excl": 129430.5752,
+      "qty": 703
+    },
+    "monthly": {
+      "2026-04": {
+        "orders": 46,
+        "revenue_excl": 5489.16,
+        "qty": 52
+      },
+      "2026-03": {
+        "orders": 82,
+        "revenue_excl": 10194.549999999997,
+        "qty": 92
+      },
+      "2026-02": {
+        "orders": 95,
+        "revenue_excl": 25360.132600000004,
+        "qty": 121
+      },
+      "2026-01": {
+        "orders": 143,
+        "revenue_excl": 18634.94999999999,
+        "qty": 156
+      },
+      "2025-12": {
+        "orders": 62,
+        "revenue_excl": 13327.900000000012,
+        "qty": 78
+      },
+      "2025-11": {
+        "orders": 119,
+        "revenue_excl": 37190.702600000004,
+        "qty": 141
+      },
+      "2025-10": {
+        "orders": 55,
+        "revenue_excl": 19233.179999999997,
+        "qty": 63
+      }
+    },
+    "note": "Paralelní kanál mimo ERP — FBA fulfillment"
+  },
+  "summary_tables": {
+    "traffic_by_source": [
+      {
+        "source": "Google Ads",
+        "spend": 232000,
+        "clicks": 37083,
+        "agency_conversions": null,
+        "sql_note": "Vidí PPC GAds aktivitu"
+      },
+      {
+        "source": "Sklik (vše)",
+        "spend": 49834,
+        "clicks": 12845,
+        "agency_conversions": 70,
+        "sql_note": "70 tracked konverzí z 12 845 kliků"
+      },
+      {
+        "source": "Heuréka",
+        "spend": 7037,
+        "clicks": 1156,
+        "agency_conversions": 12,
+        "sql_note": "12 orders, ROAS 1.44×"
+      },
+      {
+        "source": "Zboží.cz",
+        "spend": 31655,
+        "clicks": 5772,
+        "agency_conversions": 0,
+        "sql_note": "0 konverzí (OCM rozbitý)"
+      },
+      {
+        "source": "Direct (none)",
+        "spend": 0,
+        "clicks": 1793694,
+        "agency_conversions": 76,
+        "sql_note": "1,8M sessions z toho ~1,7M boti v březnu–dubnu"
+      },
+      {
+        "source": "Organic search",
+        "spend": 0,
+        "clicks": 12378,
+        "agency_conversions": 43,
+        "sql_note": "Trackování selhává"
+      },
+      {
+        "source": "Alza marketplace",
+        "spend": 0,
+        "clicks": null,
+        "agency_conversions": null,
+        "sql_note": "602 obj., 129,431 Kč"
+      }
+    ],
+    "conversions_comparison": [
+      {
+        "month": "2025-10",
+        "sql_b2c": 207,
+        "sql_revenue": 305835,
+        "agency_direct_sessions": null,
+        "agency_direct_purchases": null,
+        "agency_organic_sessions": 1704,
+        "agency_organic_purchases": 5
+      },
+      {
+        "month": "2025-11",
+        "sql_b2c": 189,
+        "sql_revenue": 169809,
+        "agency_direct_sessions": 18636,
+        "agency_direct_purchases": 11,
+        "agency_organic_sessions": 1470,
+        "agency_organic_purchases": 6
+      },
+      {
+        "month": "2025-12",
+        "sql_b2c": 303,
+        "sql_revenue": 197654,
+        "agency_direct_sessions": 17618,
+        "agency_direct_purchases": 9,
+        "agency_organic_sessions": 1437,
+        "agency_organic_purchases": 10
+      },
+      {
+        "month": "2026-01",
+        "sql_b2c": 276,
+        "sql_revenue": 221056,
+        "agency_direct_sessions": 28216,
+        "agency_direct_purchases": 10,
+        "agency_organic_sessions": 1710,
+        "agency_organic_purchases": 5
+      },
+      {
+        "month": "2026-02",
+        "sql_b2c": 190,
+        "sql_revenue": 241853,
+        "agency_direct_sessions": 24524,
+        "agency_direct_purchases": 8,
+        "agency_organic_sessions": 1819,
+        "agency_organic_purchases": 7
+      },
+      {
+        "month": "2026-03",
+        "sql_b2c": 189,
+        "sql_revenue": 207174,
+        "agency_direct_sessions": 1543120,
+        "agency_direct_purchases": 26,
+        "agency_organic_sessions": 1628,
+        "agency_organic_purchases": 9
+      },
+      {
+        "month": "2026-04",
+        "sql_b2c": 44,
+        "sql_revenue": 39827,
+        "agency_direct_sessions": 161580,
+        "agency_direct_purchases": 12,
+        "agency_organic_sessions": 2610,
+        "agency_organic_purchases": 1
+      }
+    ]
+  }
+}

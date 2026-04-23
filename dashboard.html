@@ -424,6 +424,7 @@
   <div class="tab" data-cat="alza">🛒 Alza marketplace <span class="tab-badge" id="count-alza">5</span></div>
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
+  <div class="tab" data-view="kpi">🎯 KPI rozpad</div>
   <div class="tab" data-view="looker">📈 Looker Studio (agentura)</div>
 </div>
 
@@ -481,6 +482,80 @@
         <tbody></tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<section id="kpi-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>🎯 Rozpad výkonu kanálů a kampaní (audit 7 měsíců)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:16px">
+      Konzolidovaný pohled: PPC kampaně podle kategorie × kanál, organic/direct z agenturního PDF, SQL ground truth, Alza.
+    </p>
+  </div>
+
+  <div class="chart-card">
+    <h3>1️⃣ PPC kampaně — matice kanál × kategorie</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-kpi-matrix">
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th>Kategorie</th>
+            <th style="text-align:right">Kampaní</th>
+            <th style="text-align:right">Spend Kč</th>
+            <th style="text-align:right">Kliky</th>
+            <th style="text-align:right">Konv.</th>
+            <th style="text-align:right">Hodnota Kč</th>
+            <th style="text-align:right">ROAS</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>2️⃣ Zdroje provozu — agenturní tracking (vše per 7 měsíců)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-sources">
+        <thead>
+          <tr>
+            <th>Zdroj</th>
+            <th style="text-align:right">Spend Kč</th>
+            <th style="text-align:right">Návštěvy / Kliky</th>
+            <th style="text-align:right">Konverze (ag.)</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>3️⃣ Konverze — 3 zdroje pravdy (SQL vs agentura direct vs agentura organic)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-conv-compare">
+        <thead>
+          <tr>
+            <th>Měsíc</th>
+            <th style="text-align:right">SQL B2C obj.</th>
+            <th style="text-align:right">SQL obrat Kč</th>
+            <th style="text-align:right">Ag. Direct sess.</th>
+            <th style="text-align:right">Ag. Direct nákupy</th>
+            <th style="text-align:right">Ag. Organic sess.</th>
+            <th style="text-align:right">Ag. Organic nákupy</th>
+            <th>Anomálie</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>4️⃣ Celkový souhrn obratu — 4 zdroje</h3>
+    <div class="metrics-grid" id="kpi-summary-grid"></div>
   </div>
 </section>
 
@@ -1249,6 +1324,7 @@ function showView(view) {
   document.getElementById('campaigns-view').classList.toggle('hidden', view !== 'campaigns');
   document.getElementById('products-view').classList.toggle('hidden', view !== 'products');
   document.getElementById('looker-view').classList.toggle('hidden', view !== 'looker');
+  document.getElementById('kpi-view').classList.toggle('hidden', view !== 'kpi');
 }
 
 // tabs
@@ -1265,6 +1341,9 @@ document.querySelectorAll('.tab').forEach(tab => {
       loadProducts();
     } else if (tab.dataset.view === 'looker') {
       showView('looker');
+    } else if (tab.dataset.view === 'kpi') {
+      showView('kpi');
+      loadKpi();
     } else {
       showView('findings');
       activeCategory = tab.dataset.cat;
@@ -1478,6 +1557,113 @@ function renderProducts() {
 document.getElementById('prod-category').addEventListener('change', renderProducts);
 document.getElementById('prod-vendor').addEventListener('change', renderProducts);
 document.getElementById('prod-channel').addEventListener('change', renderProducts);
+
+// ─── KPI BREAKDOWN VIEW ─────────────────────────────────────────
+let kpiData = null;
+
+async function loadKpi() {
+  if (!kpiData) {
+    try {
+      const res = await fetch('data/kpi_breakdown.json');
+      kpiData = await res.json();
+    } catch (e) {
+      console.error('Chyba načtení kpi_breakdown.json:', e);
+      return;
+    }
+  }
+  renderKpi();
+}
+
+function renderKpi() {
+  const fmt = n => (n == null ? '—' : Number(n).toLocaleString('cs-CZ'));
+
+  // Tabulka 1: matice kanál × kategorie
+  const matrix = kpiData.campaign_matrix;
+  const rows = [];
+  for (const ch of ['Google Ads', 'Sklik', 'Heuréka']) {
+    if (!matrix[ch]) continue;
+    for (const cat of ['SEARCH', 'PRODUCT', 'BRAND', 'LOCAL', 'RTG']) {
+      const m = matrix[ch][cat];
+      if (!m) continue;
+      const roas = m.spend ? m.value / m.spend : 0;
+      const roasCls = roas >= 3 ? 'good' : (roas >= 1 ? 'warn' : 'bad');
+      rows.push(`<tr>
+        <td>${ch}</td>
+        <td><span class="cat-badge cat-${cat}">${cat}</span></td>
+        <td class="num">${m.count}</td>
+        <td class="num">${fmt(Math.round(m.spend))}</td>
+        <td class="num">${fmt(m.clicks)}</td>
+        <td class="num">${fmt(Math.round(m.conversions))}</td>
+        <td class="num">${fmt(Math.round(m.value))}</td>
+        <td class="num ${roasCls}">${roas.toFixed(2)}×</td>
+      </tr>`);
+    }
+  }
+  document.querySelector('#table-kpi-matrix tbody').innerHTML = rows.join('');
+
+  // Tabulka 2: zdroje provozu
+  const sources = kpiData.summary_tables.traffic_by_source;
+  document.querySelector('#table-sources tbody').innerHTML = sources.map(s => `
+    <tr>
+      <td>${s.source}</td>
+      <td class="num">${fmt(Math.round(s.spend))}</td>
+      <td class="num">${fmt(s.clicks)}</td>
+      <td class="num">${fmt(s.agency_conversions)}</td>
+      <td style="font-size:12px;color:#94a3b8">${s.sql_note}</td>
+    </tr>
+  `).join('');
+
+  // Tabulka 3: konverze porovnání
+  const compare = kpiData.summary_tables.conversions_comparison;
+  document.querySelector('#table-conv-compare tbody').innerHTML = compare.map(c => {
+    const directSessions = c.agency_direct_sessions || 0;
+    const anomaly = directSessions > 100000 ? '<span class="bad">🚨 BOT ÚTOK</span>' : '';
+    return `<tr>
+      <td>${c.month}</td>
+      <td class="num good">${fmt(c.sql_b2c)}</td>
+      <td class="num">${fmt(c.sql_revenue)}</td>
+      <td class="num ${directSessions > 100000 ? 'bad' : ''}">${fmt(c.agency_direct_sessions)}</td>
+      <td class="num">${fmt(c.agency_direct_purchases)}</td>
+      <td class="num">${fmt(c.agency_organic_sessions)}</td>
+      <td class="num">${fmt(c.agency_organic_purchases)}</td>
+      <td>${anomaly}</td>
+    </tr>`;
+  }).join('');
+
+  // Summary grid - 4 zdroje obratu
+  const sql = kpiData.sql_ground_truth_b2c.total;
+  const alza = kpiData.alza_marketplace.total;
+  const direct = kpiData.traffic_sources_agency_pdf.direct_none.total;
+  const organic = kpiData.traffic_sources_agency_pdf.organic.total;
+
+  document.getElementById('kpi-summary-grid').innerHTML = `
+    <div class="metric-box">
+      <div class="metric-label">SQL B2C obrat</div>
+      <div class="metric-value" style="color:#10b981">${fmt(sql.revenue_excl)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(sql.orders)} obj. · AOV ${Math.round(sql.revenue_excl/sql.orders)} Kč</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Alza marketplace</div>
+      <div class="metric-value" style="color:#f59e0b">${fmt(Math.round(alza.revenue_excl))} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(alza.orders)} obj. · mimo ERP/SQL B2C</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Ag. Direct obrat (včetně bot)</div>
+      <div class="metric-value" style="color:#ef4444">${fmt(direct.revenue)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(direct.purchases)} nákupů · 1,79 M sessions z toho bot</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Ag. Organic obrat</div>
+      <div class="metric-value" style="color:#ef4444">${fmt(organic.revenue)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(organic.purchases)} nákupů — <b>tracking rozbit</b></div>
+    </div>
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.1);border-color:#10b981">
+      <div class="metric-label">Celkový skutečný obrat (SQL B2C + Alza)</div>
+      <div class="metric-value" style="color:#10b981">${fmt(Math.round(sql.revenue_excl + alza.revenue_excl))} Kč</div>
+      <div style="color:#94a3b8;font-size:11px;margin-top:4px">7 měsíců · ~2,59 M Kč/rok extrapolace · neuvažováno B2B hbgroup.cz (4,86 M paralelně)</div>
+    </div>
+  `;
+}
 
 // priority filter
 document.querySelectorAll('.filter-btn').forEach(btn => {
