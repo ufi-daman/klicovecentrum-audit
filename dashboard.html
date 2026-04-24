@@ -2097,7 +2097,14 @@ function renderAgencyKpi() {
       </div>
 
       <div style="color:#93c5fd;font-size:12px;margin-top:10px;background:rgba(59,130,246,0.08);padding:8px 12px;border-radius:4px">
-        💡 <strong>Insight per zdroj:</strong> Google Ads PNO 46 % je v normě pro B2C. Sklik + Heuréka mají PNO přes 85 % — na hranici ztrátového provozu. 98 % rozpočtu jde do Google Ads + Sklik, Heuréka je minoritní kanál (2,8 %).
+        💡 <strong>Insight per zdroj:</strong> Uvedená PNO za Google Ads a Sklik jsou <strong>smíšená čísla (brand + non-brand)</strong>.
+        Google Ads zahrnuje brand kampaň <code>P4M_GA_CZ_CZ_BR_SR_All</code> (ROAS 5,86×), Sklik zahrnuje <code>0 VG Brand</code> (ROAS 23,89×).
+        Po oddělení brand kampaní:
+        <div style="margin-top:6px;padding-left:10px;color:#cbd5e1">
+          • <strong>Brand kampaně</strong> (11 % rozpočtu): PNO 14,6 % / ROAS 6,86×<br>
+          • <strong>Non-brand</strong> (89 % rozpočtu): PNO 24,6 % / ROAS 4,07×
+        </div>
+        98 % rozpočtu jde do Google Ads + Sklik, Heuréka je minoritní kanál (2,8 %).
       </div>
     </div>
 
@@ -2129,13 +2136,16 @@ function renderAgencyKpi() {
     <div class="metric-box" style="grid-column:1/-1;background:rgba(220,38,38,0.08);border-color:#dc2626">
       <div style="color:#fca5a5;font-size:13px;font-weight:600;margin-bottom:8px">⚠️ Tracking gapy (reporting vs realita)</div>
       <div style="font-size:13px;color:#cbd5e1;line-height:1.6">
-        <div>• <strong>Objednávky gap 54 %</strong>: reporting ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (CZ B2C e-shop)</div>
-        <div>• <strong>Revenue gap 35 %</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs ERP 1 170 741 Kč + Alza ${fmt(129431)} Kč = ${fmt(1300172)} Kč skutečnost</div>
-        <div>• <strong>Organic nepřesný</strong>: reporting hlásí ${fmt(ag.organic_revenue_reported)} Kč, skutečný organic tvoří ~400–550 k Kč (30–40 % obratu)</div>
-        <div>• <strong>Alza 129 k Kč</strong> není součástí trackingu (FBA kanál)</div>
+        <div>• <strong>Revenue gap</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs <strong>ERP CZ B2C 1 170 741 Kč + Alza 129 431 Kč = 1 300 172 Kč</strong> skutečný obrat (bez DPH)</div>
+        <div>• <strong>Objednávky</strong>: GA4 ${fmt(ag.ga4_purchase_orders)} obj. (tracking) · ERP 2 567 <em>prodejních řádků</em> (ne unikátní objednávky) · SQL 1 398 unikátních objednávek (web_id=1)</div>
+        <div>• <strong>Organic tracking</strong>: reporting hlásí ${fmt(ag.organic_revenue_reported)} Kč, organic typicky tvoří 30–40 % obratu = odhadem 400–550 k Kč</div>
+        <div>• <strong>Alza 129 k Kč</strong> není součástí PPC/analytického trackingu (FBA kanál)</div>
       </div>
       <div style="color:#94a3b8;font-size:11px;margin-top:8px;font-style:italic">
-        Pozn.: Pro CZ B2C e-shop je primární realita <strong>ERP (MO maloobchod)</strong> = 1 170 741 Kč / 2 567 prodejních řádků. SQL B2C (web_id=1) = 1 398 objednávek / 1 383 208 Kč. Celá skupina HB Group (SQL všechny weby) = 3 373 objednávek / ~6 668 000 Kč vč. B2B a SK.
+        Zdroje pravdy pro CZ B2C e-shop:
+        <strong>ERP (MO maloobchod CSV)</strong> = 1 170 741 Kč obratu bez DPH, 2 567 prodejních řádků (line items).
+        <strong>SQL (kosik tabulka, web_id=1)</strong> = 1 398 unikátních objednávek, 1 383 208 Kč bez DPH (rozdíl +15 % vs ERP = SQL zahrnuje B2B objednávky z B2C webu a vrácené objednávky).
+        <strong>Celá skupina HB Group</strong> (SQL všechny 4 weby) = 3 373 objednávek / ~6,67 M Kč vč. B2B a SK.
       </div>
     </div>
   `;
