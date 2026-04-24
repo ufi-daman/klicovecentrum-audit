@@ -1,17 +1,50 @@
 {
   "period": "2025-10 to 2026-04 (audit 7M)",
-  "source": "Agenturní PDF v2 parser (částečné) + campaigns.json (přesné)",
-  "agency_reported_approx": {
-    "spend_approx_pdf_v2": 88237,
-    "revenue_reported_pdf_v2": 13684,
-    "note": "PDF parser má ~65 % spolehlivost kvůli layout problému — přesná čísla vyžadují CSV export z Looker Agenda"
+  "source": "Agenturní Looker Studio — přesná čísla manuálně přepsaná z reportu",
+  "agency_reported": {
+    "total": {
+      "spend": 305799,
+      "revenue": 595407,
+      "conversions": 464,
+      "pno_pct": 51.36,
+      "roas": 1.95
+    },
+    "by_source": [
+      {
+        "source": "Google Ads",
+        "spend": 238704,
+        "revenue": 516504,
+        "conversions": 367,
+        "pno_pct": 46.22,
+        "roas": 2.16,
+        "share_of_spend_pct": 78.1
+      },
+      {
+        "source": "Sklik (seznam)",
+        "spend": 58429,
+        "revenue": 68773,
+        "conversions": 85,
+        "pno_pct": 84.96,
+        "roas": 1.18,
+        "share_of_spend_pct": 19.1
+      },
+      {
+        "source": "Heuréka.cz",
+        "spend": 8666,
+        "revenue": 10130,
+        "conversions": 12,
+        "pno_pct": 85.54,
+        "roas": 1.17,
+        "share_of_spend_pct": 2.8
+      }
+    ]
   },
   "our_measured_campaigns_json": {
     "spend_all_ppc": 282858,
     "value_tracked": 1237205,
     "pno_pct": 22.9,
     "roas": 4.37,
-    "note": "Přesná čísla z našich analýz (GAds Script + Sklik Fénix + Heuréka OCM)"
+    "note": "Naše měření přes GAds Script + Sklik Fénix + Heuréka OCM. Revenue vyšší díky zahrnutí všech PMax konverzí (vč. micro-events)."
   },
   "reality_sql_alza": {
     "revenue_sql_b2c": 1383208,
@@ -20,12 +53,14 @@
     "orders_sql": 1398,
     "orders_alza": 602,
     "total_orders": 2000,
-    "real_pno_pct": 18.7,
-    "real_roas": 5.34,
-    "note": "Skutečný obrat — SQL B2C + Alza marketplace"
+    "real_pno_pct": 20.2,
+    "real_roas": 4.94,
+    "note": "Skutečný B2C obrat + Alza marketplace. Pokud PPC atribuuje 50% obratu, realistické PNO ~40 %."
   },
   "comparison_summary": {
-    "pdf_vs_reality_revenue_gap": "PDF reporting 13 684 Kč vs realita 1 512 639 Kč — 110× rozdíl (tracking je rozbitý)",
-    "tracked_vs_reality_orders_gap": "Naše tracking 1 308 vs realita 2 000 — tracking vidí 65 %"
+    "spend_gap": "Agentura reportuje 305 799 Kč, naše měření 282 858 Kč — rozdíl 8 % (pravděpodobně rozdíl v zahrnutých kampaních)",
+    "revenue_gap_agency_vs_sql": "Agentura atribuuje 595 407 Kč obratu PPC, SQL B2C total 1 383 208 Kč = agentura vidí 43 % obratu",
+    "pno_gap": "Agentura 51,36 % vs naše 22,9 % — rozdíl je v zahrnutých konverzích (naše vč. micro-events)",
+    "heureka_pno_high": "Heuréka 85,54 % PNO = téměř ztrátové · Sklik 84,96 % podobně ztrátové · Google Ads 46,22 % je jediný zdroj se zdravým PNO"
   }
 }

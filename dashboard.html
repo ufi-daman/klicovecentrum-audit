@@ -2024,19 +2024,65 @@ function renderAgencyKpi() {
       </div>
     </div>
 
-    <!-- Agenturní audit period 7M (PDF v2) -->
-    <div class="metric-box" style="grid-column:1/-1;background:rgba(245,158,11,0.08);border-color:#f59e0b">
-      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📊 Agenturní reporting — audit period 7M (z PDF v2)</div>
+    <!-- Agenturní audit period 7M (přesná čísla z Lookeru) -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(59,130,246,0.08);border-color:#3b82f6">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📊 Agenturní reporting — audit period 7M (Looker Studio)</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
-        <div><span style="color:#64748b;font-size:11px">Spend (odhad z PDF)</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">~88 237 Kč</div></div>
-        <div><span style="color:#64748b;font-size:11px">Revenue (odhad)</span><div style="font-size:20px;font-weight:700;color:#fcd34d">~13 684 Kč</div></div>
-        <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#ef4444">645 %</div></div>
-        <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#ef4444">0,16×</div></div>
-        <div><span style="color:#64748b;font-size:11px">Zdroj</span><div style="font-size:13px;color:#94a3b8;margin-top:4px">PDF v2 parser (65% spolehlivost)</div></div>
+        <div><span style="color:#64748b;font-size:11px">Spend</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">305 799 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Revenue</span><div style="font-size:20px;font-weight:700;color:#93c5fd">595 407 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Konverze</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">464</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#f59e0b">51,36 %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#93c5fd">1,95×</div></div>
       </div>
-      <div style="color:#fca5a5;font-size:12px;margin-top:8px;background:rgba(220,38,38,0.1);padding:6px 10px;border-radius:4px">
-        ⚠️ Čísla jsou z PDF v2 parseru s omezenou spolehlivostí — pro přesná data nutný CSV export z Looker Agenda tabulky.
-        Níže uvedená naše tracking + realita jsou přesná.
+
+      <!-- Rozpad per zdroj -->
+      <div style="margin-top:16px;overflow-x:auto">
+        <table class="data-table" style="font-size:12px">
+          <thead>
+            <tr>
+              <th>Zdroj</th>
+              <th style="text-align:right">Spend Kč</th>
+              <th style="text-align:right">Revenue Kč</th>
+              <th style="text-align:right">Konverze</th>
+              <th style="text-align:right">PNO %</th>
+              <th style="text-align:right">ROAS</th>
+              <th style="text-align:right">% rozpočtu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Google Ads</strong></td>
+              <td class="num">238 704</td>
+              <td class="num">516 504</td>
+              <td class="num">367</td>
+              <td class="num warn">46,22 %</td>
+              <td class="num good">2,16×</td>
+              <td class="num">78,1 %</td>
+            </tr>
+            <tr>
+              <td><strong>Sklik (seznam)</strong></td>
+              <td class="num">58 429</td>
+              <td class="num">68 773</td>
+              <td class="num">85</td>
+              <td class="num bad">84,96 %</td>
+              <td class="num warn">1,18×</td>
+              <td class="num">19,1 %</td>
+            </tr>
+            <tr>
+              <td><strong>Heuréka.cz</strong></td>
+              <td class="num">8 666</td>
+              <td class="num">10 130</td>
+              <td class="num">12</td>
+              <td class="num bad">85,54 %</td>
+              <td class="num warn">1,17×</td>
+              <td class="num">2,8 %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="color:#93c5fd;font-size:12px;margin-top:10px;background:rgba(59,130,246,0.08);padding:8px 12px;border-radius:4px">
+        💡 <strong>Insight per zdroj:</strong> Google Ads PNO 46 % je v normě pro B2C. Sklik + Heuréka mají PNO přes 85 % — na hranici ztrátového provozu. 98 % rozpočtu jde do Google Ads + Sklik, Heuréka je minoritní kanál (2,8 %).
       </div>
     </div>
 
