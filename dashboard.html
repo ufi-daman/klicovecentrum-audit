@@ -520,6 +520,113 @@
   </div>
 
   <div class="chart-card">
+    <h3>📖 Legenda zdrojů dat — proč jsou čísla různá?</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      V dashboardu se objevuje několik hodnot pro stejnou metriku.
+      Rozdíly nejsou chyby — odrážejí různé metriky, metodiky a rozsah měření.
+      Tato tabulka vysvětluje každý zdroj.
+    </p>
+
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Metrika</th>
+            <th>Zdroj</th>
+            <th style="text-align:right">Hodnota</th>
+            <th>Co zahrnuje</th>
+            <th>Proč se liší</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- SPEND -->
+          <tr style="background:rgba(59,130,246,0.05)">
+            <td rowspan="3"><strong>PPC Spend<br>7M</strong></td>
+            <td>Agenturní Looker</td>
+            <td class="num">305 799 Kč</td>
+            <td style="font-size:12px">Google Ads + Sklik + Heuréka (3 kanály co agentura měří)</td>
+            <td style="font-size:12px;color:#94a3b8">Baseline — jak agentura reportuje klientovi</td>
+          </tr>
+          <tr>
+            <td>Naše měření (campaigns.json)</td>
+            <td class="num">282 858 Kč</td>
+            <td style="font-size:12px">GAds Script + Sklik Fénix + Heuréka OCM (stejné 3 kanály)</td>
+            <td style="font-size:12px;color:#94a3b8">Rozdíl −8 % vs agentura = metodika (kurz, datumy, zahrnuté kampaně)</td>
+          </tr>
+          <tr>
+            <td>Všechny PPC kanály</td>
+            <td class="num">321 382 Kč</td>
+            <td style="font-size:12px">Google Ads + Sklik + Heuréka + <strong style="color:#f59e0b">Zboží.cz 31 655 Kč</strong></td>
+            <td style="font-size:12px;color:#94a3b8">Agentura Zboží.cz nezahrnuje do reportingu</td>
+          </tr>
+
+          <!-- KONVERZE -->
+          <tr style="background:rgba(16,185,129,0.05)">
+            <td rowspan="4"><strong>Konverze /<br>objednávky<br>7M</strong></td>
+            <td>Agenturní Looker (PPC atribuované)</td>
+            <td class="num">464</td>
+            <td style="font-size:12px">Jen konverze přiřazené PPC kampaním (last-click)</td>
+            <td style="font-size:12px;color:#94a3b8">Agentura vidí jen PPC atribuci, ne celkové nákupy</td>
+          </tr>
+          <tr>
+            <td>GA4 purchase event</td>
+            <td class="num">641</td>
+            <td style="font-size:12px">Všechny zachycené purchase eventy (všechny zdroje)</td>
+            <td style="font-size:12px;color:#94a3b8">GA4 zachycuje ~46 % reality (tracking loss)</td>
+          </tr>
+          <tr>
+            <td>Naše tracking (campaigns.json)</td>
+            <td class="num">1 308</td>
+            <td style="font-size:12px">conversion_value z GAds/Sklik/Heuréka (zahrnuje i micro-events)</td>
+            <td style="font-size:12px;color:#94a3b8">Nafoukne skutečné konverze díky micro-events jako primary konverze (nález #1)</td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.08);border-top:2px solid #10b981">
+            <td><strong style="color:#10b981">SQL B2C kosik (realita)</strong></td>
+            <td class="num"><strong style="color:#10b981">1 398</strong></td>
+            <td style="font-size:12px">Všechny unikátní objednávky z web_id=1 (ground truth)</td>
+            <td style="font-size:12px;color:#94a3b8">Jediný nezkreslený zdroj — přímo z databáze e-shopu</td>
+          </tr>
+
+          <!-- OBRAT -->
+          <tr style="background:rgba(245,158,11,0.05)">
+            <td rowspan="4"><strong>Obrat<br>7M</strong></td>
+            <td>Agenturní Looker</td>
+            <td class="num">595 407 Kč</td>
+            <td style="font-size:12px">PPC-atribuovaný obrat (Google+Sklik+Heuréka)</td>
+            <td style="font-size:12px;color:#94a3b8">Jen PPC část, ne celkový obrat e-shopu</td>
+          </tr>
+          <tr>
+            <td>GA4 tracked</td>
+            <td class="num">984 387 Kč</td>
+            <td style="font-size:12px">Všechny purchase eventy × value</td>
+            <td style="font-size:12px;color:#94a3b8">Zachycuje víc zdrojů než agentura, ale stále <100 % reality</td>
+          </tr>
+          <tr>
+            <td>ERP (účetní systém)</td>
+            <td class="num">1 170 741 Kč</td>
+            <td style="font-size:12px">2 567 prodejních řádků MO e-shop</td>
+            <td style="font-size:12px;color:#94a3b8">Účetní pravda bez DPH, ne unikátní objednávky</td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.08);border-top:2px solid #10b981">
+            <td><strong style="color:#10b981">ERP + Alza (skutečný obrat)</strong></td>
+            <td class="num"><strong style="color:#10b981">1 300 172 Kč</strong></td>
+            <td style="font-size:12px">ERP 1 170 741 + Alza 129 431 · všechny CZ kanály</td>
+            <td style="font-size:12px;color:#94a3b8">Kompletní obchodní realita (bez B2B hbgroup.cz a SK)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="background:rgba(59,130,246,0.08);border-left:3px solid #3b82f6;padding:12px;border-radius:6px;font-size:13px;color:#cbd5e1">
+      <strong style="color:#93c5fd">💡 Jak číst dashboard:</strong>
+      Všude kde se píše „agenturní tracking" = 305 799 / 464 / 595 407 (subset reality).
+      „Naše měření" = 282 858 / 1 308 / 1 237 205 (naše skripty).
+      „Realita" = 321 382 / 1 398 / 1 300 172 (SQL + ERP + Alza).
+      Cílem auditu je ukázat velikost trackingových děr mezi těmito zdroji.
+    </div>
+  </div>
+
+  <div class="chart-card">
     <h3>🎯 Rozpad výkonu kanálů a kampaní (audit 7 měsíců)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:16px">
       Konzolidovaný pohled: PPC kampaně podle kategorie × kanál, organic/direct z agenturního PDF, ERP + Alza jako skutečnost (SQL ověřuje).
