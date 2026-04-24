@@ -35,7 +35,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 51351.0,
@@ -72,7 +73,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 29707.0,
@@ -109,7 +111,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 24998.0,
@@ -146,7 +149,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 24369.0,
@@ -183,7 +187,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "costly"
         }
       },
       "total_revenue": 23521.0,
@@ -220,7 +225,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 23323.0,
@@ -257,7 +263,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 22664.0,
@@ -294,7 +301,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 18812.0,
@@ -331,7 +339,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 17663.0,
@@ -368,7 +377,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 17398.0,
@@ -405,7 +415,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 16991.0,
@@ -442,7 +453,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 16193.0,
@@ -479,7 +491,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 13924.0,
@@ -516,7 +529,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 12850.0,
@@ -553,7 +567,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 12805.0,
@@ -590,7 +605,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zombie"
         }
       },
       "total_revenue": 10468.0,
@@ -627,7 +643,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 10340.0,
@@ -664,7 +681,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 9511.0,
@@ -701,7 +719,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 9218.0,
@@ -738,7 +757,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 9124.0,
@@ -775,7 +795,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 8802.0,
@@ -812,7 +833,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 8657.0,
@@ -849,7 +871,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 8621.0,
@@ -886,7 +909,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "costly"
         }
       },
       "total_revenue": 8573.0,
@@ -923,7 +947,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zombie"
         }
       },
       "total_revenue": 8300.0,
@@ -960,7 +985,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 8288.0,
@@ -997,7 +1023,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 8046.0,
@@ -1034,7 +1061,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 7852.0,
@@ -1071,7 +1099,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 7844.0,
@@ -1108,7 +1137,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 7810.0,
@@ -1145,7 +1175,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 7782.0,
@@ -1182,7 +1213,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "costly"
         }
       },
       "total_revenue": 7436.0,
@@ -1219,7 +1251,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 7433.0,
@@ -1256,7 +1289,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 7149.0,
@@ -1293,7 +1327,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 7021.0,
@@ -1330,7 +1365,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 6849.0,
@@ -1367,7 +1403,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 6661.0,
@@ -1404,7 +1441,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 6661.0,
@@ -1441,7 +1479,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zombie"
         }
       },
       "total_revenue": 6609.0,
@@ -1478,7 +1517,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "costly"
         }
       },
       "total_revenue": 6537.0,
@@ -1515,7 +1555,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 6489.0,
@@ -1552,7 +1593,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 6362.0,
@@ -1589,7 +1631,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 6235.0,
@@ -1626,7 +1669,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 6162.0,
@@ -1663,7 +1707,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "zeroconv"
         }
       },
       "total_revenue": 6162.0,
@@ -1700,7 +1745,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 6055.0,
@@ -1737,7 +1783,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": "profitable"
         }
       },
       "total_revenue": 5962.0,
@@ -1774,7 +1821,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 5894.0,
@@ -1811,7 +1859,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 5762.0,
@@ -1848,7 +1897,8 @@
           "impressions": 0
         },
         "google_shopping": {
-          "in_feed": false
+          "in_feed": false,
+          "pmax_label": null
         }
       },
       "total_revenue": 5682.0,

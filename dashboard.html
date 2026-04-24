@@ -663,6 +663,7 @@
 
   <div class="chart-card">
     <h3>Top 50 produktů dle celkového obratu</h3>
+    <div id="pmax-label-summary" style="margin-bottom:16px"></div>
     <div style="overflow-x:auto">
       <table class="data-table" id="table-products">
         <thead>
@@ -675,6 +676,7 @@
             <th style="text-align:right">Alza</th>
             <th style="text-align:right">Heuréka</th>
             <th style="text-align:right">Zboží</th>
+            <th>GAds PMax</th>
             <th style="text-align:right">Celkem Kč</th>
             <th>Primární</th>
           </tr>
@@ -1496,11 +1498,30 @@ function renderProducts() {
     (chF === 'all'  || p.primary_channel === chF)
   );
 
+  // GAds label distribuce nad tabulkou
+  const labelColors = {
+    profitable: ['#10b981', 'Profitable'],
+    meh: ['#f59e0b', 'Meh'],
+    flukes: ['#a78bfa', 'Flukes'],
+    zeroconv: ['#ef4444', 'Zero conv'],
+    costly: ['#dc2626', 'Costly'],
+    zombie: ['#6b7280', 'Zombie'],
+  };
+  const labelCounts = {};
+  productsData.products.forEach(p => {
+    const l = p.channels.google_shopping?.pmax_label;
+    if (l) labelCounts[l] = (labelCounts[l] || 0) + 1;
+  });
+
   // tabulka top 50
   const tbody = document.querySelector('#table-products tbody');
   tbody.innerHTML = filtered.map(p => {
     const ch = p.channels;
     const prim = p.primary_channel || '—';
+    const label = ch.google_shopping?.pmax_label;
+    const labelHtml = label && labelColors[label]
+      ? `<span style="background:${labelColors[label][0]};color:white;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${labelColors[label][1]}</span>`
+      : (ch.google_shopping?.in_feed ? '<span style="color:#64748b;font-size:11px">in feed</span>' : '—');
     return `<tr>
       <td>${p.sku}</td>
       <td title="${p.name}">${p.name.substring(0, 45)}</td>
@@ -1510,10 +1531,40 @@ function renderProducts() {
       <td class="num">${ch.alza.revenue.toLocaleString('cs-CZ')}</td>
       <td class="num">${ch.heureka.revenue.toLocaleString('cs-CZ')}</td>
       <td class="num">${ch.zbozi.revenue.toLocaleString('cs-CZ')}</td>
+      <td>${labelHtml}</td>
       <td class="num good">${p.total_revenue.toLocaleString('cs-CZ')}</td>
       <td>${prim}</td>
     </tr>`;
   }).join('');
+
+  // PMax label summary box
+  const summaryEl = document.getElementById('pmax-label-summary');
+  if (summaryEl) {
+    const total = Object.values(labelCounts).reduce((a,b) => a+b, 0);
+    summaryEl.innerHTML = total > 0 ? `
+      <div style="color:#94a3b8;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">
+        🎯 Google Ads PMax labely (${total} produktů z Merchant Center audit)
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        ${Object.entries(labelCounts).sort((a,b) => b[1]-a[1]).map(([l, c]) => {
+          const col = (labelColors[l] || ['#6b7280', l])[0];
+          const name = (labelColors[l] || [null, l])[1];
+          return `<div style="background:${col}22;border:1px solid ${col};padding:8px 14px;border-radius:8px">
+            <div style="font-size:11px;color:#94a3b8">${name}</div>
+            <div style="font-size:22px;font-weight:700;color:${col}">${c}</div>
+            <div style="color:#94a3b8;font-size:11px">${(c/total*100).toFixed(1)} %</div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div style="margin-top:10px;color:#94a3b8;font-size:11px">
+        <strong style="color:#cbd5e1">Význam:</strong>
+        <span style="color:#10b981">Profitable</span> = pozitivní ROAS ·
+        <span style="color:#ef4444">Zero conv</span> = click bez nákupu ·
+        <span style="color:#dc2626">Costly</span> = utrácí víc než vydělává ·
+        <span style="color:#6b7280">Zombie</span> = neaktivní
+      </div>
+    ` : '<div style="color:#94a3b8;font-size:13px">GAds PMax labely nejsou k dispozici.</div>';
+  }
 
   // category summary tabulka
   const summaryBody = document.querySelector('#table-cat-summary tbody');
