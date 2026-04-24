@@ -704,6 +704,13 @@
 
   <div class="chart-card">
     <h3>📦 Top 20 produktů v aktuálním filtru (rozpad obratu podle kanálu)</h3>
+    <p style="color:#94a3b8;font-size:12px;margin-bottom:12px">
+      Rozpad přes 5 kanálů: <strong style="color:#3b82f6">ERP e-shop</strong> ·
+      <strong style="color:#f59e0b">Alza</strong> ·
+      <strong style="color:#10b981">Heuréka</strong> ·
+      <strong style="color:#ef4444">Zboží</strong> ·
+      <strong style="color:#a78bfa">Google Ads</strong> (odhad z agenturního 516 504 Kč alokovaný proporcionálně dle ERP obratu + PMax labelu)
+    </p>
     <div class="data-filters">
       <select id="prod-category">
         <option value="all">Všechny kategorie</option>
@@ -713,10 +720,11 @@
       </select>
       <select id="prod-channel">
         <option value="all">Všechny primární kanály</option>
-        <option value="erp_eshop">E-shop (ERP)</option>
+        <option value="erp_eshop">ERP e-shop</option>
         <option value="alza">Alza</option>
         <option value="heureka">Heuréka</option>
         <option value="zbozi">Zboží.cz</option>
+        <option value="google_ads">Google Ads</option>
       </select>
     </div>
     <div class="chart-wrap"><canvas id="chart-products"></canvas></div>
@@ -730,10 +738,11 @@
           <tr>
             <th>Kategorie</th>
             <th style="text-align:right">Produkty</th>
-            <th style="text-align:right">E-shop Kč</th>
+            <th style="text-align:right">ERP e-shop Kč</th>
             <th style="text-align:right">Alza Kč</th>
             <th style="text-align:right">Heuréka Kč</th>
             <th style="text-align:right">Zboží Kč</th>
+            <th style="text-align:right">Google Ads Kč</th>
             <th style="text-align:right">Celkem Kč</th>
           </tr>
         </thead>
@@ -758,7 +767,8 @@
             <th style="text-align:right">Alza</th>
             <th style="text-align:right">Heuréka</th>
             <th style="text-align:right">Zboží</th>
-            <th>Google Ads PMax</th>
+            <th style="text-align:right">Google Ads</th>
+            <th>PMax label</th>
             <th style="text-align:right">Celkem Kč</th>
             <th>Primární</th>
           </tr>
@@ -1622,10 +1632,18 @@ function renderProducts() {
   tbody.innerHTML = filteredTop.map(p => {
     const ch = p.channels;
     const prim = p.primary_channel || '—';
-    const label = ch.google_shopping?.pmax_label;
+    const label = ch.google_ads?.pmax_label || ch.google_shopping?.pmax_label;
     const labelHtml = label && labelColors[label]
       ? `<span style="background:${labelColors[label][0]};color:white;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${labelColors[label][1]}</span>`
       : (ch.google_shopping?.in_feed ? '<span style="color:#64748b;font-size:11px">in feed</span>' : '—');
+    const gadsRev = ch.google_ads?.revenue || 0;
+    const primLabel = {
+      'erp_eshop': 'ERP e-shop',
+      'alza': 'Alza',
+      'heureka': 'Heuréka',
+      'zbozi': 'Zboží',
+      'google_ads': 'Google Ads',
+    }[prim] || prim;
     return `<tr>
       <td>${p.sku}</td>
       <td title="${p.name}">${p.name.substring(0, 45)}</td>
@@ -1635,9 +1653,10 @@ function renderProducts() {
       <td class="num">${ch.alza.revenue.toLocaleString('cs-CZ')}</td>
       <td class="num">${ch.heureka.revenue.toLocaleString('cs-CZ')}</td>
       <td class="num">${ch.zbozi.revenue.toLocaleString('cs-CZ')}</td>
+      <td class="num">${gadsRev ? gadsRev.toLocaleString('cs-CZ') : '—'}</td>
       <td>${labelHtml}</td>
       <td class="num good">${p.total_revenue.toLocaleString('cs-CZ')}</td>
-      <td>${prim}</td>
+      <td>${primLabel}</td>
     </tr>`;
   }).join('');
 
@@ -1681,6 +1700,7 @@ function renderProducts() {
       <td class="num">${Math.round(s.alza).toLocaleString('cs-CZ')}</td>
       <td class="num">${Math.round(s.heureka).toLocaleString('cs-CZ')}</td>
       <td class="num">${Math.round(s.zbozi).toLocaleString('cs-CZ')}</td>
+      <td class="num">${Math.round(s.google_ads || 0).toLocaleString('cs-CZ')}</td>
       <td class="num good">${Math.round(s.total).toLocaleString('cs-CZ')}</td>
     </tr>
   `).join('');
@@ -1689,16 +1709,18 @@ function renderProducts() {
   const top20 = filtered.slice(0, 20);  // chart vždy max 20, z filtrovaných produktů
   const labels = top20.map(p => p.name.substring(0, 30));
   const chMap = {
-    'E-shop':  p => p.channels.erp_eshop.revenue,
-    'Alza':    p => p.channels.alza.revenue,
-    'Heuréka': p => p.channels.heureka.revenue,
-    'Zboží':   p => p.channels.zbozi.revenue,
+    'ERP e-shop': p => p.channels.erp_eshop.revenue,
+    'Alza':       p => p.channels.alza.revenue,
+    'Heuréka':    p => p.channels.heureka.revenue,
+    'Zboží':      p => p.channels.zbozi.revenue,
+    'Google Ads': p => p.channels.google_ads?.revenue || 0,
   };
   const chColors = {
-    'E-shop':  '#3b82f6',
-    'Alza':    '#f59e0b',
-    'Heuréka': '#10b981',
-    'Zboží':   '#ef4444',
+    'ERP e-shop': '#3b82f6',
+    'Alza':       '#f59e0b',
+    'Heuréka':    '#10b981',
+    'Zboží':      '#ef4444',
+    'Google Ads': '#a78bfa',
   };
   const datasets = Object.entries(chMap).map(([name, fn]) => ({
     label: name,
