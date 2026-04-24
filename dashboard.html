@@ -703,7 +703,7 @@
   <div class="chart-card" id="shipping-box" style="background:rgba(245,158,11,0.08);border-color:#f59e0b"></div>
 
   <div class="chart-card">
-    <h3>📦 Top 20 produktů — rozpad obratu podle kanálu (bez poštovného)</h3>
+    <h3>📦 Top 20 produktů v aktuálním filtru (rozpad obratu podle kanálu)</h3>
     <div class="data-filters">
       <select id="prod-category">
         <option value="all">Všechny kategorie</option>
@@ -743,8 +743,9 @@
   </div>
 
   <div class="chart-card">
-    <h3>Top 50 produktů dle celkového obratu</h3>
+    <h3>Tabulka produktů (top 50 bez filtru · top 20 s filtrem)</h3>
     <div id="pmax-label-summary" style="margin-bottom:16px"></div>
+    <div id="products-filter-info" style="color:#94a3b8;font-size:12px;margin-bottom:10px"></div>
     <div style="overflow-x:auto">
       <table class="data-table" id="table-products">
         <thead>
@@ -753,11 +754,11 @@
             <th>Produkt</th>
             <th>Kategorie</th>
             <th>Výrobce</th>
-            <th style="text-align:right">E-shop</th>
+            <th style="text-align:right">ERP e-shop</th>
             <th style="text-align:right">Alza</th>
             <th style="text-align:right">Heuréka</th>
             <th style="text-align:right">Zboží</th>
-            <th>GAds PMax</th>
+            <th>Google Ads PMax</th>
             <th style="text-align:right">Celkem Kč</th>
             <th>Primární</th>
           </tr>
@@ -1576,7 +1577,7 @@ function renderProducts() {
         <div><span style="color:#64748b;font-size:11px">Zásilek</span><div style="font-size:22px;font-weight:700;color:#f1f5f9">${Math.round(shippingQty).toLocaleString('cs-CZ')}</div></div>
         <div><span style="color:#64748b;font-size:11px">Průměr</span><div style="font-size:22px;font-weight:700;color:#f1f5f9">${shippingQty > 0 ? Math.round(shippingTotal/shippingQty) : 0} Kč/zásilka</div></div>
       </div>
-      <div style="color:#94a3b8;font-size:12px;margin-top:6px">Poplatek za dopravu, není to prodávaný produkt — vyloučeno z grafu + tabulky top 50</div>
+      <div style="color:#94a3b8;font-size:12px;margin-top:6px">Poplatek za dopravu, není to prodávaný produkt — vyloučeno z grafu + tabulky</div>
     ` : '';
   }
 
@@ -1586,6 +1587,20 @@ function renderProducts() {
     (venF === 'all' || p.vendor === venF) &&
     (chF === 'all'  || p.primary_channel === chF)
   );
+
+  // Top N logic: když žádný filtr → 50, když je filtr (kategorie/výrobce) → 20
+  const anyFilter = catF !== 'all' || venF !== 'all' || chF !== 'all';
+  const TOP_N = anyFilter ? 20 : 50;
+  const filteredTop = filtered.slice(0, TOP_N);
+
+  // Info label o počtu
+  const infoBox = document.getElementById('products-filter-info');
+  if (infoBox) {
+    let msg = `Zobrazeno ${filteredTop.length} z ${filtered.length} produktů`;
+    if (anyFilter) msg += ` (filtr aktivní — top ${TOP_N} dle obratu)`;
+    else msg += ` (celkem ${productsData.products.length} v datasetu, zobrazeno top ${TOP_N})`;
+    infoBox.textContent = msg;
+  }
 
   // GAds label distribuce nad tabulkou
   const labelColors = {
@@ -1602,9 +1617,9 @@ function renderProducts() {
     if (l) labelCounts[l] = (labelCounts[l] || 0) + 1;
   });
 
-  // tabulka top 50
+  // tabulka — dynamický top N
   const tbody = document.querySelector('#table-products tbody');
-  tbody.innerHTML = filtered.map(p => {
+  tbody.innerHTML = filteredTop.map(p => {
     const ch = p.channels;
     const prim = p.primary_channel || '—';
     const label = ch.google_shopping?.pmax_label;
@@ -1670,8 +1685,8 @@ function renderProducts() {
     </tr>
   `).join('');
 
-  // chart: top 20 s rozpadem dle kanálu (stacked bar)
-  const top20 = filtered.slice(0, 20);
+  // chart: top 20 s rozpadem dle kanálu (z aktuálního filtru)
+  const top20 = filtered.slice(0, 20);  // chart vždy max 20, z filtrovaných produktů
   const labels = top20.map(p => p.name.substring(0, 30));
   const chMap = {
     'E-shop':  p => p.channels.erp_eshop.revenue,
@@ -2114,10 +2129,13 @@ function renderAgencyKpi() {
     <div class="metric-box" style="grid-column:1/-1;background:rgba(220,38,38,0.08);border-color:#dc2626">
       <div style="color:#fca5a5;font-size:13px;font-weight:600;margin-bottom:8px">⚠️ Tracking gapy (reporting vs realita)</div>
       <div style="font-size:13px;color:#cbd5e1;line-height:1.6">
-        <div>• <strong>Objednávky gap 54 %</strong>: reporting ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (SQL)</div>
-        <div>• <strong>Revenue gap 35 %</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs SQL+Alza ${fmt(re.total_real_revenue)} Kč</div>
+        <div>• <strong>Objednávky gap 54 %</strong>: reporting ${fmt(ag.ga4_purchase_orders)} obj. (GA4 purchase), realita ${fmt(re.real_eshop_orders_sql)} obj. (CZ B2C e-shop)</div>
+        <div>• <strong>Revenue gap 35 %</strong>: GA4 ${fmt(ag.ga4_revenue)} Kč vs ERP 1 170 741 Kč + Alza ${fmt(129431)} Kč = ${fmt(1300172)} Kč skutečnost</div>
         <div>• <strong>Organic nepřesný</strong>: reporting hlásí ${fmt(ag.organic_revenue_reported)} Kč, skutečný organic tvoří ~400–550 k Kč (30–40 % obratu)</div>
         <div>• <strong>Alza 129 k Kč</strong> není součástí trackingu (FBA kanál)</div>
+      </div>
+      <div style="color:#94a3b8;font-size:11px;margin-top:8px;font-style:italic">
+        Pozn.: Pro CZ B2C e-shop je primární realita <strong>ERP (MO maloobchod)</strong> = 1 170 741 Kč / 2 567 prodejních řádků. SQL B2C (web_id=1) = 1 398 objednávek / 1 383 208 Kč. Celá skupina HB Group (SQL všechny weby) = 3 373 objednávek / ~6 668 000 Kč vč. B2B a SK.
       </div>
     </div>
   `;
