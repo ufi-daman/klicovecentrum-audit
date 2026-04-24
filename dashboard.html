@@ -407,9 +407,9 @@
       <div class="kpi-sub">vyžaduje okamžitou akci</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-label">SQL ground truth — obrat 7M</div>
-      <div class="kpi-value kpi-positive">1,67 M Kč</div>
-      <div class="kpi-sub">B2C klicovecentrum.cz — 1 398 objednávek (GA4 zachycuje jen 46 %)</div>
+      <div class="kpi-label">Skutečný obrat 7M (ERP + Alza)</div>
+      <div class="kpi-value kpi-positive">1,30 M Kč</div>
+      <div class="kpi-sub">ERP 1,17 M + Alza 129 k · bez DPH · SQL ověřuje 1 398 obj. CZ B2C</div>
     </div>
   </div>
 </header>
@@ -491,7 +491,7 @@
   <div class="chart-card">
     <h3>🎯 Rozpad výkonu kanálů a kampaní (audit 7 měsíců)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:16px">
-      Konzolidovaný pohled: PPC kampaně podle kategorie × kanál, organic/direct z agenturního PDF, SQL ground truth, Alza.
+      Konzolidovaný pohled: PPC kampaně podle kategorie × kanál, organic/direct z agenturního PDF, ERP + Alza jako skutečnost (SQL ověřuje).
     </p>
   </div>
 
@@ -1815,15 +1815,15 @@ function renderKpi() {
   const gapPct = (gap / sql.revenue_excl * 100).toFixed(1);
 
   document.getElementById('kpi-summary-grid').innerHTML = `
-    <div class="metric-box">
-      <div class="metric-label">SQL B2C obrat (ground truth)</div>
-      <div class="metric-value" style="color:#10b981">${fmt(sql.revenue_excl)} Kč</div>
-      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(sql.orders)} obj. · AOV ${Math.round(sql.revenue_excl/sql.orders)} Kč</div>
+    <div class="metric-box" style="background:rgba(16,185,129,0.1);border-color:#10b981">
+      <div class="metric-label">✅ ERP MO e-shop (primární zdroj pravdy)</div>
+      <div class="metric-value" style="color:#10b981">${fmt(erp.revenue_excl)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">zisk ${fmt(erp.profit)} · marže ${erp.margin_pct}% · ${fmt(erp.sales_lines)} řádků</div>
     </div>
     <div class="metric-box">
-      <div class="metric-label">ERP MO e-shop</div>
-      <div class="metric-value" style="color:#3b82f6">${fmt(erp.revenue_excl)} Kč</div>
-      <div style="color:#64748b;font-size:11px;margin-top:4px">zisk ${fmt(erp.profit)} · marže ${erp.margin_pct}% · ${fmt(erp.sales_lines)} řádků</div>
+      <div class="metric-label">SQL B2C (ověřovací cross-check)</div>
+      <div class="metric-value" style="color:#93c5fd">${fmt(sql.revenue_excl)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(sql.orders)} obj. · AOV ${Math.round(sql.revenue_excl/sql.orders)} Kč · +15 % vs ERP (vč. vrácených + B2B na B2C webu)</div>
     </div>
     <div class="metric-box">
       <div class="metric-label">Alza marketplace</div>
@@ -1846,9 +1846,9 @@ function renderKpi() {
       <div style="color:#94a3b8;font-size:11px;margin-top:4px">ERP je filtrovaný jen na „MO" maloobchod — SQL zahrnuje všechny typy objednávek</div>
     </div>
     <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.1);border-color:#10b981">
-      <div class="metric-label">Celkový skutečný obrat (SQL B2C + Alza)</div>
-      <div class="metric-value" style="color:#10b981">${fmt(Math.round(sql.revenue_excl + alza.revenue_excl))} Kč</div>
-      <div style="color:#94a3b8;font-size:11px;margin-top:4px">7 měsíců · ~2,59 M Kč/rok extrapolace · neuvažováno B2B hbgroup.cz (4,86 M paralelně)</div>
+      <div class="metric-label">✅ Celkový skutečný obrat (ERP + Alza)</div>
+      <div class="metric-value" style="color:#10b981">${fmt(Math.round(erp.revenue_excl + alza.revenue_excl))} Kč</div>
+      <div style="color:#94a3b8;font-size:11px;margin-top:4px">7 měsíců · ~2,23 M Kč/rok extrapolace · neuvažováno B2B hbgroup.cz (4,86 M paralelně) · ERP je účetní systém, SQL cross-check ukazuje +15 %</div>
     </div>
   `;
 }
@@ -2120,15 +2120,20 @@ function renderAgencyKpi() {
       </div>
     </div>
 
-    <!-- Skutečnost audit 7M -->
+    <!-- Skutečnost audit 7M — ERP je primární zdroj, Alza druhý -->
     <div class="metric-box" style="grid-column:1/-1;background:rgba(16,185,129,0.08);border-color:#10b981">
-      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">✅ Skutečnost (SQL + Alza, audit 7 měsíců)</div>
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">✅ Skutečnost (ERP + Alza, audit 7 měsíců)</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
         <div><span style="color:#64748b;font-size:11px">PPC spend (vše)</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(re.ppc_spend_total)} Kč</div></div>
-        <div><span style="color:#64748b;font-size:11px">Skutečný obrat</span><div style="font-size:20px;font-weight:700;color:#10b981">${fmt(re.total_real_revenue)} Kč</div></div>
-        <div><span style="color:#64748b;font-size:11px">PNO (skutečný)</span><div style="font-size:20px;font-weight:700;color:#10b981">${re.real_pno_pct} %</div></div>
-        <div><span style="color:#64748b;font-size:11px">ROAS (skutečný)</span><div style="font-size:20px;font-weight:700;color:#10b981">${re.real_roas}×</div></div>
-        <div><span style="color:#64748b;font-size:11px">Obj. celkem</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(re.total_real_orders)} (SQL + Alza)</div></div>
+        <div><span style="color:#64748b;font-size:11px">Skutečný obrat (bez DPH)</span><div style="font-size:20px;font-weight:700;color:#10b981">1 300 172 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO (spend/obrat)</span><div style="font-size:20px;font-weight:700;color:#10b981">21,8 %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS (spend/obrat)</span><div style="font-size:20px;font-weight:700;color:#10b981">4,59×</div></div>
+        <div><span style="color:#64748b;font-size:11px">Alza objednávky</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">602</div></div>
+      </div>
+      <div style="color:#cbd5e1;font-size:12px;margin-top:8px;line-height:1.5">
+        <strong style="color:#10b981">ERP (účetní systém, primární zdroj):</strong> 1 170 741 Kč obratu bez DPH · 2 567 prodejních řádků · zisk 692 431 Kč · marže 59,1 %<br>
+        <strong style="color:#f59e0b">Alza marketplace:</strong> 129 431 Kč bez DPH · 602 objednávek (FBA kanál mimo ERP)<br>
+        <strong style="color:#93c5fd">SQL cross-check:</strong> 1 398 unikátních objednávek (web_id=1), 1 383 208 Kč = potvrzuje ERP (+15 % zahrnuje vrácené + B2B na B2C webu)
       </div>
     </div>
 
