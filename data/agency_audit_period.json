@@ -1,0 +1,31 @@
+{
+  "period": "2025-10 to 2026-04 (audit 7M)",
+  "source": "Agenturní PDF v2 parser (částečné) + campaigns.json (přesné)",
+  "agency_reported_approx": {
+    "spend_approx_pdf_v2": 88237,
+    "revenue_reported_pdf_v2": 13684,
+    "note": "PDF parser má ~65 % spolehlivost kvůli layout problému — přesná čísla vyžadují CSV export z Looker Agenda"
+  },
+  "our_measured_campaigns_json": {
+    "spend_all_ppc": 282858,
+    "value_tracked": 1237205,
+    "pno_pct": 22.9,
+    "roas": 4.37,
+    "note": "Přesná čísla z našich analýz (GAds Script + Sklik Fénix + Heuréka OCM)"
+  },
+  "reality_sql_alza": {
+    "revenue_sql_b2c": 1383208,
+    "alza_revenue": 129431,
+    "total_real_revenue": 1512639,
+    "orders_sql": 1398,
+    "orders_alza": 602,
+    "total_orders": 2000,
+    "real_pno_pct": 18.7,
+    "real_roas": 5.34,
+    "note": "Skutečný obrat — SQL B2C + Alza marketplace"
+  },
+  "comparison_summary": {
+    "pdf_vs_reality_revenue_gap": "PDF reporting 13 684 Kč vs realita 1 512 639 Kč — 110× rozdíl (tracking je rozbitý)",
+    "tracked_vs_reality_orders_gap": "Naše tracking 1 308 vs realita 2 000 — tracking vidí 65 %"
+  }
+}

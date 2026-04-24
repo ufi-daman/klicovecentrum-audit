@@ -1,0 +1,208 @@
+{
+  "period": "2025-10-01 to 2026-04-21",
+  "source": "Google Ads geo split (Nastaveni v2.xlsx)",
+  "total": {
+    "cost": 232632.36,
+    "conversions": 2430.73,
+    "cpa": 95.7
+  },
+  "with_branch": {
+    "cost": 158424.43,
+    "conversions": 1563.42,
+    "pct_budget": 68.1,
+    "cpa": 101.33,
+    "conv_per_1000": 9.87
+  },
+  "no_branch": {
+    "cost": 74207.93,
+    "conversions": 867.31,
+    "pct_budget": 31.9,
+    "cpa": 85.56,
+    "conv_per_1000": 11.69
+  },
+  "regions": [
+    {
+      "name": "Středočeský",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 446730,
+      "clicks": 11347,
+      "cost": 51626.92,
+      "conversions": 570.44,
+      "cpa": 90.5,
+      "pct_budget": 22.19,
+      "conv_per_1000": 11.05,
+      "campaigns_count": 4
+    },
+    {
+      "name": "Ústecký",
+      "has_branch": true,
+      "branch_cities": [
+        "Chomutov"
+      ],
+      "impressions": 279170,
+      "clicks": 2418,
+      "cost": 42914.31,
+      "conversions": 307.85,
+      "cpa": 139.4,
+      "pct_budget": 18.45,
+      "conv_per_1000": 7.17,
+      "campaigns_count": 4
+    },
+    {
+      "name": "Jihomoravský",
+      "has_branch": true,
+      "branch_cities": [
+        "Brno"
+      ],
+      "impressions": 355969,
+      "clicks": 3943,
+      "cost": 40882.27,
+      "conversions": 380.24,
+      "cpa": 107.52,
+      "pct_budget": 17.57,
+      "conv_per_1000": 9.3,
+      "campaigns_count": 4
+    },
+    {
+      "name": "Plzeňský",
+      "has_branch": true,
+      "branch_cities": [
+        "Plzeň (Gerská, Žatecká, Lochotín)"
+      ],
+      "impressions": 149086,
+      "clicks": 5205,
+      "cost": 36133.75,
+      "conversions": 451.56,
+      "cpa": 80.02,
+      "pct_budget": 15.53,
+      "conv_per_1000": 12.5,
+      "campaigns_count": 4
+    },
+    {
+      "name": "Jihočeský",
+      "has_branch": true,
+      "branch_cities": [
+        "Hrdějovice / Č. Budějovice"
+      ],
+      "impressions": 151050,
+      "clicks": 3383,
+      "cost": 16127.6,
+      "conversions": 169.62,
+      "cpa": 95.08,
+      "pct_budget": 6.93,
+      "conv_per_1000": 10.52,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Moravskoslezský",
+      "has_branch": true,
+      "branch_cities": [
+        "Ostrava"
+      ],
+      "impressions": 105927,
+      "clicks": 2591,
+      "cost": 9412.62,
+      "conversions": 114.33,
+      "cpa": 82.33,
+      "pct_budget": 4.05,
+      "conv_per_1000": 12.15,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Hl. m. Praha",
+      "has_branch": true,
+      "branch_cities": [
+        "Praha"
+      ],
+      "impressions": 65692,
+      "clicks": 2015,
+      "cost": 8513.0,
+      "conversions": 85.4,
+      "cpa": 99.68,
+      "pct_budget": 3.66,
+      "conv_per_1000": 10.03,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Zlínský",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 98853,
+      "clicks": 1841,
+      "cost": 7778.65,
+      "conversions": 107.71,
+      "cpa": 72.22,
+      "pct_budget": 3.34,
+      "conv_per_1000": 13.85,
+      "campaigns_count": 6
+    },
+    {
+      "name": "Královéhradecký",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 64988,
+      "clicks": 1707,
+      "cost": 7207.12,
+      "conversions": 84.37,
+      "cpa": 85.42,
+      "pct_budget": 3.1,
+      "conv_per_1000": 11.71,
+      "campaigns_count": 6
+    },
+    {
+      "name": "Karlovarský",
+      "has_branch": true,
+      "branch_cities": [
+        "Cheb / Sokolov"
+      ],
+      "impressions": 45953,
+      "clicks": 926,
+      "cost": 4440.88,
+      "conversions": 54.42,
+      "cpa": 81.6,
+      "pct_budget": 1.91,
+      "conv_per_1000": 12.25,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Pardubický",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 43400,
+      "clicks": 823,
+      "cost": 3670.58,
+      "conversions": 28.0,
+      "cpa": 131.09,
+      "pct_budget": 1.58,
+      "conv_per_1000": 7.63,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Kraj Vysočina",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 43882,
+      "clicks": 880,
+      "cost": 3613.62,
+      "conversions": 74.79,
+      "cpa": 48.32,
+      "pct_budget": 1.55,
+      "conv_per_1000": 20.7,
+      "campaigns_count": 3
+    },
+    {
+      "name": "Liberecký",
+      "has_branch": false,
+      "branch_cities": [],
+      "impressions": 3345,
+      "clicks": 8,
+      "cost": 311.04,
+      "conversions": 2.0,
+      "cpa": 155.52,
+      "pct_budget": 0.13,
+      "conv_per_1000": 6.43,
+      "campaigns_count": 1
+    }
+  ]
+}

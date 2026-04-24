@@ -1,0 +1,121 @@
+{
+  "period": "2025-10-01 to 2026-04-22",
+  "summary": {
+    "sql_real_orders": 1398,
+    "ga4_tracked_orders": 641,
+    "ga4_coverage_pct": 45.9,
+    "total_revenue_sql": 1383208,
+    "avg_order_value_kc": 989
+  },
+  "last_click_by_channel": [
+    {
+      "channel": "Google / organic",
+      "sessions": 12378,
+      "conversions": 43,
+      "conv_rate_pct": 0.35,
+      "revenue_kc": 1409,
+      "note": "Tracking selhává — organic tvoří 30-40 % obratu, odpovídá ~400 k+ Kč"
+    },
+    {
+      "channel": "Google / cpc",
+      "sessions": 37083,
+      "conversions": 1308,
+      "conv_rate_pct": 3.53,
+      "revenue_kc": 1181000,
+      "note": "Google Ads — kampaně GA4 tracking, přes 1 300 konverzí"
+    },
+    {
+      "channel": "Seznam / cpc (Sklik)",
+      "sessions": 12845,
+      "conversions": 70,
+      "conv_rate_pct": 0.54,
+      "revenue_kc": 45607,
+      "note": "Jen brand + display tracking funguje"
+    },
+    {
+      "channel": "Heureka.cz",
+      "sessions": 1156,
+      "conversions": 12,
+      "conv_rate_pct": 1.04,
+      "revenue_kc": 10130,
+      "note": "OCM report — 12 objednávek"
+    },
+    {
+      "channel": "Zboží.cz",
+      "sessions": 5772,
+      "conversions": 0,
+      "conv_rate_pct": 0,
+      "revenue_kc": 0,
+      "note": "OCM rozbitý — 0 tracked konverzí"
+    },
+    {
+      "channel": "Direct (none)",
+      "sessions": 1793694,
+      "conversions": 76,
+      "conv_rate_pct": 0.004,
+      "revenue_kc": 157687,
+      "note": "1,7 M bot sessions — filtr potřeba"
+    },
+    {
+      "channel": "Alza marketplace",
+      "sessions": null,
+      "conversions": 602,
+      "conv_rate_pct": null,
+      "revenue_kc": 129431,
+      "note": "Separátní kanál (FBA), mimo GA4"
+    }
+  ],
+  "available_breakdowns": [
+    {
+      "name": "Channel × Device",
+      "status": "částečně",
+      "detail": "GA4 má rozpad desktop/mobile/tablet per channel, ale není v Looker"
+    },
+    {
+      "name": "Channel × Region",
+      "status": "dostupné",
+      "detail": "Google Ads Geo split (viz tab Regiony)"
+    },
+    {
+      "name": "Channel × Hour of day",
+      "status": "dostupné",
+      "detail": "GA4 Explorer — nepoužito v reportingu"
+    },
+    {
+      "name": "Channel × Landing page",
+      "status": "dostupné",
+      "detail": "GA4 landing page → conversion path"
+    },
+    {
+      "name": "Channel × Product category",
+      "status": "částečně",
+      "detail": "Z kombinace campaigns.json + products.json lze odvodit"
+    }
+  ],
+  "missing_for_full_journey": [
+    {
+      "name": "Multi-Channel Funnels (MCF)",
+      "required": "GA4 Attribution → Conversion paths",
+      "status": "není exportováno",
+      "why": "MCF ukazuje cestu: např. Google cpc → Email → Direct → conversion. Bez toho vidíme jen last-click."
+    },
+    {
+      "name": "Cross-device tracking",
+      "required": "GA4 User-ID implementace",
+      "status": "chybí User-ID setup",
+      "why": "Bez User-ID nepropojím zařízení téhož uživatele → last-touch atribuce zkreslená"
+    },
+    {
+      "name": "Offline conversion import",
+      "required": "Call tracking + store visits → Google Ads import",
+      "status": "nepropojeno",
+      "why": "Telefonní volání z GBP (256/7M) + store visits z lokálních kampaní (7,58× ROAS) nejsou v GA4"
+    },
+    {
+      "name": "Enhanced conversions",
+      "required": "hashed email v GA4 purchase event",
+      "status": "pravděpodobně ne",
+      "why": "Bez EC nefunguje cross-device attribution s 100 % přesností"
+    }
+  ]
+}

@@ -425,7 +425,9 @@
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
   <div class="tab" data-view="kpi">🎯 KPI rozpad</div>
-  <div class="tab" data-view="looker">📈 Looker Studio (agentura)</div>
+  <div class="tab" data-view="regions">🗺️ Regiony</div>
+  <div class="tab" data-view="journeys">🔀 Konverzní trasy</div>
+  <div class="tab" data-view="looker">📈 Looker Studio</div>
 </div>
 
 <div class="filters">
@@ -558,6 +560,85 @@
   <div class="chart-card">
     <h3>4️⃣ Celkový souhrn obratu — 4 zdroje</h3>
     <div class="metrics-grid" id="kpi-summary-grid"></div>
+  </div>
+</section>
+
+<section id="regions-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>🗺️ Výkon kampaní podle krajů (audit 7 měsíců)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Google Ads Geo split — kolik rozpočtu, kliků a konverzí šlo do kterého kraje.
+      Kraje jsou rozlišené podle toho, zda je tam fyzická pobočka.
+    </p>
+
+    <div class="metrics-grid" id="region-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Bar chart — Náklady vs konverze per kraj</h3>
+    <div class="chart-wrap" style="height:420px"><canvas id="chart-regions"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Detail per kraj</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-regions">
+        <thead>
+          <tr>
+            <th>Kraj</th>
+            <th>Pobočka</th>
+            <th style="text-align:right">Náklady Kč</th>
+            <th style="text-align:right">Kliky</th>
+            <th style="text-align:right">Konverze</th>
+            <th style="text-align:right">CPA Kč</th>
+            <th style="text-align:right">% rozpočtu</th>
+            <th style="text-align:right">Konv/1 000 Kč</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="journeys-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>🔀 Konverzní trasy — analýza customer journey</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Customer journey ukazuje, odkud zákazník přichází (acquisition), kde konverzuje (assist/last-click), a na kterém zařízení.
+      Aktuálně dostupné pouze dílčí data, úplná trasa vyžaduje GA4 Attribution export (Multi-channel funnel).
+    </p>
+
+    <div class="metrics-grid" id="journey-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>1️⃣ Last-click atribuce (GA4 + odhad)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-journey-lastclick">
+        <thead>
+          <tr>
+            <th>Kanál (acquisition)</th>
+            <th style="text-align:right">Návštěvy</th>
+            <th style="text-align:right">Konverze</th>
+            <th style="text-align:right">Konv. %</th>
+            <th style="text-align:right">Obrat Kč</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>2️⃣ Dostupné rozpady</h3>
+    <div id="journey-available"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>3️⃣ Chybějící data pro úplnou customer journey</h3>
+    <div id="journey-missing"></div>
   </div>
 </section>
 
@@ -1323,6 +1404,8 @@ function showView(view) {
   document.getElementById('products-view').classList.toggle('hidden', view !== 'products');
   document.getElementById('looker-view').classList.toggle('hidden', view !== 'looker');
   document.getElementById('kpi-view').classList.toggle('hidden', view !== 'kpi');
+  document.getElementById('regions-view').classList.toggle('hidden', view !== 'regions');
+  document.getElementById('journeys-view').classList.toggle('hidden', view !== 'journeys');
 }
 
 // tabs
@@ -1343,6 +1426,12 @@ document.querySelectorAll('.tab').forEach(tab => {
     } else if (tab.dataset.view === 'kpi') {
       showView('kpi');
       loadKpi();
+    } else if (tab.dataset.view === 'regions') {
+      showView('regions');
+      loadRegions();
+    } else if (tab.dataset.view === 'journeys') {
+      showView('journeys');
+      loadJourneys();
     } else {
       showView('findings');
       activeCategory = tab.dataset.cat;
@@ -1749,6 +1838,159 @@ function renderKpi() {
   `;
 }
 
+// ─── REGIONS VIEW ────────────────────────────────────────────
+let regionsData = null;
+let regionsChart = null;
+
+async function loadRegions() {
+  if (!regionsData) {
+    const res = await fetch('data/regions.json?v=' + Date.now());
+    regionsData = await res.json();
+  }
+  renderRegions();
+}
+
+function renderRegions() {
+  const d = regionsData;
+  const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+
+  // Summary grid
+  document.getElementById('region-summary-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(16,185,129,0.1);border-color:#10b981">
+      <div class="metric-label">✅ Kraje s pobočkou</div>
+      <div class="metric-value" style="color:#10b981">${fmt(Math.round(d.with_branch.cost))} Kč</div>
+      <div style="color:#64748b;font-size:11px">${d.with_branch.pct_budget}% rozpočtu · ${fmt(Math.round(d.with_branch.conversions))} konv. · CPA ${fmt(Math.round(d.with_branch.cpa))} Kč</div>
+    </div>
+    <div class="metric-box" style="background:rgba(59,130,246,0.1);border-color:#3b82f6">
+      <div class="metric-label">📍 Kraje bez pobočky</div>
+      <div class="metric-value" style="color:#93c5fd">${fmt(Math.round(d.no_branch.cost))} Kč</div>
+      <div style="color:#64748b;font-size:11px">${d.no_branch.pct_budget}% rozpočtu · ${fmt(Math.round(d.no_branch.conversions))} konv. · CPA ${fmt(Math.round(d.no_branch.cpa))} Kč</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">Celkem audit period</div>
+      <div class="metric-value">${fmt(Math.round(d.total.cost))} Kč</div>
+      <div style="color:#64748b;font-size:11px">${fmt(Math.round(d.total.conversions))} konv. · CPA ${fmt(Math.round(d.total.cpa))} Kč</div>
+    </div>
+    <div class="metric-box" style="background:rgba(148,163,184,0.08)">
+      <div class="metric-label">Efektivita (konv / 1 000 Kč)</div>
+      <div style="font-size:18px;margin-top:4px">
+        S pobočkou: <strong style="color:#10b981">${d.with_branch.conv_per_1000}</strong><br>
+        Bez pobočky: <strong style="color:#93c5fd">${d.no_branch.conv_per_1000}</strong>
+      </div>
+    </div>
+  `;
+
+  // Tabulka
+  document.querySelector('#table-regions tbody').innerHTML = d.regions.map(r => {
+    const branch = r.has_branch ? '✅ ' + (r.branch_cities.join(', ') || 'ANO') : '— bez pobočky';
+    return `<tr>
+      <td><strong>${r.name}</strong></td>
+      <td style="font-size:12px;color:#94a3b8">${branch}</td>
+      <td class="num">${fmt(Math.round(r.cost))}</td>
+      <td class="num">${fmt(r.clicks)}</td>
+      <td class="num">${fmt(Math.round(r.conversions))}</td>
+      <td class="num">${fmt(Math.round(r.cpa))}</td>
+      <td class="num">${r.pct_budget}%</td>
+      <td class="num">${r.conv_per_1000}</td>
+    </tr>`;
+  }).join('');
+
+  // Bar chart: náklady + konverze per kraj
+  if (regionsChart) regionsChart.destroy();
+  const top = d.regions.slice(0, 12);
+  const ctx = document.getElementById('chart-regions').getContext('2d');
+  regionsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: top.map(r => r.name + (r.has_branch ? ' ✅' : '')),
+      datasets: [
+        {label: 'Náklady (Kč)', data: top.map(r => r.cost), backgroundColor: '#3b82f6', yAxisID: 'y'},
+        {label: 'Konverze', data: top.map(r => r.conversions), backgroundColor: '#10b981', yAxisID: 'y1'},
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#e2e8f0' } } },
+      scales: {
+        x: { ticks: { color: '#cbd5e1', maxRotation: 45 }, grid: { color: '#334155' } },
+        y: { position: 'left', ticks: { color: '#93c5fd' }, grid: { color: '#334155' }, title: { display: true, text: 'Náklady Kč', color: '#93c5fd' } },
+        y1: { position: 'right', ticks: { color: '#10b981' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'Konverze', color: '#10b981' } },
+      }
+    }
+  });
+}
+
+// ─── JOURNEYS VIEW ────────────────────────────────────────────
+let journeysData = null;
+
+async function loadJourneys() {
+  if (!journeysData) {
+    const res = await fetch('data/journeys.json?v=' + Date.now());
+    journeysData = await res.json();
+  }
+  renderJourneys();
+}
+
+function renderJourneys() {
+  const d = journeysData;
+  const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+
+  // Summary
+  const s = d.summary;
+  document.getElementById('journey-summary-grid').innerHTML = `
+    <div class="metric-box">
+      <div class="metric-label">SQL skutečné objednávky</div>
+      <div class="metric-value" style="color:#10b981">${fmt(s.sql_real_orders)}</div>
+      <div style="color:#64748b;font-size:11px">${fmt(s.total_revenue_sql)} Kč · AOV ${fmt(s.avg_order_value_kc)} Kč</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">GA4 tracked konverze</div>
+      <div class="metric-value" style="color:#93c5fd">${fmt(s.ga4_tracked_orders)}</div>
+      <div style="color:#64748b;font-size:11px">pokrytí ${s.ga4_coverage_pct}% reality</div>
+    </div>
+    <div class="metric-box" style="background:rgba(245,158,11,0.08)">
+      <div class="metric-label">Chybějící tracking</div>
+      <div class="metric-value" style="color:#fcd34d">${fmt(s.sql_real_orders - s.ga4_tracked_orders)}</div>
+      <div style="color:#64748b;font-size:11px">54% objednávek není v GA4</div>
+    </div>
+  `;
+
+  // Last-click tabulka
+  document.querySelector('#table-journey-lastclick tbody').innerHTML = d.last_click_by_channel.map(c => `
+    <tr>
+      <td><strong>${c.channel}</strong></td>
+      <td class="num">${fmt(c.sessions)}</td>
+      <td class="num">${fmt(c.conversions)}</td>
+      <td class="num">${c.conv_rate_pct != null ? c.conv_rate_pct + '%' : '—'}</td>
+      <td class="num">${fmt(c.revenue_kc)}</td>
+      <td style="font-size:12px;color:#94a3b8">${c.note}</td>
+    </tr>
+  `).join('');
+
+  // Available breakdowns
+  document.getElementById('journey-available').innerHTML = d.available_breakdowns.map(b => {
+    const colors = {'dostupné': '#10b981', 'částečně': '#f59e0b'};
+    const col = colors[b.status] || '#6b7280';
+    return `<div style="background:rgba(100,116,139,0.1);border-left:3px solid ${col};padding:12px;border-radius:6px;margin-bottom:8px">
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px">
+        <span style="background:${col};color:white;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${b.status.toUpperCase()}</span>
+        <strong style="color:#f1f5f9">${b.name}</strong>
+      </div>
+      <div style="color:#94a3b8;font-size:12px">${b.detail}</div>
+    </div>`;
+  }).join('');
+
+  // Missing data
+  document.getElementById('journey-missing').innerHTML = d.missing_for_full_journey.map(m => `
+    <div style="background:rgba(220,38,38,0.08);border-left:3px solid #dc2626;padding:12px;border-radius:6px;margin-bottom:8px">
+      <strong style="color:#f1f5f9">${m.name}</strong>
+      <div style="color:#cbd5e1;font-size:13px;margin-top:4px"><strong style="color:#fca5a5">Potřeba:</strong> ${m.required}</div>
+      <div style="color:#cbd5e1;font-size:13px"><strong style="color:#fca5a5">Stav:</strong> ${m.status}</div>
+      <div style="color:#94a3b8;font-size:12px;margin-top:4px">${m.why}</div>
+    </div>
+  `).join('');
+}
+
 // ─── AGENCY LOOKER KPI ─────────────────────────────────────────
 let agencyKpiData = null;
 async function loadAgencyKpi() {
@@ -1779,6 +2021,34 @@ function renderAgencyKpi() {
         <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#f59e0b">${t.pno_pct} %</div></div>
         <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#93c5fd">${t.roas}×</div></div>
         <div><span style="color:#64748b;font-size:11px">Kliky / CTR</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">${fmt(t.clicks)} · ${t.ctr_pct}%</div></div>
+      </div>
+    </div>
+
+    <!-- Agenturní audit period 7M (PDF v2) -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(245,158,11,0.08);border-color:#f59e0b">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📊 Agenturní reporting — audit period 7M (z PDF v2)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <div><span style="color:#64748b;font-size:11px">Spend (odhad z PDF)</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">~88 237 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Revenue (odhad)</span><div style="font-size:20px;font-weight:700;color:#fcd34d">~13 684 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#ef4444">645 %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#ef4444">0,16×</div></div>
+        <div><span style="color:#64748b;font-size:11px">Zdroj</span><div style="font-size:13px;color:#94a3b8;margin-top:4px">PDF v2 parser (65% spolehlivost)</div></div>
+      </div>
+      <div style="color:#fca5a5;font-size:12px;margin-top:8px;background:rgba(220,38,38,0.1);padding:6px 10px;border-radius:4px">
+        ⚠️ Čísla jsou z PDF v2 parseru s omezenou spolehlivostí — pro přesná data nutný CSV export z Looker Agenda tabulky.
+        Níže uvedená naše tracking + realita jsou přesná.
+      </div>
+    </div>
+
+    <!-- Naše tracking audit 7M -->
+    <div class="metric-box" style="grid-column:1/-1;background:rgba(59,130,246,0.08);border-color:#3b82f6">
+      <div style="color:#cbd5e1;font-size:13px;font-weight:600;margin-bottom:6px">📋 Naše tracking měření (campaigns.json, audit 7 měsíců)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <div><span style="color:#64748b;font-size:11px">Spend PPC celkem</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">282 858 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">Tracked value</span><div style="font-size:20px;font-weight:700;color:#93c5fd">1 237 205 Kč</div></div>
+        <div><span style="color:#64748b;font-size:11px">PNO</span><div style="font-size:20px;font-weight:700;color:#93c5fd">22,9 %</div></div>
+        <div><span style="color:#64748b;font-size:11px">ROAS</span><div style="font-size:20px;font-weight:700;color:#93c5fd">4,37×</div></div>
+        <div><span style="color:#64748b;font-size:11px">Konverze tracked</span><div style="font-size:20px;font-weight:700;color:#f1f5f9">1 308</div></div>
       </div>
     </div>
 
