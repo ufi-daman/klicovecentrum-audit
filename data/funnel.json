@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-28T16:30:38",
+  "generated": "2026-04-28T16:42:19",
   "period": {
     "from": "2025-10-01",
     "to": "2026-04-22"
@@ -39,25 +39,25 @@
   },
   "funnel_stages": [
     {
-      "stage": "1. Sessions (návštěvy)",
-      "value": 1967803,
+      "stage": "1. Sessions (LIDSKÉ — boti odečteni)",
+      "value": 184144,
       "pct_of_top": 100,
       "conv_from_prev": null,
       "drop_pct": null,
-      "note": "Včetně bot trafficu (1,79 M sessions celkem; finding #2)"
+      "note": "Z celkových 1,967,803 GA4 sessions odečtena bot vlna (1,801,550, 91.6 %, finding #2)"
     },
     {
       "stage": "2. View Item (zobrazení produktu)",
       "value": 131080,
-      "pct_of_top": 6.66,
-      "conv_from_prev": 6.66,
-      "drop_pct": 93.34,
-      "note": "Pouze ta část návštěv, která prošla na produktovou stránku"
+      "pct_of_top": 71.18,
+      "conv_from_prev": 71.18,
+      "drop_pct": 28.82,
+      "note": "Pouze sessions s alespoň 1 produktovým zobrazením"
     },
     {
       "stage": "3. Add to Cart",
       "value": 5293,
-      "pct_of_top": 0.27,
+      "pct_of_top": 2.87,
       "conv_from_prev": 4.04,
       "drop_pct": 95.96,
       "note": "Healthy benchmark: 5-10 % view_item → add_to_cart"
@@ -65,10 +65,10 @@
     {
       "stage": "4. Begin Checkout (vstup do checkoutu)",
       "value": 6953,
-      "pct_of_top": 0.35,
+      "pct_of_top": 3.78,
       "conv_from_prev": 131.36,
       "drop_pct": -31.36,
-      "note": "Cart abandonment = (add_cart - begin_checkout) / add_cart"
+      "note": "Cart abandonment = (add_cart - begin_checkout) / add_cart. Pozn: checkout > cart může znamenat opakované návštěvy uloženého košíku."
     },
     {
       "stage": "5. Add Payment Info",
@@ -76,15 +76,15 @@
       "pct_of_top": 0.0,
       "conv_from_prev": 0.0,
       "drop_pct": 100.0,
-      "note": "Vyplnění platby — zde se ztrácí form-related friction"
+      "note": "0 = event není implementován v dataLayer (tracking gap, ne reálný drop)"
     },
     {
       "stage": "6. Purchase (dokončená objednávka)",
       "value": 674,
-      "pct_of_top": 0.03,
+      "pct_of_top": 0.37,
       "conv_from_prev": 0.0,
       "drop_pct": 0.0,
-      "note": "GA4 vidí 674 nákupů. Skutečnost SQL: 1 398 obj. (web_id=1) → tracking gap"
+      "note": "GA4 vidí 674 nákupů. Skutečnost SQL: 1 398 obj. (web_id=1) → tracking pokrývá 48.21 %"
     }
   ],
   "channels_funnel": {

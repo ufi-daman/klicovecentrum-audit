@@ -892,7 +892,7 @@
   </div>
 
   <div class="chart-card">
-    <h3>🛒 Prodejní funnel — GA4 events (audit period)</h3>
+    <h3>🛒 Prodejní funnel — GA4 events (LIDSKÝ traffic, boti odečteni)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="funnel-period">—</p>
     <div id="funnel-stages-vis" style="margin-bottom:18px"></div>
     <div style="overflow-x:auto">
@@ -2759,8 +2759,11 @@ async function loadJourneys() {
 function renderFunnel() {
   const d = window.funnelData;
   const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+  const bb = d.bot_breakdown || {};
   document.getElementById('funnel-period').textContent =
-    `Audit period ${d.period.from} → ${d.period.to} · zdroj GA4 property 299992437. Stages odpovídají events: session_start, view_item, add_to_cart, begin_checkout, add_payment_info, purchase.`;
+    `Audit period ${d.period.from} → ${d.period.to} · zdroj GA4 property 299992437. ` +
+    `Sessions = LIDSKÉ (z ${(bb.total_sessions||0).toLocaleString('cs-CZ')} celkem odečteno ${(bb.bot_sessions||0).toLocaleString('cs-CZ')} botů, ${bb.bot_pct} %, finding #2). ` +
+    `Event counts (view_item, add_to_cart, …) jsou de facto human-only — bot je triggered z dataLayer kódu, který bot většinou neprovede.`;
 
   // ── BOT vs HUMAN split ─────────────────────────────────────
   const bot = d.bot_breakdown;
