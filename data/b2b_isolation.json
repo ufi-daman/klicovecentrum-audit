@@ -1,0 +1,99 @@
+{
+  "generated": "2026-04-28T13:08:35",
+  "period": {
+    "from": "2025-10-01",
+    "to": "2026-04-22"
+  },
+  "source": "MySQL hbgroup_cz_hbg8oiwu73 (kosik + polozka, web_id rozpad)",
+  "audit_scope_web_id": 1,
+  "audit_scope_revenue_kc": 1673682,
+  "all_webs_revenue_kc": 6667935,
+  "audit_scope_share_pct": 25.1,
+  "b2c": {
+    "objednavky": 1395,
+    "revenue_kc": 1673682,
+    "unikatnich_zakazniku": 1239,
+    "aov_kc": 1456
+  },
+  "b2b_total": {
+    "objednavky": 1899,
+    "revenue_kc": 4994253,
+    "unikatnich_zakazniku": 584
+  },
+  "webs": [
+    {
+      "web_id": 1,
+      "name": "klicovecentrum.cz",
+      "type": "B2C",
+      "domain": "klicovecentrum.cz",
+      "ga4_property": "299992437",
+      "in_ppc_scope": true,
+      "objednavky": 1395,
+      "unikatnich_zakazniku": 1239,
+      "revenue_kc": 1673682,
+      "aov_kc": 1456,
+      "s_icom": 664,
+      "s_firmou": 314,
+      "note": "Hlavní B2C eshop – jediný cíl PPC kampaní (Google Ads 350-878-7813, Sklik). Audit primárně řeší tento web."
+    },
+    {
+      "web_id": 2,
+      "name": "hbgroup.cz B2B",
+      "type": "B2B",
+      "domain": "hbgroup.cz",
+      "ga4_property": null,
+      "in_ppc_scope": false,
+      "objednavky": 948,
+      "unikatnich_zakazniku": 99,
+      "revenue_kc": 4859759,
+      "aov_kc": 7660,
+      "s_icom": 10422,
+      "s_firmou": 9298,
+      "note": "B2B portál – samostatný login, žádné PPC kampaně. Konsolidovaný odběratelský prodej (IČO/firma povinné)."
+    },
+    {
+      "web_id": 3,
+      "name": "klicovecentrum.sk B2B (?)",
+      "type": "B2B-SK",
+      "domain": "klicovecentrum.sk",
+      "ga4_property": null,
+      "in_ppc_scope": false,
+      "objednavky": 504,
+      "unikatnich_zakazniku": 79,
+      "revenue_kc": 114350,
+      "aov_kc": 322,
+      "s_icom": 5300,
+      "s_firmou": 5300,
+      "note": "Slovenský B2B segment – mimo audit scope."
+    },
+    {
+      "web_id": 4,
+      "name": "klicovecentrum.sk B2C (?)",
+      "type": "B2C-SK",
+      "domain": "klicovecentrum.sk",
+      "ga4_property": null,
+      "in_ppc_scope": false,
+      "objednavky": 447,
+      "unikatnich_zakazniku": 406,
+      "revenue_kc": 20144,
+      "aov_kc": 77,
+      "s_icom": 180,
+      "s_firmou": 74,
+      "note": "Slovenský B2C – velmi malý objem (drobné zboží, AOV ~80 Kč). Mimo audit scope."
+    }
+  ],
+  "isolation_status": "STRUCTURALLY_SEPARATED",
+  "isolation_evidence": [
+    "B2B/SK provoz je na samostatných doménách (hbgroup.cz, klicovecentrum.sk)",
+    "Každý web má svoji vlastní GA4 property — audit GA4 (299992437) sleduje jen B2C",
+    "Search Console je registrován jen pro klicovecentrum.cz",
+    "Google Ads 350-878-7813 míří jen na klicovecentrum.cz",
+    "Sklik kampaně míří jen na klicovecentrum.cz",
+    "SQL skripty v auditu používají WHERE web_id=1"
+  ],
+  "implications": {
+    "for_roas": "ROAS čísla v auditu odpovídají skutečnosti pro B2C — žádná inflace z B2B",
+    "for_strategy": "B2B segment (4,994,253 Kč) je 2.9× větší než B2C (1,673,682 Kč) — pokud klient chce růst, B2B je mnohem větší prostor, ale mimo PPC funnel",
+    "for_dashboard": "Dashboard vědomě reportuje pouze B2C, B2B se zmiňuje jako kontext"
+  }
+}

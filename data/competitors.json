@@ -1,0 +1,239 @@
+{
+  "generated": "2026-04-28T13:25:28",
+  "context": "Mapování konkurence pro klicovecentrum.cz (B2C eshop zámky/trezory). Tier 1 = plný překryv sortimentu + ICP. Tier 2-3 = specialisté nebo užší segment. Smart locks = displacement risk od Nuki/Yale (klient částečně sám distribuuje + má vlastní STAR Smart).",
+  "method": "Web search (Heureka, Google, Recenzopedia, výrobci) z dubna 2026 + manuální posouzení.",
+  "our_moats": [
+    {
+      "moat": "17 kamenných poboček napříč CZ",
+      "why": "Žádný online-only konkurent nemá fyzickou síť; urgentní zámečnické služby, výroba klíčů, walk-in."
+    },
+    {
+      "moat": "Vlastní značka STAR (Smart + mechanika)",
+      "why": "Marže navíc + nezávislost na výrobcích jako FAB/EVVA (kteří prodávají i napřímo)."
+    },
+    {
+      "moat": "B2B segment 4,86 M Kč paralelně",
+      "why": "Hbgroup.cz B2B portál = 2,9× větší obrat než B2C. Diversifikace rizika."
+    },
+    {
+      "moat": "Master key / SGK servis",
+      "why": "B2B služba — malé eshopy a smart-lock pure-play konkurenti tohle nedělají."
+    }
+  ],
+  "tier1": [
+    {
+      "name": "Svět zámků",
+      "url": "eshop.svetzamku.cz",
+      "threat_level": "P0",
+      "type": "Online eshop (1 prodejna Praha)",
+      "positioning": "Cenový lídr, široký sortiment, silné SEO na 'cylindrická vložka'",
+      "strengths": [
+        "Široký sortiment (klíče, vložky, kování, trezory, smart locks)",
+        "Silné SEO — top umístění na generic produktové dotazy",
+        "Bezpečnostní vložky FAB s patentovou ochranou + 5 klíčů + bezp. karta",
+        "Online-only optimalizovaný checkout"
+      ],
+      "weaknesses": [
+        "Bez fyzické sítě → bez urgent fulfillment (klíč potřebuju TEĎ)",
+        "Žádný master key servis pro B2B projekty",
+        "Pouze 1 prodejna — nemůže konkurovat lokálně mimo Prahu",
+        "Bez vlastní značky → tlak na marže od výrobců"
+      ],
+      "what_to_do": [
+        "SEO: ubránit non-brand pozice na 'cylindrická vložka' a 'bezpečnostní vložka' (#14)",
+        "Lokální PPC: agresivní bidding mimo Prahu (kde nemají pobočku)",
+        "Komunikace: 'Hned dnes na pobočce' jako USP proti online-only"
+      ],
+      "estimated_overlap_pct": 78,
+      "heureka_status": "ověřeno / aktivní"
+    },
+    {
+      "name": "Klíčový servis",
+      "url": "eshop.klicovyservis.cz",
+      "threat_level": "P0",
+      "type": "Online eshop + 1 prodejna Plzeň",
+      "positioning": "Heureka-ověřený, expedice CZ+SK, instalační služby v Plzni",
+      "strengths": [
+        "Heureka 'Ověřeno zákazníky' + dobré recenze",
+        "Expedice CZ+SK — širší geografický dosah",
+        "Instalační služby v Plzni — direktní konkurence pobočce Plzeň",
+        "Kategorie 'speciální zámky' a 'zadlabací zámky' silné"
+      ],
+      "weaknesses": [
+        "Pouze 1 fyzická prodejna (Plzeň)",
+        "Slabší pokrytí zbytku CZ — online-driven",
+        "Menší značka mimo Plzeň"
+      ],
+      "what_to_do": [
+        "Pobočka Plzeň: aktivně tlačit lokální SEO + PPC, zde je přímá konkurence",
+        "Heureka: zlepšit naše hodnocení / response rate (finding pro #16-#20)",
+        "Cenovka: monitorovat top 50 SKU vs Klíčový servis"
+      ],
+      "estimated_overlap_pct": 65,
+      "heureka_status": "ověřeno / aktivní"
+    },
+    {
+      "name": "Kovotechnika",
+      "url": "kovotechnika.cz",
+      "threat_level": "P1",
+      "type": "Showroom Brno + eshop, 32 let",
+      "positioning": "Prémium / B2B / banking sektor — EVVA, MUL-T-LOCK, GEGE",
+      "strengths": [
+        "32 let na trhu — silná reputace v Brně + okolí",
+        "Banking sektor: počítačky bankovek, ověřovače — niche segment",
+        "Master key system design, B2B reference",
+        "Showroom s největší výstavou trezorů v Brně",
+        "Yale brand smart home — stejné značky co my (Yale Connect)"
+      ],
+      "weaknesses": [
+        "Pouze Brno → mimo region slabé",
+        "Slabší online dosah / SEO (více reputační)",
+        "Nemá pobočky v Praze, Plzni, Ostravě (kde my máme)"
+      ],
+      "what_to_do": [
+        "B2B / projektové zakázky: Brno region je sporný — mít hotové reference + ceníky",
+        "Master key: PR ohledně našich projektů (hotely, kancelářské budovy)",
+        "Banking: pravděpodobně mimo náš ICP — nepronásledovat"
+      ],
+      "estimated_overlap_pct": 45,
+      "heureka_status": "—"
+    },
+    {
+      "name": "Kareco",
+      "url": "kareco.cz",
+      "threat_level": "P1",
+      "type": "Online eshop, šíře — schránky + zámky + bezpečnost",
+      "positioning": "Komplexní řešení dveřní bezpečnosti vč. poštovních schránek",
+      "strengths": [
+        "Poštovní schránky + bezpečnostní mix — je to vstupní cesta k zámkům",
+        "FAB ASSA ABLOY autorizovaný prodejce",
+        "Dlouhý sortiment"
+      ],
+      "weaknesses": [
+        "Šířka rozmělňuje fokus — není autoritou v žádné kategorii",
+        "Slabší SEO na klíčové keywords",
+        "Bez pobočkové sítě"
+      ],
+      "what_to_do": [
+        "Schránky: prozkoumat náš sortiment — můžeme nabízet komplet (zámky + schránka)?",
+        "Cenový monitoring: spíše defenzivní než ofenzivní"
+      ],
+      "estimated_overlap_pct": 40,
+      "heureka_status": "—"
+    }
+  ],
+  "tier2_3": [
+    {
+      "name": "Trezor.cz",
+      "url": "trezor.cz",
+      "tier": 2,
+      "specialization": "Trezory + master key systémy",
+      "threat": "P2 — bere segment trezorů (high-AOV)"
+    },
+    {
+      "name": "AAA Trezory",
+      "url": "aaa-trezory.cz",
+      "tier": 2,
+      "specialization": "Certifikované trezory od 1992",
+      "threat": "P2 — B2B trezory (banky, firmy)"
+    },
+    {
+      "name": "MC Systems",
+      "url": "eshop.mcsystems.cz",
+      "tier": 2,
+      "specialization": "Bezp. zámky + instalace",
+      "threat": "P2 — B2B instalace projektů"
+    },
+    {
+      "name": "Klíče-zámky-trezory.eu",
+      "url": "klice-zamky-trezory.eu",
+      "tier": 3,
+      "specialization": "FAB autorizovaný dealer Brno",
+      "threat": "P3 — Brno region overlap"
+    },
+    {
+      "name": "Zamky-trezory.cz",
+      "url": "zamky-trezory.cz",
+      "tier": 3,
+      "specialization": "Široký sortiment, cenová alt.",
+      "threat": "P3 — cenový tlak"
+    },
+    {
+      "name": "Tokoz eshop",
+      "url": "eshop.tokoz.cz",
+      "tier": 3,
+      "specialization": "Manufacturer-direct (vložky)",
+      "threat": "P3 — výrobce-direct, tlačí marže"
+    },
+    {
+      "name": "FAB / ASSA ABLOY",
+      "url": "fab.cz",
+      "tier": 3,
+      "specialization": "Manufacturer (brand-traffic)",
+      "threat": "P3 — brand traffic chytá výrobce"
+    },
+    {
+      "name": "Hornbach / OBI / Bauhaus",
+      "url": "hornbach.cz / obi.cz",
+      "tier": 3,
+      "specialization": "DIY low-end vložky",
+      "threat": "P3 — walk-in commodity koupě"
+    },
+    {
+      "name": "Alza marketplace",
+      "url": "alza.cz",
+      "tier": 2,
+      "specialization": "Generalist eshop / marketplace",
+      "threat": "P1 — současně sales channel (paradox), může kdykoli zkopírovat / privátní značka"
+    }
+  ],
+  "smart_lock_displacement": {
+    "context": "Smart locks jsou rostoucí kategorie (Nuki Smart Lock 5 dostal CES Innovation 2025). Klient je v relativně silné pozici — distribuuje Nuki + Yale Connect a má vlastní značku STAR Smart. Riziko není 'nemám smart locks', ale 'pure-play smart eshopy budou mít lepší SEO/expertizu'.",
+    "our_position": {
+      "nuki": "Distribuujeme — kategorie chytré zámky",
+      "yale_connect": "Distribuujeme — kategorie chytré zámky",
+      "star_smart": "Vlastní značka — vyšší marže, nezávislost na Nuki/Yale",
+      "verdict": "🟢 Sortiment je pokrytý. Slabina je v marketingu / komunikaci kategorie."
+    },
+    "competitors": [
+      {
+        "name": "Nuki direct (nuki-lock.cz)",
+        "url": "nuki-lock.cz",
+        "threat": "Mid",
+        "note": "Výrobce přímo prodává v CZ s plnou lokalizací — ohrožuje naši marži"
+      },
+      {
+        "name": "Blueroad",
+        "url": "blueroad.cz",
+        "threat": "Mid",
+        "note": "Smart home eshop s Nuki/Yale — top SEO na 'chytrý zámek Nuki'"
+      },
+      {
+        "name": "SmartRoom",
+        "url": "smartroom.cz",
+        "threat": "Low",
+        "note": "Smart home generalista, slabší v zámcích"
+      },
+      {
+        "name": "InLiving",
+        "url": "inliving.cz",
+        "threat": "Low",
+        "note": "Generalist, prodává Nuki 4.0 — širší koš"
+      }
+    ],
+    "strategic_recommendations": [
+      "Vybudovat dedikovanou category landing page '/chytre-zamky/' — finding #34 doporučuje",
+      "Obsahový marketing: porovnání Nuki vs Yale vs STAR Smart (tabulkové + kalkulačka)",
+      "Cross-sell: smart zámek + cylindrická vložka FAB (bezp. základ) jako balíček",
+      "Místo bránění proti Nuki direct: být 'expert na všechny smart locks' (nezávislé poradenství)"
+    ]
+  },
+  "what_to_track_quarterly": [
+    "Cenový index top 20 SKU vs Tier 1 (cena nás / cena konkurence)",
+    "SEO viditelnost — pozice na top 50 keywords (Marketing Miner / Collabim)",
+    "Heuréka: rating, počet recenzí, response rate per Tier 1",
+    "Sklik/GAds: brand search ad konkurence (kdo bidne na 'klíčové centrum')",
+    "Sortiment overlap přes Mergado feed match (% produktů, které mají i konkurence)",
+    "Smart lock category share — % obratu z chytrých zámků MoM"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "generated": "2026-04-28T13:10:43",
+  "period": "2025-10 — 2026-04 (audit 7M)",
+  "method": "heuristic_spend_per_estimated_new_customer",
+  "scope": "klicovecentrum.cz B2C (web_id=1)",
+  "inputs": {
+    "ltv_avg_kc": 1351,
+    "total_unique_customers": 1239,
+    "total_orders": 1395,
+    "total_revenue_kc": 1673682
+  },
+  "channels": [
+    {
+      "channel": "Google Ads",
+      "spend_kc": 238704,
+      "agency_conversions": 367,
+      "estimated_new_customers": 312,
+      "new_customer_factor": 0.85,
+      "cac_kc": 765,
+      "ltv_kc": 1351,
+      "ltv_cac_ratio": 1.77,
+      "payback_months_if_repeat": 1.8,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+    },
+    {
+      "channel": "Sklik (seznam)",
+      "spend_kc": 58429,
+      "agency_conversions": 85,
+      "estimated_new_customers": 72,
+      "new_customer_factor": 0.85,
+      "cac_kc": 812,
+      "ltv_kc": 1351,
+      "ltv_cac_ratio": 1.66,
+      "payback_months_if_repeat": 1.7,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+    },
+    {
+      "channel": "Heuréka.cz",
+      "spend_kc": 8666,
+      "agency_conversions": 12,
+      "estimated_new_customers": 11,
+      "new_customer_factor": 0.95,
+      "cac_kc": 788,
+      "ltv_kc": 1351,
+      "ltv_cac_ratio": 1.71,
+      "payback_months_if_repeat": 1.7,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+    }
+  ],
+  "blended": {
+    "total_spend_kc": 305799,
+    "total_estimated_new_customers": 395,
+    "blended_cac_kc": 774,
+    "blended_ltv_cac_ratio": 1.75,
+    "ppc_share_of_total_customers_pct": 31.9
+  },
+  "blockers": [
+    "Klient nemá UTM/source tracking pro nové vs. vracející se zákazníky",
+    "Agenturní konverze obsahují micro-events (370k vs. 641 reálných nákupů — finding #1)",
+    "Sklik/Heuréka konverze = ~3-7× nadhodnocené dle audit findings",
+    "First-touch attribution v GA4 zkreslena 90% Direct trafficem (bot)"
+  ],
+  "confidence": "low — heuristická aproximace, ne tvrdá data",
+  "interpretation": {
+    "max_safe_cac_kc": 450,
+    "verdict_summary": "Při LTV 1351 Kč by CAC neměl překročit 450 Kč (LTV:CAC 3:1). Blended CAC 774 Kč → ratio 1.75 → 🟡 hraniční",
+    "channel_actions": [
+      "🟢 Google Ads ROAS 2.16, ale po očištění o brand search a micro-konverze pravděpodobně 1.0–1.3",
+      "🔴 Sklik PNO 85 % = ztrátový kanál — escalovat / pause",
+      "🔴 Heuréka PNO 86 % = téměř bez marže, zvážit jen jako 'vitrína'",
+      "Fix UTM tracking → reálná čísla za 2 měsíce → realokace spendu"
+    ],
+    "newsletter_arpu_potential": "Pokud by klient měl newsletter na 1239 kontaktů × 2 % CTR × 5 % CR × 1351 Kč LTV = 1,674 Kč/měsíc bez akviziční akce"
+  }
+}

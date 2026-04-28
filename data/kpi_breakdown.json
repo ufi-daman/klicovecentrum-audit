@@ -339,6 +339,53 @@
     },
     "note": "Paralelní kanál mimo ERP — FBA fulfillment"
   },
+  "channel_orders_aov": [
+    {
+      "channel": "Google Ads",
+      "spend_kc": 238704,
+      "orders": 367,
+      "revenue_kc": 516504,
+      "aov_kc": 1407,
+      "cost_per_order_kc": 650,
+      "note": "Z agenturního Looker reportu (audit period). Konverze obsahují micro-events — finding #1."
+    },
+    {
+      "channel": "Sklik",
+      "spend_kc": 58429,
+      "orders": 85,
+      "revenue_kc": 68773,
+      "aov_kc": 809,
+      "cost_per_order_kc": 687,
+      "note": "Sklik PNO 85 % = ztrátový kanál; budget exhaustion 80 % dní."
+    },
+    {
+      "channel": "Heuréka",
+      "spend_kc": 8666,
+      "orders": 12,
+      "revenue_kc": 10130,
+      "aov_kc": 844,
+      "cost_per_order_kc": 722,
+      "note": "OCM tracking, AOV nízký kvůli cenovému charakteru srovnávače."
+    },
+    {
+      "channel": "Meta Ads (FB/IG)",
+      "spend_kc": null,
+      "orders": null,
+      "revenue_kc": null,
+      "aov_kc": null,
+      "cost_per_order_kc": null,
+      "note": "✗ Není reportováno — finding #40. Klient buď neutrácí, nebo agentura kanál nepokrývá. Nutno vyjasnit."
+    },
+    {
+      "channel": "PPC celkem",
+      "spend_kc": 305799,
+      "orders": 464,
+      "revenue_kc": 595407,
+      "aov_kc": 1283,
+      "cost_per_order_kc": 659,
+      "note": "Sloučený PPC mix. ROAS 1.95 dle agentury, reálný ~4 dle skutečnosti SQL+Alza po očištění tracking."
+    }
+  ],
   "summary_tables": {
     "traffic_by_source": [
       {

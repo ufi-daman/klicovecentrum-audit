@@ -1,0 +1,117 @@
+{
+  "generated": "2026-04-28T13:09:37",
+  "period": {
+    "from": "2025-10-01",
+    "to": "2026-04-22"
+  },
+  "scope": "klicovecentrum.cz B2C (web_id=1)",
+  "source": "MySQL kosik + polozka",
+  "totals": {
+    "orders": 1395,
+    "unique_customers": 1239,
+    "total_revenue_kc": 1673682
+  },
+  "ltv": {
+    "avg_kc": 1351,
+    "median_kc": 401,
+    "p90_kc": 3420,
+    "top10_revenue_share_pct": 57.1
+  },
+  "repeat": {
+    "repeat_customers": 106,
+    "repeat_rate_pct": 8.6,
+    "orders_per_customer_distribution": {
+      "1": 1133,
+      "2": 84,
+      "3-4": 18,
+      "5+": 4
+    },
+    "median_days_between_orders": 1,
+    "avg_days_between_orders": 15
+  },
+  "cohort_retention": [
+    {
+      "cohort": "2025-10",
+      "size": 188,
+      "m1": 6,
+      "m1_pct": 3.2,
+      "m2": 3,
+      "m2_pct": 1.6,
+      "m3": 1,
+      "m3_pct": 0.5,
+      "m6": 0,
+      "m6_pct": 0.0
+    },
+    {
+      "cohort": "2025-11",
+      "size": 171,
+      "m1": 1,
+      "m1_pct": 0.6,
+      "m2": 1,
+      "m2_pct": 0.6,
+      "m3": 3,
+      "m3_pct": 1.8,
+      "m6": null
+    },
+    {
+      "cohort": "2025-12",
+      "size": 281,
+      "m1": 4,
+      "m1_pct": 1.4,
+      "m2": 1,
+      "m2_pct": 0.4,
+      "m3": 0,
+      "m3_pct": 0.0,
+      "m6": null
+    },
+    {
+      "cohort": "2026-01",
+      "size": 246,
+      "m1": 1,
+      "m1_pct": 0.4,
+      "m2": 1,
+      "m2_pct": 0.4,
+      "m3": 0,
+      "m3_pct": 0.0,
+      "m6": null
+    },
+    {
+      "cohort": "2026-02",
+      "size": 159,
+      "m1": 3,
+      "m1_pct": 1.9,
+      "m2": 0,
+      "m2_pct": 0.0,
+      "m3": null,
+      "m6": null
+    },
+    {
+      "cohort": "2026-03",
+      "size": 154,
+      "m1": 0,
+      "m1_pct": 0.0,
+      "m2": null,
+      "m3": null,
+      "m6": null
+    },
+    {
+      "cohort": "2026-04",
+      "size": 40,
+      "m1": null,
+      "m2": null,
+      "m3": null,
+      "m6": null
+    }
+  ],
+  "data_quality": {
+    "emails_present_pct": 100.0,
+    "blocker": null,
+    "note": "Email je v 100 % B2C objednávek vyplněn (hardvalidate v checkoutu). Customer key = LOWER(TRIM(email))."
+  },
+  "interpretation": {
+    "repeat_rate_industry_benchmark": "B2C e-commerce typicky 20–35 %, security/B2B specialty 10–20 %",
+    "verdict": "Repeat rate 8.6 % je v dolní polovině benchmarku — odpovídá nature produktu (zámky/klíče = nárazový nákup s 5–10letým cyklem). Hlavní páka pro růst: cross-sell (př. cylindrická vložka → bezpečnostní kování), nikoli klasické retention loops.",
+    "ltv_for_cac_calc": "LTV 1351 Kč použít jako horní strop CAC. LTV:CAC > 3:1 znamená max CAC = 450 Kč.",
+    "newsletter_opportunity": "1239 unikátních emailů v B2C SQL — k dispozici pro Mailchimp/Ecomail import (pokud GDPR opt-in). Potenciál: 1× měsíčně campaign × 1239 kontaktů × 2 % CTR × 3 % CR ≈ 1 objednávek měsíčně z newsletteru."
+  }
+}

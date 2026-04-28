@@ -286,6 +286,33 @@
 
   .hidden { display: none !important; }
 
+  /* ── BATTLECARDS (Konkurence) ── */
+  .battlecards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+  .battlecard { background: rgba(15,23,42,.6); border: 1px solid #334155; border-radius: 10px; padding: 18px; }
+  .battlecard.threat-P0 { border-left: 4px solid #dc2626; }
+  .battlecard.threat-P1 { border-left: 4px solid #ea580c; }
+  .battlecard.threat-P2 { border-left: 4px solid #d97706; }
+  .battlecard h4 { font-size: 16px; color: #f8fafc; margin: 0 0 4px; }
+  .battlecard .bc-url { color: #60a5fa; font-size: 12px; text-decoration: none; }
+  .battlecard .bc-meta { color: #94a3b8; font-size: 11px; margin-top: 6px; text-transform: uppercase; letter-spacing: .04em; }
+  .battlecard .bc-positioning { color: #cbd5e1; font-size: 13px; margin: 10px 0; font-style: italic; }
+  .battlecard .bc-row { margin-top: 10px; }
+  .battlecard .bc-row strong { display:block; color: #cbd5e1; font-size:11px; text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
+  .battlecard .bc-row ul { margin: 0; padding-left: 18px; color: #94a3b8; font-size: 13px; }
+  .battlecard .bc-row li { margin-bottom: 3px; }
+  .battlecard .bc-stats { display:flex; gap: 14px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #334155; font-size: 12px; }
+  .battlecard .bc-stats span { color: #94a3b8; }
+  .battlecard .bc-stats strong { color: #f8fafc; display: block; font-size: 14px; }
+  .threat-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; margin-left: 8px; }
+  .threat-P0 .threat-badge { background: #dc2626; color: white; }
+  .threat-P1 .threat-badge { background: #ea580c; color: white; }
+  .threat-P2 .threat-badge { background: #d97706; color: white; }
+  .moat-card { background: rgba(34,197,94,.08); border: 1px solid rgba(34,197,94,.3); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+  .moat-card strong { color: #4ade80; display: block; margin-bottom: 4px; }
+  .moat-card p { color: #cbd5e1; font-size: 13px; margin: 0; }
+  .smart-pos-row { display: flex; gap: 10px; padding: 8px 12px; background: rgba(15,23,42,.4); border-radius: 6px; margin-bottom: 6px; font-size: 13px; color: #cbd5e1; }
+  .smart-pos-row strong { color: #f8fafc; min-width: 110px; }
+
   /* ── nové sekce: kampaně + produkty ── */
   .view-section { max-width: 1400px; margin: 0 auto; }
   .chart-card {
@@ -403,7 +430,7 @@
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Kritických nálezů (P0)</div>
-      <div class="kpi-value kpi-negative">19</div>
+      <div class="kpi-value kpi-negative">22</div>
       <div class="kpi-sub">vyžaduje okamžitou akci</div>
     </div>
     <div class="kpi-card">
@@ -415,7 +442,7 @@
 </header>
 
 <div class="tabs" id="tabs">
-  <div class="tab active" data-cat="all">📋 Vše <span class="tab-badge" id="count-all">35</span></div>
+  <div class="tab active" data-cat="all">📋 Vše <span class="tab-badge" id="count-all">40</span></div>
   <div class="tab" data-cat="analytics">📊 Měření & analytika <span class="tab-badge" id="count-analytics">5</span></div>
   <div class="tab" data-cat="gads">🎯 Google Ads <span class="tab-badge" id="count-gads">5</span></div>
   <div class="tab" data-cat="sklik">🔵 Sklik <span class="tab-badge" id="count-sklik">5</span></div>
@@ -423,6 +450,8 @@
   <div class="tab" data-cat="local">📍 Lokální & pobočky <span class="tab-badge" id="count-local">5</span></div>
   <div class="tab" data-cat="alza">🛒 Alza marketplace <span class="tab-badge" id="count-alza">5</span></div>
   <div class="tab" data-cat="seo">🔍 SEO &amp; Technické <span class="tab-badge" id="count-seo">5</span></div>
+  <div class="tab" data-cat="data">🛡️ Data quality <span class="tab-badge" id="count-data">4</span></div>
+  <div class="tab" data-view="competitors">🥊 Konkurence</div>
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
   <div class="tab" data-view="kpi">🎯 KPI rozpad</div>
@@ -674,6 +703,29 @@
   </div>
 
   <div class="chart-card">
+    <h3>2️⃣b Per-kanál ekonomika — Orders / AOV / Cost per order</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Jednotková ekonomika kanálů z agenturního Looker reportu. Meta Ads (FB/IG) chybí — buď klient kanál neaktivuje, nebo agentura nereportuje. Viz finding #40.
+    </p>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-channel-economics">
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th style="text-align:right">Spend Kč</th>
+            <th style="text-align:right">Objednávky</th>
+            <th style="text-align:right">Obrat Kč</th>
+            <th style="text-align:right">AOV Kč</th>
+            <th style="text-align:right">Cost / obj.</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
     <h3>3️⃣ Konverze — 4 zdroje pravdy (SQL × ERP × Ag. Direct × Ag. Organic)</h3>
     <div style="overflow-x:auto">
       <table class="data-table" id="table-conv-compare">
@@ -714,8 +766,13 @@
   </div>
 
   <div class="chart-card">
-    <h3>Bar chart — Náklady vs konverze per kraj</h3>
+    <h3>Bar chart — Náklady vs konverze per kraj (Google Ads)</h3>
     <div class="chart-wrap" style="height:420px"><canvas id="chart-regions"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>Bar chart — Skutečný obrat + objednávky per kraj (SQL)</h3>
+    <div class="chart-wrap" style="height:420px"><canvas id="chart-regions-revenue"></canvas></div>
   </div>
 
   <div class="chart-card">
@@ -727,15 +784,21 @@
             <th>Kraj</th>
             <th>Pobočka</th>
             <th style="text-align:right">Náklady Kč</th>
-            <th style="text-align:right">Kliky</th>
             <th style="text-align:right">Konverze</th>
             <th style="text-align:right">CPA Kč</th>
-            <th style="text-align:right">% rozpočtu</th>
-            <th style="text-align:right">Konv/1 000 Kč</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">Skuteč. obj.</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">Obrat Kč</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">AOV Kč</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">Cost / obj.</th>
+            <th style="text-align:left">TOP 3 kategorie</th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
+      <p style="color:#64748b;font-size:11px;margin-top:8px">
+        ✅ <strong>Zelené sloupce</strong> = SQL ground truth (web_id=1, PSČ → kraj). Match rate <span id="psc-match-rate">—</span>%.
+        Náklady = Google Ads Geo split, konverze = agenturní tracking (s falešnými microevents — finding #1).
+      </p>
     </div>
   </div>
 </section>
@@ -778,6 +841,39 @@
   <div class="chart-card">
     <h3>3️⃣ Chybějící data pro úplnou customer journey</h3>
     <div id="journey-missing"></div>
+  </div>
+</section>
+
+<section id="competitors-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>🥊 Konkurenční mapa — klicovecentrum.cz</h3>
+    <p id="comp-context" style="color:#94a3b8;font-size:14px;margin-bottom:14px"></p>
+    <div id="comp-moats" style="margin-top:18px"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🎯 Tier 1 — Battlecards (4 hlavní hrozby)</h3>
+    <div id="comp-tier1" class="battlecards-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📋 Tier 2-3 — Specialisté a okrajoví hráči</h3>
+    <div id="comp-tier23"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🔌 Smart Lock displacement (Nuki, Yale, STAR Smart)</h3>
+    <p id="comp-smart-context" style="color:#94a3b8;font-size:14px;margin-bottom:14px"></p>
+    <div id="comp-smart-position" style="margin-bottom:18px"></div>
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 12px">Pure-play smart lock konkurenti</h4>
+    <div id="comp-smart-list"></div>
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 12px">Strategická doporučení</h4>
+    <div id="comp-smart-recos"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📅 Co měřit kvartálně</h3>
+    <div id="comp-track"></div>
   </div>
 </section>
 
@@ -1527,6 +1623,89 @@ const findings = [
     ],
     expected: 'Udržení konkurenceschopnosti, prevence budoucích cenových ztrát',
     timeline: [50, 30, 20]
+  },
+
+  // === DATA QUALITY (P0 — chybějící zdroje pro CMO rozhodování) ===
+  {
+    id: 36, cat: 'data', prio: 'P0',
+    title: 'Customer attribution chybí — CAC nelze přesně spočítat',
+    metric: 'Heuristický blended CAC ~774 Kč proti LTV 1 351 Kč → ratio 1.75 (zdravé je ≥3:1)',
+    impact: 'Bez UTM trackingu nelze posoudit ekonomiku akvizice per kanál',
+    impactNote: 'rozpočtové rozhodnutí naslepo',
+    problem: 'Klient nemá UTM tracking nových vs. vracejících se zákazníků v SQL. GA4 first-touch attribution je rozbitá 90% direct trafficem (bot, finding #3). Sklik OCM bez itemId. Bez čisté atribuce kanál → nový zákazník lze CAC počítat jen heuristikou (spend / odhadovaní noví) — výsledek: 765 Kč Google Ads, 812 Kč Sklik, 788 Kč Heuréka. Všechny kanály v hraničním pásmu LTV:CAC 1.7-1.8.',
+    actions: [
+      'GA4: Add user_type custom dimension (new vs returning)',
+      'Eshop: ukládat first_touch_source do objednávky při prvním nákupu',
+      'CRM/SQL: doplnit pole acquisition_channel s utm_source z první návštěvy',
+      'Měsíčně reportovat CAC per kanál + LTV:CAC ratio'
+    ],
+    expected: 'Po 2 měsících čistá CAC data → realokace rozpočtu (min. 30 % efektivita)',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 37, cat: 'data', prio: 'P0',
+    title: 'LTV / repeat rate měřitelná ale nereportovaná — 8.6 % opakovaných zákazníků',
+    metric: '1 239 unikátních zákazníků / 1 395 obj. · LTV avg 1 351 Kč · TOP 10 % = 57 % obratu',
+    impact: 'Cohort retention strategie chybí',
+    impactNote: 'optimalizace jen na first-purchase ROAS',
+    problem: 'SQL email pole je 100 % vyplněné — dříve zde nebylo důvodu měřit retention. Repeat rate 8.6 % je v dolní polovině benchmarku (B2C e-commerce 20-35 %, security niche 10-20 %) — odpovídá nature produktu (zámky/klíče = nárazový nákup s 5-10letým cyklem). Hlavní páka je cross-sell (vložka → kování → trezor), nikoli klasický retention loop. POWER LAW: 10 % zákazníků generuje 57 % obratu — ti zaslouží VIP servis.',
+    actions: [
+      'Reportovat měsíčně: unique customers, repeat rate, LTV avg/median, cohort retention',
+      'TOP 10 % zákazníků: VIP segmentace + dedikovaný účet/kontakt',
+      'Cross-sell trigger: koupil vložku → email "k tomu se hodí kování" za 14 dní',
+      'Newsletter platform (Mailchimp/Ecomail): import 1 239 emailů s GDPR opt-in'
+    ],
+    expected: '+2 % obratu z newsletteru (~30 k Kč/měs), retention growth 8.6 → 12 %',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 38, cat: 'data', prio: 'P0',
+    title: 'Brand vs non-brand SEO oddělené — non-brand klesá -15 %',
+    metric: 'Brand 7 523 clicks (40.7 %) · Non-brand 10 941 (59.3 %) · Trend non-brand: -15 % YoY',
+    impact: 'Skutečný SEO výkon klesá, ale celkový traffic to maskuje',
+    impactNote: 'SEO ROI přeceněný',
+    problem: 'Search Console reporting nerozlišuje brand ("klíčové centrum", 2 522 unique queries) vs. non-brand (17 101 unique queries). Brand traffic by konvertoval i bez SEO investice (lidé už značku znají). Skutečný SEO výkon = non-brand growth — a ten klesá -15.3 % mezi prvním a posledním kvartálem audit periody. Korelace s sitemap kolapsem (#31) a crawl útokem (#32).',
+    actions: [
+      'Search Console API → měsíční regex split brand/non-brand v reportingu',
+      'Reporting: dva grafy vedle sebe (brand%, non-brand%)',
+      'KPI cíl: růst non-brand kliků MoM, ne celkový traffic',
+      'Identifikovat top 50 non-brand queries pro content strategii (blog, landing pages)',
+      'Po fix sitemap (#31) měřit non-brand recovery 30/60/90 dní'
+    ],
+    expected: 'Non-brand zpět na předaudit úroveň + růst 10 % MoM po fixu sitemap',
+    timeline: [50, 40, 10]
+  },
+  {
+    id: 39, cat: 'data', prio: 'P2',
+    title: 'B2B segment 4,86 M Kč paralelně — strukturálně oddělen, audit OK',
+    metric: 'B2C (web_id=1): 1,67 M Kč, 25 % obratu · B2B+SK (web_id=2-4): 4,99 M Kč, 75 % paralelního obratu',
+    impact: 'Pozitivní kontext — žádná inflace ROAS z B2B',
+    impactNote: 'audit reportuje čistě B2C',
+    impactPositive: true,
+    problem: 'B2B portál (hbgroup.cz, web_id=2) je samostatná doména, jiný GA4, žádný PPC overlap. SQL skripty správně filtrují web_id=1, takže ROAS čísla v auditu odpovídají B2C realitě. STRATEGICKÝ INSIGHT: B2B je 2,9× větší než B2C → pokud klient chce růst, B2B je mnohem větší prostor (ale mimo PPC funnel — jiný marketing).',
+    actions: [
+      'Dashboard: explicitně označit "Audit pokrývá B2C (klicovecentrum.cz)" — B2B vědomě mimo scope',
+      'Strategický návrh: B2B marketing audit jako follow-up projekt (oddělené Google Ads / SEO / PR)',
+      'Cross-sell potential: B2C zákazníci s IČO (426/1395 = 31 %) → návnada na hbgroup.cz B2B portál'
+    ],
+    expected: 'Jasné scope vymezení + možný follow-up B2B audit',
+    timeline: [80, 20, 0]
+  },
+  {
+    id: 40, cat: 'gads', prio: 'P1',
+    title: 'Meta Ads kanál nepokrytý — buď klient neutrácí, nebo agentura nereportuje',
+    metric: '0 Kč spend reportovaný v audit periodě, 0 řádků v Looker',
+    impact: 'Chybí potenciální akviziční kanál',
+    impactNote: 'zámky/trezory = high-trust impulzní + retargeting vhodný',
+    problem: 'V audit datech není Meta (FB/IG) Ads. Dvě možnosti: (1) klient kanál neaktivuje — ztracená příležitost pro display/retargeting, lookalike na purchase audience; (2) agentura kanál spravuje, ale nereportuje — skrytý spend. Pro security e-commerce s vysokým AOV (1 456 Kč) by Meta retargeting na opuštěné košíky měl být no-brainer.',
+    actions: [
+      'Schůzka s klientem: aktivní Meta Business Manager?',
+      'Pokud ano → vyžádat Ads Manager export za audit period (spend, impressions, conv)',
+      'Pokud ne → návrh test kampaně: RTG na purchase audience + lookalike na top 10 % LTV zákazníků',
+      'Doplnit do KPI rozpadu řádek Meta Ads (i kdyby 0 — explicitní mezera)'
+    ],
+    expected: 'Buď zapojení Meta do mixu (5-10 % spendu), nebo dokumentace záměrné absence',
+    timeline: [100, 0, 0]
   }
 ];
 
@@ -1641,6 +1820,7 @@ function showView(view) {
   document.getElementById('kpi-view').classList.toggle('hidden', view !== 'kpi');
   document.getElementById('regions-view').classList.toggle('hidden', view !== 'regions');
   document.getElementById('journeys-view').classList.toggle('hidden', view !== 'journeys');
+  document.getElementById('competitors-view').classList.toggle('hidden', view !== 'competitors');
 }
 
 // tabs
@@ -1667,6 +1847,9 @@ document.querySelectorAll('.tab').forEach(tab => {
     } else if (tab.dataset.view === 'journeys') {
       showView('journeys');
       loadJourneys();
+    } else if (tab.dataset.view === 'competitors') {
+      showView('competitors');
+      loadCompetitors();
     } else {
       showView('findings');
       activeCategory = tab.dataset.cat;
@@ -2032,6 +2215,25 @@ function renderKpi() {
     </tr>
   `).join('');
 
+  // Tabulka 2b: per-kanál Orders / AOV / Cost per order
+  const econ = kpiData.channel_orders_aov || [];
+  document.querySelector('#table-channel-economics tbody').innerHTML = econ.map(c => {
+    const isMissing = c.spend_kc == null;
+    const isTotal = c.channel === 'PPC celkem';
+    const rowStyle = isMissing
+      ? 'style="background:rgba(239,68,68,.08);color:#fca5a5"'
+      : (isTotal ? 'style="background:rgba(59,130,246,.08);font-weight:600"' : '');
+    return `<tr ${rowStyle}>
+      <td><strong>${c.channel}</strong>${isMissing ? ' <span style="background:#dc2626;color:#fff;padding:1px 7px;border-radius:4px;font-size:10px">✗ Nereportováno</span>' : ''}</td>
+      <td class="num">${c.spend_kc == null ? '—' : fmt(c.spend_kc)}</td>
+      <td class="num">${c.orders == null ? '—' : fmt(c.orders)}</td>
+      <td class="num">${c.revenue_kc == null ? '—' : fmt(c.revenue_kc)}</td>
+      <td class="num">${c.aov_kc == null ? '—' : fmt(c.aov_kc)}</td>
+      <td class="num">${c.cost_per_order_kc == null ? '—' : fmt(c.cost_per_order_kc)}</td>
+      <td style="font-size:12px;color:#94a3b8">${c.note || ''}</td>
+    </tr>`;
+  }).join('');
+
   // Tabulka 3: konverze porovnání (SQL + ERP + Direct + Organic)
   const compare = kpiData.summary_tables.conversions_comparison;
   document.querySelector('#table-conv-compare tbody').innerHTML = compare.map(c => {
@@ -2144,17 +2346,52 @@ function renderRegions() {
   // Tabulka
   document.querySelector('#table-regions tbody').innerHTML = d.regions.map(r => {
     const branch = r.has_branch ? '✅ ' + (r.branch_cities.join(', ') || 'ANO') : '— bez pobočky';
+    const sql = r.sql || {};
+    const top3 = (r.top_categories || []).slice(0, 3)
+      .map(c => `<span style="display:inline-block;background:rgba(59,130,246,.15);color:#93c5fd;padding:2px 7px;border-radius:4px;font-size:11px;margin:1px 2px">${c.category} (${fmt(c.revenue_kc)})</span>`)
+      .join('') || '<span style="color:#64748b">—</span>';
     return `<tr>
       <td><strong>${r.name}</strong></td>
       <td style="font-size:12px;color:#94a3b8">${branch}</td>
       <td class="num">${fmt(Math.round(r.cost))}</td>
-      <td class="num">${fmt(r.clicks)}</td>
       <td class="num">${fmt(Math.round(r.conversions))}</td>
       <td class="num">${fmt(Math.round(r.cpa))}</td>
-      <td class="num">${r.pct_budget}%</td>
-      <td class="num">${r.conv_per_1000}</td>
+      <td class="num" style="background:rgba(16,185,129,.07);color:#10b981"><strong>${fmt(sql.orders || 0)}</strong></td>
+      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(sql.revenue_kc || 0)}</td>
+      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(sql.aov_kc) || '—'}</td>
+      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(r.cost_per_order_kc) || '—'}</td>
+      <td style="font-size:11px;line-height:1.5">${top3}</td>
     </tr>`;
   }).join('');
+
+  // PSČ match rate
+  if (d.sql_enrichment) {
+    document.getElementById('psc-match-rate').textContent = d.sql_enrichment.psc_match_pct;
+  }
+
+  // Bar chart 2: revenue + orders per kraj
+  if (window.regionsRevenueChart) window.regionsRevenueChart.destroy();
+  const topRev = [...d.regions].sort((a,b) => (b.sql?.revenue_kc||0) - (a.sql?.revenue_kc||0)).slice(0, 12);
+  const ctxR = document.getElementById('chart-regions-revenue').getContext('2d');
+  window.regionsRevenueChart = new Chart(ctxR, {
+    type: 'bar',
+    data: {
+      labels: topRev.map(r => r.name + (r.has_branch ? ' ✅' : '')),
+      datasets: [
+        {label: 'Obrat (Kč) — SQL', data: topRev.map(r => r.sql?.revenue_kc || 0), backgroundColor: '#10b981', yAxisID: 'y'},
+        {label: 'Objednávky', data: topRev.map(r => r.sql?.orders || 0), backgroundColor: '#a78bfa', yAxisID: 'y1'},
+      ],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#e2e8f0' } } },
+      scales: {
+        x: { ticks: { color: '#cbd5e1', maxRotation: 45 }, grid: { color: '#334155' } },
+        y: { position: 'left', ticks: { color: '#10b981' }, grid: { color: '#334155' }, title: { display: true, text: 'Obrat Kč', color: '#10b981' } },
+        y1: { position: 'right', ticks: { color: '#a78bfa' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'Objednávky', color: '#a78bfa' } },
+      }
+    }
+  });
 
   // Bar chart: náklady + konverze per kraj
   if (regionsChart) regionsChart.destroy();
@@ -2250,6 +2487,115 @@ function renderJourneys() {
       <div style="color:#94a3b8;font-size:12px;margin-top:4px">${m.why}</div>
     </div>
   `).join('');
+}
+
+// ─── COMPETITORS VIEW ──────────────────────────────────────────
+let competitorsData = null;
+async function loadCompetitors() {
+  if (!competitorsData) {
+    try {
+      const res = await fetch('data/competitors.json?v=' + Date.now());
+      competitorsData = await res.json();
+    } catch (e) { console.error(e); return; }
+  }
+  renderCompetitors();
+}
+
+function renderCompetitors() {
+  const d = competitorsData;
+  if (!d) return;
+
+  document.getElementById('comp-context').textContent = d.context;
+
+  // Naše moats
+  document.getElementById('comp-moats').innerHTML =
+    '<h4 style="color:#4ade80;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 10px">🛡️ Naše moats vs. konkurence</h4>' +
+    d.our_moats.map(m => `
+      <div class="moat-card">
+        <strong>${m.moat}</strong>
+        <p>${m.why}</p>
+      </div>
+    `).join('');
+
+  // Tier 1 battlecards
+  document.getElementById('comp-tier1').innerHTML = d.tier1.map(c => `
+    <div class="battlecard threat-${c.threat_level}">
+      <h4>${c.name} <span class="threat-badge">${c.threat_level}</span></h4>
+      <a href="https://${c.url}" target="_blank" rel="noopener" class="bc-url">${c.url} ↗</a>
+      <div class="bc-meta">${c.type}</div>
+      <p class="bc-positioning">"${c.positioning}"</p>
+      <div class="bc-row">
+        <strong>✓ Silné stránky</strong>
+        <ul>${c.strengths.map(s => `<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="bc-row">
+        <strong>✗ Slabiny</strong>
+        <ul>${c.weaknesses.map(s => `<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="bc-row">
+        <strong>🎯 Co s tím</strong>
+        <ul>${c.what_to_do.map(s => `<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="bc-stats">
+        <span>Sortiment overlap<strong>${c.estimated_overlap_pct}%</strong></span>
+        <span>Heuréka<strong>${c.heureka_status}</strong></span>
+      </div>
+    </div>
+  `).join('');
+
+  // Tier 2-3 tabulka
+  document.getElementById('comp-tier23').innerHTML = `
+    <table style="width:100%;color:#cbd5e1;font-size:13px;border-collapse:collapse">
+      <thead>
+        <tr style="border-bottom:1px solid #334155;color:#94a3b8;text-transform:uppercase;font-size:11px;letter-spacing:.05em">
+          <th style="text-align:left;padding:10px">Konkurent</th>
+          <th style="text-align:left;padding:10px">URL</th>
+          <th style="text-align:center;padding:10px">Tier</th>
+          <th style="text-align:left;padding:10px">Specializace</th>
+          <th style="text-align:left;padding:10px">Hrozba</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${d.tier2_3.map(c => `
+          <tr style="border-bottom:1px solid #1e293b">
+            <td style="padding:10px;color:#f8fafc">${c.name}</td>
+            <td style="padding:10px"><a href="https://${c.url.split(' ')[0]}" target="_blank" rel="noopener" style="color:#60a5fa">${c.url}</a></td>
+            <td style="padding:10px;text-align:center">${c.tier}</td>
+            <td style="padding:10px">${c.specialization}</td>
+            <td style="padding:10px;color:#94a3b8">${c.threat}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+
+  // Smart locks
+  const sl = d.smart_lock_displacement;
+  document.getElementById('comp-smart-context').textContent = sl.context;
+  const pos = sl.our_position;
+  document.getElementById('comp-smart-position').innerHTML = `
+    <div class="moat-card" style="background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.3);">
+      <strong style="color:#60a5fa">Naše pozice ve smart locks</strong>
+      <div class="smart-pos-row"><strong>Nuki:</strong> ${pos.nuki}</div>
+      <div class="smart-pos-row"><strong>Yale Connect:</strong> ${pos.yale_connect}</div>
+      <div class="smart-pos-row"><strong>STAR Smart:</strong> ${pos.star_smart}</div>
+      <p style="margin-top:10px;color:#cbd5e1;font-size:13px">${pos.verdict}</p>
+    </div>
+  `;
+  document.getElementById('comp-smart-list').innerHTML = sl.competitors.map(c => `
+    <div class="smart-pos-row">
+      <strong>${c.name}</strong>
+      <a href="https://${c.url}" target="_blank" rel="noopener" style="color:#60a5fa">${c.url}</a>
+      <span style="color:#94a3b8">· ${c.threat} threat ·</span>
+      <span>${c.note}</span>
+    </div>
+  `).join('');
+  document.getElementById('comp-smart-recos').innerHTML = '<ul style="color:#cbd5e1;font-size:13px;padding-left:20px">' +
+    sl.strategic_recommendations.map(r => `<li style="margin-bottom:6px">${r}</li>`).join('') + '</ul>';
+
+  // Quarterly tracking
+  document.getElementById('comp-track').innerHTML = '<ul style="color:#cbd5e1;font-size:13px;padding-left:20px">' +
+    d.what_to_track_quarterly.map(t => `<li style="margin-bottom:6px">${t}</li>`).join('') + '</ul>';
 }
 
 // ─── AGENCY LOOKER KPI ─────────────────────────────────────────
@@ -2509,7 +2855,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 // počty pro taby
 function updateCounts() {
   document.getElementById('count-all').textContent = findings.length;
-  ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza'].forEach(cat => {
+  ['analytics', 'gads', 'sklik', 'feed', 'local', 'alza', 'seo', 'data'].forEach(cat => {
     const count = findings.filter(f => f.cat === cat).length;
     document.getElementById('count-' + cat).textContent = count;
   });
