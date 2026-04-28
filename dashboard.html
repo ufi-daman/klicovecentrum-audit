@@ -403,7 +403,7 @@
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Kritických nálezů (P0)</div>
-      <div class="kpi-value kpi-negative">16</div>
+      <div class="kpi-value kpi-negative">19</div>
       <div class="kpi-sub">vyžaduje okamžitou akci</div>
     </div>
     <div class="kpi-card">
@@ -415,13 +415,14 @@
 </header>
 
 <div class="tabs" id="tabs">
-  <div class="tab active" data-cat="all">📋 Vše <span class="tab-badge" id="count-all">30</span></div>
+  <div class="tab active" data-cat="all">📋 Vše <span class="tab-badge" id="count-all">35</span></div>
   <div class="tab" data-cat="analytics">📊 Měření & analytika <span class="tab-badge" id="count-analytics">5</span></div>
   <div class="tab" data-cat="gads">🎯 Google Ads <span class="tab-badge" id="count-gads">5</span></div>
   <div class="tab" data-cat="sklik">🔵 Sklik <span class="tab-badge" id="count-sklik">5</span></div>
   <div class="tab" data-cat="feed">📦 Feedy & srovnávače <span class="tab-badge" id="count-feed">5</span></div>
   <div class="tab" data-cat="local">📍 Lokální & pobočky <span class="tab-badge" id="count-local">5</span></div>
   <div class="tab" data-cat="alza">🛒 Alza marketplace <span class="tab-badge" id="count-alza">5</span></div>
+  <div class="tab" data-cat="seo">🔍 SEO &amp; Technické <span class="tab-badge" id="count-seo">5</span></div>
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
   <div class="tab" data-view="kpi">🎯 KPI rozpad</div>
@@ -1424,6 +1425,91 @@ const findings = [
     ],
     expected: 'Každý kanál optimalizovaný na vlastní publikum = vyšší konverzní poměr',
     timeline: [20, 50, 30]
+  },
+  // === SEO & TECHNICKÉ ===
+  {
+    id: 31, cat: 'seo', prio: 'P0',
+    title: 'Sitemap indexed = 0 z 2 550 URL — totální kolaps SEO indexace',
+    metric: 'Sitemap.xml + sitemap2.xml obsahují <strong>2 550 URL</strong>, ale Google indexoval <strong>0</strong>. 5 751 warnings.',
+    impact: '100 % sitemap URL bez SEO hodnoty',
+    impactNote: 'poslední submit 5. 10. 2025',
+    problem: 'Z Search Console Sitemap API: sitemap.xml má 3 626 warnings, sitemap2.xml 2 125 warnings, indexed URLs = 0 v obou. Přestože je sitemap formálně dostupná (200 OK, 281 kB), Google nevyhodnotí ani jednu URL jako indexovatelnou. Pravděpodobné příčiny: canonical tagy na duplicitní URL, noindex meta, soft 404, nebo duplicitní obsah.',
+    actions: [
+      'Google Search Console → Sitemapy → zkontrolovat warnings (3 626 + 2 125)',
+      'Vybrat vzorek 20 URL ze sitemap, pro každou ověřit: canonical tag, meta robots, HTTP status',
+      'Opravit identifikované issues (pravděpodobně canonical / noindex)',
+      'Resubmit sitemap v Search Console',
+      'Monitorovat indexed count za 2–4 týdny'
+    ],
+    expected: '0 → 80 %+ indexed (2 000+ URL) do 6 týdnů',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 32, cat: 'seo', prio: 'P0',
+    title: 'Crawl útok 17. 12. 2025 – 21. 1. 2026 (20× nad normál)',
+    metric: 'Medián 3 640 req/den, špičky až <strong>96 944 req/den</strong> (20. 1. 2026, +2 563 %)',
+    impact: 'Vyčerpaný crawl budget',
+    impactNote: '14 GB stažených dat za 15 dní útoku',
+    problem: 'Masivní scraper útok během 35 dní. 15 dní s více než 1 000 % nad medián. Typy botů v tomto období: „Jiný user-agent" 72 % (nerozpoznaný crawler, pravděpodobně scraper). Crawl vlny: 17.–19. 12., 27.–29. 12., 5.–10. 1., 19.–21. 1. Koreluje se SQL anomáliemi (19.–22. 12. pokles nákupů na 240 Kč/den).',
+    actions: [
+      'Cloudflare: Bot Fight Mode + Rate Limiting (>100 req/min na IP → block)',
+      'Firewall rule: challenge non-Googlebot requesty nad práh',
+      'Server logs: analyzovat IP rozsahy útoku z prosince 2025',
+      'Implementovat robots.txt Crawl-delay pro neznámé User-Agent',
+      'Monitorovat SC Crawl Stats — „Jiný user-agent" by mělo klesnout pod 10 %'
+    ],
+    expected: 'Crawl budget obnoven, server má prostor pro normální indexaci',
+    timeline: [60, 40, 0]
+  },
+  {
+    id: 33, cat: 'seo', prio: 'P0',
+    title: 'Server latency crisis — 7 696 ms peak, Googlebot timeouty',
+    metric: 'Peaky: <strong>15. 2. 6 614 ms</strong> · <strong>1. 4. 7 696 ms</strong> · 9 dní nad 1 500 ms',
+    impact: 'LCP 3× překročen',
+    impactNote: 'SC impressions −31 % v dubnu',
+    problem: 'Průměrná response time v normálních dnech 736 ms, ale v únoru–dubnu 9 dní nad 1 500 ms. Nejhorší 1. 4. 2026 = 7 696 ms — Googlebot při takové latenci ukončuje spojení. Koreluje s březnovým bot útokem v GA4 (1,5 M direct sessions) a propadem Search Console impressions v dubnu o 31 %. Core Web Vitals LCP bude výrazně nad 2,5 s limit.',
+    actions: [
+      'Cloudflare: ověřit cache hit rate (cíl > 70 %)',
+      'MySQL slow query log — identifikovat N+1 a pomalé queries',
+      'APM monitoring (New Relic / Datadog) pro backend profilaci',
+      'Server resources (RAM/CPU) — ověřit headroom během peaku',
+      'Webserver worker limits (Apache MaxClients / Nginx worker_connections)'
+    ],
+    expected: 'Response time konzistentně pod 1 000 ms, LCP pod 2,5 s',
+    timeline: [30, 50, 20]
+  },
+  {
+    id: 34, cat: 'seo', prio: 'P1',
+    title: 'Chybí category landing pages (/produkty/, /pobocka-*/, /o-nas/)',
+    metric: '<strong>17 poboček × 0 landing page</strong> · category hubs 404 · produkty jsou orphan',
+    impact: 'Ztráta local SEO + topical authority',
+    impactNote: 'produkty bez parent category',
+    problem: 'HTTP test: /produkty/, /o-nas/, /pobocka-praha/ vracejí 404. Site architecture nemá 2. úroveň hierarchie — produkty jsou /produkt/{slug}/ bez collection pages. Pro 17 fyzických poboček chybí /pobocka-[město]/ URL = ztráta pro lokální vyhledávací dotazy „zámečnictví [město]", „klíče [město]".',
+    actions: [
+      'Vytvořit /produkty/ jako category hub s H1 + popis + top produkty',
+      '17× /pobocka-[město]/ landing pages s lokálními keywords (NAP data, otevírací doba, mapa)',
+      'Propojit s GBP profily a Firmy.cz',
+      '/o-nas/ s E-E-A-T signály (autor, zkušenosti, certifikáty)',
+      'Internal linking — propojit produkty s category + pobočka pages'
+    ],
+    expected: 'Local SEO — 17 nových landing pages pro lokální dotazy',
+    timeline: [20, 60, 20]
+  },
+  {
+    id: 35, cat: 'seo', prio: 'P1',
+    title: '302 redirect abuse — 38 % crawl requestů v prosinci 2025',
+    metric: 'Dec 2025: <strong>38 % 302</strong> · Jan 2026: 23 % · Feb–Apr: 2 % (stabilizace)',
+    impact: 'Ztráta link juice',
+    impactNote: 'Google s 302 nekumuluje ranking',
+    problem: '302 (dočasně přesunuto) Google při rankování nekumuluje na cílovou URL (na rozdíl od 301 permanent). V prosinci 2025 38 % crawl requestů vrátilo 302 — pravděpodobně session/cart/locale redirects aplikované plošně. Situace se sama stabilizovala do února 2026 (2 %), ale ranking juice z tohoto období je ztracený.',
+    actions: [
+      'Server logs: identifikovat URL patterns vracející 302',
+      'Pokud je redirect trvalý (např. old-path → new-path) → změnit na 301',
+      'Pokud je redirect per-session (locale/cart) → nezobrazit Googlebotovi, jen koncovým uživatelům (User-Agent check)',
+      'Ověřit zda redirect chains neobsahují více hopů (301 → 302 → 200)'
+    ],
+    expected: '302 pod 2 % konstantně, link juice preserve na cílové URL',
+    timeline: [40, 50, 10]
   },
   {
     id: 30, cat: 'alza', prio: 'P2',
