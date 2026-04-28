@@ -7,7 +7,9 @@
     "ltv_avg_kc": 1351,
     "total_unique_customers": 1239,
     "total_orders": 1395,
-    "total_revenue_kc": 1673682
+    "total_revenue_kc": 1673682,
+    "ltv_erp_avg_kc": 945,
+    "ltv_source": "ERP-aligned (primary)"
   },
   "channels": [
     {
@@ -20,7 +22,11 @@
       "ltv_kc": 1351,
       "ltv_cac_ratio": 1.77,
       "payback_months_if_repeat": 1.8,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_erp_kc": 945,
+      "ltv_erp_cac_ratio": 1.24,
+      "payback_months_erp": 1.2,
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
     },
     {
       "channel": "Sklik (seznam)",
@@ -32,7 +38,11 @@
       "ltv_kc": 1351,
       "ltv_cac_ratio": 1.66,
       "payback_months_if_repeat": 1.7,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_erp_kc": 945,
+      "ltv_erp_cac_ratio": 1.16,
+      "payback_months_erp": 1.2,
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
     },
     {
       "channel": "Heuréka.cz",
@@ -44,7 +54,11 @@
       "ltv_kc": 1351,
       "ltv_cac_ratio": 1.71,
       "payback_months_if_repeat": 1.7,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_erp_kc": 945,
+      "ltv_erp_cac_ratio": 1.2,
+      "payback_months_erp": 1.2,
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
     }
   ],
   "blended": {
@@ -52,7 +66,9 @@
     "total_estimated_new_customers": 395,
     "blended_cac_kc": 774,
     "blended_ltv_cac_ratio": 1.75,
-    "ppc_share_of_total_customers_pct": 31.9
+    "ppc_share_of_total_customers_pct": 31.9,
+    "blended_ltv_erp_kc": 945,
+    "blended_ltv_erp_cac_ratio": 1.22
   },
   "blockers": [
     "Klient nemá UTM/source tracking pro nové vs. vracející se zákazníky",
@@ -62,8 +78,8 @@
   ],
   "confidence": "low — heuristická aproximace, ne tvrdá data",
   "interpretation": {
-    "max_safe_cac_kc": 450,
-    "verdict_summary": "Při LTV 1351 Kč by CAC neměl překročit 450 Kč (LTV:CAC 3:1). Blended CAC 774 Kč → ratio 1.75 → 🟡 hraniční",
+    "max_safe_cac_kc": 315,
+    "verdict_summary": "ERP-aligned LTV 945 Kč → max CAC by neměl překročit 315 Kč (LTV:CAC 3:1). Blended CAC 774 Kč → ratio 1.22 → 🟡 hraniční",
     "channel_actions": [
       "🟢 Google Ads ROAS 2.16, ale po očištění o brand search a micro-konverze pravděpodobně 1.0–1.3",
       "🔴 Sklik PNO 85 % = ztrátový kanál — escalovat / pause",

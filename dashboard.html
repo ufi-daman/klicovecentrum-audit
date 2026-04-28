@@ -771,7 +771,7 @@
   </div>
 
   <div class="chart-card">
-    <h3>Bar chart — Skutečný obrat + objednávky per kraj (SQL)</h3>
+    <h3>Bar chart — Skutečný obrat + zisk + objednávky per kraj (ERP-aligned)</h3>
     <div class="chart-wrap" style="height:420px"><canvas id="chart-regions-revenue"></canvas></div>
   </div>
 
@@ -787,7 +787,8 @@
             <th style="text-align:right">Konverze</th>
             <th style="text-align:right">CPA Kč</th>
             <th style="text-align:right;background:rgba(16,185,129,.15)">Skuteč. obj.</th>
-            <th style="text-align:right;background:rgba(16,185,129,.15)">Obrat Kč</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">Obrat ERP Kč</th>
+            <th style="text-align:right;background:rgba(16,185,129,.15)">Zisk ERP Kč</th>
             <th style="text-align:right;background:rgba(16,185,129,.15)">AOV Kč</th>
             <th style="text-align:right;background:rgba(16,185,129,.15)">Cost / obj.</th>
             <th style="text-align:left">TOP 3 kategorie</th>
@@ -796,7 +797,8 @@
         <tbody></tbody>
       </table>
       <p style="color:#64748b;font-size:11px;margin-top:8px">
-        ✅ <strong>Zelené sloupce</strong> = SQL ground truth (web_id=1, PSČ → kraj). Match rate <span id="psc-match-rate">—</span>%.
+        ✅ <strong>Zelené sloupce</strong> = ERP-aligned (po refundacích/storno · marže <span id="erp-margin-display">59,1</span> %). PSČ match rate <span id="psc-match-rate">—</span>%.
+        Objednávky a per-kraj rozdělení jsou ze SQL (web_id=1), obrat je proporcionálně přepočítán na ERP totál (1 170 741 Kč) — primární zdroj pravdy.
         Náklady = Google Ads Geo split, konverze = agenturní tracking (s falešnými microevents — finding #1).
       </p>
     </div>
@@ -1628,11 +1630,11 @@ const findings = [
   // === DATA QUALITY (P0 — chybějící zdroje pro CMO rozhodování) ===
   {
     id: 36, cat: 'data', prio: 'P0',
-    title: 'Customer attribution chybí — CAC nelze přesně spočítat',
-    metric: 'Heuristický blended CAC ~774 Kč proti LTV 1 351 Kč → ratio 1.75 (zdravé je ≥3:1)',
+    title: 'Customer attribution chybí — všechny PPC kanály ZTRÁTOVÉ při ERP LTV',
+    metric: 'Blended CAC ~774 Kč proti ERP LTV 945 Kč → ratio 1.22 (zdravé je ≥3:1) · max safe CAC = 315 Kč',
     impact: 'Bez UTM trackingu nelze posoudit ekonomiku akvizice per kanál',
-    impactNote: 'rozpočtové rozhodnutí naslepo',
-    problem: 'Klient nemá UTM tracking nových vs. vracejících se zákazníků v SQL. GA4 first-touch attribution je rozbitá 90% direct trafficem (bot, finding #3). Sklik OCM bez itemId. Bez čisté atribuce kanál → nový zákazník lze CAC počítat jen heuristikou (spend / odhadovaní noví) — výsledek: 765 Kč Google Ads, 812 Kč Sklik, 788 Kč Heuréka. Všechny kanály v hraničním pásmu LTV:CAC 1.7-1.8.',
+    impactNote: 'PPC dnes prodělává cca 459 Kč/zákazníka',
+    problem: 'Klient nemá UTM tracking nových vs. vracejících se zákazníků v SQL. GA4 first-touch attribution je rozbitá 90% direct trafficem (bot, finding #3). Sklik OCM bez itemId. Heuristický CAC: 765 Kč Google Ads, 812 Kč Sklik, 788 Kč Heuréka. Při ERP-aligned LTV 945 Kč jsou VŠECHNY kanály ztrátové (LTV:CAC < 3:1, marginálně > 1:1). Aby PPC byl rentabilní, max CAC = 315 Kč — to je 2,4× méně než dnes.',
     actions: [
       'GA4: Add user_type custom dimension (new vs returning)',
       'Eshop: ukládat first_touch_source do objednávky při prvním nákupu',
@@ -1645,7 +1647,7 @@ const findings = [
   {
     id: 37, cat: 'data', prio: 'P0',
     title: 'LTV / repeat rate měřitelná ale nereportovaná — 8.6 % opakovaných zákazníků',
-    metric: '1 239 unikátních zákazníků / 1 395 obj. · LTV avg 1 351 Kč · TOP 10 % = 57 % obratu',
+    metric: '1 239 unikátních zákazníků / 1 395 obj. · ERP LTV avg 945 Kč · TOP 10 % = 57 % obratu',
     impact: 'Cohort retention strategie chybí',
     impactNote: 'optimalizace jen na first-purchase ROAS',
     problem: 'SQL email pole je 100 % vyplněné — dříve zde nebylo důvodu měřit retention. Repeat rate 8.6 % je v dolní polovině benchmarku (B2C e-commerce 20-35 %, security niche 10-20 %) — odpovídá nature produktu (zámky/klíče = nárazový nákup s 5-10letým cyklem). Hlavní páka je cross-sell (vložka → kování → trezor), nikoli klasický retention loop. POWER LAW: 10 % zákazníků generuje 57 % obratu — ti zaslouží VIP servis.',
@@ -2347,8 +2349,9 @@ function renderRegions() {
   document.querySelector('#table-regions tbody').innerHTML = d.regions.map(r => {
     const branch = r.has_branch ? '✅ ' + (r.branch_cities.join(', ') || 'ANO') : '— bez pobočky';
     const sql = r.sql || {};
+    const erp = r.erp || {};
     const top3 = (r.top_categories || []).slice(0, 3)
-      .map(c => `<span style="display:inline-block;background:rgba(59,130,246,.15);color:#93c5fd;padding:2px 7px;border-radius:4px;font-size:11px;margin:1px 2px">${c.category} (${fmt(c.revenue_kc)})</span>`)
+      .map(c => `<span style="display:inline-block;background:rgba(59,130,246,.15);color:#93c5fd;padding:2px 7px;border-radius:4px;font-size:11px;margin:1px 2px">${c.category} (${fmt(c.revenue_erp_kc || c.revenue_kc)})</span>`)
       .join('') || '<span style="color:#64748b">—</span>';
     return `<tr>
       <td><strong>${r.name}</strong></td>
@@ -2357,28 +2360,33 @@ function renderRegions() {
       <td class="num">${fmt(Math.round(r.conversions))}</td>
       <td class="num">${fmt(Math.round(r.cpa))}</td>
       <td class="num" style="background:rgba(16,185,129,.07);color:#10b981"><strong>${fmt(sql.orders || 0)}</strong></td>
-      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(sql.revenue_kc || 0)}</td>
-      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(sql.aov_kc) || '—'}</td>
+      <td class="num" style="background:rgba(16,185,129,.07)"><strong>${fmt(erp.revenue_kc || 0)}</strong></td>
+      <td class="num" style="background:rgba(16,185,129,.07);color:#4ade80">${fmt(erp.profit_kc || 0)}</td>
+      <td class="num" style="background:rgba(16,185,129,.07)">${fmt(erp.aov_kc) || '—'}</td>
       <td class="num" style="background:rgba(16,185,129,.07)">${fmt(r.cost_per_order_kc) || '—'}</td>
       <td style="font-size:11px;line-height:1.5">${top3}</td>
     </tr>`;
   }).join('');
 
-  // PSČ match rate
+  // PSČ match rate + ERP margin
   if (d.sql_enrichment) {
     document.getElementById('psc-match-rate').textContent = d.sql_enrichment.psc_match_pct;
   }
+  if (d.erp_alignment) {
+    document.getElementById('erp-margin-display').textContent = String(d.erp_alignment.erp_margin_pct).replace('.', ',');
+  }
 
-  // Bar chart 2: revenue + orders per kraj
+  // Bar chart 2: ERP revenue + orders per kraj
   if (window.regionsRevenueChart) window.regionsRevenueChart.destroy();
-  const topRev = [...d.regions].sort((a,b) => (b.sql?.revenue_kc||0) - (a.sql?.revenue_kc||0)).slice(0, 12);
+  const topRev = [...d.regions].sort((a,b) => (b.erp?.revenue_kc||0) - (a.erp?.revenue_kc||0)).slice(0, 12);
   const ctxR = document.getElementById('chart-regions-revenue').getContext('2d');
   window.regionsRevenueChart = new Chart(ctxR, {
     type: 'bar',
     data: {
       labels: topRev.map(r => r.name + (r.has_branch ? ' ✅' : '')),
       datasets: [
-        {label: 'Obrat (Kč) — SQL', data: topRev.map(r => r.sql?.revenue_kc || 0), backgroundColor: '#10b981', yAxisID: 'y'},
+        {label: 'Obrat ERP (Kč)', data: topRev.map(r => r.erp?.revenue_kc || 0), backgroundColor: '#10b981', yAxisID: 'y'},
+        {label: 'Zisk ERP (Kč)', data: topRev.map(r => r.erp?.profit_kc || 0), backgroundColor: '#4ade80', yAxisID: 'y'},
         {label: 'Objednávky', data: topRev.map(r => r.sql?.orders || 0), backgroundColor: '#a78bfa', yAxisID: 'y1'},
       ],
     },
@@ -2387,7 +2395,7 @@ function renderRegions() {
       plugins: { legend: { labels: { color: '#e2e8f0' } } },
       scales: {
         x: { ticks: { color: '#cbd5e1', maxRotation: 45 }, grid: { color: '#334155' } },
-        y: { position: 'left', ticks: { color: '#10b981' }, grid: { color: '#334155' }, title: { display: true, text: 'Obrat Kč', color: '#10b981' } },
+        y: { position: 'left', ticks: { color: '#10b981' }, grid: { color: '#334155' }, title: { display: true, text: 'Obrat / zisk Kč', color: '#10b981' } },
         y1: { position: 'right', ticks: { color: '#a78bfa' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'Objednávky', color: '#a78bfa' } },
       }
     }
