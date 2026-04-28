@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-28T15:08:47",
+  "generated": "2026-04-28T16:30:38",
   "period": {
     "from": "2025-10-01",
     "to": "2026-04-22"
@@ -200,6 +200,185 @@
     "smart tv": {
       "session_start": 6
     }
+  },
+  "bot_breakdown": {
+    "total_sessions": 1985694,
+    "bot_sessions": 1801550,
+    "human_sessions": 184144,
+    "bot_pct": 90.7,
+    "human_pct": 9.3,
+    "method": "Direct/(Other)/Unassigned + bounceRate > 85% + duration < 10s = bot OR sessions > 1M",
+    "by_channel": [
+      {
+        "channel": "Direct",
+        "sessions": 1801550,
+        "bounce_rate": 0.883,
+        "avg_duration_sec": 24.7,
+        "conversions": 144468,
+        "classified_as_bot": true
+      },
+      {
+        "channel": "Organic Search",
+        "sessions": 84134,
+        "bounce_rate": 0.169,
+        "avg_duration_sec": 262.1,
+        "conversions": 118861,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 40020,
+        "bounce_rate": 0.915,
+        "avg_duration_sec": 32.5,
+        "conversions": 7506,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Paid Search",
+        "sessions": 23031,
+        "bounce_rate": 0.212,
+        "avg_duration_sec": 290.4,
+        "conversions": 42215,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Cross-network",
+        "sessions": 21984,
+        "bounce_rate": 0.048,
+        "avg_duration_sec": 281.1,
+        "conversions": 51547,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Organic Social",
+        "sessions": 6968,
+        "bounce_rate": 0.337,
+        "avg_duration_sec": 71.1,
+        "conversions": 4039,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Paid Shopping",
+        "sessions": 2133,
+        "bounce_rate": 0.049,
+        "avg_duration_sec": 196.1,
+        "conversions": 3811,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Paid Social",
+        "sessions": 1852,
+        "bounce_rate": 0.681,
+        "avg_duration_sec": 51.2,
+        "conversions": 362,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Referral",
+        "sessions": 1696,
+        "bounce_rate": 0.16,
+        "avg_duration_sec": 390.4,
+        "conversions": 3751,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Paid Other",
+        "sessions": 1260,
+        "bounce_rate": 0.074,
+        "avg_duration_sec": 326.1,
+        "conversions": 3228,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Organic Shopping",
+        "sessions": 1008,
+        "bounce_rate": 0.059,
+        "avg_duration_sec": 360.3,
+        "conversions": 3016,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Organic Video",
+        "sessions": 45,
+        "bounce_rate": 0.067,
+        "avg_duration_sec": 432.4,
+        "conversions": 169,
+        "classified_as_bot": false
+      },
+      {
+        "channel": "Display",
+        "sessions": 13,
+        "bounce_rate": 0.538,
+        "avg_duration_sec": 24.1,
+        "conversions": 0,
+        "classified_as_bot": false
+      }
+    ],
+    "interpretation": "Bot útok březen 2026 (finding #2) generuje 1,801,550 sessions (90.7 % celkem). Lidský traffic = 184,144 (9.3 %). Skutečná conversion rate je human-only, ne celkem."
+  },
+  "conversions_breakdown": {
+    "total_conversion_events_ga4": 382973,
+    "real_purchase_conversions": 674,
+    "micro_event_conversions": 382299,
+    "real_pct": 0.18,
+    "balast_pct": 99.82,
+    "events": [
+      {
+        "event_name": "time_on_web-180seconds",
+        "conversions": 148481,
+        "event_count": 148481,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "view_item",
+        "conversions": 131080,
+        "event_count": 131080,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "time_on_web-360seconds",
+        "conversions": 34438,
+        "event_count": 34438,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "time_on_web-540seconds",
+        "conversions": 28291,
+        "event_count": 28291,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "time_on_web-720seconds",
+        "conversions": 24898,
+        "event_count": 24898,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "begin_checkout",
+        "conversions": 6953,
+        "event_count": 6953,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "add_to_cart",
+        "conversions": 5293,
+        "event_count": 5293,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "file_download",
+        "conversions": 2865,
+        "event_count": 2865,
+        "type": "micro_event"
+      },
+      {
+        "event_name": "purchase",
+        "conversions": 674,
+        "event_count": 674,
+        "type": "real_purchase"
+      }
+    ],
+    "interpretation": "GA4 reportuje 382,973 conversion events celkem, ale jen 674 je skutečný purchase (= 0.18 %). Zbylých 382,299 (99.82 %) jsou MICRO-EVENTS (přidání do košíku, scroll, view contact, …) — agentura je marknula jako 'conversion' a Google Ads Smart Bidding na nich učí. Výsledek: optimalizace na balast, ne na sales. Finding #1."
   },
   "key_metrics": {
     "session_to_view_item_pct": 6.66,

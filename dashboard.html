@@ -847,6 +847,51 @@
   </div>
 
   <div class="chart-card">
+    <h3>🤖 Bot vs lidský traffic (GA4 audit period)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Klasifikace: kanál Direct/(Other)/Unassigned + bounce rate &gt;85% + průměrná session &lt;10s = bot, NEBO sessions &gt;1M (jednoznačný útok). Heuristika z findingu #2.
+    </p>
+    <div id="bot-split-vis"></div>
+    <div style="overflow-x:auto;margin-top:18px">
+      <table class="data-table" id="table-channels-bot">
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th style="text-align:center">Klasifikace</th>
+            <th style="text-align:right">Sessions</th>
+            <th style="text-align:right">Bounce</th>
+            <th style="text-align:right">Avg dur (s)</th>
+            <th style="text-align:right">Konverze (vč. micro)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>💰 Konverze — Real Purchase vs Micro-events (BALAST)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      GA4 reportuje VŠECHNY conversion eventy společně. Smart Bidding optimalizuje na celkový součet — pokud je 99 % balast, optimalizuje se na balast. Finding #1.
+    </p>
+    <div id="conv-split-vis"></div>
+    <div style="overflow-x:auto;margin-top:18px">
+      <table class="data-table" id="table-conv-events">
+        <thead>
+          <tr>
+            <th>Conversion Event</th>
+            <th>Typ</th>
+            <th style="text-align:right">Počet konverzí</th>
+            <th style="text-align:right">% z celku</th>
+            <th>Balast?</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
     <h3>🛒 Prodejní funnel — GA4 events (audit period)</h3>
     <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="funnel-period">—</p>
     <div id="funnel-stages-vis" style="margin-bottom:18px"></div>
@@ -2716,6 +2761,100 @@ function renderFunnel() {
   const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
   document.getElementById('funnel-period').textContent =
     `Audit period ${d.period.from} → ${d.period.to} · zdroj GA4 property 299992437. Stages odpovídají events: session_start, view_item, add_to_cart, begin_checkout, add_payment_info, purchase.`;
+
+  // ── BOT vs HUMAN split ─────────────────────────────────────
+  const bot = d.bot_breakdown;
+  if (bot) {
+    const botPct = bot.bot_pct;
+    const humanPct = bot.human_pct;
+    document.getElementById('bot-split-vis').innerHTML = `
+      <div class="metrics-grid" style="margin-bottom:14px">
+        <div class="metric-box" style="background:rgba(239,68,68,.12);border-color:#ef4444">
+          <div class="metric-label">🤖 Bot sessions</div>
+          <div class="metric-value" style="color:#fca5a5">${fmt(bot.bot_sessions)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">${botPct} % celkem · útok březen 2026</div>
+        </div>
+        <div class="metric-box" style="background:rgba(34,197,94,.10);border-color:#22c55e">
+          <div class="metric-label">👤 Lidské sessions</div>
+          <div class="metric-value" style="color:#4ade80">${fmt(bot.human_sessions)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">${humanPct} % celkem · skutečný traffic</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Celkem GA4 sessions</div>
+          <div class="metric-value">${fmt(bot.total_sessions)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">audit 7M</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:8px;padding:14px">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">Vizualizace: 🤖 ${botPct} % vs 👤 ${humanPct} %</div>
+        <div style="display:flex;height:36px;border-radius:6px;overflow:hidden">
+          <div style="background:linear-gradient(90deg,#dc2626,#ef4444);width:${botPct}%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600">🤖 ${botPct}%</div>
+          <div style="background:linear-gradient(90deg,#16a34a,#22c55e);width:${humanPct}%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600">${humanPct >= 4 ? '👤 '+humanPct+'%' : ''}</div>
+        </div>
+        <p style="margin-top:10px;color:#cbd5e1;font-size:12px">${bot.interpretation}</p>
+      </div>
+    `;
+
+    // Per-channel bot table
+    document.querySelector('#table-channels-bot tbody').innerHTML = bot.by_channel.map(c => `
+      <tr ${c.classified_as_bot ? 'style="background:rgba(239,68,68,.05)"' : ''}>
+        <td><strong>${c.channel}</strong></td>
+        <td style="text-align:center">${c.classified_as_bot ? '🤖 BOT' : '👤 člověk'}</td>
+        <td class="num">${fmt(c.sessions)}</td>
+        <td class="num" ${c.bounce_rate > 0.85 ? 'style="color:#ef4444"' : ''}>${(c.bounce_rate*100).toFixed(1)}%</td>
+        <td class="num" ${c.avg_duration_sec < 10 ? 'style="color:#ef4444"' : ''}>${c.avg_duration_sec}</td>
+        <td class="num">${fmt(c.conversions)}</td>
+      </tr>
+    `).join('');
+  }
+
+  // ── CONVERSION SPLIT (purchase vs micro) ─────────────────
+  const cv = d.conversions_breakdown;
+  if (cv) {
+    const realPct = cv.real_pct;
+    const balastPct = cv.balast_pct;
+    document.getElementById('conv-split-vis').innerHTML = `
+      <div class="metrics-grid" style="margin-bottom:14px">
+        <div class="metric-box" style="background:rgba(34,197,94,.10);border-color:#22c55e">
+          <div class="metric-label">💎 Real Purchase</div>
+          <div class="metric-value" style="color:#4ade80">${fmt(cv.real_purchase_conversions)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">${realPct} % konverzí · skutečné nákupy</div>
+        </div>
+        <div class="metric-box" style="background:rgba(239,68,68,.12);border-color:#ef4444">
+          <div class="metric-label">🗑️ BALAST (micro-events)</div>
+          <div class="metric-value" style="color:#fca5a5">${fmt(cv.micro_event_conversions)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">${balastPct} % konverzí · time_on_web, view_item, …</div>
+        </div>
+        <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+          <div class="metric-label">Smart Bidding optimalizuje na</div>
+          <div class="metric-value" style="color:#fcd34d">${fmt(cv.total_conversion_events_ga4)}</div>
+          <div style="color:#64748b;font-size:11px;margin-top:4px">celkem (z toho ${balastPct} % balast → optimalizace špatně)</div>
+        </div>
+      </div>
+      <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:8px;padding:14px">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px">Vizualizace: 💎 ${realPct}% reálný purchase vs 🗑️ ${balastPct}% balast</div>
+        <div style="display:flex;height:36px;border-radius:6px;overflow:hidden">
+          <div style="background:linear-gradient(90deg,#16a34a,#22c55e);min-width:1px;width:${Math.max(realPct, 0.3)}%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600">${realPct >= 3 ? '💎 '+realPct+'%' : '💎'}</div>
+          <div style="background:linear-gradient(90deg,#dc2626,#ef4444);width:${balastPct}%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:600">🗑️ ${balastPct}% BALAST</div>
+        </div>
+        <p style="margin-top:10px;color:#cbd5e1;font-size:12px">${cv.interpretation}</p>
+      </div>
+    `;
+
+    // Conversion events table
+    const total = cv.total_conversion_events_ga4 || 1;
+    document.querySelector('#table-conv-events tbody').innerHTML = cv.events.map(e => {
+      const pct = (e.conversions / total * 100).toFixed(2);
+      const isBalast = e.type === 'micro_event';
+      return `<tr ${isBalast ? 'style="background:rgba(239,68,68,.05)"' : 'style="background:rgba(34,197,94,.08)"'}>
+        <td><strong>${e.event_name}</strong></td>
+        <td>${e.type === 'real_purchase' ? '💎 real_purchase' : '🗑️ micro_event'}</td>
+        <td class="num">${fmt(e.conversions)}</td>
+        <td class="num">${pct} %</td>
+        <td>${isBalast ? '<span style="color:#ef4444;font-weight:600">ANO — odstranit z conversion</span>' : '<span style="color:#22c55e;font-weight:600">NE — primary KPI</span>'}</td>
+      </tr>`;
+    }).join('');
+  }
 
   // Vis: ASCII-style decreasing bars
   const sessions = d.events_totals.session_start.sessions || 1;
