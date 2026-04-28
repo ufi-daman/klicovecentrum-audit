@@ -1,0 +1,225 @@
+{
+  "generated": "2026-04-28T15:08:47",
+  "period": {
+    "from": "2025-10-01",
+    "to": "2026-04-22"
+  },
+  "scope": "GA4 property 299992437 (klicovecentrum.cz)",
+  "events_totals": {
+    "session_start": {
+      "events": 2000199,
+      "users": 1916649,
+      "sessions": 1967803
+    },
+    "view_item": {
+      "events": 131080,
+      "users": 66858,
+      "sessions": 83449
+    },
+    "add_to_cart": {
+      "events": 5293,
+      "users": 3155,
+      "sessions": 3465
+    },
+    "begin_checkout": {
+      "events": 6953,
+      "users": 2784,
+      "sessions": 3379
+    },
+    "add_payment_info": {
+      "events": 0,
+      "users": 0,
+      "sessions": 0
+    },
+    "purchase": {
+      "events": 674,
+      "users": 640,
+      "sessions": 660
+    }
+  },
+  "funnel_stages": [
+    {
+      "stage": "1. Sessions (návštěvy)",
+      "value": 1967803,
+      "pct_of_top": 100,
+      "conv_from_prev": null,
+      "drop_pct": null,
+      "note": "Včetně bot trafficu (1,79 M sessions celkem; finding #2)"
+    },
+    {
+      "stage": "2. View Item (zobrazení produktu)",
+      "value": 131080,
+      "pct_of_top": 6.66,
+      "conv_from_prev": 6.66,
+      "drop_pct": 93.34,
+      "note": "Pouze ta část návštěv, která prošla na produktovou stránku"
+    },
+    {
+      "stage": "3. Add to Cart",
+      "value": 5293,
+      "pct_of_top": 0.27,
+      "conv_from_prev": 4.04,
+      "drop_pct": 95.96,
+      "note": "Healthy benchmark: 5-10 % view_item → add_to_cart"
+    },
+    {
+      "stage": "4. Begin Checkout (vstup do checkoutu)",
+      "value": 6953,
+      "pct_of_top": 0.35,
+      "conv_from_prev": 131.36,
+      "drop_pct": -31.36,
+      "note": "Cart abandonment = (add_cart - begin_checkout) / add_cart"
+    },
+    {
+      "stage": "5. Add Payment Info",
+      "value": 0,
+      "pct_of_top": 0.0,
+      "conv_from_prev": 0.0,
+      "drop_pct": 100.0,
+      "note": "Vyplnění platby — zde se ztrácí form-related friction"
+    },
+    {
+      "stage": "6. Purchase (dokončená objednávka)",
+      "value": 674,
+      "pct_of_top": 0.03,
+      "conv_from_prev": 0.0,
+      "drop_pct": 0.0,
+      "note": "GA4 vidí 674 nákupů. Skutečnost SQL: 1 398 obj. (web_id=1) → tracking gap"
+    }
+  ],
+  "channels_funnel": {
+    "Direct": {
+      "session_start": 1817286,
+      "view_item": 22170,
+      "begin_checkout": 661,
+      "add_to_cart": 472,
+      "purchase": 83
+    },
+    "Organic Search": {
+      "session_start": 104839,
+      "view_item": 48028,
+      "begin_checkout": 2183,
+      "add_to_cart": 1752,
+      "purchase": 223
+    },
+    "Paid Search": {
+      "session_start": 28594,
+      "view_item": 19818,
+      "begin_checkout": 1206,
+      "add_to_cart": 859,
+      "purchase": 124
+    },
+    "Cross-network": {
+      "view_item": 28351,
+      "session_start": 26493,
+      "begin_checkout": 2268,
+      "add_to_cart": 1729,
+      "purchase": 185
+    },
+    "Organic Social": {
+      "session_start": 7395,
+      "view_item": 2732,
+      "begin_checkout": 28,
+      "add_to_cart": 27,
+      "purchase": 4
+    },
+    "Unassigned": {
+      "session_start": 5229,
+      "view_item": 3045,
+      "begin_checkout": 178,
+      "add_to_cart": 156,
+      "purchase": 21
+    },
+    "Paid Shopping": {
+      "session_start": 3155,
+      "view_item": 2610,
+      "begin_checkout": 114,
+      "add_to_cart": 77,
+      "purchase": 4
+    },
+    "Paid Social": {
+      "session_start": 2165,
+      "view_item": 131,
+      "add_to_cart": 7,
+      "begin_checkout": 1
+    },
+    "Referral": {
+      "session_start": 2075,
+      "view_item": 1189,
+      "begin_checkout": 76,
+      "add_to_cart": 37,
+      "purchase": 2
+    },
+    "Paid Other": {
+      "session_start": 1609,
+      "view_item": 1569,
+      "begin_checkout": 123,
+      "add_to_cart": 81,
+      "purchase": 10
+    },
+    "Organic Shopping": {
+      "view_item": 1397,
+      "session_start": 1297,
+      "begin_checkout": 106,
+      "add_to_cart": 89,
+      "purchase": 17
+    },
+    "Organic Video": {
+      "session_start": 49,
+      "view_item": 40,
+      "begin_checkout": 9,
+      "add_to_cart": 7,
+      "purchase": 1
+    },
+    "Display": {
+      "session_start": 13
+    }
+  },
+  "devices_funnel": {
+    "desktop": {
+      "session_start": 1890275,
+      "view_item": 71918,
+      "begin_checkout": 3238,
+      "add_to_cart": 2625,
+      "purchase": 377
+    },
+    "mobile": {
+      "session_start": 106839,
+      "view_item": 57540,
+      "begin_checkout": 3552,
+      "add_to_cart": 2579,
+      "purchase": 284
+    },
+    "tablet": {
+      "session_start": 3079,
+      "view_item": 1622,
+      "begin_checkout": 163,
+      "add_to_cart": 89,
+      "purchase": 13
+    },
+    "smart tv": {
+      "session_start": 6
+    }
+  },
+  "key_metrics": {
+    "session_to_view_item_pct": 6.66,
+    "view_to_cart_pct": 4.04,
+    "cart_to_checkout_pct": 131.36,
+    "checkout_to_payment_pct": 0.0,
+    "payment_to_purchase_pct": 0.0,
+    "overall_session_to_purchase_pct": 0.03,
+    "overall_view_to_purchase_pct": 0.51
+  },
+  "interpretation": {
+    "biggest_drop": {
+      "stage": "5. Add Payment Info",
+      "drop_pct": 100.0
+    },
+    "ga4_vs_sql_gap": {
+      "ga4_purchase_events": 674,
+      "sql_real_orders": 1398,
+      "tracking_coverage_pct": 48.21,
+      "note": "GA4 vidí jen část reálných objednávek — finding #1 (kombinace nepokrytých kanálů, COD nebo neimplementovaného purchase event)"
+    }
+  }
+}

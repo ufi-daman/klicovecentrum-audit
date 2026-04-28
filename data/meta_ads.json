@@ -1,0 +1,45 @@
+{
+  "generated": "2026-04-28T15:10:51",
+  "period": {
+    "from": "2025-10-01",
+    "to": "2026-04-22"
+  },
+  "source": "Meta Marketing API (Graph API v19.0)",
+  "credentials_status": "missing",
+  "status": "✗ NEPROPOJENO",
+  "blocker": "Chybí META_ACCESS_TOKEN nebo META_AD_ACCOUNT_ID v env",
+  "data": null,
+  "totals": {
+    "spend_kc": null,
+    "impressions": null,
+    "clicks": null,
+    "purchases": null,
+    "purchase_value_kc": null,
+    "roas": null,
+    "cpc_kc": null,
+    "ctr_pct": null
+  },
+  "setup_steps": [
+    "1. Klient: Business Manager → Settings → System Users → Add",
+    "2. Vytvořit System User 'Audit Klíčové centrum' s rolí Read",
+    "3. Generate Token: ads_read, business_management, read_insights (bez expirace)",
+    "4. Assign Ad Account (act_xxx) k System User",
+    "5. Předat: token + ad_account_id auditorovi",
+    "6. Auditor: nastavit env META_ACCESS_TOKEN, META_AD_ACCOUNT_ID",
+    "7. Spustit: python build_meta_ads.py"
+  ],
+  "alternative_data_sources": [
+    "Meta Ads Manager export CSV (Reports → Export → 7M period)",
+    "Meta Ad Library (https://www.facebook.com/ads/library) — veřejné kampaně",
+    "Pokud klient Meta Ads vůbec nepouští: dokumentovat jako vědomé rozhodnutí v finding #40"
+  ],
+  "expected_data_when_connected": {
+    "spend_kc": "<aktuální spend>",
+    "purchases": "<počet purchase events z pixelu>",
+    "purchase_value_kc": "<obrat z purchase pixel>",
+    "roas": "<purchase_value / spend>",
+    "campaigns": "<list všech kampaní s per-kampaň metrikami>",
+    "audiences": "<lookalike, custom audiences>",
+    "creatives_top": "<top 10 ad creatives podle ROAS>"
+  }
+}

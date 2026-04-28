@@ -752,6 +752,36 @@
     <h3>4️⃣ Celkový souhrn obratu — 4 zdroje</h3>
     <div class="metrics-grid" id="kpi-summary-grid"></div>
   </div>
+
+  <div class="chart-card">
+    <h3>📦 Poštovné · Vratky · Reklamace</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Per-objednávka logistika a po-prodejní service. Žluté = systémově nesledovaná data (nutno dořešit).
+    </p>
+    <div class="metrics-grid" id="postage-returns-grid" style="margin-bottom:18px"></div>
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 10px">Poštovné per dopravce</h4>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-postage">
+        <thead>
+          <tr>
+            <th>Dopravce</th>
+            <th style="text-align:right">Objednávky</th>
+            <th style="text-align:right">Celkem poštovné</th>
+            <th style="text-align:right">Průměr / obj.</th>
+            <th style="text-align:right">% objednávek</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="returns-detail" style="margin-top:18px"></div>
+    <div id="complaints-detail" style="margin-top:14px"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📡 Meta Ads (Facebook + Instagram) — status napojení</h3>
+    <div id="meta-ads-status"></div>
+  </div>
 </section>
 
 <section id="regions-view" class="view-section hidden">
@@ -814,6 +844,68 @@
     </p>
 
     <div class="metrics-grid" id="journey-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🛒 Prodejní funnel — GA4 events (audit period)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="funnel-period">—</p>
+    <div id="funnel-stages-vis" style="margin-bottom:18px"></div>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-funnel">
+        <thead>
+          <tr>
+            <th>Stage</th>
+            <th style="text-align:right">Events</th>
+            <th style="text-align:right">% z návštěv</th>
+            <th style="text-align:right">Konv. z předchozí</th>
+            <th style="text-align:right">Drop %</th>
+            <th>Poznámka</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div id="funnel-warning" style="margin-top:14px;padding:12px;background:rgba(239,68,68,.08);border-left:3px solid #ef4444;border-radius:6px;font-size:13px;color:#fca5a5"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📱 Funnel per device (mobile vs desktop vs tablet)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-funnel-device">
+        <thead>
+          <tr>
+            <th>Device</th>
+            <th style="text-align:right">Sessions</th>
+            <th style="text-align:right">View item</th>
+            <th style="text-align:right">Add to cart</th>
+            <th style="text-align:right">Begin checkout</th>
+            <th style="text-align:right">Purchase</th>
+            <th style="text-align:right">Conv. rate</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📊 Funnel per channel (top 8 acquisition zdrojů)</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-funnel-channel">
+        <thead>
+          <tr>
+            <th>Channel</th>
+            <th style="text-align:right">Sessions</th>
+            <th style="text-align:right">View item</th>
+            <th style="text-align:right">Add to cart</th>
+            <th style="text-align:right">Begin checkout</th>
+            <th style="text-align:right">Purchase</th>
+            <th style="text-align:right">Conv. rate</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 
   <div class="chart-card">
@@ -2175,7 +2267,21 @@ async function loadKpi() {
       return;
     }
   }
+  if (!window.returnsData) {
+    try {
+      const r = await fetch('data/returns_postage.json?v=' + Date.now());
+      window.returnsData = await r.json();
+    } catch(e) { console.error('returns_postage', e); }
+  }
+  if (!window.metaAdsData) {
+    try {
+      const r = await fetch('data/meta_ads.json?v=' + Date.now());
+      window.metaAdsData = await r.json();
+    } catch(e) { console.error('meta_ads', e); }
+  }
   renderKpi();
+  if (window.returnsData) renderReturnsPostage();
+  if (window.metaAdsData) renderMetaStatus();
 }
 
 function renderKpi() {
@@ -2301,6 +2407,128 @@ function renderKpi() {
       <div style="color:#94a3b8;font-size:11px;margin-top:4px">7 měsíců · ~2,23 M Kč/rok extrapolace · neuvažováno B2B hbgroup.cz (4,86 M paralelně) · ERP je účetní systém, SQL cross-check ukazuje +15 %</div>
     </div>
   `;
+}
+
+// ─── RETURNS / POSTAGE / META RENDER ───────────────────────────
+function renderReturnsPostage() {
+  const d = window.returnsData;
+  const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+  const p = d.postage.summary;
+  const r = d.returns;
+
+  document.getElementById('postage-returns-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(59,130,246,.08);border-color:#3b82f6">
+      <div class="metric-label">📦 Poštovné — celkem</div>
+      <div class="metric-value" style="color:#93c5fd">${fmt(p.total_postage_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(p.orders)} obj. · prům. ${p.avg_per_order_kc} Kč/obj.</div>
+    </div>
+    <div class="metric-box" style="background:rgba(34,197,94,.08);border-color:#22c55e">
+      <div class="metric-label">🏪 Osobní odběr (zdarma)</div>
+      <div class="metric-value" style="color:#4ade80">${p.personal_pickup_pct} %</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">${fmt(p.personal_pickup_orders)} obj. — využití pobočkové sítě</div>
+    </div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">↩️ Vratky — počet</div>
+      <div class="metric-value" style="color:#fcd34d">${fmt(r.summary.sql_orders_with_dobropis)} / ${fmt(r.summary.erp_returned_qty)}</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">SQL dobropis / ERP vrácené ks · <strong>0 = nesledováno, ne nula</strong></div>
+    </div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">↩️ Vratky — hodnota</div>
+      <div class="metric-value" style="color:#fcd34d">${fmt(r.summary.erp_returned_revenue_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">Implicitní gap ERP↔SQL: <strong style="color:#fbbf24">${fmt(r.implicit_gap.gap_kc)} Kč (${r.implicit_gap.gap_pct_of_sql} %)</strong></div>
+    </div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">↩️ Vratky — poměr</div>
+      <div class="metric-value" style="color:#fcd34d">${r.implicit_gap.gap_pct_of_sql} %</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">Implicitní (z gapu ERP/SQL) — reálný jen po doplnění systému trackingu</div>
+    </div>
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444">
+      <div class="metric-label">🔧 Reklamace</div>
+      <div class="metric-value" style="color:#fca5a5">✗ Nesledováno</div>
+      <div style="color:#64748b;font-size:11px;margin-top:4px">Žádný systém v audit datech</div>
+    </div>
+  `;
+
+  // Tabulka per dopravce
+  const totalPostage = p.total_postage_kc || 1;
+  const totalOrders = p.orders || 1;
+  document.querySelector('#table-postage tbody').innerHTML = d.postage.by_carrier.map(c => `
+    <tr>
+      <td style="font-size:12px">${c.carrier}</td>
+      <td class="num">${fmt(c.orders)}</td>
+      <td class="num">${fmt(c.total_kc)} Kč</td>
+      <td class="num">${fmt(c.avg_kc)} Kč</td>
+      <td class="num">${(c.orders / totalOrders * 100).toFixed(1)} %</td>
+    </tr>
+  `).join('');
+
+  // Vratky detail
+  document.getElementById('returns-detail').innerHTML = `
+    <div style="background:rgba(251,191,36,.05);border-left:3px solid #fbbf24;padding:14px;border-radius:6px;margin-bottom:10px">
+      <strong style="color:#fcd34d">↩️ Vratky — proč 0?</strong>
+      <p style="color:#cbd5e1;font-size:13px;margin:8px 0 0">${r.implicit_gap.interpretation}</p>
+      <p style="color:#94a3b8;font-size:12px;margin-top:8px">${r.data_quality.verdict}</p>
+    </div>
+  `;
+
+  // Reklamace detail
+  const cmp = d.complaints;
+  document.getElementById('complaints-detail').innerHTML = `
+    <div style="background:rgba(239,68,68,.05);border-left:3px solid #ef4444;padding:14px;border-radius:6px">
+      <strong style="color:#fca5a5">🔧 Reklamace — ${cmp.status}</strong>
+      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        ${cmp.implications.map(i => `<li style="margin-bottom:4px">${i}</li>`).join('')}
+      </ul>
+      <p style="color:#94a3b8;font-size:12px;margin-top:10px"><strong>Doporučení:</strong> ${cmp.recommendation}</p>
+    </div>
+  `;
+}
+
+function renderMetaStatus() {
+  const m = window.metaAdsData;
+  const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+  const isConnected = m.credentials_status === 'available' && m.totals && m.totals.spend_kc;
+
+  if (isConnected) {
+    const t = m.totals;
+    document.getElementById('meta-ads-status').innerHTML = `
+      <div style="background:rgba(34,197,94,.08);border-left:3px solid #22c55e;padding:14px;border-radius:6px;margin-bottom:14px">
+        <strong style="color:#4ade80">${m.status}</strong>
+        <p style="color:#cbd5e1;font-size:13px;margin-top:6px">Audit period ${m.period.from} → ${m.period.to}</p>
+      </div>
+      <div class="metrics-grid" style="margin-bottom:14px">
+        <div class="metric-box"><div class="metric-label">Spend</div><div class="metric-value">${fmt(t.spend_kc)} Kč</div></div>
+        <div class="metric-box"><div class="metric-label">Imprese</div><div class="metric-value">${fmt(t.impressions)}</div></div>
+        <div class="metric-box"><div class="metric-label">Kliky</div><div class="metric-value">${fmt(t.clicks)} (CTR ${t.ctr_pct}%)</div></div>
+        <div class="metric-box"><div class="metric-label">CPC</div><div class="metric-value">${fmt(t.cpc_kc)} Kč</div></div>
+        <div class="metric-box"><div class="metric-label">Purchases (pixel)</div><div class="metric-value" style="color:#10b981">${fmt(t.purchases)}</div></div>
+        <div class="metric-box"><div class="metric-label">Obrat z pixelu</div><div class="metric-value" style="color:#10b981">${fmt(t.purchase_value_kc)} Kč</div></div>
+        <div class="metric-box"><div class="metric-label">ROAS</div><div class="metric-value" style="color:#10b981">${t.roas}</div></div>
+      </div>
+    `;
+  } else {
+    document.getElementById('meta-ads-status').innerHTML = `
+      <div style="background:rgba(239,68,68,.08);border-left:3px solid #ef4444;padding:14px;border-radius:6px;margin-bottom:14px">
+        <strong style="color:#fca5a5">${m.status}</strong>
+        <p style="color:#cbd5e1;font-size:13px;margin:8px 0 0">${m.blocker}</p>
+      </div>
+      <div style="background:rgba(59,130,246,.05);border:1px solid #1e40af;padding:14px;border-radius:6px;margin-bottom:14px">
+        <strong style="color:#93c5fd">📋 Setup pro klienta — kroky k získání přístupu</strong>
+        <ol style="color:#cbd5e1;font-size:13px;margin:10px 0 0;padding-left:24px">
+          ${m.setup_steps.map(s => `<li style="margin-bottom:4px">${s}</li>`).join('')}
+        </ol>
+      </div>
+      <div style="background:rgba(15,23,42,.6);padding:14px;border-radius:6px;border:1px solid #334155">
+        <strong style="color:#cbd5e1">Alternativní zdroje dat:</strong>
+        <ul style="color:#94a3b8;font-size:13px;margin:8px 0 0;padding-left:20px">
+          ${m.alternative_data_sources.map(s => `<li style="margin-bottom:4px">${s}</li>`).join('')}
+        </ul>
+      </div>
+      <div style="margin-top:14px;color:#64748b;font-size:11px">
+        Skript je připravený: <code style="background:rgba(15,23,42,.6);padding:2px 6px;border-radius:3px">build_meta_ads.py</code> — po doplnění env proměnných (META_ACCESS_TOKEN, META_AD_ACCOUNT_ID) automaticky stáhne data.
+      </div>
+    `;
+  }
 }
 
 // ─── REGIONS VIEW ────────────────────────────────────────────
@@ -2435,6 +2663,94 @@ async function loadJourneys() {
     journeysData = await res.json();
   }
   renderJourneys();
+  // Funnel
+  if (!window.funnelData) {
+    try {
+      const fr = await fetch('data/funnel.json?v=' + Date.now());
+      window.funnelData = await fr.json();
+    } catch(e) { console.error('funnel', e); }
+  }
+  if (window.funnelData) renderFunnel();
+}
+
+function renderFunnel() {
+  const d = window.funnelData;
+  const fmt = n => n == null ? '—' : Number(n).toLocaleString('cs-CZ');
+  document.getElementById('funnel-period').textContent =
+    `Audit period ${d.period.from} → ${d.period.to} · zdroj GA4 property 299992437. Stages odpovídají events: session_start, view_item, add_to_cart, begin_checkout, add_payment_info, purchase.`;
+
+  // Vis: ASCII-style decreasing bars
+  const sessions = d.events_totals.session_start.sessions || 1;
+  const stages = d.funnel_stages;
+  document.getElementById('funnel-stages-vis').innerHTML = stages.map(s => {
+    const pct = (s.value / sessions) * 100;
+    const w = Math.max(pct, 0.5);
+    return `<div style="margin-bottom:6px">
+      <div style="font-size:13px;color:#cbd5e1;margin-bottom:3px">${s.stage}: <strong>${fmt(s.value)}</strong>
+        <span style="color:#94a3b8;font-size:11px"> (${s.pct_of_top} % sessions${s.conv_from_prev !== null ? ` · ${s.conv_from_prev} % z předchozí` : ''})</span></div>
+      <div style="background:rgba(59,130,246,.15);height:24px;border-radius:4px;overflow:hidden">
+        <div style="background:linear-gradient(90deg,#3b82f6,#10b981);width:${w}%;height:100%;transition:width .3s"></div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Tabulka
+  document.querySelector('#table-funnel tbody').innerHTML = stages.map(s => `
+    <tr>
+      <td><strong>${s.stage}</strong></td>
+      <td class="num">${fmt(s.value)}</td>
+      <td class="num">${s.pct_of_top}%</td>
+      <td class="num">${s.conv_from_prev !== null ? s.conv_from_prev + '%' : '—'}</td>
+      <td class="num" style="${s.drop_pct > 50 ? 'color:#ef4444' : ''}">${s.drop_pct !== null ? s.drop_pct + '%' : '—'}</td>
+      <td style="font-size:12px;color:#94a3b8">${s.note}</td>
+    </tr>
+  `).join('');
+
+  // Warning
+  const gap = d.interpretation.ga4_vs_sql_gap;
+  const big = d.interpretation.biggest_drop;
+  document.getElementById('funnel-warning').innerHTML =
+    `<strong>⚠️ Co audit ukazuje:</strong>
+     Největší propad ve fázi <strong>${big.stage}</strong> (${big.drop_pct}%).
+     GA4 zachytává jen ${gap.tracking_coverage_pct}% reálných objednávek (${gap.ga4_purchase_events} GA4 vs ${gap.sql_real_orders} SQL).
+     Pokud add_payment_info ukazuje 0 nebo nízké číslo, event není v dataLayeru implementován — to není reálný drop, ale mezera v měření.`;
+
+  // Funnel per device
+  const devs = d.devices_funnel || {};
+  document.querySelector('#table-funnel-device tbody').innerHTML = Object.entries(devs).map(([dev, ev]) => {
+    const sess = ev.session_start || 0;
+    const purch = ev.purchase || 0;
+    const cr = sess ? (purch/sess*100).toFixed(2) + '%' : '—';
+    return `<tr>
+      <td><strong>${dev}</strong></td>
+      <td class="num">${fmt(sess)}</td>
+      <td class="num">${fmt(ev.view_item || 0)}</td>
+      <td class="num">${fmt(ev.add_to_cart || 0)}</td>
+      <td class="num">${fmt(ev.begin_checkout || 0)}</td>
+      <td class="num good">${fmt(purch)}</td>
+      <td class="num"><strong>${cr}</strong></td>
+    </tr>`;
+  }).join('');
+
+  // Funnel per channel — top 8 by sessions
+  const chans = d.channels_funnel || {};
+  const sorted = Object.entries(chans)
+    .sort((a,b) => (b[1].session_start || 0) - (a[1].session_start || 0))
+    .slice(0, 8);
+  document.querySelector('#table-funnel-channel tbody').innerHTML = sorted.map(([ch, ev]) => {
+    const sess = ev.session_start || 0;
+    const purch = ev.purchase || 0;
+    const cr = sess ? (purch/sess*100).toFixed(2) + '%' : '—';
+    return `<tr>
+      <td><strong>${ch}</strong></td>
+      <td class="num">${fmt(sess)}</td>
+      <td class="num">${fmt(ev.view_item || 0)}</td>
+      <td class="num">${fmt(ev.add_to_cart || 0)}</td>
+      <td class="num">${fmt(ev.begin_checkout || 0)}</td>
+      <td class="num good">${fmt(purch)}</td>
+      <td class="num"><strong>${cr}</strong></td>
+    </tr>`;
+  }).join('');
 }
 
 function renderJourneys() {

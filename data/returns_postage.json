@@ -1,0 +1,148 @@
+{
+  "generated": "2026-04-28T15:10:10",
+  "period": "2025-10-01 to 2026-04-22",
+  "scope": "klicovecentrum.cz B2C (web_id=1) + ERP MO e-shop",
+  "postage": {
+    "summary": {
+      "orders": 1398,
+      "total_postage_kc": 73700,
+      "avg_per_order_kc": 53.0,
+      "personal_pickup_orders": 661,
+      "personal_pickup_pct": 47.3,
+      "online_paid_orders": 440,
+      "online_paid_pct": 31.5
+    },
+    "by_carrier": [
+      {
+        "carrier": "PPL Výdejní místa",
+        "orders": 483,
+        "total_kc": 48300,
+        "avg_kc": 100
+      },
+      {
+        "carrier": "PPL (100 Kč, při objednávce nad 2000 Kč zdarma)",
+        "orders": 387,
+        "total_kc": 25300,
+        "avg_kc": 65
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Brno – Štýřice, H-Park – Heršpická 1035/11f (zdarma)",
+        "orders": 70,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 1 - Václavské náměstí, Václavské náměstí 785/28 (",
+        "orders": 56,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 2 – Vinohrady, Korunní 913/28 (zdarma)",
+        "orders": 51,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Plzeň, Žatecká 131/8 (zdarma)",
+        "orders": 51,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 9 – Vysočany, Freyova 12/1 (zdarma)",
+        "orders": 50,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 6 – Dejvice, Čsl. armády 951/21 (zdarma)",
+        "orders": 44,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 8 – Libeň, U Pekařky 484/1a (zdarma)",
+        "orders": 40,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 10 – Vršovice, Moskevská 367/22 (zdarma)",
+        "orders": 40,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Ostrava – Vítkovice, Rudná 2971/1c (zdarma)",
+        "orders": 38,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Praha 13 - Zličín, Skandinávská 144/25 (zdarma)",
+        "orders": 27,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně České Budějovice, Husova 25 (zdarma)",
+        "orders": 22,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Sokolov, K. H. Borovského 405 (zdarma)",
+        "orders": 8,
+        "total_kc": 0,
+        "avg_kc": 0
+      },
+      {
+        "carrier": "Osobní odběr na prodejně Chomutov, Žižkovo náměstí 5762 (zdarma)",
+        "orders": 8,
+        "total_kc": 0,
+        "avg_kc": 0
+      }
+    ],
+    "insight": "47 % objednávek (osobní odběr na pobočce) je zdarma — silný indikátor využití fyzické sítě (661 obj). Online platba pouze 440 obj. (31.5 %), zbytek je COD."
+  },
+  "returns": {
+    "summary": {
+      "sql_orders_with_dobropis": 0,
+      "sql_orders_with_payment_return": 0,
+      "erp_total_rows": 1308,
+      "erp_rows_with_returns": 0,
+      "erp_returned_qty": 0,
+      "erp_returned_revenue_kc": 0
+    },
+    "implicit_gap": {
+      "sql_revenue_excl_kc": 1383208,
+      "erp_revenue_excl_kc": 1170741,
+      "gap_kc": 212467,
+      "gap_pct_of_sql": 15.4,
+      "interpretation": "SQL kosik ukazuje 1,383,208 Kč objednávek, ERP účetní pouze 1,170,741 Kč (15.4 % gap = 212,467 Kč). Tento rozdíl pravděpodobně obsahuje: storno objednávek před doručením, nezaplacené COD (vrácená dobírka), vrácení v reklamační lhůtě bez vystavení dobropisu, odlišný timing (datum doručení vs. datum účetnictví). NELZE rozdělit per-objednávka — chybí explicit tracking."
+    },
+    "data_quality": {
+      "sql_dobropis_field_present": true,
+      "sql_dobropis_filled_pct": 0.0,
+      "erp_returns_columns_present": true,
+      "erp_returns_filled_pct": 0.0,
+      "verdict": "🔴 Vratky NEJSOU systémově trackované. Reportovaný stav 0 znamená 'nezaznamenáno', ne 'žádné vrátky'. Skutečný objem vrátek = ERP-SQL gap (~30 %)."
+    }
+  },
+  "complaints": {
+    "status": "✗ NESLEDOVÁNO",
+    "available_sources_searched": [
+      "SQL kosik — žádné pole pro reklamaci/komplikaci",
+      "SQL — žádná tabulka reklam/vrat/komplikace",
+      "ERP CSV — žádný sloupec pro reklamace",
+      "Helpdesk/Zendesk/Ticket system — neuvedeno v audit datech"
+    ],
+    "implications": [
+      "Bez tracking reklamací nelze měřit kvalitu produktu / dodavatele",
+      "Bez metric 'reklamační míra per produkt' nelze identifikovat problémové SKU",
+      "Při ERP-SQL gapu 30 % je velmi pravděpodobné, že reklamace existují, ale tečou bokem"
+    ],
+    "recommendation": "Zavést reklamační formulář na webu napojený do CRM/SQL nebo ticket systému (Zendesk, Freshdesk). Měřit: počet reklamací/měs, hodnota reklamovaného zboží, top 10 reklamovaných SKU, NPS po vyřízení."
+  }
+}
