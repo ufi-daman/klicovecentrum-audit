@@ -369,21 +369,21 @@
     },
     {
       "channel": "Meta Ads (FB/IG)",
-      "spend_kc": null,
-      "orders": null,
-      "revenue_kc": null,
-      "aov_kc": null,
-      "cost_per_order_kc": null,
-      "note": "✗ Není reportováno — finding #40. Klient buď neutrácí, nebo agentura kanál nepokrývá. Nutno vyjasnit."
+      "spend_kc": 41957,
+      "orders": 3,
+      "revenue_kc": 8019,
+      "aov_kc": 2673,
+      "cost_per_order_kc": 13986,
+      "note": "🚨 ROAS 0.19 — kampaně 'Podpora prodejny' (Brno, Chomutov, Lochotín) = lokální brand awareness pro fyzické pobočky, NE e-shop sales. Pixel netrackuje store visits. Cost/purchase 13 986 Kč pro e-shop pixel = neefektivní."
     },
     {
-      "channel": "PPC celkem",
-      "spend_kc": 305799,
-      "orders": 464,
-      "revenue_kc": 595407,
-      "aov_kc": 1283,
-      "cost_per_order_kc": 659,
-      "note": "Sloučený PPC mix. ROAS 1.95 dle agentury, reálný ~4 dle skutečnosti SQL+Alza po očištění tracking."
+      "channel": "PPC celkem (vč. Meta)",
+      "spend_kc": 347756,
+      "orders": 467,
+      "revenue_kc": 603426,
+      "aov_kc": 1292,
+      "cost_per_order_kc": 745,
+      "note": "Sloučený PPC mix vč. Meta. Skutečný spend 347 756 Kč (+14 % po doplnění Meta). Reálný ROAS po očištění tracking ~3.5×."
     }
   ],
   "summary_tables": {

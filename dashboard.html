@@ -1787,19 +1787,20 @@ const findings = [
   },
   {
     id: 40, cat: 'gads', prio: 'P1',
-    title: 'Meta Ads kanál nepokrytý — buď klient neutrácí, nebo agentura nereportuje',
-    metric: '0 Kč spend reportovaný v audit periodě, 0 řádků v Looker',
-    impact: 'Chybí potenciální akviziční kanál',
-    impactNote: 'zámky/trezory = high-trust impulzní + retargeting vhodný',
-    problem: 'V audit datech není Meta (FB/IG) Ads. Dvě možnosti: (1) klient kanál neaktivuje — ztracená příležitost pro display/retargeting, lookalike na purchase audience; (2) agentura kanál spravuje, ale nereportuje — skrytý spend. Pro security e-commerce s vysokým AOV (1 456 Kč) by Meta retargeting na opuštěné košíky měl být no-brainer.',
+    title: 'Meta Ads — pouze brand + lokální kampaně, chybí měření brand awareness a sales mix',
+    metric: 'Spend 41 957 Kč · 674 662 imprese · 16 110 prokliků · CTR 2,39 % · CPC 2,60 Kč',
+    impact: 'Kampaně dělají, co mají (lokální reach), ale jejich efekt není měřitelný',
+    impactNote: 'klient platí za brand, ale neví zda funguje',
+    problem: 'Klient cíleně provozuje pouze brandové + lokální kampaně (Podpora prodejny Brno 15k, Chomutov 13,6k, Lochotín 9,5k + 3 IG brand posty). Cíl NENÍ přímý e-shop ROAS — je to lokální awareness pro fyzické prodejny + brand presence na sociálních sítích. Tomu odpovídají i metriky: CPC 2,60 Kč (skvělý reach), CTR 2,39 % (nadprůměrné). PROBLÉM: bez měření výsledků brand kampaní (store visits, brand search lift, NPS) nelze prokázat, že 42 k Kč ročně přináší hodnotu. Druhý gap: chybí PERFORMANCE/SALES kampaně (RTG na cart abandoners, lookalike na nákupy), které by Meta dělalo i e-shop kanálem.',
     actions: [
-      'Schůzka s klientem: aktivní Meta Business Manager?',
-      'Pokud ano → vyžádat Ads Manager export za audit period (spend, impressions, conv)',
-      'Pokud ne → návrh test kampaně: RTG na purchase audience + lookalike na top 10 % LTV zákazníků',
-      'Doplnit do KPI rozpadu řádek Meta Ads (i kdyby 0 — explicitní mezera)'
+      'Pro stávající brand/lokální kampaně: definovat měřitelné KPI (store visits přes GBP, brand search uplift, dotazníky NPS)',
+      'Napojit Meta na GBP store visits: Events Manager → Offline Events → měsíční import návštěv prodejen',
+      'Doplnit performance kampaně (separátní mix): cart abandonment RTG + lookalike na purchase audience',
+      'V reportingu oddělit brand spend (awareness KPI) od performance spend (ROAS KPI)',
+      'Zvážit zvýšení brand spendu z 42k/7M na 80-100k/rok pokud lokální data potvrdí dopad'
     ],
-    expected: 'Buď zapojení Meta do mixu (5-10 % spendu), nebo dokumentace záměrné absence',
-    timeline: [100, 0, 0]
+    expected: 'Měřitelný brand kanál (store visit lift +X %, brand search +Y %) + nový sales kanál s ROAS 3×+',
+    timeline: [50, 40, 10]
   }
 ];
 
@@ -2491,19 +2492,56 @@ function renderMetaStatus() {
 
   if (isConnected) {
     const t = m.totals;
+    const camps = m.campaigns || [];
+    const localCamps = camps.filter(c => /pobočk|prodejn|podpora/i.test(c.name)).length;
+    const igCamps = camps.filter(c => /instagram|post|máte dárek/i.test(c.name)).length;
     document.getElementById('meta-ads-status').innerHTML = `
       <div style="background:rgba(34,197,94,.08);border-left:3px solid #22c55e;padding:14px;border-radius:6px;margin-bottom:14px">
-        <strong style="color:#4ade80">${m.status}</strong>
-        <p style="color:#cbd5e1;font-size:13px;margin-top:6px">Audit period ${m.period.from} → ${m.period.to}</p>
+        <strong style="color:#4ade80">${m.status}</strong> — Audit period ${m.period.from} → ${m.period.to}
+        <p style="color:#cbd5e1;font-size:13px;margin:8px 0 0">
+          <strong>Mix:</strong> Pouze brand + lokální kampaně (${localCamps} podpora prodejny + ${igCamps} IG brand posts).
+          Žádné performance / sales kampaně. ROAS / cost-per-purchase tedy NENÍ relevantní KPI — relevantní jsou reach, CTR a brand awareness lift.
+        </p>
       </div>
+      <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:14px 0 8px">📊 Brand / awareness metriky (relevantní pro tento mix)</h4>
       <div class="metrics-grid" style="margin-bottom:14px">
-        <div class="metric-box"><div class="metric-label">Spend</div><div class="metric-value">${fmt(t.spend_kc)} Kč</div></div>
-        <div class="metric-box"><div class="metric-label">Imprese</div><div class="metric-value">${fmt(t.impressions)}</div></div>
-        <div class="metric-box"><div class="metric-label">Kliky</div><div class="metric-value">${fmt(t.clicks)} (CTR ${t.ctr_pct}%)</div></div>
-        <div class="metric-box"><div class="metric-label">CPC</div><div class="metric-value">${fmt(t.cpc_kc)} Kč</div></div>
-        <div class="metric-box"><div class="metric-label">Purchases (pixel)</div><div class="metric-value" style="color:#10b981">${fmt(t.purchases)}</div></div>
-        <div class="metric-box"><div class="metric-label">Obrat z pixelu</div><div class="metric-value" style="color:#10b981">${fmt(t.purchase_value_kc)} Kč</div></div>
-        <div class="metric-box"><div class="metric-label">ROAS</div><div class="metric-value" style="color:#10b981">${t.roas}</div></div>
+        <div class="metric-box"><div class="metric-label">Spend (audit 7M)</div><div class="metric-value">${fmt(t.spend_kc)} Kč</div><div style="color:#64748b;font-size:11px;margin-top:4px">~6 k Kč/měs · konzervativní</div></div>
+        <div class="metric-box"><div class="metric-label">Imprese</div><div class="metric-value" style="color:#93c5fd">${fmt(t.impressions)}</div><div style="color:#64748b;font-size:11px;margin-top:4px">lokální reach pro pobočky</div></div>
+        <div class="metric-box"><div class="metric-label">Kliky</div><div class="metric-value">${fmt(t.clicks)}</div><div style="color:#64748b;font-size:11px;margin-top:4px">~2 300/měs proklik na web</div></div>
+        <div class="metric-box" style="background:rgba(34,197,94,.08);border-color:#22c55e"><div class="metric-label">CTR</div><div class="metric-value" style="color:#4ade80">${t.ctr_pct} %</div><div style="color:#64748b;font-size:11px;margin-top:4px">🟢 nadprůměr (CZ benchmark 1,5 %)</div></div>
+        <div class="metric-box" style="background:rgba(34,197,94,.08);border-color:#22c55e"><div class="metric-label">CPC</div><div class="metric-value" style="color:#4ade80">${fmt(t.cpc_kc)} Kč</div><div style="color:#64748b;font-size:11px;margin-top:4px">🟢 efektivní cenovka</div></div>
+        <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24"><div class="metric-label">Brand efekt měřený?</div><div class="metric-value" style="color:#fcd34d">✗ Ne</div><div style="color:#64748b;font-size:11px;margin-top:4px">store visits / brand search lift chybí</div></div>
+      </div>
+      <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:18px 0 8px">📋 Per kampaň</h4>
+      <div style="overflow-x:auto">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Kampaň</th>
+              <th style="text-align:right">Spend Kč</th>
+              <th style="text-align:right">Imprese</th>
+              <th style="text-align:right">Kliky</th>
+              <th style="text-align:right">CTR</th>
+              <th style="text-align:right">CPC Kč</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${camps.map(c => `<tr>
+              <td style="font-size:12px">${c.name.length > 60 ? c.name.substring(0,60) + '…' : c.name}</td>
+              <td class="num">${fmt(c.spend_kc)}</td>
+              <td class="num">${fmt(c.impressions)}</td>
+              <td class="num">${fmt(c.clicks)}</td>
+              <td class="num">${c.ctr_pct} %</td>
+              <td class="num">${c.cpc_kc}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:14px;padding:12px;background:rgba(251,191,36,.08);border-left:3px solid #fbbf24;border-radius:6px;font-size:13px;color:#fcd34d">
+        <strong>⚠️ Co audit ukazuje:</strong> Klient cíleně provozuje JEN brand/lokální kampaně. To je legitimní strategie pro 17 fyzických prodejen, ale brand efekt SE NEMĚŘÍ — chybí store visits z GBP, brand search lift, dotazníky. Doporučení: napojit GBP store visits do Meta Events Manager + zvážit doplnění samostatných performance kampaní (RTG cart abandoners) jako přírůstek k současnému mixu (viz finding #40).
+      </div>
+      <div id="meta-pixel-purchases-note" style="margin-top:10px;color:#64748b;font-size:11px">
+        Poznámka: Meta Pixel zaznamenal ${t.purchases} purchase events za 7M (obrat z pixelu ${fmt(t.purchase_value_kc)} Kč). To je vedlejší produkt brand kampaní, ne cíl — proto se neoptimalizuje.
       </div>
     `;
   } else {
