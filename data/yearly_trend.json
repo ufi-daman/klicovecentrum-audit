@@ -1,0 +1,3238 @@
+{
+  "generated": "2026-04-29T10:39:26",
+  "source": "ERP CSV (OneDrive H&B Group · 04-E-SHOP-Analýzy · business analytika)",
+  "primary_source": "ERP MO/VO yearly aggregates",
+  "scope": "3-letý souhrn celkového prodeje (vč. e-shopu, poboček a velkoobchodu)",
+  "years": [
+    {
+      "year": 2023,
+      "revenue_total": 553468895,
+      "profit_total": 254006801,
+      "margin_pct": 45.9,
+      "qty_total": 13873979,
+      "skus_with_sales": 16954,
+      "returns_kc": 13070431,
+      "returns_qty": 71940,
+      "returns_pct": 2.36,
+      "segments": {
+        "eshop_mo": {
+          "revenue_kc": 5616525,
+          "qty": 43420,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 74300122,
+          "qty": 746723,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 432558395,
+          "qty": 11374272,
+          "available": true
+        }
+      },
+      "segment_top_skus": {
+        "eshop_mo": [
+          {
+            "sku": "",
+            "name": "Označeno: 1567 z 1567",
+            "qty": 21869,
+            "revenue": 2808262.39
+          },
+          {
+            "sku": "900033.10",
+            "name": "Poštovné e-shop",
+            "qty": 1550,
+            "revenue": 106083.1966
+          },
+          {
+            "sku": "220020.10",
+            "name": "FUHR zámek 834P panik-35-92-9-U24-1790 motor.",
+            "qty": 3,
+            "revenue": 60843.0
+          },
+          {
+            "sku": "914756.10",
+            "name": "Star kartový zámek skříňkový Mifare 13,56MHz",
+            "qty": 49,
+            "revenue": 43305.2232
+          },
+          {
+            "sku": "220011.10",
+            "name": "FUHR zámek 834-35-92-8-U24-1790 motor.",
+            "qty": 3,
+            "revenue": 35970.0
+          },
+          {
+            "sku": "914755.10",
+            "name": "Star kartový zámek skříňkový EM 125kHz",
+            "qty": 41,
+            "revenue": 35001.76
+          },
+          {
+            "sku": "370314.10",
+            "name": "Smart stěnová jednotka K3F DESFire",
+            "qty": 6,
+            "revenue": 34710.0
+          },
+          {
+            "sku": "199927.10",
+            "name": "Půloliva AMBRA A",
+            "qty": 206,
+            "revenue": 34163.7264
+          },
+          {
+            "sku": "205905.10",
+            "name": "BW Trezor Dual-Safe DS 415 E FP (CL 10 E FS)",
+            "qty": 2,
+            "revenue": 33019.9174
+          },
+          {
+            "sku": "350398.10",
+            "name": "Klíč Star 100STM FB115X-OR (20) řezaný",
+            "qty": 368,
+            "revenue": 31538.833
+          },
+          {
+            "sku": "220013.10",
+            "name": "FUHR zámek 834-55-92-8-F16-2170 motor.",
+            "qty": 2,
+            "revenue": 25332.0
+          },
+          {
+            "sku": "370307.10",
+            "name": "Smart nábyt.zámek Q20B s otiskem",
+            "qty": 10,
+            "revenue": 25000.0
+          },
+          {
+            "sku": "142180.10",
+            "name": "HOPPE UTRECHT-R BB/nerez",
+            "qty": 62,
+            "revenue": 24390.132
+          },
+          {
+            "sku": "S001091.10",
+            "name": "Přestavba SGHK Star 60S/70S",
+            "qty": 157,
+            "revenue": 23687.61
+          },
+          {
+            "sku": "912617.10",
+            "name": "Vložka pExtra SE 35/50 BSZ 3 trend klíče",
+            "qty": 11,
+            "revenue": 23527.1074
+          },
+          {
+            "sku": "306204.10",
+            "name": "Zámek Star 92/35/U24/300 el.mech. samozam.",
+            "qty": 3,
+            "revenue": 20655.0
+          },
+          {
+            "sku": "061179.10",
+            "name": "Oliva AMBRA A",
+            "qty": 87,
+            "revenue": 20490.1388
+          },
+          {
+            "sku": "370391.10",
+            "name": "Smart keybox",
+            "qty": 6,
+            "revenue": 19819.839
+          },
+          {
+            "sku": "306041.10",
+            "name": "Zámek Star 90/50/22 elmech.samozam.",
+            "qty": 4,
+            "revenue": 19104.6033
+          },
+          {
+            "sku": "370329.10",
+            "name": "Star smart kování široké 90 - klavesnice + FP",
+            "qty": 2,
+            "revenue": 17991.7356
+          }
+        ],
+        "mo_total": [
+          {
+            "sku": "",
+            "name": "Označeno: 9007 z 9007",
+            "qty": 373464,
+            "revenue": 37150060.82
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 12647,
+            "revenue": 749118.4548
+          },
+          {
+            "sku": "425302.10",
+            "name": "Čip T48 C03620 pro M-BOX",
+            "qty": 319,
+            "revenue": 391705.2656
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 949,
+            "revenue": 330752.6757
+          },
+          {
+            "sku": "161290.10",
+            "name": "CISA klíč C3000      00430.00.1 (T02)",
+            "qty": 2253,
+            "revenue": 297703.4921
+          },
+          {
+            "sku": "425318.10",
+            "name": "Čip GTi PRO-multifunkční C109012",
+            "qty": 235,
+            "revenue": 293880.9428
+          },
+          {
+            "sku": "330801.10",
+            "name": "Vložka Star 100S 30/35 Ni/R1",
+            "qty": 282,
+            "revenue": 266471.5769
+          },
+          {
+            "sku": "S010100.10",
+            "name": "Výměna baterie u DO",
+            "qty": 3246,
+            "revenue": 226078.9931
+          },
+          {
+            "sku": "018117.10",
+            "name": "Klíč FAB 200RSG RRS2 nový typ",
+            "qty": 1911,
+            "revenue": 209337.1749
+          },
+          {
+            "sku": "330099.10",
+            "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+            "qty": 836,
+            "revenue": 196853.2027
+          },
+          {
+            "sku": "350398.10",
+            "name": "Klíč Star 100STM FB115X-OR (20) řezaný",
+            "qty": 2255,
+            "revenue": 195241.0609
+          },
+          {
+            "sku": "425294.10",
+            "name": "Čip GTi multifunkční C03927",
+            "qty": 150,
+            "revenue": 178126.6451
+          },
+          {
+            "sku": "161201.10",
+            "name": "CISA C3000 30/35 Ni  0N310.26.0.12 3kl.",
+            "qty": 144,
+            "revenue": 175214.6274
+          },
+          {
+            "sku": "088005.10",
+            "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+            "qty": 1495,
+            "revenue": 173493.1122
+          },
+          {
+            "sku": "491010.10",
+            "name": "Klíč 12x FB25R (20) mosaz",
+            "qty": 3161,
+            "revenue": 165840.7907
+          },
+          {
+            "sku": "420005.10",
+            "name": "Klíč ULO50 (20) universal mosaz",
+            "qty": 2393,
+            "revenue": 165619.959
+          },
+          {
+            "sku": "491005.10",
+            "name": "Klíč 10x  FB21R (20) mosaz",
+            "qty": 3116,
+            "revenue": 163378.5489
+          },
+          {
+            "sku": "018129.10",
+            "name": "Klíč FAB NG 3.00 FAB3 B001",
+            "qty": 1377,
+            "revenue": 162865.4023
+          },
+          {
+            "sku": "405168.10",
+            "name": "Klíč EUR1 (10) EURO PLUS",
+            "qty": 2100,
+            "revenue": 159818.1676
+          },
+          {
+            "sku": "018116.10",
+            "name": "Klíč FAB 200RSG RRS1 nový typ",
+            "qty": 1413,
+            "revenue": 157288.1193
+          }
+        ],
+        "vo": [
+          {
+            "sku": "",
+            "name": "Označeno: 14817 z 14817",
+            "qty": 5687398,
+            "revenue": 216279197.48
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 14954,
+            "revenue": 2973549.759
+          },
+          {
+            "sku": "711267.40",
+            "name": "D837214ZB stroj ProTech S169 plus",
+            "qty": 1,
+            "revenue": 2765429.121
+          },
+          {
+            "sku": "018117.10",
+            "name": "Klíč FAB 200RSG RRS2 nový typ",
+            "qty": 75552,
+            "revenue": 2437769.572
+          },
+          {
+            "sku": "330099.10",
+            "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+            "qty": 16666,
+            "revenue": 2242027.29
+          },
+          {
+            "sku": "088005.10",
+            "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+            "qty": 142302,
+            "revenue": 2093797.241
+          },
+          {
+            "sku": "710646.20",
+            "name": "Stroj Unocode F900 D8A3064ZB",
+            "qty": 3,
+            "revenue": 2083280.12
+          },
+          {
+            "sku": "001035.10",
+            "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+            "qty": 10915,
+            "revenue": 1853546.55
+          },
+          {
+            "sku": "018116.10",
+            "name": "Klíč FAB 200RSG RRS1 nový typ",
+            "qty": 50576,
+            "revenue": 1640971.877
+          },
+          {
+            "sku": "720043.20",
+            "name": "FUTURA Pro Unlimited D851721ZB",
+            "qty": 6,
+            "revenue": 1550550.0
+          },
+          {
+            "sku": "001022.10",
+            "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+            "qty": 7655,
+            "revenue": 1353982.306
+          },
+          {
+            "sku": "300015.10",
+            "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+            "qty": 10723,
+            "revenue": 1285276.32
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 147341,
+            "revenue": 1175714.903
+          },
+          {
+            "sku": "001005.10",
+            "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+            "qty": 7023,
+            "revenue": 1155766.084
+          },
+          {
+            "sku": "420010.10",
+            "name": "Klíč ULO50X (20) universal mosaz",
+            "qty": 114793,
+            "revenue": 1107947.828
+          },
+          {
+            "sku": "000037.10",
+            "name": "Systém SGHK - zakázka",
+            "qty": 22,
+            "revenue": 945444.4
+          },
+          {
+            "sku": "710231.10",
+            "name": "Stroj RW5 D844048ZB",
+            "qty": 39,
+            "revenue": 935345.0
+          },
+          {
+            "sku": "330102.10",
+            "name": "Vložka Star 70S 30/40 Ni/R1",
+            "qty": 4074,
+            "revenue": 863485.5117
+          },
+          {
+            "sku": "425302.10",
+            "name": "Čip T48 C03620 pro M-BOX",
+            "qty": 1970,
+            "revenue": 860109.2446
+          },
+          {
+            "sku": "088010.10",
+            "name": "Klíč FPS/CPS EVVA EV121-OR chráněný G30T",
+            "qty": 54150,
+            "revenue": 853708.6908
+          }
+        ]
+      },
+      "top_categories": [
+        {
+          "name": "Neuvedena",
+          "revenue": 298896433,
+          "profit": 136674689,
+          "qty": 7590190
+        },
+        {
+          "name": "Zubaté klíče cylindr.vložek",
+          "revenue": 45350043,
+          "profit": 23917658,
+          "qty": 2910074
+        },
+        {
+          "name": "Bezp.cylin.vložky na zubatý klíč",
+          "revenue": 35928313,
+          "profit": 18657544,
+          "qty": 132723
+        },
+        {
+          "name": "Střelkový jednobod.zadl.zámek",
+          "revenue": 16949009,
+          "profit": 4900454,
+          "qty": 78743
+        },
+        {
+          "name": "Visací zámky",
+          "revenue": 11586537,
+          "profit": 4200150,
+          "qty": 131627
+        },
+        {
+          "name": "Bezpečnostní dveřní kování",
+          "revenue": 8190440,
+          "profit": 2525978,
+          "qty": 9177
+        },
+        {
+          "name": "Vlastní zavírač",
+          "revenue": 8072155,
+          "profit": 2637755,
+          "qty": 8326
+        },
+        {
+          "name": "Přístupové systémy",
+          "revenue": 7400363,
+          "profit": 3992775,
+          "qty": 2154
+        },
+        {
+          "name": "Práce - gravírování, servis, montáž...",
+          "revenue": 5695554,
+          "profit": 5452772,
+          "qty": 64738
+        },
+        {
+          "name": "Stavební vložky",
+          "revenue": 4736166,
+          "profit": 1791959,
+          "qty": 36448
+        },
+        {
+          "name": "Interiérové štítové dveřní kování",
+          "revenue": 4472582,
+          "profit": 1326723,
+          "qty": 26900
+        },
+        {
+          "name": "Panty",
+          "revenue": 4444050,
+          "profit": 992338,
+          "qty": 149218
+        },
+        {
+          "name": "Vlastní elektr.otvírač",
+          "revenue": 4423094,
+          "profit": 1783904,
+          "qty": 7454
+        },
+        {
+          "name": "El.mech.a motorické zámky",
+          "revenue": 4317761,
+          "profit": 1379850,
+          "qty": 800
+        },
+        {
+          "name": "Příslušenství klíčů",
+          "revenue": 4227860,
+          "profit": 2381252,
+          "qty": 1346358
+        },
+        {
+          "name": "Klíče",
+          "revenue": 4171078,
+          "profit": 2358146,
+          "qty": 70670
+        },
+        {
+          "name": "Nábytkové a schránkové zámky",
+          "revenue": 4015384,
+          "profit": 2032687,
+          "qty": 39363
+        },
+        {
+          "name": "Ostatní příslušenství a ND strojů",
+          "revenue": 3834388,
+          "profit": 1479214,
+          "qty": 216
+        },
+        {
+          "name": "Klíče lamelových zámků",
+          "revenue": 3649621,
+          "profit": 2567004,
+          "qty": 227013
+        },
+        {
+          "name": "Dálkové ovladače a čipy",
+          "revenue": 3474199,
+          "profit": 2087875,
+          "qty": 50401
+        }
+      ],
+      "top_manufacturers": [
+        {
+          "name": "Neuveden",
+          "revenue": 276971943,
+          "qty": 6939248
+        },
+        {
+          "name": "STAR - vložky S50/S60/S70/80S/100S",
+          "revenue": 27974382,
+          "qty": 135187
+        },
+        {
+          "name": "Silca - klíče ostatní - 20",
+          "revenue": 23128949,
+          "qty": 1293002
+        },
+        {
+          "name": "Assa Abloy vložky a klíče - 40",
+          "revenue": 19395105,
+          "qty": 479209
+        },
+        {
+          "name": "Hobes - 25",
+          "revenue": 17040291,
+          "qty": 137178
+        },
+        {
+          "name": "HB Group - servis - 0",
+          "revenue": 10278909,
+          "qty": 99433
+        },
+        {
+          "name": "Silca - stroje a software - 0",
+          "revenue": 8340765,
+          "qty": 2612
+        },
+        {
+          "name": "Silca - klíče SIL/FAB - 25",
+          "revenue": 8016261,
+          "qty": 791089
+        },
+        {
+          "name": "CISA - vložky - 40",
+          "revenue": 6593816,
+          "qty": 15282
+        },
+        {
+          "name": "Silca - ostatní - 20",
+          "revenue": 6414300,
+          "qty": 147920
+        },
+        {
+          "name": "Rostex - kování - 25",
+          "revenue": 5099024,
+          "qty": 14445
+        },
+        {
+          "name": "Geze - zavírače - 40",
+          "revenue": 4992336,
+          "qty": 6597
+        },
+        {
+          "name": "STAR - Smart - 25",
+          "revenue": 4926028,
+          "qty": 1381
+        },
+        {
+          "name": "Ostatní bez určení - 0",
+          "revenue": 4694764,
+          "qty": 58406
+        },
+        {
+          "name": "STAR - visací zámky/cyklo zámky/nábytkové",
+          "revenue": 4479800,
+          "qty": 93664
+        }
+      ],
+      "top_skus": [
+        {
+          "sku": "",
+          "name": "Označeno: 16992 z 16992",
+          "category": "Neuvedena",
+          "qty": 6936995,
+          "revenue": 276734447.67,
+          "profit": 127003400.45
+        },
+        {
+          "sku": "330101.10",
+          "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 18766,
+          "revenue": 3773715.339,
+          "profit": 1957061.44
+        },
+        {
+          "sku": "018117.10",
+          "name": "Klíč FAB 200RSG RRS2 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 85792,
+          "revenue": 2909236.002,
+          "profit": 688479.5743
+        },
+        {
+          "sku": "711267.40",
+          "name": "D837214ZB stroj ProTech S169 plus",
+          "category": "Ostatní příslušenství a ND strojů",
+          "qty": 1,
+          "revenue": 2765429.121,
+          "profit": 1000341.15
+        },
+        {
+          "sku": "330099.10",
+          "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 20433,
+          "revenue": 2724209.905,
+          "profit": 1020287.497
+        },
+        {
+          "sku": "088005.10",
+          "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 146898,
+          "revenue": 2315776.64,
+          "profit": 1481613.901
+        },
+        {
+          "sku": "001035.10",
+          "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 12098,
+          "revenue": 2109582.102,
+          "profit": 527924.2858
+        },
+        {
+          "sku": "710646.20",
+          "name": "Stroj Unocode F900 D8A3064ZB",
+          "category": "Nezařazené",
+          "qty": 3,
+          "revenue": 2083280.12,
+          "profit": 401277.4018
+        },
+        {
+          "sku": "491017.10",
+          "name": "Klíč 20R1 FB13RX (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 171431,
+          "revenue": 2007355.299,
+          "profit": 1251604.895
+        },
+        {
+          "sku": "018116.10",
+          "name": "Klíč FAB 200RSG RRS1 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 58103,
+          "revenue": 1988038.249,
+          "profit": 500955.3128
+        },
+        {
+          "sku": "720043.20",
+          "name": "FUTURA Pro Unlimited D851721ZB",
+          "category": "Vlastní stroje na řezání klíčů",
+          "qty": 7,
+          "revenue": 1750918.77,
+          "profit": 348026.2972
+        },
+        {
+          "sku": "300015.10",
+          "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+          "category": "Nábytkové a schránkové zámky",
+          "qty": 13134,
+          "revenue": 1508102.71,
+          "profit": 881290.5367
+        },
+        {
+          "sku": "001022.10",
+          "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 8226,
+          "revenue": 1479548.882,
+          "profit": 331940.9402
+        },
+        {
+          "sku": "425302.10",
+          "name": "Čip T48 C03620 pro M-BOX",
+          "category": "Neuvedena",
+          "qty": 3082,
+          "revenue": 1474267.561,
+          "profit": 775385.3011
+        },
+        {
+          "sku": "420010.10",
+          "name": "Klíč ULO50X (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 126718,
+          "revenue": 1315911.521,
+          "profit": 751574.5429
+        },
+        {
+          "sku": "001005.10",
+          "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 7767,
+          "revenue": 1307128.335,
+          "profit": 340143.8753
+        },
+        {
+          "sku": "710231.10",
+          "name": "Stroj RW5 D844048ZB",
+          "category": "Neuvedena",
+          "qty": 46,
+          "revenue": 1058294.958,
+          "profit": 426149.4152
+        },
+        {
+          "sku": "330102.10",
+          "name": "Vložka Star 70S 30/40 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 4868,
+          "revenue": 1027712.351,
+          "profit": 546281.8082
+        },
+        {
+          "sku": "018114.10",
+          "name": "Klíč FAB 100RS RRS106",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 54802,
+          "revenue": 985390.8911,
+          "profit": 382464.616
+        },
+        {
+          "sku": "018119.10",
+          "name": "Klíč FAB 200RSG RRS3 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 27884,
+          "revenue": 962781.0214,
+          "profit": 267483.2882
+        },
+        {
+          "sku": "425318.10",
+          "name": "Čip GTi PRO-multifunkční C109012",
+          "category": "Autoklíče",
+          "qty": 2193,
+          "revenue": 961802.4566,
+          "profit": 539313.8015
+        },
+        {
+          "sku": "000037.10",
+          "name": "Systém SGHK - zakázka",
+          "category": "Klíče",
+          "qty": 23,
+          "revenue": 949715.47,
+          "profit": 701874.2276
+        },
+        {
+          "sku": "088010.10",
+          "name": "Klíč FPS/CPS EVVA EV121-OR chráněný G30T",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 54937,
+          "revenue": 943692.7411,
+          "profit": 370677.0178
+        },
+        {
+          "sku": "159001.10",
+          "name": "OC El.otvírač 50B10 6-14Vac/dc",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 1962,
+          "revenue": 915274.4093,
+          "profit": 431737.4859
+        },
+        {
+          "sku": "156056.10",
+          "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+          "category": "Vlastní zavírač",
+          "qty": 505,
+          "revenue": 890906.6335,
+          "profit": 250483.6301
+        },
+        {
+          "sku": "330160.10",
+          "name": "Vložka Star 70S 30/K35 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2823,
+          "revenue": 829295.4053,
+          "profit": 439124.7166
+        },
+        {
+          "sku": "159005.10",
+          "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 1720,
+          "revenue": 823851.0488,
+          "profit": 282446.2318
+        },
+        {
+          "sku": "018129.10",
+          "name": "Klíč FAB NG 3.00 FAB3 B001",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 26808,
+          "revenue": 805522.0602,
+          "profit": 270164.6958
+        },
+        {
+          "sku": "900018.10",
+          "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+          "category": "Neuvedena",
+          "qty": 39,
+          "revenue": 776533.57,
+          "profit": 776533.57
+        },
+        {
+          "sku": "161290.10",
+          "name": "CISA klíč C3000      00430.00.1 (T02)",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 11202,
+          "revenue": 771139.4465,
+          "profit": 455667.8918
+        },
+        {
+          "sku": "001763.10",
+          "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 4695,
+          "revenue": 759994.991,
+          "profit": 196462.2241
+        },
+        {
+          "sku": "149085.10",
+          "name": "DORMA Zavírač TS 68N 2-4 stř. 25-65kg",
+          "category": "Vlastní zavírač",
+          "qty": 1615,
+          "revenue": 758126.8743,
+          "profit": 164848.8768
+        },
+        {
+          "sku": "999121.10",
+          "name": "Řezání klíčů",
+          "category": "Práce - gravírování, servis, montáž...",
+          "qty": 28038,
+          "revenue": 728794.3569,
+          "profit": 728794.3569
+        },
+        {
+          "sku": "890877.10",
+          "name": "AD2000 SmartPro  D846799AD",
+          "category": "Klíče",
+          "qty": 14,
+          "revenue": 723206.7609,
+          "profit": 225061.3588
+        },
+        {
+          "sku": "491013.10",
+          "name": "Klíč 14x FB28R (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 89947,
+          "revenue": 674342.2706,
+          "profit": 330805.806
+        },
+        {
+          "sku": "038019.10",
+          "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 144781,
+          "revenue": 673540.1237,
+          "profit": 356620.4911
+        },
+        {
+          "sku": "011591.10",
+          "name": "Vložka 3.00 BDNs 30/35 5kl. Ni B001",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 2566,
+          "revenue": 639184.0951,
+          "profit": 100774.2633
+        },
+        {
+          "sku": "350400.10",
+          "name": "Klíč Star 100STM FB115X-OR (20) polotovar",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 18918,
+          "revenue": 636865.0724,
+          "profit": 555066.3416
+        },
+        {
+          "sku": "425294.10",
+          "name": "Čip GTi multifunkční C03927",
+          "category": "Autoklíče",
+          "qty": 1167,
+          "revenue": 634034.2988,
+          "profit": 347875.4497
+        },
+        {
+          "sku": "156050.10",
+          "name": "GEZE Zavírač TS 2000 stř.",
+          "category": "Vlastní zavírač",
+          "qty": 831,
+          "revenue": 631966.3513,
+          "profit": 250596.7997
+        },
+        {
+          "sku": "330131.10",
+          "name": "Vložka Star 70S 45/50 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2352,
+          "revenue": 628410.6249,
+          "profit": 348132.8786
+        },
+        {
+          "sku": "306042.10",
+          "name": "Zámek Star 90/50/22 mechanický samozam.",
+          "category": "Jednobodové zadl.panikové zámky",
+          "qty": 251,
+          "revenue": 626829.7524,
+          "profit": 182806.1089
+        },
+        {
+          "sku": "330124.10",
+          "name": "Vložka Star 70S 40/55 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2324,
+          "revenue": 622781.7238,
+          "profit": 348973.7044
+        },
+        {
+          "sku": "330051.10",
+          "name": "Vložka Star 50S 30/35 Ni/R1 stavební",
+          "category": "Stavební vložky",
+          "qty": 6130,
+          "revenue": 616053.9357,
+          "profit": 234292.1666
+        },
+        {
+          "sku": "017110.10",
+          "name": "Zámek el. EL460/35/24 12-24V",
+          "category": "El.mech.a motorické zámky",
+          "qty": 53,
+          "revenue": 610465.1038,
+          "profit": 219915.9862
+        },
+        {
+          "sku": "330701.10",
+          "name": "Vložka Star 100S 30/35 servis",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 1982,
+          "revenue": 588513.9837,
+          "profit": 392168.9913
+        },
+        {
+          "sku": "021025.10",
+          "name": "ROSTEX BK R1/90 Cr bez vložky",
+          "category": "Bezpečnostní dveřní kování",
+          "qty": 357,
+          "revenue": 588262.0708,
+          "profit": 61094.9507
+        },
+        {
+          "sku": "420005.10",
+          "name": "Klíč ULO50 (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 50281,
+          "revenue": 575111.8225,
+          "profit": 354416.4451
+        },
+        {
+          "sku": "017127.10",
+          "name": "Zámek el.mech. EL560/72/55/20 12-24V",
+          "category": "Neuvedena",
+          "qty": 52,
+          "revenue": 570315.8,
+          "profit": 194559.4642
+        },
+        {
+          "sku": "032002.10",
+          "name": "TOKOZ Závora uzamyk. UZ 220+",
+          "category": "Neuvedena",
+          "qty": 931,
+          "revenue": 569733.862,
+          "profit": 146548.626
+        }
+      ],
+      "podsklady": [
+        {
+          "podsklad": "",
+          "revenue": 276734448,
+          "qty": 6936995
+        },
+        {
+          "podsklad": "10",
+          "revenue": 237722585,
+          "qty": 6501904
+        },
+        {
+          "podsklad": "40",
+          "revenue": 17525091,
+          "qty": 85704
+        },
+        {
+          "podsklad": "20",
+          "revenue": 12663107,
+          "qty": 175336
+        },
+        {
+          "podsklad": "30",
+          "revenue": 3482655,
+          "qty": 81516
+        },
+        {
+          "podsklad": "50",
+          "revenue": 1582402,
+          "qty": 62076
+        },
+        {
+          "podsklad": "45",
+          "revenue": 1482617,
+          "qty": 6958
+        },
+        {
+          "podsklad": "70",
+          "revenue": 991044,
+          "qty": 4423
+        },
+        {
+          "podsklad": "25",
+          "revenue": 671734,
+          "qty": 16731
+        },
+        {
+          "podsklad": "80",
+          "revenue": 415270,
+          "qty": 1102
+        },
+        {
+          "podsklad": "60",
+          "revenue": 197943,
+          "qty": 1234
+        }
+      ],
+      "yoy": null
+    },
+    {
+      "year": 2024,
+      "revenue_total": 543124701,
+      "profit_total": 246836065,
+      "margin_pct": 45.4,
+      "qty_total": 13056066,
+      "skus_with_sales": 16847,
+      "returns_kc": 14195526,
+      "returns_qty": 160298,
+      "returns_pct": 2.61,
+      "segments": {
+        "eshop_mo": {
+          "revenue_kc": 5395965,
+          "qty": 42075,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 71535043,
+          "qty": 707283,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 429724370,
+          "qty": 10597523,
+          "available": true
+        }
+      },
+      "segment_top_skus": {
+        "eshop_mo": [
+          {
+            "sku": "",
+            "name": "Označeno: 1488 z 1488",
+            "qty": 21191,
+            "revenue": 2697982.32
+          },
+          {
+            "sku": "900033.10",
+            "name": "Poštovné e-shop",
+            "qty": 1341,
+            "revenue": 89753.7216
+          },
+          {
+            "sku": "370329.10",
+            "name": "Star smart kování široké 90 - klavesnice + FP",
+            "qty": 10,
+            "revenue": 66892.1488
+          },
+          {
+            "sku": "300013.10",
+            "name": "EUROLOCKS Zámek  0221-0061 (LF30R)",
+            "qty": 470,
+            "revenue": 55061.6198
+          },
+          {
+            "sku": "205938.10",
+            "name": "BW Trezor Diplomat MTD 750 E FP",
+            "qty": 1,
+            "revenue": 52785.124
+          },
+          {
+            "sku": "060203.10",
+            "name": "Mazadlo Super Lube tuk 85g",
+            "qty": 185,
+            "revenue": 45714.8716
+          },
+          {
+            "sku": "149097.40",
+            "name": "DORMA Zavírač TS 98 XEA EN 1-6",
+            "qty": 6,
+            "revenue": 45623.28
+          },
+          {
+            "sku": "914756.40",
+            "name": "Star kartový zámek skříňkový Mifare 13,56MHz",
+            "qty": 50,
+            "revenue": 42240.0
+          },
+          {
+            "sku": "204022.10",
+            "name": "BW Trezor CombiLine CL 420 E",
+            "qty": 2,
+            "revenue": 30077.7025
+          },
+          {
+            "sku": "205555.10",
+            "name": "BW vis.zámek Alutitan 770/30 (BUR29)",
+            "qty": 200,
+            "revenue": 26115.7
+          },
+          {
+            "sku": "159002.10",
+            "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+            "qty": 35,
+            "revenue": 25015.8698
+          },
+          {
+            "sku": "060202.10",
+            "name": "Mazadlo Super Lube tuk 400g plech",
+            "qty": 44,
+            "revenue": 23211.3831
+          },
+          {
+            "sku": "159001.10",
+            "name": "OC El.otvírač 50B10 6-14Vac/dc",
+            "qty": 31,
+            "revenue": 22638.52
+          },
+          {
+            "sku": "196060.10",
+            "name": "El.otvírač BEFO 1211 standard 6-12V Profi dlouhé čelo",
+            "qty": 20,
+            "revenue": 21383.4704
+          },
+          {
+            "sku": "370323.10",
+            "name": "Star smart kování úzké 90 - klavesnice + FP",
+            "qty": 3,
+            "revenue": 20815.0744
+          },
+          {
+            "sku": "060210.10",
+            "name": "Mazadlo Super Lube silicon lubricant O-ring 118,3ml",
+            "qty": 50,
+            "revenue": 20619.835
+          },
+          {
+            "sku": "205597.10",
+            "name": "BW Zámek skládací BW 745C/70 kód černý",
+            "qty": 30,
+            "revenue": 19410.0
+          },
+          {
+            "sku": "159085.10",
+            "name": "OC El.otvírač 5EF6Z10 požár.monitor. 8-30Vac/dc nízkoodběrový",
+            "qty": 2,
+            "revenue": 19383.48
+          },
+          {
+            "sku": "370331.10",
+            "name": "Star smart kování široké 92 - klavesnice + FP",
+            "qty": 3,
+            "revenue": 19323.5372
+          },
+          {
+            "sku": "S001090.10",
+            "name": "Přestavba Star 60S a 70S",
+            "qty": 149,
+            "revenue": 18159.858
+          }
+        ],
+        "mo_total": [
+          {
+            "sku": "",
+            "name": "Označeno: 8868 z 8868",
+            "qty": 353749,
+            "revenue": 35767521.44
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 12724,
+            "revenue": 762493.0611
+          },
+          {
+            "sku": "161290.10",
+            "name": "CISA klíč C3000      00430.00.1 (T02)",
+            "qty": 2322,
+            "revenue": 309527.8597
+          },
+          {
+            "sku": "425318.10",
+            "name": "Čip GTi PRO-multifunkční C109012",
+            "qty": 244,
+            "revenue": 292068.5129
+          },
+          {
+            "sku": "425302.10",
+            "name": "Čip T48 C03620 pro M-BOX",
+            "qty": 238,
+            "revenue": 291504.5296
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 824,
+            "revenue": 286714.3282
+          },
+          {
+            "sku": "S010100.10",
+            "name": "Výměna baterie u DO",
+            "qty": 3495,
+            "revenue": 245226.4413
+          },
+          {
+            "sku": "425320.10",
+            "name": "Čip GTi Ultra C110026 Wedge",
+            "qty": 190,
+            "revenue": 242979.7829
+          },
+          {
+            "sku": "018129.10",
+            "name": "Klíč FAB NG 3.00 FAB3 B001",
+            "qty": 1822,
+            "revenue": 213600.5835
+          },
+          {
+            "sku": "491013.10",
+            "name": "Klíč 14x FB28R (20) mosaz",
+            "qty": 3858,
+            "revenue": 203805.7055
+          },
+          {
+            "sku": "420010.10",
+            "name": "Klíč ULO50X (20) universal mosaz",
+            "qty": 2646,
+            "revenue": 195648.6457
+          },
+          {
+            "sku": "491010.10",
+            "name": "Klíč 12x FB25R (20) mosaz",
+            "qty": 3401,
+            "revenue": 177500.915
+          },
+          {
+            "sku": "405168.10",
+            "name": "Klíč EUR1 (10) EURO PLUS",
+            "qty": 2257,
+            "revenue": 174576.5484
+          },
+          {
+            "sku": "491005.10",
+            "name": "Klíč 10x  FB21R (20) mosaz",
+            "qty": 3330,
+            "revenue": 172838.5358
+          },
+          {
+            "sku": "018117.10",
+            "name": "Klíč FAB 200RSG RRS2 nový typ",
+            "qty": 1461,
+            "revenue": 166245.1145
+          },
+          {
+            "sku": "330911.10",
+            "name": "Vložka Star 80S 30/35 Ni/R1",
+            "qty": 233,
+            "revenue": 157923.4935
+          },
+          {
+            "sku": "420005.10",
+            "name": "Klíč ULO50 (20) universal mosaz",
+            "qty": 2193,
+            "revenue": 154706.4436
+          },
+          {
+            "sku": "088005.10",
+            "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+            "qty": 1447,
+            "revenue": 150082.0949
+          },
+          {
+            "sku": "161201.10",
+            "name": "CISA C3000 30/35 Ni  0N310.26.0.12 3kl.",
+            "qty": 122,
+            "revenue": 147801.0024
+          },
+          {
+            "sku": "330099.10",
+            "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+            "qty": 592,
+            "revenue": 142315.879
+          }
+        ],
+        "vo": [
+          {
+            "sku": "",
+            "name": "Označeno: 14991 z 14991",
+            "qty": 5299084,
+            "revenue": 214862185.04
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 16491,
+            "revenue": 3182303.755
+          },
+          {
+            "sku": "018117.10",
+            "name": "Klíč FAB 200RSG RRS2 nový typ",
+            "qty": 67448,
+            "revenue": 2173579.223
+          },
+          {
+            "sku": "330099.10",
+            "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+            "qty": 15849,
+            "revenue": 2138769.247
+          },
+          {
+            "sku": "001035.10",
+            "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+            "qty": 10823,
+            "revenue": 1832651.698
+          },
+          {
+            "sku": "088005.10",
+            "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+            "qty": 70155,
+            "revenue": 1546849.692
+          },
+          {
+            "sku": "018116.10",
+            "name": "Klíč FAB 200RSG RRS1 nový typ",
+            "qty": 47149,
+            "revenue": 1525664.096
+          },
+          {
+            "sku": "S103630.10",
+            "name": "Projekt systému SGHK",
+            "qty": 77,
+            "revenue": 1410136.883
+          },
+          {
+            "sku": "001022.10",
+            "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+            "qty": 7619,
+            "revenue": 1356070.355
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 156086,
+            "revenue": 1213002.993
+          },
+          {
+            "sku": "300015.10",
+            "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+            "qty": 9655,
+            "revenue": 1146256.417
+          },
+          {
+            "sku": "370253.40",
+            "name": "Mosazné kování interiérové typ 2",
+            "qty": 148,
+            "revenue": 1137232.0
+          },
+          {
+            "sku": "890257.40",
+            "name": "Key Control Strip for 14 key positions - Unlocked",
+            "qty": 162,
+            "revenue": 1117800.0
+          },
+          {
+            "sku": "420010.10",
+            "name": "Klíč ULO50X (20) universal mosaz",
+            "qty": 113584,
+            "revenue": 1103663.394
+          },
+          {
+            "sku": "001005.10",
+            "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+            "qty": 6566,
+            "revenue": 1089079.651
+          },
+          {
+            "sku": "159005.10",
+            "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+            "qty": 2184,
+            "revenue": 1046815.768
+          },
+          {
+            "sku": "890259.40",
+            "name": "Key Control Peg - Unlocked",
+            "qty": 2268,
+            "revenue": 1000188.0
+          },
+          {
+            "sku": "156056.10",
+            "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+            "qty": 543,
+            "revenue": 949854.0788
+          },
+          {
+            "sku": "018129.10",
+            "name": "Klíč FAB NG 3.00 FAB3 B001",
+            "qty": 35250,
+            "revenue": 894275.8489
+          },
+          {
+            "sku": "330102.10",
+            "name": "Vložka Star 70S 30/40 Ni/R1",
+            "qty": 4120,
+            "revenue": 842967.5127
+          }
+        ]
+      },
+      "top_categories": [
+        {
+          "name": "Neuvedena",
+          "revenue": 291906530,
+          "profit": 132363456,
+          "qty": 7105624
+        },
+        {
+          "name": "Zubaté klíče cylindr.vložek",
+          "revenue": 44252816,
+          "profit": 23103255,
+          "qty": 2744513
+        },
+        {
+          "name": "Bezp.cylin.vložky na zubatý klíč",
+          "revenue": 36304986,
+          "profit": 19091746,
+          "qty": 134364
+        },
+        {
+          "name": "Střelkový jednobod.zadl.zámek",
+          "revenue": 18315901,
+          "profit": 4582173,
+          "qty": 85044
+        },
+        {
+          "name": "Visací zámky",
+          "revenue": 10098926,
+          "profit": 3500788,
+          "qty": 110930
+        },
+        {
+          "name": "Přístupové systémy",
+          "revenue": 9306686,
+          "profit": 5255889,
+          "qty": 2608
+        },
+        {
+          "name": "Vlastní zavírač",
+          "revenue": 8442146,
+          "profit": 2572162,
+          "qty": 8522
+        },
+        {
+          "name": "Bezpečnostní dveřní kování",
+          "revenue": 7408647,
+          "profit": 2199431,
+          "qty": 7595
+        },
+        {
+          "name": "Práce - gravírování, servis, montáž...",
+          "revenue": 7259282,
+          "profit": 6394260,
+          "qty": 67930
+        },
+        {
+          "name": "El.mech.a motorické zámky",
+          "revenue": 5259668,
+          "profit": 1804702,
+          "qty": 877
+        },
+        {
+          "name": "Vlastní elektr.otvírač",
+          "revenue": 5121708,
+          "profit": 1940856,
+          "qty": 8468
+        },
+        {
+          "name": "Interiérové štítové dveřní kování",
+          "revenue": 4550076,
+          "profit": 1240590,
+          "qty": 26644
+        },
+        {
+          "name": "Schránky a věšáky na klíče",
+          "revenue": 4165290,
+          "profit": 1816638,
+          "qty": 4194
+        },
+        {
+          "name": "Příslušenství klíčů",
+          "revenue": 3938309,
+          "profit": 2181479,
+          "qty": 1319741
+        },
+        {
+          "name": "Panty",
+          "revenue": 3840314,
+          "profit": 855092,
+          "qty": 143916
+        },
+        {
+          "name": "Nábytkové a schránkové zámky",
+          "revenue": 3665183,
+          "profit": 1705981,
+          "qty": 39456
+        },
+        {
+          "name": "Dálkové ovladače a čipy",
+          "revenue": 3515084,
+          "profit": 2024410,
+          "qty": 53325
+        },
+        {
+          "name": "Klíče lamelových zámků",
+          "revenue": 3444679,
+          "profit": 2388423,
+          "qty": 214839
+        },
+        {
+          "name": "Stavební vložky",
+          "revenue": 3428222,
+          "profit": 1349160,
+          "qty": 26257
+        },
+        {
+          "name": "Servis cyl.vložek",
+          "revenue": 3369440,
+          "profit": 2652553,
+          "qty": 20356
+        }
+      ],
+      "top_manufacturers": [
+        {
+          "name": "Neuveden",
+          "revenue": 271889594,
+          "qty": 6530104
+        },
+        {
+          "name": "STAR - vložky S50/S60/S70/80S/100S",
+          "revenue": 28773218,
+          "qty": 133694
+        },
+        {
+          "name": "Silca - klíče ostatní - 20",
+          "revenue": 22217969,
+          "qty": 1160572
+        },
+        {
+          "name": "Hobes - 25",
+          "revenue": 16807494,
+          "qty": 131025
+        },
+        {
+          "name": "Assa Abloy vložky a klíče - 40",
+          "revenue": 16423449,
+          "qty": 480116
+        },
+        {
+          "name": "HB Group - servis - 0",
+          "revenue": 12315084,
+          "qty": 105762
+        },
+        {
+          "name": "Silca - klíče SIL/FAB - 25",
+          "revenue": 7916690,
+          "qty": 792759
+        },
+        {
+          "name": "STAR - Smart - 25",
+          "revenue": 6768997,
+          "qty": 1834
+        },
+        {
+          "name": "Geze - zavírače - 40",
+          "revenue": 5944982,
+          "qty": 8144
+        },
+        {
+          "name": "CISA - vložky - 40",
+          "revenue": 5743821,
+          "qty": 12294
+        },
+        {
+          "name": "Rostex - kování - 25",
+          "revenue": 5082664,
+          "qty": 13397
+        },
+        {
+          "name": "OC - otvírač - 40",
+          "revenue": 4800214,
+          "qty": 11763
+        },
+        {
+          "name": "Ostatní bez určení - 0",
+          "revenue": 4565209,
+          "qty": 51089
+        },
+        {
+          "name": "Hoppe - kování - 30",
+          "revenue": 4251172,
+          "qty": 9737
+        },
+        {
+          "name": "Silca - stroje a software - 0",
+          "revenue": 4244267,
+          "qty": 1468
+        }
+      ],
+      "top_skus": [
+        {
+          "sku": "",
+          "name": "Označeno: 16888 z 16888",
+          "category": "Neuvedena",
+          "qty": 6528038,
+          "revenue": 271562350.52,
+          "profit": 123418032.48
+        },
+        {
+          "sku": "330101.10",
+          "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 18878,
+          "revenue": 3718918.058,
+          "profit": 1973723.632
+        },
+        {
+          "sku": "018117.10",
+          "name": "Klíč FAB 200RSG RRS2 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 75399,
+          "revenue": 2536215.008,
+          "profit": 379500.9239
+        },
+        {
+          "sku": "330099.10",
+          "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 18445,
+          "revenue": 2470376.899,
+          "profit": 940012.3238
+        },
+        {
+          "sku": "001035.10",
+          "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 11827,
+          "revenue": 2058958.454,
+          "profit": 367132.1316
+        },
+        {
+          "sku": "491017.10",
+          "name": "Klíč 20R1 FB13RX (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 173347,
+          "revenue": 2017611.121,
+          "profit": 1216020.146
+        },
+        {
+          "sku": "088005.10",
+          "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 93249,
+          "revenue": 1844023.244,
+          "profit": 1303011.442
+        },
+        {
+          "sku": "018116.10",
+          "name": "Klíč FAB 200RSG RRS1 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 53040,
+          "revenue": 1797871.481,
+          "profit": 293218.2155
+        },
+        {
+          "sku": "001022.10",
+          "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 8123,
+          "revenue": 1475005.74,
+          "profit": 241561.1276
+        },
+        {
+          "sku": "S103630.10",
+          "name": "Projekt systému SGHK",
+          "category": "Práce - gravírování, servis, montáž...",
+          "qty": 82,
+          "revenue": 1414493.329,
+          "profit": 694089.2795
+        },
+        {
+          "sku": "300015.10",
+          "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+          "category": "Nábytkové a schránkové zámky",
+          "qty": 12260,
+          "revenue": 1343372.225,
+          "profit": 709226.5786
+        },
+        {
+          "sku": "420010.10",
+          "name": "Klíč ULO50X (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 120279,
+          "revenue": 1340798.869,
+          "profit": 788206.3168
+        },
+        {
+          "sku": "001005.10",
+          "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 7203,
+          "revenue": 1224886.077,
+          "profit": 223120.3418
+        },
+        {
+          "sku": "018129.10",
+          "name": "Klíč FAB NG 3.00 FAB3 B001",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 39651,
+          "revenue": 1166980.668,
+          "profit": 295540.0397
+        },
+        {
+          "sku": "370253.40",
+          "name": "Mosazné kování interiérové typ 2",
+          "category": "Přístupové systémy",
+          "qty": 148,
+          "revenue": 1137232.0,
+          "profit": 916509.0792
+        },
+        {
+          "sku": "890257.40",
+          "name": "Key Control Strip for 14 key positions - Unlocked",
+          "category": "Schránky a věšáky na klíče",
+          "qty": 162,
+          "revenue": 1117800.0,
+          "profit": 559784.7954
+        },
+        {
+          "sku": "156056.10",
+          "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+          "category": "Vlastní zavírač",
+          "qty": 639,
+          "revenue": 1116692.067,
+          "profit": 279580.3626
+        },
+        {
+          "sku": "159005.10",
+          "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 2259,
+          "revenue": 1087496.714,
+          "profit": 319396.6771
+        },
+        {
+          "sku": "425302.10",
+          "name": "Čip T48 C03620 pro M-BOX",
+          "category": "Neuvedena",
+          "qty": 2268,
+          "revenue": 1077232.345,
+          "profit": 589832.6837
+        },
+        {
+          "sku": "425318.10",
+          "name": "Čip GTi PRO-multifunkční C109012",
+          "category": "Autoklíče",
+          "qty": 2278,
+          "revenue": 1003514.405,
+          "profit": 565612.8501
+        },
+        {
+          "sku": "890259.40",
+          "name": "Key Control Peg - Unlocked",
+          "category": "Schránky a věšáky na klíče",
+          "qty": 2268,
+          "revenue": 1000188.0,
+          "profit": 444308.4576
+        },
+        {
+          "sku": "159001.10",
+          "name": "OC El.otvírač 50B10 6-14Vac/dc",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 2080,
+          "revenue": 994405.1457,
+          "profit": 452758.7238
+        },
+        {
+          "sku": "330102.10",
+          "name": "Vložka Star 70S 30/40 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 4589,
+          "revenue": 946034.4762,
+          "profit": 519179.9225
+        },
+        {
+          "sku": "161290.10",
+          "name": "CISA klíč C3000      00430.00.1 (T02)",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 11357,
+          "revenue": 881679.4879,
+          "profit": 516186.433
+        },
+        {
+          "sku": "018114.10",
+          "name": "Klíč FAB 100RS RRS106",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 47814,
+          "revenue": 872591.924,
+          "profit": 198530.9769
+        },
+        {
+          "sku": "900018.10",
+          "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+          "category": "Neuvedena",
+          "qty": 61,
+          "revenue": 846574.0,
+          "profit": 846574.0
+        },
+        {
+          "sku": "156050.10",
+          "name": "GEZE Zavírač TS 2000 stř.",
+          "category": "Vlastní zavírač",
+          "qty": 1079,
+          "revenue": 819919.9759,
+          "profit": 331084.09
+        },
+        {
+          "sku": "001763.10",
+          "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 4890,
+          "revenue": 787000.7569,
+          "profit": 137425.6972
+        },
+        {
+          "sku": "330160.10",
+          "name": "Vložka Star 70S 30/K35 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2502,
+          "revenue": 755194.0721,
+          "profit": 434916.2565
+        },
+        {
+          "sku": "149085.10",
+          "name": "DORMA Zavírač TS 68N 2-4 stř. 25-65kg",
+          "category": "Vlastní zavírač",
+          "qty": 1555,
+          "revenue": 754743.5207,
+          "profit": 148658.5221
+        },
+        {
+          "sku": "018119.10",
+          "name": "Klíč FAB 200RSG RRS3 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 21941,
+          "revenue": 750563.4982,
+          "profit": 146301.1183
+        },
+        {
+          "sku": "425320.10",
+          "name": "Čip GTi Ultra C110026 Wedge",
+          "category": "Autoklíče",
+          "qty": 1638,
+          "revenue": 712556.6024,
+          "profit": 397581.9094
+        },
+        {
+          "sku": "999121.10",
+          "name": "Řezání klíčů",
+          "category": "Práce - gravírování, servis, montáž...",
+          "qty": 27609,
+          "revenue": 710045.972,
+          "profit": 710045.972
+        },
+        {
+          "sku": "017110.10",
+          "name": "Zámek el. EL460/35/24 12-24V",
+          "category": "El.mech.a motorické zámky",
+          "qty": 54,
+          "revenue": 693693.2158,
+          "profit": 287804.7277
+        },
+        {
+          "sku": "000037.10",
+          "name": "Systém SGHK - zakázka",
+          "category": "Klíče",
+          "qty": 9,
+          "revenue": 677529.73,
+          "profit": 411636.5295
+        },
+        {
+          "sku": "330911.10",
+          "name": "Vložka Star 80S 30/35 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 1920,
+          "revenue": 671052.2177,
+          "profit": 408757.1843
+        },
+        {
+          "sku": "491013.10",
+          "name": "Klíč 14x FB28R (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 79897,
+          "revenue": 669090.5946,
+          "profit": 352296.3354
+        },
+        {
+          "sku": "720039.40",
+          "name": "Stroj FUTURA PRO D847000ZB",
+          "category": "Vlastní stroje na řezání klíčů",
+          "qty": 3,
+          "revenue": 633285.12,
+          "profit": 190693.7865
+        },
+        {
+          "sku": "330701.10",
+          "name": "Vložka Star 100S 30/35 servis",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2241,
+          "revenue": 632987.5218,
+          "profit": 419403.8345
+        },
+        {
+          "sku": "330131.10",
+          "name": "Vložka Star 70S 45/50 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2286,
+          "revenue": 601802.6897,
+          "profit": 341462.6661
+        },
+        {
+          "sku": "402173.10",
+          "name": "Klíč BK15 (20) mosaz BKS hranatá hlava",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 42497,
+          "revenue": 585247.7517,
+          "profit": 329158.7322
+        },
+        {
+          "sku": "001029.10",
+          "name": "Zámek HOBES K 105 P/L 72/40/20 PZ BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 3064,
+          "revenue": 574888.0817,
+          "profit": 98572.8962
+        },
+        {
+          "sku": "021025.10",
+          "name": "ROSTEX BK R1/90 Cr bez vložky",
+          "category": "Bezpečnostní dveřní kování",
+          "qty": 332,
+          "revenue": 561797.7154,
+          "profit": 61388.4548
+        },
+        {
+          "sku": "306042.10",
+          "name": "Zámek Star 90/50/22 mechanický samozam.",
+          "category": "Jednobodové zadl.panikové zámky",
+          "qty": 209,
+          "revenue": 557109.5954,
+          "profit": 163799.3713
+        },
+        {
+          "sku": "491005.10",
+          "name": "Klíč 10x  FB21R (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 61428,
+          "revenue": 554712.6179,
+          "profit": 314967.7989
+        },
+        {
+          "sku": "156053.10",
+          "name": "GEZE Zavírač TS 3000 stř.",
+          "category": "Vlastní zavírač",
+          "qty": 338,
+          "revenue": 552035.9221,
+          "profit": 97087.0365
+        },
+        {
+          "sku": "038019.10",
+          "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 107398,
+          "revenue": 551884.6114,
+          "profit": 306037.29
+        },
+        {
+          "sku": "420005.10",
+          "name": "Klíč ULO50 (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 47285,
+          "revenue": 543646.6365,
+          "profit": 335346.2968
+        },
+        {
+          "sku": "159002.10",
+          "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 1093,
+          "revenue": 539454.4025,
+          "profit": 239770.611
+        },
+        {
+          "sku": "330124.10",
+          "name": "Vložka Star 70S 40/55 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 1993,
+          "revenue": 538626.7541,
+          "profit": 313589.8865
+        }
+      ],
+      "podsklady": [
+        {
+          "podsklad": "",
+          "revenue": 271562351,
+          "qty": 6528038
+        },
+        {
+          "podsklad": "10",
+          "revenue": 234818278,
+          "qty": 6177406
+        },
+        {
+          "podsklad": "40",
+          "revenue": 18511931,
+          "qty": 57004
+        },
+        {
+          "podsklad": "20",
+          "revenue": 8616506,
+          "qty": 141891
+        },
+        {
+          "podsklad": "30",
+          "revenue": 3106515,
+          "qty": 66718
+        },
+        {
+          "podsklad": "50",
+          "revenue": 1674033,
+          "qty": 60420
+        },
+        {
+          "podsklad": "25",
+          "revenue": 1480595,
+          "qty": 9785
+        },
+        {
+          "podsklad": "45",
+          "revenue": 1386418,
+          "qty": 6022
+        },
+        {
+          "podsklad": "80",
+          "revenue": 834063,
+          "qty": 786
+        },
+        {
+          "podsklad": "70",
+          "revenue": 721051,
+          "qty": 6724
+        },
+        {
+          "podsklad": "60",
+          "revenue": 412959,
+          "qty": 1272
+        }
+      ],
+      "yoy": {
+        "revenue_pct": -1.9,
+        "profit_pct": -2.8,
+        "margin_pp": -0.5,
+        "qty_pct": -5.9,
+        "segments": {
+          "eshop_mo": -3.9,
+          "mo_total": -3.7,
+          "vo": -0.7
+        }
+      }
+    },
+    {
+      "year": 2025,
+      "revenue_total": 534785774,
+      "profit_total": 246961458,
+      "margin_pct": 46.2,
+      "qty_total": 12661852,
+      "skus_with_sales": 16401,
+      "returns_kc": 13434013,
+      "returns_qty": 129272,
+      "returns_pct": 2.51,
+      "segments": {
+        "eshop_mo": {
+          "revenue_kc": 5754481,
+          "qty": 39128,
+          "available": true
+        },
+        "mo_total": {
+          "revenue_kc": 75522522,
+          "qty": 744700,
+          "available": true
+        },
+        "vo": {
+          "revenue_kc": 419716081,
+          "qty": 10291658,
+          "available": true
+        }
+      },
+      "segment_top_skus": {
+        "eshop_mo": [
+          {
+            "sku": "",
+            "name": "Označeno: 1470 z 1470",
+            "qty": 19690,
+            "revenue": 2877240.36
+          },
+          {
+            "sku": "900033.10",
+            "name": "Poštovné e-shop",
+            "qty": 1682,
+            "revenue": 116860.3494
+          },
+          {
+            "sku": "199927.10",
+            "name": "Půloliva AMBRA A",
+            "qty": 437,
+            "revenue": 73052.1598
+          },
+          {
+            "sku": "370801.30",
+            "name": "Star smart vložka E32,5/32,5 PIN+FS",
+            "qty": 13,
+            "revenue": 64350.0
+          },
+          {
+            "sku": "370310.10",
+            "name": "Smart nábyt.zámek Q20 bez otisku",
+            "qty": 30,
+            "revenue": 49512.396
+          },
+          {
+            "sku": "806019.10",
+            "name": "SCHURING zástrč VHT - Rohová SL 150mm",
+            "qty": 86,
+            "revenue": 47355.8139
+          },
+          {
+            "sku": "061179.10",
+            "name": "Oliva AMBRA A",
+            "qty": 192,
+            "revenue": 38545.6456
+          },
+          {
+            "sku": "211675.10",
+            "name": "CESentry široký štít 72mm",
+            "qty": 3,
+            "revenue": 36561.6
+          },
+          {
+            "sku": "060203.10",
+            "name": "Mazadlo Super Lube tuk 85g",
+            "qty": 143,
+            "revenue": 35336.3608
+          },
+          {
+            "sku": "196171.10",
+            "name": "El.otvírač BEFO 511MB 12V",
+            "qty": 34,
+            "revenue": 35173.0574
+          },
+          {
+            "sku": "370324.10",
+            "name": "Star smart kování úzké 90 - klávesnice",
+            "qty": 5,
+            "revenue": 33036.3636
+          },
+          {
+            "sku": "370391.10",
+            "name": "Smart keybox",
+            "qty": 12,
+            "revenue": 27013.2644
+          },
+          {
+            "sku": "159003.10",
+            "name": "OC El.otvírač 54E10 reverz.12Vdc  nízkoodběr.",
+            "qty": 18,
+            "revenue": 26299.727
+          },
+          {
+            "sku": "220011.10",
+            "name": "FUHR zámek 834-35-92-8-U24-1790 motor.",
+            "qty": 2,
+            "revenue": 25609.9174
+          },
+          {
+            "sku": "370351.40",
+            "name": "Star depozit 1+5 komplet",
+            "qty": 1,
+            "revenue": 24997.5207
+          },
+          {
+            "sku": "060210.10",
+            "name": "Mazadlo Super Lube silicon lubricant O-ring 118,3ml",
+            "qty": 60,
+            "revenue": 24743.8053
+          },
+          {
+            "sku": "205637.10",
+            "name": "BW Schránka eBoxx Easy+ E 635 ANT",
+            "qty": 2,
+            "revenue": 23408.2644
+          },
+          {
+            "sku": "220113.21",
+            "name": "FUHR radio fingerscan",
+            "qty": 1,
+            "revenue": 23322.89
+          },
+          {
+            "sku": "159002.10",
+            "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+            "qty": 28,
+            "revenue": 22400.0
+          },
+          {
+            "sku": "205909.10",
+            "name": "BW Trezor Dual-Safe DS 445 E FP (CL 40 E FS)",
+            "qty": 1,
+            "revenue": 21896.6942
+          }
+        ],
+        "mo_total": [
+          {
+            "sku": "",
+            "name": "Označeno: 8528 z 8528",
+            "qty": 372353,
+            "revenue": 37761261.05
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 11643,
+            "revenue": 715637.4568
+          },
+          {
+            "sku": "425320.10",
+            "name": "Čip GTi Ultra C110026 Wedge",
+            "qty": 396,
+            "revenue": 489843.5791
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 891,
+            "revenue": 319949.5092
+          },
+          {
+            "sku": "330911.10",
+            "name": "Vložka Star 80S 30/35 Ni/R1",
+            "qty": 447,
+            "revenue": 309376.5634
+          },
+          {
+            "sku": "829999.10",
+            "name": "Gravírování- rytí a barvení",
+            "qty": 6407,
+            "revenue": 280605.6745
+          },
+          {
+            "sku": "420005.10",
+            "name": "Klíč ULO50 (20) universal mosaz",
+            "qty": 4011,
+            "revenue": 279132.9928
+          },
+          {
+            "sku": "018129.10",
+            "name": "Klíč FAB NG 3.00 FAB3 B001",
+            "qty": 2070,
+            "revenue": 261104.5488
+          },
+          {
+            "sku": "S010100.10",
+            "name": "Výměna baterie u DO",
+            "qty": 3697,
+            "revenue": 258124.7742
+          },
+          {
+            "sku": "161290.10",
+            "name": "CISA klíč C3000      00430.00.1 (T02)",
+            "qty": 1759,
+            "revenue": 242444.9534
+          },
+          {
+            "sku": "995225.10",
+            "name": "Logo DEPEKALK 20R1 = FB13RX (50ks)",
+            "qty": 3580,
+            "revenue": 224573.4937
+          },
+          {
+            "sku": "491005.10",
+            "name": "Klíč 10x  FB21R (20) mosaz",
+            "qty": 4109,
+            "revenue": 210874.8681
+          },
+          {
+            "sku": "4000370.10",
+            "name": "Práce technika",
+            "qty": 955,
+            "revenue": 208930.5777
+          },
+          {
+            "sku": "299604.10",
+            "name": "Baterie CR2032 Star 1ks",
+            "qty": 3754,
+            "revenue": 208416.1732
+          },
+          {
+            "sku": "405168.10",
+            "name": "Klíč EUR1 (10) EURO PLUS",
+            "qty": 2650,
+            "revenue": 206200.5632
+          },
+          {
+            "sku": "350395.10",
+            "name": "Klíč Star 80S TM prof.148",
+            "qty": 1796,
+            "revenue": 198026.7163
+          },
+          {
+            "sku": "420010.10",
+            "name": "Klíč ULO50X (20) universal mosaz",
+            "qty": 2643,
+            "revenue": 196900.4231
+          },
+          {
+            "sku": "428067.10",
+            "name": "Obal klíče HU66BRS8 (20) 3tl Škoda s čepem",
+            "qty": 323,
+            "revenue": 187552.5588
+          },
+          {
+            "sku": "491013.10",
+            "name": "Klíč 14x FB28R (20) mosaz",
+            "qty": 3193,
+            "revenue": 169187.5426
+          },
+          {
+            "sku": "417174.10",
+            "name": "Klíč RS2 (20) Silca FB146",
+            "qty": 1470,
+            "revenue": 167522.6784
+          }
+        ],
+        "vo": [
+          {
+            "sku": "",
+            "name": "Označeno: 14631 z 14631",
+            "qty": 5146292,
+            "revenue": 209858040.71
+          },
+          {
+            "sku": "330101.10",
+            "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+            "qty": 15864,
+            "revenue": 3171437.28
+          },
+          {
+            "sku": "330099.10",
+            "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+            "qty": 15316,
+            "revenue": 2122643.148
+          },
+          {
+            "sku": "001035.10",
+            "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+            "qty": 10614,
+            "revenue": 1804361.183
+          },
+          {
+            "sku": "018117.10",
+            "name": "Klíč FAB 200RSG RRS2 nový typ",
+            "qty": 50204,
+            "revenue": 1711849.192
+          },
+          {
+            "sku": "088005.10",
+            "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+            "qty": 61982,
+            "revenue": 1466727.08
+          },
+          {
+            "sku": "001022.10",
+            "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+            "qty": 7355,
+            "revenue": 1306276.1
+          },
+          {
+            "sku": "491017.10",
+            "name": "Klíč 20R1 FB13RX (20) mosaz",
+            "qty": 170295,
+            "revenue": 1278050.297
+          },
+          {
+            "sku": "018116.10",
+            "name": "Klíč FAB 200RSG RRS1 nový typ",
+            "qty": 35403,
+            "revenue": 1208157.327
+          },
+          {
+            "sku": "300015.10",
+            "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+            "qty": 9137,
+            "revenue": 1130915.911
+          },
+          {
+            "sku": "808639.20",
+            "name": "Stroj D8A3850ZB Unocode F400",
+            "qty": 3,
+            "revenue": 1127800.0
+          },
+          {
+            "sku": "420010.10",
+            "name": "Klíč ULO50X (20) universal mosaz",
+            "qty": 114692,
+            "revenue": 1095074.477
+          },
+          {
+            "sku": "018129.10",
+            "name": "Klíč FAB NG 3.00 FAB3 B001",
+            "qty": 38940,
+            "revenue": 1032337.502
+          },
+          {
+            "sku": "159005.10",
+            "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+            "qty": 1999,
+            "revenue": 1007589.97
+          },
+          {
+            "sku": "156056.10",
+            "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+            "qty": 560,
+            "revenue": 995868.1796
+          },
+          {
+            "sku": "720043.30",
+            "name": "FUTURA Pro Unlimited D851721ZB",
+            "qty": 4,
+            "revenue": 989437.5
+          },
+          {
+            "sku": "001005.10",
+            "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+            "qty": 5973,
+            "revenue": 985017.98
+          },
+          {
+            "sku": "017127.10",
+            "name": "Zámek el.mech. EL560/72/55/20 12-24V",
+            "qty": 82,
+            "revenue": 968761.2699
+          },
+          {
+            "sku": "330102.10",
+            "name": "Vložka Star 70S 30/40 Ni/R1",
+            "qty": 4538,
+            "revenue": 948243.3587
+          },
+          {
+            "sku": "S103999.40",
+            "name": "Vývoj systému pro řez.klíčů ePRO Tokoz Unocode F600",
+            "qty": 1,
+            "revenue": 933199.0
+          }
+        ]
+      },
+      "top_categories": [
+        {
+          "name": "Neuvedena",
+          "revenue": 288075529,
+          "profit": 132462328,
+          "qty": 6922005
+        },
+        {
+          "name": "Zubaté klíče cylindr.vložek",
+          "revenue": 44001489,
+          "profit": 23395259,
+          "qty": 2763600
+        },
+        {
+          "name": "Bezp.cylin.vložky na zubatý klíč",
+          "revenue": 39250793,
+          "profit": 20762862,
+          "qty": 148597
+        },
+        {
+          "name": "Střelkový jednobod.zadl.zámek",
+          "revenue": 17267084,
+          "profit": 4194280,
+          "qty": 80897
+        },
+        {
+          "name": "Visací zámky",
+          "revenue": 9633650,
+          "profit": 3245103,
+          "qty": 112929
+        },
+        {
+          "name": "Přístupové systémy",
+          "revenue": 7963904,
+          "profit": 4646421,
+          "qty": 3041
+        },
+        {
+          "name": "Bezpečnostní dveřní kování",
+          "revenue": 7400364,
+          "profit": 1991646,
+          "qty": 7474
+        },
+        {
+          "name": "Práce - gravírování, servis, montáž...",
+          "revenue": 7210738,
+          "profit": 6904328,
+          "qty": 83372
+        },
+        {
+          "name": "Vlastní zavírač",
+          "revenue": 7210393,
+          "profit": 2364467,
+          "qty": 6912
+        },
+        {
+          "name": "El.mech.a motorické zámky",
+          "revenue": 5275370,
+          "profit": 1568367,
+          "qty": 928
+        },
+        {
+          "name": "Vlastní elektr.otvírač",
+          "revenue": 4963298,
+          "profit": 1877143,
+          "qty": 7792
+        },
+        {
+          "name": "Interiérové štítové dveřní kování",
+          "revenue": 4374968,
+          "profit": 1230732,
+          "qty": 24659
+        },
+        {
+          "name": "Dálkové ovladače a čipy",
+          "revenue": 4025858,
+          "profit": 2368669,
+          "qty": 48755
+        },
+        {
+          "name": "Panty",
+          "revenue": 3688579,
+          "profit": 782979,
+          "qty": 137195
+        },
+        {
+          "name": "Klíče",
+          "revenue": 3681130,
+          "profit": 2007813,
+          "qty": 61289
+        },
+        {
+          "name": "Příslušenství klíčů",
+          "revenue": 3643063,
+          "profit": 1947137,
+          "qty": 1184360
+        },
+        {
+          "name": "Servis cyl.vložek",
+          "revenue": 3596756,
+          "profit": 2983050,
+          "qty": 19856
+        },
+        {
+          "name": "Nábytkové a schránkové zámky",
+          "revenue": 3419650,
+          "profit": 1663657,
+          "qty": 32794
+        },
+        {
+          "name": "Vlastní stroje na řezání klíčů",
+          "revenue": 3359946,
+          "profit": 613248,
+          "qty": 28
+        },
+        {
+          "name": "Klíče lamelových zámků",
+          "revenue": 3343677,
+          "profit": 2290325,
+          "qty": 205213
+        }
+      ],
+      "top_manufacturers": [
+        {
+          "name": "Neuveden",
+          "revenue": 267762267,
+          "qty": 6333665
+        },
+        {
+          "name": "STAR - vložky S50/S60/S70/80S/100S",
+          "revenue": 32613002,
+          "qty": 145297
+        },
+        {
+          "name": "Silca - klíče ostatní - 20",
+          "revenue": 23462317,
+          "qty": 1198639
+        },
+        {
+          "name": "Hobes - 25",
+          "revenue": 15673787,
+          "qty": 123761
+        },
+        {
+          "name": "Assa Abloy vložky a klíče - 40",
+          "revenue": 13538311,
+          "qty": 384869
+        },
+        {
+          "name": "HB Group - servis - 0",
+          "revenue": 12410822,
+          "qty": 105679
+        },
+        {
+          "name": "Silca - stroje a software - 0",
+          "revenue": 8055043,
+          "qty": 720
+        },
+        {
+          "name": "Silca - klíče SIL/FAB - 25",
+          "revenue": 7776559,
+          "qty": 800568
+        },
+        {
+          "name": "STAR - Smart - 25",
+          "revenue": 6658217,
+          "qty": 2744
+        },
+        {
+          "name": "Geze - zavírače - 40",
+          "revenue": 5653329,
+          "qty": 7406
+        },
+        {
+          "name": "Rostex - kování - 25",
+          "revenue": 4875150,
+          "qty": 12025
+        },
+        {
+          "name": "OC - otvírač - 40",
+          "revenue": 4629444,
+          "qty": 10705
+        },
+        {
+          "name": "Hoppe - kování - 30",
+          "revenue": 4439507,
+          "qty": 10703
+        },
+        {
+          "name": "Ostatní bez určení - 0",
+          "revenue": 4334012,
+          "qty": 41402
+        },
+        {
+          "name": "STAR - visací zámky/cyklo zámky/nábytkové",
+          "revenue": 4292052,
+          "qty": 89677
+        }
+      ],
+      "top_skus": [
+        {
+          "sku": "",
+          "name": "Označeno: 16459 z 16459",
+          "category": "Neuvedena",
+          "qty": 6330932,
+          "revenue": 267392886.64,
+          "profit": 123480728.06
+        },
+        {
+          "sku": "330101.10",
+          "name": "Vložka Star 70S 30/35 Ni/R1  3kl",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 17801,
+          "revenue": 3622906.23,
+          "profit": 1873630.11
+        },
+        {
+          "sku": "330099.10",
+          "name": "Vložka Star 60S 30/35 Ms (10x)   (2020)",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 18370,
+          "revenue": 2488663.37,
+          "profit": 918836.38
+        },
+        {
+          "sku": "491017.10",
+          "name": "Klíč 20R1 FB13RX (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 185181,
+          "revenue": 2030995.74,
+          "profit": 1155085.77
+        },
+        {
+          "sku": "001035.10",
+          "name": "Zámek HOBES 24026 P/L 90/50/22 PZ  BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 11525,
+          "revenue": 2012608.26,
+          "profit": 321151.06
+        },
+        {
+          "sku": "018117.10",
+          "name": "Klíč FAB 200RSG RRS2 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 55891,
+          "revenue": 1962810.28,
+          "profit": 309673.2
+        },
+        {
+          "sku": "088005.10",
+          "name": "Klíč G17 chráněný GUARD NVL/GD17/",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 101691,
+          "revenue": 1847942.9,
+          "profit": 1239652.11
+        },
+        {
+          "sku": "018116.10",
+          "name": "Klíč FAB 200RSG RRS1 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 39752,
+          "revenue": 1414586.4,
+          "profit": 245309.15
+        },
+        {
+          "sku": "001022.10",
+          "name": "Zámek HOBES 02-04 90/40/20 PZ P/L BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 7750,
+          "revenue": 1400917.78,
+          "profit": 216231.04
+        },
+        {
+          "sku": "018129.10",
+          "name": "Klíč FAB NG 3.00 FAB3 B001",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 45267,
+          "revenue": 1395101.7,
+          "profit": 359495.01
+        },
+        {
+          "sku": "420010.10",
+          "name": "Klíč ULO50X (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 125493,
+          "revenue": 1347421.67,
+          "profit": 751693.35
+        },
+        {
+          "sku": "425320.10",
+          "name": "Čip GTi Ultra C110026 Wedge",
+          "category": "Autoklíče",
+          "qty": 2525,
+          "revenue": 1240403.95,
+          "profit": 754662.05
+        },
+        {
+          "sku": "300015.10",
+          "name": "EUROLOCKS Zámek  0812-0080 (EU1R) rov.záv HDC220V",
+          "category": "Nábytkové a schránkové zámky",
+          "qty": 10238,
+          "revenue": 1235709.84,
+          "profit": 685581.68
+        },
+        {
+          "sku": "720043.30",
+          "name": "FUTURA Pro Unlimited D851721ZB",
+          "category": "Vlastní stroje na řezání klíčů",
+          "qty": 5,
+          "revenue": 1201350.33,
+          "profit": 173879.66
+        },
+        {
+          "sku": "808639.20",
+          "name": "Stroj D8A3850ZB Unocode F400",
+          "category": "Neuvedena",
+          "qty": 3,
+          "revenue": 1127800.0,
+          "profit": 274513.89
+        },
+        {
+          "sku": "330911.10",
+          "name": "Vložka Star 80S 30/35 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2818,
+          "revenue": 1123331.98,
+          "profit": 744246.72
+        },
+        {
+          "sku": "156056.10",
+          "name": "GEZE Zavírač TS 4000 stř. EN1-6",
+          "category": "Vlastní zavírač",
+          "qty": 643,
+          "revenue": 1119215.24,
+          "profit": 351710.91
+        },
+        {
+          "sku": "001005.10",
+          "name": "Zámek HOBES 01-15 P/L 90/40/20 BB BZn",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 6461,
+          "revenue": 1094718.37,
+          "profit": 150901.17
+        },
+        {
+          "sku": "900018.10",
+          "name": "Test. aplikace SPVG 10, 174,5 hod., 600 Kč/h",
+          "category": "Neuvedena",
+          "qty": 49,
+          "revenue": 1073541.25,
+          "profit": 1073541.25
+        },
+        {
+          "sku": "330102.10",
+          "name": "Vložka Star 70S 30/40 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 4966,
+          "revenue": 1049246.86,
+          "profit": 553972.98
+        },
+        {
+          "sku": "159005.10",
+          "name": "OC El.otvírač 50E10 12Vdc nízkoodběr.",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 2039,
+          "revenue": 1046256.36,
+          "profit": 327632.04
+        },
+        {
+          "sku": "017127.10",
+          "name": "Zámek el.mech. EL560/72/55/20 12-24V",
+          "category": "Neuvedena",
+          "qty": 82,
+          "revenue": 968761.27,
+          "profit": 336395.61
+        },
+        {
+          "sku": "159001.10",
+          "name": "OC El.otvírač 50B10 6-14Vac/dc",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 1909,
+          "revenue": 944331.36,
+          "profit": 419135.83
+        },
+        {
+          "sku": "S103999.40",
+          "name": "Vývoj systému pro řez.klíčů ePRO Tokoz Unocode F600",
+          "category": "Bezp.cylin.vložky na zubatý klíč, Software pro stroje a zařízení",
+          "qty": 1,
+          "revenue": 933199.0,
+          "profit": 190521.87
+        },
+        {
+          "sku": "999121.10",
+          "name": "Řezání klíčů",
+          "category": "Práce - gravírování, servis, montáž...",
+          "qty": 31202,
+          "revenue": 925908.65,
+          "profit": 925908.65
+        },
+        {
+          "sku": "088015.10",
+          "name": "Klíč GD17R-OR (20) 27T",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 75851,
+          "revenue": 789099.9,
+          "profit": 330051.6
+        },
+        {
+          "sku": "156050.10",
+          "name": "GEZE Zavírač TS 2000 stř.",
+          "category": "Vlastní zavírač",
+          "qty": 1087,
+          "revenue": 784991.31,
+          "profit": 289174.72
+        },
+        {
+          "sku": "370322.10",
+          "name": "Star smart kování úzké 72 - klávesnice",
+          "category": "Přístupové systémy",
+          "qty": 170,
+          "revenue": 775956.42,
+          "profit": 511627.3
+        },
+        {
+          "sku": "330160.10",
+          "name": "Vložka Star 70S 30/K35 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2487,
+          "revenue": 775394.24,
+          "profit": 433298.51
+        },
+        {
+          "sku": "017110.10",
+          "name": "Zámek el. EL460/35/24 12-24V",
+          "category": "El.mech.a motorické zámky",
+          "qty": 62,
+          "revenue": 773301.92,
+          "profit": 194795.79
+        },
+        {
+          "sku": "720039.21",
+          "name": "Stroj FUTURA PRO D847000ZB",
+          "category": "Vlastní stroje na řezání klíčů",
+          "qty": 4,
+          "revenue": 758862.11,
+          "profit": 168790.56
+        },
+        {
+          "sku": "425302.10",
+          "name": "Čip T48 C03620 pro M-BOX",
+          "category": "Neuvedena",
+          "qty": 1580,
+          "revenue": 747313.24,
+          "profit": 366641.0
+        },
+        {
+          "sku": "420005.10",
+          "name": "Klíč ULO50 (20) universal mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 66152,
+          "revenue": 744558.44,
+          "profit": 443976.07
+        },
+        {
+          "sku": "161290.10",
+          "name": "CISA klíč C3000      00430.00.1 (T02)",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 8741,
+          "revenue": 736990.77,
+          "profit": 371069.57
+        },
+        {
+          "sku": "001763.10",
+          "name": "Zámek HOBES 02-06 90/45//20 PZ P/L Bzn (5131)",
+          "category": "Střelkový jednobod.zadl.zámek",
+          "qty": 4287,
+          "revenue": 698920.7,
+          "profit": 115366.26
+        },
+        {
+          "sku": "890877.30",
+          "name": "AD2000 SmartPro  D846799AD",
+          "category": "Klíče",
+          "qty": 15,
+          "revenue": 674682.11,
+          "profit": 112742.58
+        },
+        {
+          "sku": "000037.10",
+          "name": "Systém SGHK - zakázka",
+          "category": "Klíče",
+          "qty": 5,
+          "revenue": 672614.51,
+          "profit": 510874.54
+        },
+        {
+          "sku": "018114.10",
+          "name": "Klíč FAB 100RS RRS106",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 34808,
+          "revenue": 672540.82,
+          "profit": 147183.92
+        },
+        {
+          "sku": "018119.10",
+          "name": "Klíč FAB 200RSG RRS3 nový typ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 18189,
+          "revenue": 656728.99,
+          "profit": 143426.63
+        },
+        {
+          "sku": "491013.10",
+          "name": "Klíč 14x FB28R (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 85821,
+          "revenue": 654156.5,
+          "profit": 305089.26
+        },
+        {
+          "sku": "330170.10",
+          "name": "Vložka Star 70S 30/35 Ni/R1 5-klíčů",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2423,
+          "revenue": 600595.18,
+          "profit": 347250.58
+        },
+        {
+          "sku": "4000109.20",
+          "name": "WAVE MODE SUITE CARD",
+          "category": "Neuvedena",
+          "qty": 11119,
+          "revenue": 599843.4,
+          "profit": 323615.47
+        },
+        {
+          "sku": "491005.10",
+          "name": "Klíč 10x  FB21R (20) mosaz",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 61659,
+          "revenue": 598354.42,
+          "profit": 348365.09
+        },
+        {
+          "sku": "306042.10",
+          "name": "Zámek Star 90/50/22 mechanický samozam.",
+          "category": "Jednobodové zadl.panikové zámky",
+          "qty": 212,
+          "revenue": 586732.48,
+          "profit": 158734.65
+        },
+        {
+          "sku": "330131.10",
+          "name": "Vložka Star 70S 45/50 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2111,
+          "revenue": 581666.07,
+          "profit": 329040.1
+        },
+        {
+          "sku": "330124.10",
+          "name": "Vložka Star 70S 40/55 Ni/R1",
+          "category": "Bezp.cylin.vložky na zubatý klíč",
+          "qty": 2086,
+          "revenue": 574534.99,
+          "profit": 326101.15
+        },
+        {
+          "sku": "159002.10",
+          "name": "OC El.otvírač 51B10 MB 6-14Vac/dc",
+          "category": "Vlastní elektr.otvírač",
+          "qty": 1075,
+          "revenue": 561441.28,
+          "profit": 250509.34
+        },
+        {
+          "sku": "038019.10",
+          "name": "Klíč 113-50+/TOZ6-OR original  TOKOZ",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 100052,
+          "revenue": 557288.82,
+          "profit": 317283.82
+        },
+        {
+          "sku": "021025.10",
+          "name": "ROSTEX BK R1/90 Cr bez vložky",
+          "category": "Bezpečnostní dveřní kování",
+          "qty": 323,
+          "revenue": 551980.8,
+          "profit": 59421.24
+        },
+        {
+          "sku": "402173.10",
+          "name": "Klíč BK15 (20) mosaz BKS hranatá hlava",
+          "category": "Zubaté klíče cylindr.vložek",
+          "qty": 37098,
+          "revenue": 551290.74,
+          "profit": 340927.8
+        }
+      ],
+      "podsklady": [
+        {
+          "podsklad": "",
+          "revenue": 267392887,
+          "qty": 6330932
+        },
+        {
+          "podsklad": "10",
+          "revenue": 229779925,
+          "qty": 6022743
+        },
+        {
+          "podsklad": "40",
+          "revenue": 15887056,
+          "qty": 68163
+        },
+        {
+          "podsklad": "20",
+          "revenue": 8851417,
+          "qty": 122620
+        },
+        {
+          "podsklad": "30",
+          "revenue": 5611123,
+          "qty": 49387
+        },
+        {
+          "podsklad": "45",
+          "revenue": 1946913,
+          "qty": 3118
+        },
+        {
+          "podsklad": "50",
+          "revenue": 1540374,
+          "qty": 47909
+        },
+        {
+          "podsklad": "70",
+          "revenue": 1248825,
+          "qty": 4221
+        },
+        {
+          "podsklad": "21",
+          "revenue": 1081098,
+          "qty": 43
+        },
+        {
+          "podsklad": "25",
+          "revenue": 953709,
+          "qty": 10980
+        },
+        {
+          "podsklad": "60",
+          "revenue": 258345,
+          "qty": 640
+        },
+        {
+          "podsklad": "42",
+          "revenue": 196418,
+          "qty": 275
+        },
+        {
+          "podsklad": "41",
+          "revenue": 46821,
+          "qty": 283
+        },
+        {
+          "podsklad": "61",
+          "revenue": 40220,
+          "qty": 12
+        },
+        {
+          "podsklad": "80",
+          "revenue": -49356,
+          "qty": 526
+        }
+      ],
+      "yoy": {
+        "revenue_pct": -1.5,
+        "profit_pct": 0.1,
+        "margin_pp": 0.8,
+        "qty_pct": -3.0,
+        "segments": {
+          "eshop_mo": 6.6,
+          "mo_total": 5.6,
+          "vo": -2.3
+        }
+      }
+    }
+  ],
+  "interpretation": {
+    "podskladová_legenda": {
+      "10": "Plzeň – Centrální sklad",
+      "11": "Plzeň – Lochotín",
+      "20": "Sokolov",
+      "21": "Chomutov",
+      "25": "Cheb",
+      "30": "Vodňany",
+      "40": "Praha – Libeň",
+      "41": "Praha – Václavské náměstí",
+      "42": "Praha – Zličín",
+      "45": "Praha – Vysočany",
+      "310": "Praha – Korunní",
+      "320": "Praha – Dejvice",
+      "330": "Praha – Vršovice",
+      "50": "Ostrava",
+      "60": "České Budějovice",
+      "61": "Hrdějovice",
+      "70": "Brno",
+      "80": "(historický kód)",
+      "110": "Bratislava (SK)",
+      "120": "Košice (SK)"
+    },
+    "note": "Mapping podskladů z Pobočky.docx (potvrzeno klientem)."
+  }
+}

@@ -1,0 +1,2422 @@
+{
+  "generated": "2026-04-29T10:31:31",
+  "year": 2025,
+  "source": "ERP Eshop objednávky MO + VO 2025 CSV",
+  "primary_source": "ERP per-objednávka data",
+  "segments_summary": {
+    "MO": {
+      "orders": 2289,
+      "revenue_kc": 2759439,
+      "profit_kc": 1645037,
+      "margin_pct": 59.6,
+      "aov_kc": 1206,
+      "items": 5754
+    },
+    "VO": {
+      "orders": 1786,
+      "revenue_kc": 8309979,
+      "profit_kc": 3589459,
+      "margin_pct": 43.2,
+      "aov_kc": 4653,
+      "items": 22743
+    },
+    "totals": {
+      "orders": 4075,
+      "revenue_kc": 11069418,
+      "profit_kc": 5234495,
+      "vo_share_pct": 75.1
+    }
+  },
+  "monthly": [
+    {
+      "month": "2025-01",
+      "mo": {
+        "revenue_kc": 159007,
+        "profit_kc": 93913,
+        "margin_pct": 59.1,
+        "orders": 186,
+        "items": 474,
+        "aov_kc": 855
+      },
+      "vo": {
+        "revenue_kc": 873150,
+        "profit_kc": 356866,
+        "margin_pct": 40.9,
+        "orders": 152,
+        "items": 2167,
+        "aov_kc": 5744
+      },
+      "total_revenue_kc": 1032157,
+      "total_orders": 338
+    },
+    {
+      "month": "2025-02",
+      "mo": {
+        "revenue_kc": 304033,
+        "profit_kc": 191551,
+        "margin_pct": 63.0,
+        "orders": 215,
+        "items": 527,
+        "aov_kc": 1414
+      },
+      "vo": {
+        "revenue_kc": 645352,
+        "profit_kc": 272769,
+        "margin_pct": 42.3,
+        "orders": 141,
+        "items": 1824,
+        "aov_kc": 4577
+      },
+      "total_revenue_kc": 949385,
+      "total_orders": 356
+    },
+    {
+      "month": "2025-03",
+      "mo": {
+        "revenue_kc": 256896,
+        "profit_kc": 149374,
+        "margin_pct": 58.1,
+        "orders": 220,
+        "items": 560,
+        "aov_kc": 1168
+      },
+      "vo": {
+        "revenue_kc": 678060,
+        "profit_kc": 290840,
+        "margin_pct": 42.9,
+        "orders": 140,
+        "items": 1801,
+        "aov_kc": 4843
+      },
+      "total_revenue_kc": 934955,
+      "total_orders": 360
+    },
+    {
+      "month": "2025-04",
+      "mo": {
+        "revenue_kc": 238656,
+        "profit_kc": 141578,
+        "margin_pct": 59.3,
+        "orders": 211,
+        "items": 545,
+        "aov_kc": 1131
+      },
+      "vo": {
+        "revenue_kc": 509544,
+        "profit_kc": 217954,
+        "margin_pct": 42.8,
+        "orders": 130,
+        "items": 1610,
+        "aov_kc": 3920
+      },
+      "total_revenue_kc": 748200,
+      "total_orders": 341
+    },
+    {
+      "month": "2025-05",
+      "mo": {
+        "revenue_kc": 220148,
+        "profit_kc": 135527,
+        "margin_pct": 61.6,
+        "orders": 165,
+        "items": 407,
+        "aov_kc": 1334
+      },
+      "vo": {
+        "revenue_kc": 629283,
+        "profit_kc": 279350,
+        "margin_pct": 44.4,
+        "orders": 137,
+        "items": 1780,
+        "aov_kc": 4593
+      },
+      "total_revenue_kc": 849431,
+      "total_orders": 302
+    },
+    {
+      "month": "2025-06",
+      "mo": {
+        "revenue_kc": 243701,
+        "profit_kc": 149500,
+        "margin_pct": 61.3,
+        "orders": 192,
+        "items": 463,
+        "aov_kc": 1269
+      },
+      "vo": {
+        "revenue_kc": 897945,
+        "profit_kc": 395980,
+        "margin_pct": 44.1,
+        "orders": 158,
+        "items": 1987,
+        "aov_kc": 5683
+      },
+      "total_revenue_kc": 1141646,
+      "total_orders": 350
+    },
+    {
+      "month": "2025-07",
+      "mo": {
+        "revenue_kc": 246980,
+        "profit_kc": 147703,
+        "margin_pct": 59.8,
+        "orders": 227,
+        "items": 555,
+        "aov_kc": 1088
+      },
+      "vo": {
+        "revenue_kc": 705683,
+        "profit_kc": 289646,
+        "margin_pct": 41.0,
+        "orders": 166,
+        "items": 1954,
+        "aov_kc": 4251
+      },
+      "total_revenue_kc": 952663,
+      "total_orders": 393
+    },
+    {
+      "month": "2025-08",
+      "mo": {
+        "revenue_kc": 244641,
+        "profit_kc": 138568,
+        "margin_pct": 56.6,
+        "orders": 172,
+        "items": 428,
+        "aov_kc": 1422
+      },
+      "vo": {
+        "revenue_kc": 734582,
+        "profit_kc": 325245,
+        "margin_pct": 44.3,
+        "orders": 160,
+        "items": 2258,
+        "aov_kc": 4591
+      },
+      "total_revenue_kc": 979223,
+      "total_orders": 332
+    },
+    {
+      "month": "2025-09",
+      "mo": {
+        "revenue_kc": 259364,
+        "profit_kc": 156946,
+        "margin_pct": 60.5,
+        "orders": 212,
+        "items": 556,
+        "aov_kc": 1223
+      },
+      "vo": {
+        "revenue_kc": 934451,
+        "profit_kc": 406586,
+        "margin_pct": 43.5,
+        "orders": 202,
+        "items": 2492,
+        "aov_kc": 4626
+      },
+      "total_revenue_kc": 1193815,
+      "total_orders": 414
+    },
+    {
+      "month": "2025-10",
+      "mo": {
+        "revenue_kc": 285832,
+        "profit_kc": 154858,
+        "margin_pct": 54.2,
+        "orders": 150,
+        "items": 389,
+        "aov_kc": 1906
+      },
+      "vo": {
+        "revenue_kc": 691687,
+        "profit_kc": 307285,
+        "margin_pct": 44.4,
+        "orders": 165,
+        "items": 1917,
+        "aov_kc": 4192
+      },
+      "total_revenue_kc": 977519,
+      "total_orders": 315
+    },
+    {
+      "month": "2025-11",
+      "mo": {
+        "revenue_kc": 143464,
+        "profit_kc": 84291,
+        "margin_pct": 58.8,
+        "orders": 127,
+        "items": 330,
+        "aov_kc": 1130
+      },
+      "vo": {
+        "revenue_kc": 569475,
+        "profit_kc": 251878,
+        "margin_pct": 44.2,
+        "orders": 136,
+        "items": 1649,
+        "aov_kc": 4187
+      },
+      "total_revenue_kc": 712939,
+      "total_orders": 263
+    },
+    {
+      "month": "2025-12",
+      "mo": {
+        "revenue_kc": 156718,
+        "profit_kc": 101228,
+        "margin_pct": 64.6,
+        "orders": 212,
+        "items": 520,
+        "aov_kc": 739
+      },
+      "vo": {
+        "revenue_kc": 440767,
+        "profit_kc": 195061,
+        "margin_pct": 44.3,
+        "orders": 99,
+        "items": 1304,
+        "aov_kc": 4452
+      },
+      "total_revenue_kc": 597485,
+      "total_orders": 311
+    }
+  ],
+  "daily": [
+    {
+      "date": "2025-01-02",
+      "mo_revenue_kc": 5809,
+      "vo_revenue_kc": 11234,
+      "total_revenue_kc": 17043,
+      "mo_orders": 5,
+      "vo_orders": 1
+    },
+    {
+      "date": "2025-01-03",
+      "mo_revenue_kc": 7187,
+      "vo_revenue_kc": 15832,
+      "total_revenue_kc": 23019,
+      "mo_orders": 8,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-01-04",
+      "mo_revenue_kc": 123,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 123,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-01-06",
+      "mo_revenue_kc": 9804,
+      "vo_revenue_kc": 68556,
+      "total_revenue_kc": 78360,
+      "mo_orders": 9,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-01-07",
+      "mo_revenue_kc": 3664,
+      "vo_revenue_kc": 44335,
+      "total_revenue_kc": 47998,
+      "mo_orders": 9,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-01-08",
+      "mo_revenue_kc": 9461,
+      "vo_revenue_kc": 19851,
+      "total_revenue_kc": 29312,
+      "mo_orders": 11,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-01-09",
+      "mo_revenue_kc": 7871,
+      "vo_revenue_kc": 26666,
+      "total_revenue_kc": 34537,
+      "mo_orders": 7,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-01-10",
+      "mo_revenue_kc": 6145,
+      "vo_revenue_kc": 23611,
+      "total_revenue_kc": 29756,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-01-13",
+      "mo_revenue_kc": 7080,
+      "vo_revenue_kc": 121253,
+      "total_revenue_kc": 128333,
+      "mo_orders": 15,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-01-14",
+      "mo_revenue_kc": 4791,
+      "vo_revenue_kc": 62612,
+      "total_revenue_kc": 67403,
+      "mo_orders": 9,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-01-15",
+      "mo_revenue_kc": 506,
+      "vo_revenue_kc": 40584,
+      "total_revenue_kc": 41089,
+      "mo_orders": 2,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-01-16",
+      "mo_revenue_kc": 7833,
+      "vo_revenue_kc": 29204,
+      "total_revenue_kc": 37037,
+      "mo_orders": 10,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-01-17",
+      "mo_revenue_kc": 12636,
+      "vo_revenue_kc": 11738,
+      "total_revenue_kc": 24374,
+      "mo_orders": 9,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-01-20",
+      "mo_revenue_kc": 17726,
+      "vo_revenue_kc": 100428,
+      "total_revenue_kc": 118153,
+      "mo_orders": 20,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-01-21",
+      "mo_revenue_kc": 5029,
+      "vo_revenue_kc": 46652,
+      "total_revenue_kc": 51681,
+      "mo_orders": 4,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-01-22",
+      "mo_revenue_kc": 12302,
+      "vo_revenue_kc": 47107,
+      "total_revenue_kc": 59409,
+      "mo_orders": 7,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-01-23",
+      "mo_revenue_kc": 6596,
+      "vo_revenue_kc": 22987,
+      "total_revenue_kc": 29583,
+      "mo_orders": 9,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-01-24",
+      "mo_revenue_kc": 2039,
+      "vo_revenue_kc": 14469,
+      "total_revenue_kc": 16507,
+      "mo_orders": 8,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-01-27",
+      "mo_revenue_kc": 10989,
+      "vo_revenue_kc": 48189,
+      "total_revenue_kc": 59178,
+      "mo_orders": 14,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-01-28",
+      "mo_revenue_kc": 2869,
+      "vo_revenue_kc": 42588,
+      "total_revenue_kc": 45457,
+      "mo_orders": 4,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-01-29",
+      "mo_revenue_kc": 1440,
+      "vo_revenue_kc": 22355,
+      "total_revenue_kc": 23795,
+      "mo_orders": 3,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-01-30",
+      "mo_revenue_kc": 12346,
+      "vo_revenue_kc": 34100,
+      "total_revenue_kc": 46446,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-01-31",
+      "mo_revenue_kc": 4760,
+      "vo_revenue_kc": 18802,
+      "total_revenue_kc": 23562,
+      "mo_orders": 7,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-02-03",
+      "mo_revenue_kc": 13886,
+      "vo_revenue_kc": 49074,
+      "total_revenue_kc": 62960,
+      "mo_orders": 17,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-02-04",
+      "mo_revenue_kc": 6084,
+      "vo_revenue_kc": 43338,
+      "total_revenue_kc": 49422,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-02-05",
+      "mo_revenue_kc": 5367,
+      "vo_revenue_kc": 33479,
+      "total_revenue_kc": 38846,
+      "mo_orders": 3,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-02-06",
+      "mo_revenue_kc": 3883,
+      "vo_revenue_kc": 25244,
+      "total_revenue_kc": 29127,
+      "mo_orders": 6,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-02-07",
+      "mo_revenue_kc": 3588,
+      "vo_revenue_kc": 4222,
+      "total_revenue_kc": 7810,
+      "mo_orders": 8,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-02-10",
+      "mo_revenue_kc": 15500,
+      "vo_revenue_kc": 55565,
+      "total_revenue_kc": 71064,
+      "mo_orders": 10,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-02-11",
+      "mo_revenue_kc": 10679,
+      "vo_revenue_kc": 44129,
+      "total_revenue_kc": 54808,
+      "mo_orders": 15,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-02-12",
+      "mo_revenue_kc": 15787,
+      "vo_revenue_kc": 49287,
+      "total_revenue_kc": 65074,
+      "mo_orders": 12,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-02-13",
+      "mo_revenue_kc": 21858,
+      "vo_revenue_kc": 16177,
+      "total_revenue_kc": 38035,
+      "mo_orders": 10,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-02-14",
+      "mo_revenue_kc": 7778,
+      "vo_revenue_kc": 20243,
+      "total_revenue_kc": 28021,
+      "mo_orders": 9,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-02-15",
+      "mo_revenue_kc": 1425,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 1425,
+      "mo_orders": 3,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-02-17",
+      "mo_revenue_kc": 9619,
+      "vo_revenue_kc": 42441,
+      "total_revenue_kc": 52060,
+      "mo_orders": 13,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-02-18",
+      "mo_revenue_kc": 35050,
+      "vo_revenue_kc": 21641,
+      "total_revenue_kc": 56691,
+      "mo_orders": 8,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-02-19",
+      "mo_revenue_kc": 6217,
+      "vo_revenue_kc": 27275,
+      "total_revenue_kc": 33491,
+      "mo_orders": 10,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-02-20",
+      "mo_revenue_kc": 25175,
+      "vo_revenue_kc": 26838,
+      "total_revenue_kc": 52013,
+      "mo_orders": 17,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-02-21",
+      "mo_revenue_kc": 9145,
+      "vo_revenue_kc": 10883,
+      "total_revenue_kc": 20027,
+      "mo_orders": 7,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-02-24",
+      "mo_revenue_kc": 18931,
+      "vo_revenue_kc": 56274,
+      "total_revenue_kc": 75205,
+      "mo_orders": 19,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-02-25",
+      "mo_revenue_kc": 9321,
+      "vo_revenue_kc": 52359,
+      "total_revenue_kc": 61679,
+      "mo_orders": 14,
+      "vo_orders": 17
+    },
+    {
+      "date": "2025-02-26",
+      "mo_revenue_kc": 55439,
+      "vo_revenue_kc": 20233,
+      "total_revenue_kc": 75672,
+      "mo_orders": 11,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-02-27",
+      "mo_revenue_kc": 17724,
+      "vo_revenue_kc": 17370,
+      "total_revenue_kc": 35094,
+      "mo_orders": 9,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-02-28",
+      "mo_revenue_kc": 11578,
+      "vo_revenue_kc": 29282,
+      "total_revenue_kc": 40860,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-03-01",
+      "mo_revenue_kc": 588,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 588,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-03-03",
+      "mo_revenue_kc": 15753,
+      "vo_revenue_kc": 41849,
+      "total_revenue_kc": 57602,
+      "mo_orders": 22,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-03-04",
+      "mo_revenue_kc": 19030,
+      "vo_revenue_kc": 56195,
+      "total_revenue_kc": 75224,
+      "mo_orders": 15,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-03-05",
+      "mo_revenue_kc": 24345,
+      "vo_revenue_kc": 20792,
+      "total_revenue_kc": 45137,
+      "mo_orders": 9,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-03-06",
+      "mo_revenue_kc": 13244,
+      "vo_revenue_kc": 22779,
+      "total_revenue_kc": 36023,
+      "mo_orders": 10,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-03-07",
+      "mo_revenue_kc": 5734,
+      "vo_revenue_kc": 3996,
+      "total_revenue_kc": 9730,
+      "mo_orders": 7,
+      "vo_orders": 1
+    },
+    {
+      "date": "2025-03-10",
+      "mo_revenue_kc": 43008,
+      "vo_revenue_kc": 60260,
+      "total_revenue_kc": 103268,
+      "mo_orders": 14,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-03-11",
+      "mo_revenue_kc": 8232,
+      "vo_revenue_kc": 37050,
+      "total_revenue_kc": 45282,
+      "mo_orders": 9,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-03-12",
+      "mo_revenue_kc": 4738,
+      "vo_revenue_kc": 25734,
+      "total_revenue_kc": 30472,
+      "mo_orders": 7,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-03-13",
+      "mo_revenue_kc": 1331,
+      "vo_revenue_kc": 3541,
+      "total_revenue_kc": 4872,
+      "mo_orders": 4,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-03-14",
+      "mo_revenue_kc": 8469,
+      "vo_revenue_kc": 30624,
+      "total_revenue_kc": 39093,
+      "mo_orders": 11,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-03-17",
+      "mo_revenue_kc": 13007,
+      "vo_revenue_kc": 58866,
+      "total_revenue_kc": 71873,
+      "mo_orders": 10,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-03-18",
+      "mo_revenue_kc": 7355,
+      "vo_revenue_kc": 59040,
+      "total_revenue_kc": 66395,
+      "mo_orders": 12,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-03-19",
+      "mo_revenue_kc": 12555,
+      "vo_revenue_kc": 4165,
+      "total_revenue_kc": 16720,
+      "mo_orders": 9,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-03-20",
+      "mo_revenue_kc": 14259,
+      "vo_revenue_kc": 15505,
+      "total_revenue_kc": 29764,
+      "mo_orders": 12,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-03-21",
+      "mo_revenue_kc": 3219,
+      "vo_revenue_kc": 8533,
+      "total_revenue_kc": 11752,
+      "mo_orders": 6,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-03-24",
+      "mo_revenue_kc": 5022,
+      "vo_revenue_kc": 54886,
+      "total_revenue_kc": 59909,
+      "mo_orders": 9,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-03-25",
+      "mo_revenue_kc": 13680,
+      "vo_revenue_kc": 30027,
+      "total_revenue_kc": 43707,
+      "mo_orders": 9,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-03-26",
+      "mo_revenue_kc": 1922,
+      "vo_revenue_kc": 10071,
+      "total_revenue_kc": 11993,
+      "mo_orders": 4,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-03-27",
+      "mo_revenue_kc": 550,
+      "vo_revenue_kc": 33250,
+      "total_revenue_kc": 33801,
+      "mo_orders": 1,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-03-28",
+      "mo_revenue_kc": 3614,
+      "vo_revenue_kc": 24731,
+      "total_revenue_kc": 28345,
+      "mo_orders": 3,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-03-31",
+      "mo_revenue_kc": 37240,
+      "vo_revenue_kc": 76163,
+      "total_revenue_kc": 113404,
+      "mo_orders": 36,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-04-01",
+      "mo_revenue_kc": 3917,
+      "vo_revenue_kc": 25252,
+      "total_revenue_kc": 29169,
+      "mo_orders": 7,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-04-02",
+      "mo_revenue_kc": 11660,
+      "vo_revenue_kc": 15471,
+      "total_revenue_kc": 27132,
+      "mo_orders": 8,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-04-03",
+      "mo_revenue_kc": 9041,
+      "vo_revenue_kc": 12497,
+      "total_revenue_kc": 21539,
+      "mo_orders": 12,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-04-04",
+      "mo_revenue_kc": 15166,
+      "vo_revenue_kc": 7814,
+      "total_revenue_kc": 22980,
+      "mo_orders": 10,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-04-07",
+      "mo_revenue_kc": 13510,
+      "vo_revenue_kc": 60304,
+      "total_revenue_kc": 73814,
+      "mo_orders": 11,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-04-08",
+      "mo_revenue_kc": 5852,
+      "vo_revenue_kc": 18773,
+      "total_revenue_kc": 24625,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-04-09",
+      "mo_revenue_kc": 9945,
+      "vo_revenue_kc": 32085,
+      "total_revenue_kc": 42031,
+      "mo_orders": 10,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-04-10",
+      "mo_revenue_kc": 12049,
+      "vo_revenue_kc": 4748,
+      "total_revenue_kc": 16797,
+      "mo_orders": 13,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-04-11",
+      "mo_revenue_kc": 21180,
+      "vo_revenue_kc": 2892,
+      "total_revenue_kc": 24072,
+      "mo_orders": 12,
+      "vo_orders": 1
+    },
+    {
+      "date": "2025-04-12",
+      "mo_revenue_kc": 631,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 631,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-04-14",
+      "mo_revenue_kc": 14853,
+      "vo_revenue_kc": 69161,
+      "total_revenue_kc": 84014,
+      "mo_orders": 12,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-04-15",
+      "mo_revenue_kc": 6817,
+      "vo_revenue_kc": 17622,
+      "total_revenue_kc": 24439,
+      "mo_orders": 9,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-04-16",
+      "mo_revenue_kc": 4260,
+      "vo_revenue_kc": 13169,
+      "total_revenue_kc": 17428,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-04-17",
+      "mo_revenue_kc": 13222,
+      "vo_revenue_kc": 25797,
+      "total_revenue_kc": 39018,
+      "mo_orders": 12,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-04-22",
+      "mo_revenue_kc": 1943,
+      "vo_revenue_kc": 29249,
+      "total_revenue_kc": 31192,
+      "mo_orders": 5,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-04-23",
+      "mo_revenue_kc": 19106,
+      "vo_revenue_kc": 36458,
+      "total_revenue_kc": 55565,
+      "mo_orders": 17,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-04-24",
+      "mo_revenue_kc": 16224,
+      "vo_revenue_kc": 33445,
+      "total_revenue_kc": 49668,
+      "mo_orders": 15,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-04-25",
+      "mo_revenue_kc": 14264,
+      "vo_revenue_kc": 5034,
+      "total_revenue_kc": 19297,
+      "mo_orders": 6,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-04-28",
+      "mo_revenue_kc": 14507,
+      "vo_revenue_kc": 59784,
+      "total_revenue_kc": 74291,
+      "mo_orders": 20,
+      "vo_orders": 14
+    },
+    {
+      "date": "2025-04-29",
+      "mo_revenue_kc": 24400,
+      "vo_revenue_kc": 25195,
+      "total_revenue_kc": 49595,
+      "mo_orders": 8,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-04-30",
+      "mo_revenue_kc": 6110,
+      "vo_revenue_kc": 14794,
+      "total_revenue_kc": 20904,
+      "mo_orders": 8,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-05-02",
+      "mo_revenue_kc": 2147,
+      "vo_revenue_kc": 15943,
+      "total_revenue_kc": 18090,
+      "mo_orders": 5,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-05-03",
+      "mo_revenue_kc": 421,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 421,
+      "mo_orders": 2,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-05-05",
+      "mo_revenue_kc": 22997,
+      "vo_revenue_kc": 68276,
+      "total_revenue_kc": 91273,
+      "mo_orders": 12,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-05-06",
+      "mo_revenue_kc": 13137,
+      "vo_revenue_kc": 53818,
+      "total_revenue_kc": 66956,
+      "mo_orders": 11,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-05-07",
+      "mo_revenue_kc": 17381,
+      "vo_revenue_kc": 7207,
+      "total_revenue_kc": 24588,
+      "mo_orders": 8,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-05-09",
+      "mo_revenue_kc": 16759,
+      "vo_revenue_kc": 3652,
+      "total_revenue_kc": 20411,
+      "mo_orders": 19,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-05-12",
+      "mo_revenue_kc": 7340,
+      "vo_revenue_kc": 65441,
+      "total_revenue_kc": 72781,
+      "mo_orders": 8,
+      "vo_orders": 14
+    },
+    {
+      "date": "2025-05-13",
+      "mo_revenue_kc": 5516,
+      "vo_revenue_kc": 17257,
+      "total_revenue_kc": 22773,
+      "mo_orders": 6,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-05-14",
+      "mo_revenue_kc": 8071,
+      "vo_revenue_kc": 29399,
+      "total_revenue_kc": 37470,
+      "mo_orders": 8,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-05-15",
+      "mo_revenue_kc": 1083,
+      "vo_revenue_kc": 12477,
+      "total_revenue_kc": 13559,
+      "mo_orders": 2,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-05-16",
+      "mo_revenue_kc": 4173,
+      "vo_revenue_kc": 11068,
+      "total_revenue_kc": 15241,
+      "mo_orders": 7,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-05-19",
+      "mo_revenue_kc": 5257,
+      "vo_revenue_kc": 77077,
+      "total_revenue_kc": 82334,
+      "mo_orders": 13,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-05-20",
+      "mo_revenue_kc": 3307,
+      "vo_revenue_kc": 17570,
+      "total_revenue_kc": 20877,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-05-21",
+      "mo_revenue_kc": 6293,
+      "vo_revenue_kc": 24223,
+      "total_revenue_kc": 30516,
+      "mo_orders": 5,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-05-22",
+      "mo_revenue_kc": 13926,
+      "vo_revenue_kc": 38511,
+      "total_revenue_kc": 52437,
+      "mo_orders": 10,
+      "vo_orders": 14
+    },
+    {
+      "date": "2025-05-23",
+      "mo_revenue_kc": 29179,
+      "vo_revenue_kc": 2951,
+      "total_revenue_kc": 32130,
+      "mo_orders": 6,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-05-26",
+      "mo_revenue_kc": 27904,
+      "vo_revenue_kc": 55152,
+      "total_revenue_kc": 83056,
+      "mo_orders": 8,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-05-27",
+      "mo_revenue_kc": 11140,
+      "vo_revenue_kc": 44507,
+      "total_revenue_kc": 55647,
+      "mo_orders": 12,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-05-28",
+      "mo_revenue_kc": 10765,
+      "vo_revenue_kc": 18746,
+      "total_revenue_kc": 29511,
+      "mo_orders": 5,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-05-29",
+      "mo_revenue_kc": 12341,
+      "vo_revenue_kc": 28882,
+      "total_revenue_kc": 41223,
+      "mo_orders": 7,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-05-30",
+      "mo_revenue_kc": 1012,
+      "vo_revenue_kc": 37125,
+      "total_revenue_kc": 38137,
+      "mo_orders": 3,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-06-02",
+      "mo_revenue_kc": 9726,
+      "vo_revenue_kc": 60642,
+      "total_revenue_kc": 70368,
+      "mo_orders": 11,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-06-03",
+      "mo_revenue_kc": 8804,
+      "vo_revenue_kc": 37535,
+      "total_revenue_kc": 46339,
+      "mo_orders": 8,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-06-04",
+      "mo_revenue_kc": 17401,
+      "vo_revenue_kc": 13271,
+      "total_revenue_kc": 30672,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-06-05",
+      "mo_revenue_kc": 4226,
+      "vo_revenue_kc": 82167,
+      "total_revenue_kc": 86393,
+      "mo_orders": 7,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-06-06",
+      "mo_revenue_kc": 3429,
+      "vo_revenue_kc": 12272,
+      "total_revenue_kc": 15701,
+      "mo_orders": 9,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-06-08",
+      "mo_revenue_kc": 102,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 102,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-06-09",
+      "mo_revenue_kc": 8252,
+      "vo_revenue_kc": 47231,
+      "total_revenue_kc": 55483,
+      "mo_orders": 12,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-06-10",
+      "mo_revenue_kc": 13833,
+      "vo_revenue_kc": 31952,
+      "total_revenue_kc": 45785,
+      "mo_orders": 8,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-06-11",
+      "mo_revenue_kc": 25001,
+      "vo_revenue_kc": 14398,
+      "total_revenue_kc": 39399,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-06-12",
+      "mo_revenue_kc": 16703,
+      "vo_revenue_kc": 65394,
+      "total_revenue_kc": 82098,
+      "mo_orders": 10,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-06-13",
+      "mo_revenue_kc": 7056,
+      "vo_revenue_kc": 18352,
+      "total_revenue_kc": 25409,
+      "mo_orders": 10,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-06-16",
+      "mo_revenue_kc": 6091,
+      "vo_revenue_kc": 83039,
+      "total_revenue_kc": 89130,
+      "mo_orders": 9,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-06-17",
+      "mo_revenue_kc": 24000,
+      "vo_revenue_kc": 33918,
+      "total_revenue_kc": 57918,
+      "mo_orders": 9,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-06-18",
+      "mo_revenue_kc": 15393,
+      "vo_revenue_kc": 34768,
+      "total_revenue_kc": 50162,
+      "mo_orders": 12,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-06-19",
+      "mo_revenue_kc": 9221,
+      "vo_revenue_kc": 18770,
+      "total_revenue_kc": 27991,
+      "mo_orders": 8,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-06-20",
+      "mo_revenue_kc": 7286,
+      "vo_revenue_kc": 8491,
+      "total_revenue_kc": 15777,
+      "mo_orders": 8,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-06-23",
+      "mo_revenue_kc": 14329,
+      "vo_revenue_kc": 150426,
+      "total_revenue_kc": 164754,
+      "mo_orders": 12,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-06-24",
+      "mo_revenue_kc": 15675,
+      "vo_revenue_kc": 34779,
+      "total_revenue_kc": 50454,
+      "mo_orders": 10,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-06-25",
+      "mo_revenue_kc": 7285,
+      "vo_revenue_kc": 27901,
+      "total_revenue_kc": 35187,
+      "mo_orders": 8,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-06-26",
+      "mo_revenue_kc": 5935,
+      "vo_revenue_kc": 27745,
+      "total_revenue_kc": 33680,
+      "mo_orders": 6,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-06-27",
+      "mo_revenue_kc": 4993,
+      "vo_revenue_kc": 18829,
+      "total_revenue_kc": 23822,
+      "mo_orders": 6,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-06-28",
+      "mo_revenue_kc": 353,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 353,
+      "mo_orders": 2,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-06-30",
+      "mo_revenue_kc": 18604,
+      "vo_revenue_kc": 76065,
+      "total_revenue_kc": 94670,
+      "mo_orders": 10,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-01",
+      "mo_revenue_kc": 3941,
+      "vo_revenue_kc": 35084,
+      "total_revenue_kc": 39025,
+      "mo_orders": 5,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-07-02",
+      "mo_revenue_kc": 3425,
+      "vo_revenue_kc": 19717,
+      "total_revenue_kc": 23142,
+      "mo_orders": 5,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-07-03",
+      "mo_revenue_kc": 6667,
+      "vo_revenue_kc": 59824,
+      "total_revenue_kc": 66491,
+      "mo_orders": 8,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-07-04",
+      "mo_revenue_kc": 4240,
+      "vo_revenue_kc": 17755,
+      "total_revenue_kc": 21995,
+      "mo_orders": 2,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-07-07",
+      "mo_revenue_kc": 32062,
+      "vo_revenue_kc": 50928,
+      "total_revenue_kc": 82990,
+      "mo_orders": 20,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-08",
+      "mo_revenue_kc": 15747,
+      "vo_revenue_kc": 18088,
+      "total_revenue_kc": 33836,
+      "mo_orders": 10,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-07-09",
+      "mo_revenue_kc": 12977,
+      "vo_revenue_kc": 21711,
+      "total_revenue_kc": 34688,
+      "mo_orders": 15,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-07-10",
+      "mo_revenue_kc": 27099,
+      "vo_revenue_kc": 12918,
+      "total_revenue_kc": 40017,
+      "mo_orders": 19,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-07-11",
+      "mo_revenue_kc": 8893,
+      "vo_revenue_kc": 10838,
+      "total_revenue_kc": 19732,
+      "mo_orders": 7,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-07-12",
+      "mo_revenue_kc": 3473,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 3473,
+      "mo_orders": 2,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-07-14",
+      "mo_revenue_kc": 8589,
+      "vo_revenue_kc": 34232,
+      "total_revenue_kc": 42821,
+      "mo_orders": 10,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-07-15",
+      "mo_revenue_kc": 13892,
+      "vo_revenue_kc": 37632,
+      "total_revenue_kc": 51524,
+      "mo_orders": 14,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-16",
+      "mo_revenue_kc": 8315,
+      "vo_revenue_kc": 24080,
+      "total_revenue_kc": 32394,
+      "mo_orders": 8,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-07-17",
+      "mo_revenue_kc": 12059,
+      "vo_revenue_kc": 26029,
+      "total_revenue_kc": 38088,
+      "mo_orders": 10,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-07-18",
+      "mo_revenue_kc": 3816,
+      "vo_revenue_kc": 37923,
+      "total_revenue_kc": 41738,
+      "mo_orders": 6,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-07-21",
+      "mo_revenue_kc": 19640,
+      "vo_revenue_kc": 60088,
+      "total_revenue_kc": 79727,
+      "mo_orders": 15,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-07-22",
+      "mo_revenue_kc": 3511,
+      "vo_revenue_kc": 28752,
+      "total_revenue_kc": 32263,
+      "mo_orders": 10,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-07-23",
+      "mo_revenue_kc": 5836,
+      "vo_revenue_kc": 48165,
+      "total_revenue_kc": 54000,
+      "mo_orders": 8,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-24",
+      "mo_revenue_kc": 10171,
+      "vo_revenue_kc": 41561,
+      "total_revenue_kc": 51732,
+      "mo_orders": 9,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-25",
+      "mo_revenue_kc": 1687,
+      "vo_revenue_kc": 4522,
+      "total_revenue_kc": 6209,
+      "mo_orders": 4,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-07-26",
+      "mo_revenue_kc": 232,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 232,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-07-28",
+      "mo_revenue_kc": 22159,
+      "vo_revenue_kc": 41535,
+      "total_revenue_kc": 63693,
+      "mo_orders": 12,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-07-29",
+      "mo_revenue_kc": 5516,
+      "vo_revenue_kc": 56922,
+      "total_revenue_kc": 62438,
+      "mo_orders": 12,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-07-30",
+      "mo_revenue_kc": 5432,
+      "vo_revenue_kc": 7660,
+      "total_revenue_kc": 13092,
+      "mo_orders": 7,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-07-31",
+      "mo_revenue_kc": 7603,
+      "vo_revenue_kc": 9717,
+      "total_revenue_kc": 17321,
+      "mo_orders": 8,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-08-01",
+      "mo_revenue_kc": 10961,
+      "vo_revenue_kc": 3707,
+      "total_revenue_kc": 14668,
+      "mo_orders": 6,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-08-04",
+      "mo_revenue_kc": 20002,
+      "vo_revenue_kc": 86073,
+      "total_revenue_kc": 106075,
+      "mo_orders": 19,
+      "vo_orders": 15
+    },
+    {
+      "date": "2025-08-05",
+      "mo_revenue_kc": 3837,
+      "vo_revenue_kc": 37176,
+      "total_revenue_kc": 41014,
+      "mo_orders": 7,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-08-06",
+      "mo_revenue_kc": 9947,
+      "vo_revenue_kc": 18786,
+      "total_revenue_kc": 28733,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-08-07",
+      "mo_revenue_kc": 49252,
+      "vo_revenue_kc": 13760,
+      "total_revenue_kc": 63013,
+      "mo_orders": 10,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-08-08",
+      "mo_revenue_kc": 5096,
+      "vo_revenue_kc": 8856,
+      "total_revenue_kc": 13951,
+      "mo_orders": 7,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-08-09",
+      "mo_revenue_kc": 1135,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 1135,
+      "mo_orders": 3,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-08-11",
+      "mo_revenue_kc": 2580,
+      "vo_revenue_kc": 72046,
+      "total_revenue_kc": 74626,
+      "mo_orders": 5,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-08-12",
+      "mo_revenue_kc": 19311,
+      "vo_revenue_kc": 28174,
+      "total_revenue_kc": 47485,
+      "mo_orders": 11,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-08-13",
+      "mo_revenue_kc": 16469,
+      "vo_revenue_kc": 26038,
+      "total_revenue_kc": 42506,
+      "mo_orders": 5,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-08-14",
+      "mo_revenue_kc": 24643,
+      "vo_revenue_kc": 69354,
+      "total_revenue_kc": 93997,
+      "mo_orders": 11,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-08-15",
+      "mo_revenue_kc": 3362,
+      "vo_revenue_kc": 7802,
+      "total_revenue_kc": 11164,
+      "mo_orders": 6,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-08-18",
+      "mo_revenue_kc": 6197,
+      "vo_revenue_kc": 50971,
+      "total_revenue_kc": 57167,
+      "mo_orders": 8,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-08-19",
+      "mo_revenue_kc": 13580,
+      "vo_revenue_kc": 18953,
+      "total_revenue_kc": 32533,
+      "mo_orders": 8,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-08-20",
+      "mo_revenue_kc": 7106,
+      "vo_revenue_kc": 22392,
+      "total_revenue_kc": 29498,
+      "mo_orders": 5,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-08-21",
+      "mo_revenue_kc": 12158,
+      "vo_revenue_kc": 12845,
+      "total_revenue_kc": 25004,
+      "mo_orders": 9,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-08-22",
+      "mo_revenue_kc": 6556,
+      "vo_revenue_kc": 6468,
+      "total_revenue_kc": 13024,
+      "mo_orders": 4,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-08-25",
+      "mo_revenue_kc": 6360,
+      "vo_revenue_kc": 79639,
+      "total_revenue_kc": 85999,
+      "mo_orders": 11,
+      "vo_orders": 16
+    },
+    {
+      "date": "2025-08-26",
+      "mo_revenue_kc": 1776,
+      "vo_revenue_kc": 94801,
+      "total_revenue_kc": 96576,
+      "mo_orders": 5,
+      "vo_orders": 14
+    },
+    {
+      "date": "2025-08-27",
+      "mo_revenue_kc": 474,
+      "vo_revenue_kc": 18615,
+      "total_revenue_kc": 19088,
+      "mo_orders": 3,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-08-28",
+      "mo_revenue_kc": 21078,
+      "vo_revenue_kc": 27401,
+      "total_revenue_kc": 48479,
+      "mo_orders": 17,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-08-29",
+      "mo_revenue_kc": 2762,
+      "vo_revenue_kc": 30727,
+      "total_revenue_kc": 33489,
+      "mo_orders": 5,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-09-01",
+      "mo_revenue_kc": 10399,
+      "vo_revenue_kc": 85152,
+      "total_revenue_kc": 95551,
+      "mo_orders": 14,
+      "vo_orders": 16
+    },
+    {
+      "date": "2025-09-02",
+      "mo_revenue_kc": 19325,
+      "vo_revenue_kc": 75687,
+      "total_revenue_kc": 95011,
+      "mo_orders": 15,
+      "vo_orders": 15
+    },
+    {
+      "date": "2025-09-03",
+      "mo_revenue_kc": 3163,
+      "vo_revenue_kc": 21099,
+      "total_revenue_kc": 24261,
+      "mo_orders": 5,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-09-04",
+      "mo_revenue_kc": 12554,
+      "vo_revenue_kc": 34299,
+      "total_revenue_kc": 46853,
+      "mo_orders": 7,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-09-05",
+      "mo_revenue_kc": 34600,
+      "vo_revenue_kc": 37876,
+      "total_revenue_kc": 72476,
+      "mo_orders": 6,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-09-08",
+      "mo_revenue_kc": 10295,
+      "vo_revenue_kc": 46989,
+      "total_revenue_kc": 57284,
+      "mo_orders": 11,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-09-09",
+      "mo_revenue_kc": 8808,
+      "vo_revenue_kc": 65806,
+      "total_revenue_kc": 74615,
+      "mo_orders": 8,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-09-10",
+      "mo_revenue_kc": 10275,
+      "vo_revenue_kc": 26457,
+      "total_revenue_kc": 36732,
+      "mo_orders": 8,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-09-11",
+      "mo_revenue_kc": 11710,
+      "vo_revenue_kc": 33399,
+      "total_revenue_kc": 45109,
+      "mo_orders": 12,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-09-12",
+      "mo_revenue_kc": 6597,
+      "vo_revenue_kc": 46777,
+      "total_revenue_kc": 53374,
+      "mo_orders": 10,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-09-13",
+      "mo_revenue_kc": 30,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 30,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-09-15",
+      "mo_revenue_kc": 11437,
+      "vo_revenue_kc": 63067,
+      "total_revenue_kc": 74504,
+      "mo_orders": 14,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-09-16",
+      "mo_revenue_kc": 17992,
+      "vo_revenue_kc": 33731,
+      "total_revenue_kc": 51723,
+      "mo_orders": 8,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-09-17",
+      "mo_revenue_kc": 5374,
+      "vo_revenue_kc": 56167,
+      "total_revenue_kc": 61542,
+      "mo_orders": 10,
+      "vo_orders": 15
+    },
+    {
+      "date": "2025-09-18",
+      "mo_revenue_kc": 22712,
+      "vo_revenue_kc": 24827,
+      "total_revenue_kc": 47539,
+      "mo_orders": 13,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-09-19",
+      "mo_revenue_kc": 16428,
+      "vo_revenue_kc": 24014,
+      "total_revenue_kc": 40442,
+      "mo_orders": 7,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-09-22",
+      "mo_revenue_kc": 4759,
+      "vo_revenue_kc": 59071,
+      "total_revenue_kc": 63829,
+      "mo_orders": 10,
+      "vo_orders": 15
+    },
+    {
+      "date": "2025-09-23",
+      "mo_revenue_kc": 4912,
+      "vo_revenue_kc": 12912,
+      "total_revenue_kc": 17824,
+      "mo_orders": 5,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-09-24",
+      "mo_revenue_kc": 11011,
+      "vo_revenue_kc": 28672,
+      "total_revenue_kc": 39683,
+      "mo_orders": 14,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-09-25",
+      "mo_revenue_kc": 7077,
+      "vo_revenue_kc": 36520,
+      "total_revenue_kc": 43597,
+      "mo_orders": 9,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-09-26",
+      "mo_revenue_kc": 4015,
+      "vo_revenue_kc": 8312,
+      "total_revenue_kc": 12327,
+      "mo_orders": 5,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-09-29",
+      "mo_revenue_kc": 20350,
+      "vo_revenue_kc": 59752,
+      "total_revenue_kc": 80102,
+      "mo_orders": 14,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-09-30",
+      "mo_revenue_kc": 5542,
+      "vo_revenue_kc": 53866,
+      "total_revenue_kc": 59408,
+      "mo_orders": 6,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-10-01",
+      "mo_revenue_kc": 7508,
+      "vo_revenue_kc": 30143,
+      "total_revenue_kc": 37651,
+      "mo_orders": 3,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-10-02",
+      "mo_revenue_kc": 13276,
+      "vo_revenue_kc": 41094,
+      "total_revenue_kc": 54370,
+      "mo_orders": 5,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-10-03",
+      "mo_revenue_kc": 4905,
+      "vo_revenue_kc": 8940,
+      "total_revenue_kc": 13845,
+      "mo_orders": 5,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-10-06",
+      "mo_revenue_kc": 12204,
+      "vo_revenue_kc": 64118,
+      "total_revenue_kc": 76323,
+      "mo_orders": 6,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-10-07",
+      "mo_revenue_kc": 2921,
+      "vo_revenue_kc": 21837,
+      "total_revenue_kc": 24758,
+      "mo_orders": 4,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-10-08",
+      "mo_revenue_kc": 18072,
+      "vo_revenue_kc": 36903,
+      "total_revenue_kc": 54975,
+      "mo_orders": 4,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-10-09",
+      "mo_revenue_kc": 17165,
+      "vo_revenue_kc": 21614,
+      "total_revenue_kc": 38779,
+      "mo_orders": 14,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-10-10",
+      "mo_revenue_kc": 29341,
+      "vo_revenue_kc": 16670,
+      "total_revenue_kc": 46012,
+      "mo_orders": 6,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-10-13",
+      "mo_revenue_kc": 44601,
+      "vo_revenue_kc": 58790,
+      "total_revenue_kc": 103391,
+      "mo_orders": 12,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-10-14",
+      "mo_revenue_kc": 6288,
+      "vo_revenue_kc": 34843,
+      "total_revenue_kc": 41130,
+      "mo_orders": 6,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-10-15",
+      "mo_revenue_kc": 8496,
+      "vo_revenue_kc": 23562,
+      "total_revenue_kc": 32058,
+      "mo_orders": 7,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-10-16",
+      "mo_revenue_kc": 13384,
+      "vo_revenue_kc": 11876,
+      "total_revenue_kc": 25260,
+      "mo_orders": 9,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-10-17",
+      "mo_revenue_kc": 3052,
+      "vo_revenue_kc": 22031,
+      "total_revenue_kc": 25083,
+      "mo_orders": 4,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-10-18",
+      "mo_revenue_kc": 0,
+      "vo_revenue_kc": 3860,
+      "total_revenue_kc": 3860,
+      "mo_orders": 0,
+      "vo_orders": 1
+    },
+    {
+      "date": "2025-10-20",
+      "mo_revenue_kc": 2395,
+      "vo_revenue_kc": 45471,
+      "total_revenue_kc": 47866,
+      "mo_orders": 5,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-10-21",
+      "mo_revenue_kc": 7731,
+      "vo_revenue_kc": 72818,
+      "total_revenue_kc": 80549,
+      "mo_orders": 7,
+      "vo_orders": 11
+    },
+    {
+      "date": "2025-10-22",
+      "mo_revenue_kc": 3819,
+      "vo_revenue_kc": 19301,
+      "total_revenue_kc": 23120,
+      "mo_orders": 5,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-10-23",
+      "mo_revenue_kc": 53976,
+      "vo_revenue_kc": 10048,
+      "total_revenue_kc": 64024,
+      "mo_orders": 9,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-10-24",
+      "mo_revenue_kc": 4998,
+      "vo_revenue_kc": 39129,
+      "total_revenue_kc": 44127,
+      "mo_orders": 2,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-10-27",
+      "mo_revenue_kc": 4881,
+      "vo_revenue_kc": 18940,
+      "total_revenue_kc": 23821,
+      "mo_orders": 6,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-10-29",
+      "mo_revenue_kc": 13513,
+      "vo_revenue_kc": 46287,
+      "total_revenue_kc": 59800,
+      "mo_orders": 13,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-10-30",
+      "mo_revenue_kc": 5180,
+      "vo_revenue_kc": 28294,
+      "total_revenue_kc": 33474,
+      "mo_orders": 9,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-10-31",
+      "mo_revenue_kc": 8125,
+      "vo_revenue_kc": 15118,
+      "total_revenue_kc": 23243,
+      "mo_orders": 9,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-11-03",
+      "mo_revenue_kc": 14991,
+      "vo_revenue_kc": 46351,
+      "total_revenue_kc": 61342,
+      "mo_orders": 17,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-11-04",
+      "mo_revenue_kc": 6617,
+      "vo_revenue_kc": 34168,
+      "total_revenue_kc": 40785,
+      "mo_orders": 6,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-11-05",
+      "mo_revenue_kc": 2712,
+      "vo_revenue_kc": 26524,
+      "total_revenue_kc": 29237,
+      "mo_orders": 3,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-11-06",
+      "mo_revenue_kc": 8196,
+      "vo_revenue_kc": 28291,
+      "total_revenue_kc": 36487,
+      "mo_orders": 7,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-11-07",
+      "mo_revenue_kc": 13907,
+      "vo_revenue_kc": 47598,
+      "total_revenue_kc": 61506,
+      "mo_orders": 6,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-11-08",
+      "mo_revenue_kc": 3603,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 3603,
+      "mo_orders": 2,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-11-10",
+      "mo_revenue_kc": 6451,
+      "vo_revenue_kc": 43608,
+      "total_revenue_kc": 50059,
+      "mo_orders": 10,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-11-11",
+      "mo_revenue_kc": 4947,
+      "vo_revenue_kc": 33774,
+      "total_revenue_kc": 38721,
+      "mo_orders": 7,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-11-12",
+      "mo_revenue_kc": 14135,
+      "vo_revenue_kc": 25443,
+      "total_revenue_kc": 39579,
+      "mo_orders": 11,
+      "vo_orders": 10
+    },
+    {
+      "date": "2025-11-13",
+      "mo_revenue_kc": 2436,
+      "vo_revenue_kc": 44784,
+      "total_revenue_kc": 47221,
+      "mo_orders": 6,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-11-14",
+      "mo_revenue_kc": 8094,
+      "vo_revenue_kc": 39016,
+      "total_revenue_kc": 47110,
+      "mo_orders": 5,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-11-15",
+      "mo_revenue_kc": 350,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 350,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-11-16",
+      "mo_revenue_kc": 112,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 112,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-11-18",
+      "mo_revenue_kc": 11703,
+      "vo_revenue_kc": 22019,
+      "total_revenue_kc": 33721,
+      "mo_orders": 9,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-11-19",
+      "mo_revenue_kc": 2448,
+      "vo_revenue_kc": 14239,
+      "total_revenue_kc": 16687,
+      "mo_orders": 3,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-11-20",
+      "mo_revenue_kc": 15749,
+      "vo_revenue_kc": 13070,
+      "total_revenue_kc": 28819,
+      "mo_orders": 6,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-11-21",
+      "mo_revenue_kc": 9070,
+      "vo_revenue_kc": 16683,
+      "total_revenue_kc": 25753,
+      "mo_orders": 4,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-11-24",
+      "mo_revenue_kc": 3180,
+      "vo_revenue_kc": 41144,
+      "total_revenue_kc": 44324,
+      "mo_orders": 5,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-11-25",
+      "mo_revenue_kc": 1263,
+      "vo_revenue_kc": 18580,
+      "total_revenue_kc": 19843,
+      "mo_orders": 3,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-11-26",
+      "mo_revenue_kc": 8759,
+      "vo_revenue_kc": 24583,
+      "total_revenue_kc": 33343,
+      "mo_orders": 9,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-11-27",
+      "mo_revenue_kc": 3743,
+      "vo_revenue_kc": 48732,
+      "total_revenue_kc": 52475,
+      "mo_orders": 4,
+      "vo_orders": 13
+    },
+    {
+      "date": "2025-11-28",
+      "mo_revenue_kc": 995,
+      "vo_revenue_kc": 867,
+      "total_revenue_kc": 1862,
+      "mo_orders": 2,
+      "vo_orders": 2
+    },
+    {
+      "date": "2025-12-01",
+      "mo_revenue_kc": 13400,
+      "vo_revenue_kc": 28913,
+      "total_revenue_kc": 42313,
+      "mo_orders": 15,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-12-02",
+      "mo_revenue_kc": 8445,
+      "vo_revenue_kc": 19965,
+      "total_revenue_kc": 28410,
+      "mo_orders": 6,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-12-03",
+      "mo_revenue_kc": 3591,
+      "vo_revenue_kc": 19075,
+      "total_revenue_kc": 22666,
+      "mo_orders": 8,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-12-04",
+      "mo_revenue_kc": 3906,
+      "vo_revenue_kc": 18821,
+      "total_revenue_kc": 22727,
+      "mo_orders": 6,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-12-05",
+      "mo_revenue_kc": 1893,
+      "vo_revenue_kc": 33357,
+      "total_revenue_kc": 35250,
+      "mo_orders": 2,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-12-08",
+      "mo_revenue_kc": 10924,
+      "vo_revenue_kc": 36950,
+      "total_revenue_kc": 47874,
+      "mo_orders": 14,
+      "vo_orders": 5
+    },
+    {
+      "date": "2025-12-09",
+      "mo_revenue_kc": 3356,
+      "vo_revenue_kc": 15463,
+      "total_revenue_kc": 18820,
+      "mo_orders": 9,
+      "vo_orders": 7
+    },
+    {
+      "date": "2025-12-10",
+      "mo_revenue_kc": 5318,
+      "vo_revenue_kc": 32575,
+      "total_revenue_kc": 37893,
+      "mo_orders": 10,
+      "vo_orders": 9
+    },
+    {
+      "date": "2025-12-11",
+      "mo_revenue_kc": 20625,
+      "vo_revenue_kc": 12058,
+      "total_revenue_kc": 32683,
+      "mo_orders": 13,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-12-12",
+      "mo_revenue_kc": 3017,
+      "vo_revenue_kc": 12522,
+      "total_revenue_kc": 15539,
+      "mo_orders": 6,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-12-14",
+      "mo_revenue_kc": 1897,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 1897,
+      "mo_orders": 1,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-12-15",
+      "mo_revenue_kc": 6513,
+      "vo_revenue_kc": 82242,
+      "total_revenue_kc": 88755,
+      "mo_orders": 14,
+      "vo_orders": 12
+    },
+    {
+      "date": "2025-12-16",
+      "mo_revenue_kc": 23201,
+      "vo_revenue_kc": 8929,
+      "total_revenue_kc": 32131,
+      "mo_orders": 25,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-12-17",
+      "mo_revenue_kc": 14766,
+      "vo_revenue_kc": 10109,
+      "total_revenue_kc": 24875,
+      "mo_orders": 11,
+      "vo_orders": 6
+    },
+    {
+      "date": "2025-12-18",
+      "mo_revenue_kc": 5191,
+      "vo_revenue_kc": 30373,
+      "total_revenue_kc": 35564,
+      "mo_orders": 16,
+      "vo_orders": 8
+    },
+    {
+      "date": "2025-12-19",
+      "mo_revenue_kc": 7156,
+      "vo_revenue_kc": 16550,
+      "total_revenue_kc": 23706,
+      "mo_orders": 10,
+      "vo_orders": 4
+    },
+    {
+      "date": "2025-12-22",
+      "mo_revenue_kc": 7306,
+      "vo_revenue_kc": 61951,
+      "total_revenue_kc": 69257,
+      "mo_orders": 10,
+      "vo_orders": 3
+    },
+    {
+      "date": "2025-12-23",
+      "mo_revenue_kc": 3998,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 3998,
+      "mo_orders": 2,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-12-29",
+      "mo_revenue_kc": 8502,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 8502,
+      "mo_orders": 22,
+      "vo_orders": 0
+    },
+    {
+      "date": "2025-12-30",
+      "mo_revenue_kc": 2601,
+      "vo_revenue_kc": 912,
+      "total_revenue_kc": 3513,
+      "mo_orders": 7,
+      "vo_orders": 1
+    },
+    {
+      "date": "2025-12-31",
+      "mo_revenue_kc": 1113,
+      "vo_revenue_kc": 0,
+      "total_revenue_kc": 1113,
+      "mo_orders": 5,
+      "vo_orders": 0
+    }
+  ]
+}

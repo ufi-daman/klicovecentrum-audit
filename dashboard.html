@@ -415,7 +415,31 @@
 
 <header>
   <h1>🔍 Audit klicovecentrum.cz — Nápravný plán</h1>
-  <div class="subtitle">Období: říjen 2025 – duben 2026 · 30+ identifikovaných nálezů · Prioritizovaný plán s odhadem dopadu</div>
+  <div class="subtitle" id="subtitle">Období: <span data-period-label>říjen 2025 – duben 2026</span> · 40 identifikovaných nálezů · Prioritizovaný plán s odhadem dopadu</div>
+
+  <div class="header-filters" style="display:flex;gap:14px;margin:14px 0 6px;align-items:center;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <label style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">Období</label>
+      <select id="periodFilter" onchange="applyFilters()" style="padding:8px 12px;background:#1e293b;color:#f8fafc;border:1px solid #334155;border-radius:6px;font-size:14px;min-width:240px">
+        <option value="audit_7m">📅 Audit 7M (10/2025 – 04/2026)</option>
+        <option value="2025">📊 2025 (celý rok)</option>
+        <option value="2024">📊 2024</option>
+        <option value="2023">📊 2023</option>
+        <option value="3y">📈 3-letý přehled (2023–2025)</option>
+      </select>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <label style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em">Segment</label>
+      <select id="segmentFilter" onchange="applyFilters()" style="padding:8px 12px;background:#1e293b;color:#f8fafc;border:1px solid #334155;border-radius:6px;font-size:14px;min-width:240px">
+        <option value="b2c">🛒 B2C E-shop MO (klicovecentrum.cz)</option>
+        <option value="b2b">🏢 B2B Velkoobchod (VO)</option>
+        <option value="both">🔀 Oba segmenty</option>
+      </select>
+    </div>
+    <div style="font-size:11px;color:#64748b;align-self:flex-end;padding-bottom:8px">
+      Aktivní: <span id="activeFilterDisplay" style="color:#cbd5e1;font-weight:600">Audit 7M · B2C</span>
+    </div>
+  </div>
 
   <div class="kpi-grid">
     <div class="kpi-card">
@@ -452,6 +476,9 @@
   <div class="tab" data-cat="seo">🔍 SEO &amp; Technické <span class="tab-badge" id="count-seo">5</span></div>
   <div class="tab" data-cat="data">🛡️ Data quality <span class="tab-badge" id="count-data">4</span></div>
   <div class="tab" data-view="competitors">🥊 Konkurence</div>
+  <div class="tab" data-view="yearly">📅 3-letý přehled</div>
+  <div class="tab" data-view="topb2b">👥 Top 20 B2B</div>
+  <div class="tab" data-view="returns_detail">📦 Vratky 3Y</div>
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
   <div class="tab" data-view="kpi">🎯 KPI rozpad</div>
@@ -980,6 +1007,142 @@
   <div class="chart-card">
     <h3>3️⃣ Chybějící data pro úplnou customer journey</h3>
     <div id="journey-missing"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3-LETÝ PŘEHLED ═══════════════ -->
+<section id="yearly-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>📅 3-letý přehled — H&B Group celkový obrat 2023-2025</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Celkový obrat firmy napříč všemi kanály a segmenty (E-shop MO + Pobočky MO + Velkoobchod). Audit klicovecentrum.cz se zaměřuje na E-shop MO segment, který je ~1 % celkového obratu firmy.
+    </p>
+    <div class="metrics-grid" id="yearly-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📈 Roční trend obratu 2023-2025</h3>
+    <div class="chart-wrap" style="height:380px"><canvas id="chart-yearly-trend"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🎯 YoY delta cards — meziroční změny</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">Automatické flagování: 🟢 růst &gt; 10 % · 🟡 stabilní (-5..+10 %) · 🔴 pokles &gt; 5 %</p>
+    <div id="yoy-deltas"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🏆 Páreto Top SKU — kolik SKU dělá 80 % obratu</h3>
+    <div class="chart-wrap" style="height:380px"><canvas id="chart-pareto"></canvas></div>
+    <div id="pareto-summary" style="margin-top:14px"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🏗️ Segmenty H&B Group: E-shop MO vs MO celkem vs VO</h3>
+    <div class="chart-wrap" style="height:380px"><canvas id="chart-segments"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📊 TOP 20 kategorií 2025</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-yearly-cats">
+        <thead>
+          <tr>
+            <th>Kategorie</th>
+            <th style="text-align:right">Obrat 2025</th>
+            <th style="text-align:right">Zisk</th>
+            <th style="text-align:right">Marže %</th>
+            <th style="text-align:right">Množství</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🏬 Per podsklad — distribuce obratu (2025)</h3>
+    <div class="chart-wrap" style="height:340px"><canvas id="chart-podsklady"></canvas></div>
+  </div>
+</section>
+
+<!-- ═══════════════ TOP 20 B2B ZÁKAZNÍKŮ ═══════════════ -->
+<section id="topb2b-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>👥 Top 20 B2B zákazníků (VO eshop 2025)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Z e-shop velkoobchodních objednávek 2025 (1 786 obj). Fuzzy dedup jmen (Levenshtein > 0,85). IČO není v zdroji — pro přesný customer ID je potřeba CRM integrace.
+    </p>
+    <div class="metrics-grid" id="topb2b-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🏆 Páreto: kumulativní podíl obratu top zákazníků</h3>
+    <div class="chart-wrap" style="height:340px"><canvas id="chart-topb2b-pareto"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📋 Top 20 detail</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-topb2b">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Zákazník</th>
+            <th style="text-align:right">Obrat Kč</th>
+            <th style="text-align:right">Zisk</th>
+            <th style="text-align:right">Marže</th>
+            <th style="text-align:right">Obj.</th>
+            <th style="text-align:right">AOV Kč</th>
+            <th>Poslední obj.</th>
+            <th>RFM</th>
+            <th>Aliasy</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📊 RFM segmentace</h3>
+    <div id="rfm-cards"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ VRATKY & POŠTOVNÉ DETAIL ═══════════════ -->
+<section id="returns_detail-view" class="view-section hidden">
+  <div class="chart-card">
+    <h3>📦 Vratky 2025 — MO vs VO</h3>
+    <div class="metrics-grid" id="returns-summary-grid"></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📈 Měsíční vratky — count + value</h3>
+    <div class="chart-wrap" style="height:380px"><canvas id="chart-returns-monthly"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>📮 Poštovné 3 roky (2023, 2024, 2025)</h3>
+    <div class="metrics-grid" id="postage-summary-3y"></div>
+    <div class="chart-wrap" style="height:340px;margin-top:18px"><canvas id="chart-postage-3y"></canvas></div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🚚 Top dopravců 2025</h3>
+    <div style="overflow-x:auto">
+      <table class="data-table" id="table-postage-carriers">
+        <thead>
+          <tr>
+            <th>Dopravce</th>
+            <th style="text-align:right">Obrat Kč</th>
+            <th style="text-align:right">Počet ks</th>
+            <th style="text-align:right">Počet prodejů</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -1961,6 +2124,9 @@ function showView(view) {
   document.getElementById('regions-view').classList.toggle('hidden', view !== 'regions');
   document.getElementById('journeys-view').classList.toggle('hidden', view !== 'journeys');
   document.getElementById('competitors-view').classList.toggle('hidden', view !== 'competitors');
+  document.getElementById('yearly-view').classList.toggle('hidden', view !== 'yearly');
+  document.getElementById('topb2b-view').classList.toggle('hidden', view !== 'topb2b');
+  document.getElementById('returns_detail-view').classList.toggle('hidden', view !== 'returns_detail');
 }
 
 // tabs
@@ -1990,6 +2156,15 @@ document.querySelectorAll('.tab').forEach(tab => {
     } else if (tab.dataset.view === 'competitors') {
       showView('competitors');
       loadCompetitors();
+    } else if (tab.dataset.view === 'yearly') {
+      showView('yearly');
+      loadYearly();
+    } else if (tab.dataset.view === 'topb2b') {
+      showView('topb2b');
+      loadTopB2B();
+    } else if (tab.dataset.view === 'returns_detail') {
+      showView('returns_detail');
+      loadReturnsDetail();
     } else {
       showView('findings');
       activeCategory = tab.dataset.cat;
@@ -3007,6 +3182,335 @@ async function loadCompetitors() {
     } catch (e) { console.error(e); return; }
   }
   renderCompetitors();
+}
+
+// ─── STATE MANAGER + FILTER ─────────────────────────────────
+window.dashState = window.dashState || {period: 'audit_7m', segment: 'b2c'};
+function applyFilters() {
+  window.dashState.period = document.getElementById('periodFilter').value;
+  window.dashState.segment = document.getElementById('segmentFilter').value;
+  const PLABELS = {audit_7m:'Audit 7M (10/2025-04/2026)', '2025':'2025 (celý rok)',
+                    '2024':'2024', '2023':'2023', '3y':'3-letý přehled (2023-2025)'};
+  const SLABELS = {b2c:'B2C E-shop MO', b2b:'B2B Velkoobchod', both:'Oba segmenty'};
+  // update period label texts
+  document.querySelectorAll('[data-period-label]').forEach(el => {
+    el.textContent = PLABELS[window.dashState.period] || '—';
+  });
+  document.getElementById('activeFilterDisplay').textContent =
+    PLABELS[window.dashState.period] + ' · ' + SLABELS[window.dashState.segment];
+  // re-render aktivní tab
+  const activeTab = document.querySelector('.tab.active');
+  if (activeTab) activeTab.click();
+}
+
+// ─── 3-LETÝ PŘEHLED ──────────────────────────────────────────
+let yearlyData = null;
+async function loadYearly() {
+  if (!yearlyData) {
+    try {
+      const [yt, ym] = await Promise.all([
+        fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
+      ]);
+      yearlyData = {trend: yt, master: ym};
+    } catch(e){ console.error('yearly', e); return; }
+  }
+  renderYearly();
+}
+
+function renderYearly() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const yt = yearlyData.trend;
+  const years = yt.years;
+  const cur = years[years.length-1];
+
+  // KPI grid
+  document.getElementById('yearly-summary-grid').innerHTML = `
+    ${years.map(y => `
+      <div class="metric-box" style="background:rgba(${y.year===2025?'16,185,129,.10':'59,130,246,.06'});border-color:${y.year===2025?'#10b981':'#3b82f6'}">
+        <div class="metric-label">${y.year} celkový obrat</div>
+        <div class="metric-value" style="color:${y.year===2025?'#10b981':'#93c5fd'}">${fmt(y.revenue_total)} Kč</div>
+        <div style="color:#64748b;font-size:11px;margin-top:4px">zisk ${fmt(y.profit_total)} (${y.margin_pct}%) · ${fmt(y.skus_with_sales)} SKU · vratky ${y.returns_pct}%</div>
+        ${y.yoy ? `<div style="color:${y.yoy.revenue_pct>0?'#4ade80':'#fca5a5'};font-size:12px;margin-top:6px;font-weight:600">YoY ${y.yoy.revenue_pct>0?'+':''}${y.yoy.revenue_pct}% · zisk ${y.yoy.profit_pct>0?'+':''}${y.yoy.profit_pct}%</div>` : ''}
+      </div>
+    `).join('')}
+  `;
+
+  // Trend chart
+  if (window.yearlyTrendChart) window.yearlyTrendChart.destroy();
+  const ctx = document.getElementById('chart-yearly-trend').getContext('2d');
+  window.yearlyTrendChart = new Chart(ctx, {
+    type: 'bar',
+    data: {labels: years.map(y=>y.year),
+           datasets: [
+             {label:'Obrat (Kč)', data: years.map(y=>y.revenue_total), backgroundColor:'#3b82f6', yAxisID:'y'},
+             {label:'Zisk (Kč)', data: years.map(y=>y.profit_total), backgroundColor:'#10b981', yAxisID:'y'},
+             {label:'Marže %', data: years.map(y=>y.margin_pct), type:'line', borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y1', tension:0.3},
+           ]},
+    options: {responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1'},grid:{color:'#334155'}},
+              y:{position:'left',ticks:{color:'#93c5fd',callback:v=>(v/1000000).toFixed(0)+' M'},grid:{color:'#334155'},title:{display:true,text:'Kč',color:'#93c5fd'}},
+              y1:{position:'right',ticks:{color:'#fbbf24',callback:v=>v+'%'},grid:{drawOnChartArea:false},title:{display:true,text:'Marže %',color:'#fbbf24'}}}}
+  });
+
+  // YoY delta cards (improvement #2)
+  const deltas = [];
+  for (let i = 1; i < years.length; i++) {
+    const prev = years[i-1], cur2 = years[i];
+    deltas.push({label: `${cur2.year} vs ${prev.year}`, revenue: cur2.yoy.revenue_pct, profit: cur2.yoy.profit_pct,
+                  margin_pp: cur2.yoy.margin_pp, qty: cur2.yoy.qty_pct,
+                  segments: cur2.yoy.segments});
+  }
+  document.getElementById('yoy-deltas').innerHTML = deltas.map(d => `
+    <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:10px;padding:14px;margin-bottom:12px">
+      <h4 style="color:#cbd5e1;margin:0 0 10px;font-size:14px">${d.label}</h4>
+      <div class="metrics-grid">
+        ${[['Obrat',d.revenue,'%'],['Zisk',d.profit,'%'],['Marže',d.margin_pp,'pp'],['Množství',d.qty,'%']].map(([lbl,val,unit])=>{
+          const flag = val==null?'⚪️': val>10?'🟢': val<-5?'🔴':'🟡';
+          const color = val==null?'#94a3b8': val>10?'#4ade80': val<-5?'#fca5a5':'#fcd34d';
+          return `<div class="metric-box" style="border-color:${color}"><div class="metric-label">${flag} ${lbl}</div><div class="metric-value" style="color:${color};font-size:22px">${val==null?'—':(val>0?'+':'')+val+unit}</div></div>`;
+        }).join('')}
+      </div>
+      ${d.segments?`<div style="margin-top:10px;color:#94a3b8;font-size:12px">Segmenty: E-shop MO ${d.segments.eshop_mo!=null?(d.segments.eshop_mo>0?'+':'')+d.segments.eshop_mo+'%':'—'} · MO celkem ${d.segments.mo_total!=null?(d.segments.mo_total>0?'+':'')+d.segments.mo_total+'%':'—'} · VO ${d.segments.vo!=null?(d.segments.vo>0?'+':'')+d.segments.vo+'%':'—'}</div>`:''}
+    </div>
+  `).join('');
+
+  // Páreto Top SKU (improvement #1)
+  const topSkus = cur.top_skus || [];
+  const totalRev = cur.revenue_total;
+  let cumul = 0;
+  const paretoData = topSkus.slice(0, 30).map((s, i) => {
+    cumul += s.revenue;
+    return {name: s.name.substring(0,30), revenue: s.revenue, cumul_pct: cumul/totalRev*100};
+  });
+  if (window.paretoChart) window.paretoChart.destroy();
+  const pCtx = document.getElementById('chart-pareto').getContext('2d');
+  window.paretoChart = new Chart(pCtx, {
+    type: 'bar',
+    data: {labels: paretoData.map(p=>p.name),
+           datasets: [
+             {label:'Obrat SKU', data: paretoData.map(p=>p.revenue), backgroundColor:'#3b82f6', yAxisID:'y'},
+             {label:'Kumulativní % obratu', type:'line', data:paretoData.map(p=>p.cumul_pct), borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y1', tension:0.2},
+           ]},
+    options: {responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1',maxRotation:60,minRotation:45,font:{size:10}}},
+              y:{position:'left',ticks:{color:'#93c5fd'}},
+              y1:{position:'right',min:0,max:100,ticks:{color:'#fbbf24',callback:v=>v+'%'}}}}
+  });
+  // Páreto summary
+  const top10_share = topSkus.slice(0,10).reduce((a,s)=>a+s.revenue,0)/totalRev*100;
+  const top20_share = topSkus.slice(0,20).reduce((a,s)=>a+s.revenue,0)/totalRev*100;
+  const top50_share = topSkus.slice(0,50).reduce((a,s)=>a+s.revenue,0)/totalRev*100;
+  document.getElementById('pareto-summary').innerHTML = `
+    <div style="background:rgba(15,23,42,.6);padding:12px;border-radius:8px;font-size:13px;color:#cbd5e1">
+      <strong style="color:#fbbf24">📊 80/20 analýza Top SKU (${cur.year}):</strong>
+      Top 10 SKU = <strong>${top10_share.toFixed(1)}%</strong> obratu ·
+      Top 20 = <strong>${top20_share.toFixed(1)}%</strong> ·
+      Top 50 = <strong>${top50_share.toFixed(1)}%</strong> z ${fmt(cur.skus_with_sales)} SKU celkem.
+    </div>
+  `;
+
+  // Segments chart (E-shop MO vs MO total vs VO)
+  if (window.segmentsChart) window.segmentsChart.destroy();
+  const sCtx = document.getElementById('chart-segments').getContext('2d');
+  window.segmentsChart = new Chart(sCtx, {
+    type: 'bar',
+    data: {labels: years.map(y=>y.year),
+           datasets: [
+             {label:'E-shop MO (B2C)', data:years.map(y=>y.segments?.eshop_mo?.revenue_kc||0), backgroundColor:'#10b981'},
+             {label:'MO celkem (vč. poboček)', data:years.map(y=>y.segments?.mo_total?.revenue_kc||0), backgroundColor:'#3b82f6'},
+             {label:'VO (B2B)', data:years.map(y=>y.segments?.vo?.revenue_kc||0), backgroundColor:'#a78bfa'},
+           ]},
+    options: {responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1'},grid:{color:'#334155'}},
+              y:{ticks:{color:'#cbd5e1',callback:v=>(v/1000000).toFixed(0)+'M'},grid:{color:'#334155'}}}}
+  });
+
+  // Top kategorií tabulka
+  document.querySelector('#table-yearly-cats tbody').innerHTML = (cur.top_categories||[]).map(c=>`
+    <tr>
+      <td><strong>${c.name}</strong></td>
+      <td class="num">${fmt(c.revenue)}</td>
+      <td class="num">${fmt(c.profit)}</td>
+      <td class="num">${c.revenue?((c.profit/c.revenue*100).toFixed(1)+'%'):'—'}</td>
+      <td class="num">${fmt(c.qty)}</td>
+    </tr>`).join('');
+
+  // Podsklady chart
+  if (window.podskladyChart) window.podskladyChart.destroy();
+  const pSkCtx = document.getElementById('chart-podsklady').getContext('2d');
+  const psklLegend = yt.interpretation?.podskladová_legenda || {};
+  const tops = (cur.podsklady||[]).slice(0, 12);
+  window.podskladyChart = new Chart(pSkCtx, {
+    type: 'bar',
+    data: {labels: tops.map(p=>(psklLegend[p.podsklad]||p.podsklad)+' (#'+p.podsklad+')'),
+           datasets: [{label:'Obrat 2025 (Kč)', data:tops.map(p=>p.revenue), backgroundColor:'#a78bfa'}]},
+    options: {responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1',callback:v=>(v/1000000).toFixed(1)+'M'}},
+              y:{ticks:{color:'#cbd5e1',font:{size:10}}}}}
+  });
+}
+
+// ─── TOP 20 B2B ──────────────────────────────────────────────
+let topB2BData = null;
+async function loadTopB2B() {
+  if (!topB2BData) {
+    try { topB2BData = await fetch('data/top_b2b_customers.json?v='+Date.now()).then(r=>r.json()); }
+    catch(e){ console.error('topb2b', e); return; }
+  }
+  renderTopB2B();
+}
+
+function renderTopB2B() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const d = topB2BData;
+  // Summary
+  document.getElementById('topb2b-summary-grid').innerHTML = `
+    <div class="metric-box"><div class="metric-label">Total B2B obrat 2025</div><div class="metric-value" style="color:#a78bfa">${fmt(d.total_b2b_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders)} obj. · ${d.total_unique_customers_after_dedup} zákazníků</div></div>
+    <div class="metric-box"><div class="metric-label">Top 5</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+    <div class="metric-box"><div class="metric-label">Top 20</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+    <div class="metric-box"><div class="metric-label">Top 50</div><div class="metric-value" style="color:#10b981">${d.pareto.top_50_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+    <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Dedup</div><div class="metric-value" style="color:#a78bfa">${d.dedup_stats.merge_count}</div><div style="color:#64748b;font-size:11px">jmen sloučeno (${d.dedup_stats.merge_rate_pct}%)</div></div>
+  `;
+
+  // Pareto chart
+  let cumul = 0;
+  const total = d.total_b2b_revenue_kc;
+  const top50 = d.top_50_lite;
+  const paretoPoints = top50.map(c => { cumul += c.revenue_kc; return {name: c.name.substring(0,25), revenue:c.revenue_kc, cumul_pct: cumul/total*100}; });
+  if (window.topb2bParetoChart) window.topb2bParetoChart.destroy();
+  const ctx = document.getElementById('chart-topb2b-pareto').getContext('2d');
+  window.topb2bParetoChart = new Chart(ctx, {
+    type:'bar',
+    data:{labels:paretoPoints.map(p=>p.name),
+          datasets:[
+            {label:'Obrat zákazníka (Kč)', data:paretoPoints.map(p=>p.revenue), backgroundColor:'#a78bfa', yAxisID:'y'},
+            {label:'Kumulativní % obratu', type:'line', data:paretoPoints.map(p=>p.cumul_pct), borderColor:'#fbbf24', backgroundColor:'#fbbf24', yAxisID:'y1', tension:0.2},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1',maxRotation:60,minRotation:45,font:{size:9}}},
+              y:{ticks:{color:'#cbd5e1',callback:v=>(v/1000).toFixed(0)+'k'}},
+              y1:{position:'right',min:0,max:100,ticks:{color:'#fbbf24',callback:v=>v+'%'}}}}
+  });
+
+  // Tabulka top 20
+  document.querySelector('#table-topb2b tbody').innerHTML = d.top_20.map((c,i) => `
+    <tr>
+      <td>${i+1}</td>
+      <td><strong>${c.primary_name}</strong></td>
+      <td class="num">${fmt(c.revenue_kc)}</td>
+      <td class="num">${fmt(c.profit_kc)}</td>
+      <td class="num">${c.margin_pct}%</td>
+      <td class="num">${c.orders}</td>
+      <td class="num">${fmt(c.aov_kc)}</td>
+      <td>${c.last_order}</td>
+      <td>${c.rfm_segment}</td>
+      <td style="font-size:11px;color:#94a3b8">${c.alias_count > 1 ? c.aliases.length+' alias.' : '—'}</td>
+    </tr>`).join('');
+
+  // RFM cards
+  document.getElementById('rfm-cards').innerHTML = '<div class="metrics-grid">' +
+    d.rfm_distribution.map(r => `
+      <div class="metric-box">
+        <div class="metric-label">${r.segment}</div>
+        <div class="metric-value" style="font-size:22px">${r.count} z.</div>
+        <div style="color:#64748b;font-size:11px">${fmt(r.revenue)} Kč · ${r.share_pct} % share</div>
+      </div>
+    `).join('') + '</div>';
+}
+
+// ─── VRATKY DETAIL ──────────────────────────────────────────
+let returnsDetailData = null, postage3yData = null;
+async function loadReturnsDetail() {
+  if (!returnsDetailData || !postage3yData) {
+    try {
+      const [rd, p3y] = await Promise.all([
+        fetch('data/returns_detail.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/postage_3y.json?v='+Date.now()).then(r=>r.json()),
+      ]);
+      returnsDetailData = rd; postage3yData = p3y;
+    } catch(e){ console.error('returns_detail', e); return; }
+  }
+  renderReturnsDetail();
+}
+
+function renderReturnsDetail() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const r = returnsDetailData; const p = postage3yData;
+
+  // Returns summary
+  document.getElementById('returns-summary-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(59,130,246,.08);border-color:#3b82f6">
+      <div class="metric-label">🛒 MO vratky</div>
+      <div class="metric-value" style="color:#93c5fd">${fmt(r.summary.MO.returns_count)}</div>
+      <div style="color:#64748b;font-size:11px">${fmt(r.summary.MO.returns_value_kc)} Kč · ${r.summary.MO.returns_value_pct} % obratu</div>
+    </div>
+    <div class="metric-box" style="background:rgba(168,85,247,.08);border-color:#a78bfa">
+      <div class="metric-label">🏢 VO vratky</div>
+      <div class="metric-value" style="color:#a78bfa">${fmt(r.summary.VO.returns_count)}</div>
+      <div style="color:#64748b;font-size:11px">${fmt(r.summary.VO.returns_value_kc)} Kč · ${r.summary.VO.returns_value_pct} % obratu</div>
+    </div>
+    <div class="metric-box"><div class="metric-label">Avg vratka MO</div><div class="metric-value">${fmt(r.summary.MO.avg_return_kc)} Kč</div></div>
+    <div class="metric-box"><div class="metric-label">Avg vratka VO</div><div class="metric-value">${fmt(r.summary.VO.avg_return_kc)} Kč</div></div>
+  `;
+
+  // Returns monthly chart
+  if (window.returnsMonthlyChart) window.returnsMonthlyChart.destroy();
+  const rCtx = document.getElementById('chart-returns-monthly').getContext('2d');
+  window.returnsMonthlyChart = new Chart(rCtx, {
+    type:'bar',
+    data:{labels: r.monthly.map(m=>m.month),
+          datasets:[
+            {label:'MO vratky Kč', data:r.monthly.map(m=>m.mo_returns_kc), backgroundColor:'#3b82f6'},
+            {label:'VO vratky Kč', data:r.monthly.map(m=>m.vo_returns_kc), backgroundColor:'#a78bfa'},
+            {label:'MO % vratek', type:'line', data:r.monthly.map(m=>m.mo_returns_value_pct), borderColor:'#fbbf24', yAxisID:'y1', tension:0.3},
+            {label:'VO % vratek', type:'line', data:r.monthly.map(m=>m.vo_returns_value_pct), borderColor:'#ef4444', yAxisID:'y1', tension:0.3},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1'}},y:{ticks:{color:'#cbd5e1'}},
+              y1:{position:'right',ticks:{color:'#fbbf24',callback:v=>v+'%'},grid:{drawOnChartArea:false}}}}
+  });
+
+  // Postage 3y summary
+  document.getElementById('postage-summary-3y').innerHTML = p.years.map(y=>`
+    <div class="metric-box">
+      <div class="metric-label">${y.year} poštovné</div>
+      <div class="metric-value" style="color:#fbbf24">${fmt(y.total_postage_revenue_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">${fmt(y.total_sales_count)} prodejů · avg ${y.avg_per_sale_kc} Kč ${y.yoy?'<br>YoY '+(y.yoy.postage_revenue_pct>0?'+':'')+y.yoy.postage_revenue_pct+'%':''}</div>
+    </div>
+  `).join('');
+
+  // Postage 3y chart
+  if (window.postage3yChart) window.postage3yChart.destroy();
+  const pCtx = document.getElementById('chart-postage-3y').getContext('2d');
+  window.postage3yChart = new Chart(pCtx, {
+    type:'bar',
+    data:{labels: p.years.map(y=>y.year),
+          datasets:[
+            {label:'Obrat poštovné (Kč)', data:p.years.map(y=>y.total_postage_revenue_kc), backgroundColor:'#fbbf24', yAxisID:'y'},
+            {label:'Prodejů', type:'line', data:p.years.map(y=>y.total_sales_count), borderColor:'#3b82f6', backgroundColor:'#3b82f6', yAxisID:'y1', tension:0.3},
+          ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1'}},y:{ticks:{color:'#fbbf24'}},
+              y1:{position:'right',ticks:{color:'#3b82f6'},grid:{drawOnChartArea:false}}}}
+  });
+
+  // Top dopravci 2025
+  const cur = p.years[p.years.length-1];
+  document.querySelector('#table-postage-carriers tbody').innerHTML = (cur.carriers||[]).map(c=>`
+    <tr>
+      <td><strong>${c.carrier}</strong></td>
+      <td class="num">${fmt(c.obrat)} Kč</td>
+      <td class="num">${fmt(c.qty)}</td>
+      <td class="num">${fmt(c.count)}</td>
+    </tr>`).join('');
 }
 
 function renderCompetitors() {

@@ -1,0 +1,807 @@
+{
+  "generated": "2026-04-29T10:32:55",
+  "period": "2025 (celý rok)",
+  "source": "ERP Eshop objednávky VO 2025.csv (e-shop B2B segment)",
+  "scope": "B2B zákazníci s objednávkou v 2025. Dedup heuristikou (Levenshtein > 0.85, normalize lower+strip s.r.o./a.s.).",
+  "total_b2b_revenue_kc": 8309301,
+  "total_unique_customers_after_dedup": 115,
+  "total_orders": 1784,
+  "dedup_stats": {
+    "raw_unique_names": 116,
+    "after_fuzzy_merge": 115,
+    "merge_count": 1,
+    "merge_rate_pct": 0.9
+  },
+  "pareto": {
+    "top_5_share_pct": 32.3,
+    "top_10_share_pct": 51.8,
+    "top_20_share_pct": 70.7,
+    "top_50_share_pct": 91.2,
+    "all_customers_count": 115
+  },
+  "rfm_distribution": [
+    {
+      "segment": "⚠️ At Risk",
+      "count": 69,
+      "revenue": 7718389,
+      "share_pct": 92.9
+    },
+    {
+      "segment": "🔴 Lost (high value)",
+      "count": 8,
+      "revenue": 248139,
+      "share_pct": 3.0
+    },
+    {
+      "segment": "💤 Hibernating",
+      "count": 37,
+      "revenue": 201129,
+      "share_pct": 2.4
+    },
+    {
+      "segment": "💎 Loyal",
+      "count": 1,
+      "revenue": 141644,
+      "share_pct": 1.7
+    }
+  ],
+  "top_20": [
+    {
+      "canonical_name": "tocik pelhrimov",
+      "primary_name": "Točík Pelhřimov s.r.o.",
+      "aliases": [
+        "Točík Pelhřimov s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 763129,
+      "profit_kc": 341529,
+      "margin_pct": 44.8,
+      "orders": 66,
+      "items": 1310,
+      "aov_kc": 11563,
+      "first_order": "2025-01-06",
+      "last_order": "2025-12-22",
+      "months_active": 12,
+      "frequency_per_month": 5.5,
+      "recency_days": 121,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "altara dc",
+      "primary_name": "ALTARA DC s.r.o.",
+      "aliases": [
+        "ALTARA DC s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 608227,
+      "profit_kc": 270457,
+      "margin_pct": 44.5,
+      "orders": 81,
+      "items": 2567,
+      "aov_kc": 7509,
+      "first_order": "2025-01-02",
+      "last_order": "2025-12-15",
+      "months_active": 12,
+      "frequency_per_month": 6.75,
+      "recency_days": 128,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "jiri hamouz",
+      "primary_name": "Jiří Hamouz",
+      "aliases": [
+        "Jiří Hamouz"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 509435,
+      "profit_kc": 182355,
+      "margin_pct": 35.8,
+      "orders": 112,
+      "items": 831,
+      "aov_kc": 4549,
+      "first_order": "2025-01-07",
+      "last_order": "2025-12-09",
+      "months_active": 12,
+      "frequency_per_month": 9.33,
+      "recency_days": 134,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "jiri slovak",
+      "primary_name": "Jiří Slovák",
+      "aliases": [
+        "Jiří Slovák"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 458283,
+      "profit_kc": 205889,
+      "margin_pct": 44.9,
+      "orders": 53,
+      "items": 902,
+      "aov_kc": 8647,
+      "first_order": "2025-01-06",
+      "last_order": "2025-12-22",
+      "months_active": 12,
+      "frequency_per_month": 4.42,
+      "recency_days": 121,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "vaclav krouzek zamecnicke centrum votice",
+      "primary_name": "Václav Kroužek - zámečnické centrum Votice",
+      "aliases": [
+        "Václav Kroužek - zámečnické centrum Votice"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 347081,
+      "profit_kc": 162590,
+      "margin_pct": 46.8,
+      "orders": 69,
+      "items": 1277,
+      "aov_kc": 5030,
+      "first_order": "2025-01-07",
+      "last_order": "2025-12-16",
+      "months_active": 12,
+      "frequency_per_month": 5.75,
+      "recency_days": 127,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "trezorservis",
+      "primary_name": "TREZORSERVIS s.r.o.",
+      "aliases": [
+        "TREZORSERVIS s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 342971,
+      "profit_kc": 159448,
+      "margin_pct": 46.5,
+      "orders": 49,
+      "items": 1463,
+      "aov_kc": 6999,
+      "first_order": "2025-01-06",
+      "last_order": "2025-11-24",
+      "months_active": 11,
+      "frequency_per_month": 4.45,
+      "recency_days": 149,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "matejka zamkarstvi",
+      "primary_name": "Matějka zámkařství s.r.o.",
+      "aliases": [
+        "Matějka zámkařství s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 339136,
+      "profit_kc": 147759,
+      "margin_pct": 43.6,
+      "orders": 58,
+      "items": 504,
+      "aov_kc": 5847,
+      "first_order": "2025-01-03",
+      "last_order": "2025-12-15",
+      "months_active": 12,
+      "frequency_per_month": 4.83,
+      "recency_days": 128,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "vit walter",
+      "primary_name": "Vít Walter",
+      "aliases": [
+        "Vít Walter"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 323730,
+      "profit_kc": 124586,
+      "margin_pct": 38.5,
+      "orders": 74,
+      "items": 804,
+      "aov_kc": 4375,
+      "first_order": "2025-01-06",
+      "last_order": "2025-12-15",
+      "months_active": 12,
+      "frequency_per_month": 6.17,
+      "recency_days": 128,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "sabata",
+      "primary_name": "ŠABATA s.r.o.",
+      "aliases": [
+        "ŠABATA s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 321451,
+      "profit_kc": 87940,
+      "margin_pct": 27.4,
+      "orders": 46,
+      "items": 536,
+      "aov_kc": 6988,
+      "first_order": "2025-01-14",
+      "last_order": "2025-12-09",
+      "months_active": 12,
+      "frequency_per_month": 3.83,
+      "recency_days": 134,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "zamecnictvi peceny",
+      "primary_name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
+      "aliases": [
+        "ZÁMEČNICTVÍ PEČENÝ s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 287269,
+      "profit_kc": 122131,
+      "margin_pct": 42.5,
+      "orders": 86,
+      "items": 659,
+      "aov_kc": 3340,
+      "first_order": "2025-01-03",
+      "last_order": "2025-12-19",
+      "months_active": 12,
+      "frequency_per_month": 7.17,
+      "recency_days": 124,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "klicove a trezorove centrum hausner plny",
+      "primary_name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+      "aliases": [
+        "Klíčové a trezorové centrum Hausner-Plný s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 265427,
+      "profit_kc": 86248,
+      "margin_pct": 32.5,
+      "orders": 50,
+      "items": 416,
+      "aov_kc": 5309,
+      "first_order": "2025-01-06",
+      "last_order": "2025-12-08",
+      "months_active": 12,
+      "frequency_per_month": 4.17,
+      "recency_days": 135,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "tomas zelinka",
+      "primary_name": "Tomáš Zelinka",
+      "aliases": [
+        "Tomáš Zelinka"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 258531,
+      "profit_kc": 154213,
+      "margin_pct": 59.6,
+      "orders": 36,
+      "items": 267,
+      "aov_kc": 7181,
+      "first_order": "2025-01-06",
+      "last_order": "2025-12-08",
+      "months_active": 12,
+      "frequency_per_month": 3.0,
+      "recency_days": 135,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "petr kucera",
+      "primary_name": "Petr Kučera",
+      "aliases": [
+        "Petr Kučera"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 194056,
+      "profit_kc": 71088,
+      "margin_pct": 36.6,
+      "orders": 30,
+      "items": 379,
+      "aov_kc": 6469,
+      "first_order": "2025-01-10",
+      "last_order": "2025-12-22",
+      "months_active": 12,
+      "frequency_per_month": 2.5,
+      "recency_days": 121,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "vladimira mojcherova",
+      "primary_name": "Vladimíra Mojcherová",
+      "aliases": [
+        "Vladimíra Mojcherová"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 159295,
+      "profit_kc": 89366,
+      "margin_pct": 56.1,
+      "orders": 46,
+      "items": 1151,
+      "aov_kc": 3463,
+      "first_order": "2025-01-08",
+      "last_order": "2025-12-10",
+      "months_active": 12,
+      "frequency_per_month": 3.83,
+      "recency_days": 133,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "tomas kraupner",
+      "primary_name": "Tomáš Kraupner",
+      "aliases": [
+        "Tomáš Kraupner"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 141644,
+      "profit_kc": 75209,
+      "margin_pct": 53.1,
+      "orders": 35,
+      "items": 285,
+      "aov_kc": 4047,
+      "first_order": "2025-01-09",
+      "last_order": "2025-12-30",
+      "months_active": 12,
+      "frequency_per_month": 2.92,
+      "recency_days": 113,
+      "rfm_segment": "💎 Loyal"
+    },
+    {
+      "canonical_name": "zamkarstvi jiro",
+      "primary_name": "ZÁMKAŘSTVÍ JIRO, s.r.o.",
+      "aliases": [
+        "ZÁMKAŘSTVÍ JIRO, s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 120430,
+      "profit_kc": 45881,
+      "margin_pct": 38.1,
+      "orders": 73,
+      "items": 306,
+      "aov_kc": 1650,
+      "first_order": "2025-01-30",
+      "last_order": "2025-11-27",
+      "months_active": 11,
+      "frequency_per_month": 6.64,
+      "recency_days": 146,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "pasomaso",
+      "primary_name": "PasoMaso s.r.o.",
+      "aliases": [
+        "PasoMaso s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 116033,
+      "profit_kc": 44437,
+      "margin_pct": 38.3,
+      "orders": 27,
+      "items": 296,
+      "aov_kc": 4298,
+      "first_order": "2025-01-07",
+      "last_order": "2025-12-05",
+      "months_active": 12,
+      "frequency_per_month": 2.25,
+      "recency_days": 138,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "klicarstvi",
+      "primary_name": "Klíčařství s.r.o.",
+      "aliases": [
+        "Klíčařství s.r.o."
+      ],
+      "alias_count": 1,
+      "revenue_kc": 115949,
+      "profit_kc": 73353,
+      "margin_pct": 63.3,
+      "orders": 27,
+      "items": 243,
+      "aov_kc": 4294,
+      "first_order": "2025-01-03",
+      "last_order": "2025-12-18",
+      "months_active": 12,
+      "frequency_per_month": 2.25,
+      "recency_days": 125,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "petr brabenec zamkarstvi",
+      "primary_name": "Petr Brabenec, zámkařství",
+      "aliases": [
+        "Petr Brabenec, zámkařství"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 103918,
+      "profit_kc": 43485,
+      "margin_pct": 41.8,
+      "orders": 62,
+      "items": 695,
+      "aov_kc": 1676,
+      "first_order": "2025-03-27",
+      "last_order": "2025-12-19",
+      "months_active": 10,
+      "frequency_per_month": 6.2,
+      "recency_days": 124,
+      "rfm_segment": "⚠️ At Risk"
+    },
+    {
+      "canonical_name": "petr molek",
+      "primary_name": "Petr Molek",
+      "aliases": [
+        "Petr Molek"
+      ],
+      "alias_count": 1,
+      "revenue_kc": 99811,
+      "profit_kc": 38844,
+      "margin_pct": 38.9,
+      "orders": 9,
+      "items": 342,
+      "aov_kc": 11090,
+      "first_order": "2025-01-22",
+      "last_order": "2025-12-05",
+      "months_active": 12,
+      "frequency_per_month": 0.75,
+      "recency_days": 138,
+      "rfm_segment": "⚠️ At Risk"
+    }
+  ],
+  "top_50_lite": [
+    {
+      "rank": 1,
+      "name": "Točík Pelhřimov s.r.o.",
+      "revenue_kc": 763129,
+      "orders": 66,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 2,
+      "name": "ALTARA DC s.r.o.",
+      "revenue_kc": 608227,
+      "orders": 81,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 3,
+      "name": "Jiří Hamouz",
+      "revenue_kc": 509435,
+      "orders": 112,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 4,
+      "name": "Jiří Slovák",
+      "revenue_kc": 458283,
+      "orders": 53,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 5,
+      "name": "Václav Kroužek - zámečnické centrum Votice",
+      "revenue_kc": 347081,
+      "orders": 69,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 6,
+      "name": "TREZORSERVIS s.r.o.",
+      "revenue_kc": 342971,
+      "orders": 49,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 7,
+      "name": "Matějka zámkařství s.r.o.",
+      "revenue_kc": 339136,
+      "orders": 58,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 8,
+      "name": "Vít Walter",
+      "revenue_kc": 323730,
+      "orders": 74,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 9,
+      "name": "ŠABATA s.r.o.",
+      "revenue_kc": 321451,
+      "orders": 46,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 10,
+      "name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
+      "revenue_kc": 287269,
+      "orders": 86,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 11,
+      "name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+      "revenue_kc": 265427,
+      "orders": 50,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 12,
+      "name": "Tomáš Zelinka",
+      "revenue_kc": 258531,
+      "orders": 36,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 13,
+      "name": "Petr Kučera",
+      "revenue_kc": 194056,
+      "orders": 30,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 14,
+      "name": "Vladimíra Mojcherová",
+      "revenue_kc": 159295,
+      "orders": 46,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 15,
+      "name": "Tomáš Kraupner",
+      "revenue_kc": 141644,
+      "orders": 35,
+      "rfm": "💎 Loyal"
+    },
+    {
+      "rank": 16,
+      "name": "ZÁMKAŘSTVÍ JIRO, s.r.o.",
+      "revenue_kc": 120430,
+      "orders": 73,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 17,
+      "name": "PasoMaso s.r.o.",
+      "revenue_kc": 116033,
+      "orders": 27,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 18,
+      "name": "Klíčařství s.r.o.",
+      "revenue_kc": 115949,
+      "orders": 27,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 19,
+      "name": "Petr Brabenec, zámkařství",
+      "revenue_kc": 103918,
+      "orders": 62,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 20,
+      "name": "Petr Molek",
+      "revenue_kc": 99811,
+      "orders": 9,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 21,
+      "name": "Mirka Khunová",
+      "revenue_kc": 96988,
+      "orders": 33,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 22,
+      "name": "Josef Šikula",
+      "revenue_kc": 86348,
+      "orders": 14,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 23,
+      "name": "Tomáš Vyhnal",
+      "revenue_kc": 86171,
+      "orders": 46,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 24,
+      "name": "Břenda - velkoobchod,spol. s r.o.",
+      "revenue_kc": 76512,
+      "orders": 32,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 25,
+      "name": "I.P.CONNECT, s.r.o.",
+      "revenue_kc": 74634,
+      "orders": 17,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 26,
+      "name": "Jiří Hlad",
+      "revenue_kc": 73370,
+      "orders": 9,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 27,
+      "name": "František Šimšálek",
+      "revenue_kc": 71971,
+      "orders": 12,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 28,
+      "name": "Radek Habla",
+      "revenue_kc": 71631,
+      "orders": 10,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 29,
+      "name": "DD Technik s.r.o.",
+      "revenue_kc": 66954,
+      "orders": 10,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 30,
+      "name": "Petr Mertlík",
+      "revenue_kc": 61756,
+      "orders": 8,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 31,
+      "name": "Jiří Růžička",
+      "revenue_kc": 60865,
+      "orders": 17,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 32,
+      "name": "\"LIFTEX PRO s.r.o.\"",
+      "revenue_kc": 60698,
+      "orders": 4,
+      "rfm": "🔴 Lost (high value)"
+    },
+    {
+      "rank": 33,
+      "name": "Milan Vacovský",
+      "revenue_kc": 60347,
+      "orders": 12,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 34,
+      "name": "SPLITTER s.r.o.",
+      "revenue_kc": 59896,
+      "orders": 18,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 35,
+      "name": "Petr Rapčan",
+      "revenue_kc": 57339,
+      "orders": 11,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 36,
+      "name": "Family Factory s.r.o.",
+      "revenue_kc": 52153,
+      "orders": 18,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 37,
+      "name": "\"Miva Bílovec s.r.o.\"",
+      "revenue_kc": 48559,
+      "orders": 19,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 38,
+      "name": "Růžena Bártová",
+      "revenue_kc": 47388,
+      "orders": 10,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 39,
+      "name": "Jan Štěpánek",
+      "revenue_kc": 45802,
+      "orders": 14,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 40,
+      "name": "Martin Lacina",
+      "revenue_kc": 45574,
+      "orders": 37,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 41,
+      "name": "DELAREN s.r.o.",
+      "revenue_kc": 43790,
+      "orders": 2,
+      "rfm": "🔴 Lost (high value)"
+    },
+    {
+      "rank": 42,
+      "name": "M & S, spol. s r.o.",
+      "revenue_kc": 43084,
+      "orders": 13,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 43,
+      "name": "Mark2 Corporation Czech a.s.",
+      "revenue_kc": 43054,
+      "orders": 5,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 44,
+      "name": "Marcel Gerla",
+      "revenue_kc": 41858,
+      "orders": 9,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 45,
+      "name": "Zámky Fikeis Jiří",
+      "revenue_kc": 41816,
+      "orders": 14,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 46,
+      "name": "UNIBRICK s.r.o.",
+      "revenue_kc": 41116,
+      "orders": 6,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 47,
+      "name": "Oldřich Pokorný",
+      "revenue_kc": 37747,
+      "orders": 5,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 48,
+      "name": "Zámečnictví Orság",
+      "revenue_kc": 37488,
+      "orders": 6,
+      "rfm": "⚠️ At Risk"
+    },
+    {
+      "rank": 49,
+      "name": "Jana Vokounová FAPO",
+      "revenue_kc": 33898,
+      "orders": 3,
+      "rfm": "🔴 Lost (high value)"
+    },
+    {
+      "rank": 50,
+      "name": "Ladislav Šrámek",
+      "revenue_kc": 32047,
+      "orders": 15,
+      "rfm": "⚠️ At Risk"
+    }
+  ],
+  "limitations": [
+    "Klient nedodal IČO — dedup je heuristický (Levenshtein 0.85 + normalize)",
+    "Možné false-positives: stejnojmenné firmy z různých regionů (např. 2× 'Klíčařství s.r.o.')",
+    "Pro přesný customer ID je potřeba CRM integrace nebo IČO export"
+  ]
+}
