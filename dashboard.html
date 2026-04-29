@@ -2373,12 +2373,16 @@ function renderKpi() {
   const econ = kpiData.channel_orders_aov || [];
   document.querySelector('#table-channel-economics tbody').innerHTML = econ.map(c => {
     const isMissing = c.spend_kc == null;
-    const isTotal = c.channel === 'PPC celkem';
-    const rowStyle = isMissing
-      ? 'style="background:rgba(239,68,68,.08);color:#fca5a5"'
-      : (isTotal ? 'style="background:rgba(59,130,246,.08);font-weight:600"' : '');
+    const isTotal = c.channel === 'PPC celkem' || c.channel === 'PPC celkem (sales)';
+    const isSub = c.is_subchannel;
+    const isCombinedTotal = (c.channel || '').includes('(celkem)');
+    let rowStyle = '';
+    if (isMissing) rowStyle = 'style="background:rgba(239,68,68,.08);color:#fca5a5"';
+    else if (isTotal) rowStyle = 'style="background:rgba(59,130,246,.08);font-weight:600"';
+    else if (isCombinedTotal) rowStyle = 'style="background:rgba(168,85,247,.06);font-weight:600;border-top:1px solid #7e22ce"';
+    else if (isSub) rowStyle = 'style="background:rgba(168,85,247,.03)"';
     return `<tr ${rowStyle}>
-      <td><strong>${c.channel}</strong>${isMissing ? ' <span style="background:#dc2626;color:#fff;padding:1px 7px;border-radius:4px;font-size:10px">✗ Nereportováno</span>' : ''}</td>
+      <td>${isSub ? '<span style="color:#a78bfa;padding-left:6px">' : '<strong>'}${c.channel}${isSub ? '</span>' : '</strong>'}${isMissing ? ' <span style="background:#dc2626;color:#fff;padding:1px 7px;border-radius:4px;font-size:10px">✗ Nereportováno</span>' : ''}</td>
       <td class="num">${c.spend_kc == null ? '—' : fmt(c.spend_kc)}</td>
       <td class="num">${c.orders == null ? '—' : fmt(c.orders)}</td>
       <td class="num">${c.revenue_kc == null ? '—' : fmt(c.revenue_kc)}</td>

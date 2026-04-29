@@ -28,7 +28,7 @@
         "count": 5
       }
     },
-    "Sklik": {
+    "Sklik+Zboží": {
       "RTG": {
         "spend": 4026.88,
         "clicks": 1689,
@@ -350,13 +350,33 @@
       "note": "Z agenturního Looker reportu (audit period). Konverze obsahují micro-events — finding #1."
     },
     {
-      "channel": "Sklik",
-      "spend_kc": 58429,
-      "orders": 85,
-      "revenue_kc": 68773,
-      "aov_kc": 809,
-      "cost_per_order_kc": 687,
-      "note": "Sklik PNO 85 % = ztrátový kanál; budget exhaustion 80 % dní."
+      "channel": "Sklik + Zboží.cz (celkem)",
+      "spend_kc": 49834,
+      "orders": 70,
+      "revenue_kc": 45607,
+      "aov_kc": 652,
+      "cost_per_order_kc": 712,
+      "note": "Seznam.cz portfolio — sloučený kanál. Naše měření z campaigns.json. Detail rozpadu v dalších 2 řádcích."
+    },
+    {
+      "channel": "├─ Sklik (vyhledávání + display)",
+      "spend_kc": 19292,
+      "orders": 70,
+      "revenue_kc": 45607,
+      "aov_kc": 652,
+      "cost_per_order_kc": 276,
+      "is_subchannel": true,
+      "note": "🟢 ROAS 2,36× zdravé · search + display + brand + RTG. 14 kampaní (z toho 1 brand · 4 lokální · 4 RTG · 5 ostatní)."
+    },
+    {
+      "channel": "└─ Zboží.cz",
+      "spend_kc": 30542,
+      "orders": 0,
+      "revenue_kc": 0,
+      "aov_kc": null,
+      "cost_per_order_kc": null,
+      "is_subchannel": true,
+      "note": "🔴 ROAS 0 (62 % spendu Skliku!) · 1 product comparison kampaň · OCM tracking rozbitý — finding #18-#20."
     },
     {
       "channel": "Heuréka",
@@ -368,22 +388,22 @@
       "note": "OCM tracking, AOV nízký kvůli cenovému charakteru srovnávače."
     },
     {
-      "channel": "Meta Ads (FB/IG)",
+      "channel": "Meta Ads (FB/IG) — BRAND only",
       "spend_kc": 41957,
-      "orders": 3,
-      "revenue_kc": 8019,
-      "aov_kc": 2673,
-      "cost_per_order_kc": 13986,
-      "note": "🚨 ROAS 0.19 — kampaně 'Podpora prodejny' (Brno, Chomutov, Lochotín) = lokální brand awareness pro fyzické pobočky, NE e-shop sales. Pixel netrackuje store visits. Cost/purchase 13 986 Kč pro e-shop pixel = neefektivní."
+      "orders": null,
+      "revenue_kc": null,
+      "aov_kc": null,
+      "cost_per_order_kc": null,
+      "note": "Pouze brand + lokální kampaně (Podpora prodejny Brno/Chomutov/Lochotín + IG posts). Cíl NENÍ e-shop ROAS, ale lokální awareness. CTR 2,39 %, CPC 2,60 Kč. 674 k impressions / 16 k kliků za 7M. Brand efekt není měřen (store visits, brand search lift) — finding #40."
     },
     {
-      "channel": "PPC celkem (vč. Meta)",
-      "spend_kc": 347756,
-      "orders": 467,
-      "revenue_kc": 603426,
-      "aov_kc": 1292,
-      "cost_per_order_kc": 745,
-      "note": "Sloučený PPC mix vč. Meta. Skutečný spend 347 756 Kč (+14 % po doplnění Meta). Reálný ROAS po očištění tracking ~3.5×."
+      "channel": "PPC celkem (sales)",
+      "spend_kc": 305799,
+      "orders": 464,
+      "revenue_kc": 595407,
+      "aov_kc": 1283,
+      "cost_per_order_kc": 659,
+      "note": "Sloučený PERFORMANCE mix (Google Ads + Sklik + Heuréka). Meta brand 41 957 Kč započítáno separátně (jiný cíl)."
     }
   ],
   "summary_tables": {

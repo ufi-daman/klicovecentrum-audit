@@ -1,11 +1,16 @@
 {
   "period": "2025-10-01 to 2026-04-22",
+  "primary_source": "ERP MO e-shop (1 170 741 Kč obratu, 59,1 % marže) — účetní pravda",
+  "secondary_source": "SQL kosik (cross-check, +30 % oproti ERP — zahrnuje storno/vrátky/COD)",
   "summary": {
-    "sql_real_orders": 1398,
+    "erp_revenue_kc": 1170741,
+    "erp_profit_kc": 692432,
+    "erp_margin_pct": 59.1,
+    "real_orders_sql": 1398,
     "ga4_tracked_orders": 641,
     "ga4_coverage_pct": 45.9,
-    "total_revenue_sql": 1383208,
-    "avg_order_value_kc": 989
+    "total_revenue_sql_secondary": 1383208,
+    "avg_order_value_erp_kc": 838
   },
   "last_click_by_channel": [
     {

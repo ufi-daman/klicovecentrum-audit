@@ -19,14 +19,19 @@
       "estimated_new_customers": 312,
       "new_customer_factor": 0.85,
       "cac_kc": 765,
-      "ltv_kc": 1351,
-      "ltv_cac_ratio": 1.77,
-      "payback_months_if_repeat": 1.8,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
       "ltv_erp_kc": 945,
       "ltv_erp_cac_ratio": 1.24,
       "payback_months_erp": 1.2,
-      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_sql_kc": 1351,
+      "ltv_sql_cac_ratio": 1.77,
+      "payback_months_sql": 1.8,
+      "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_kc": 945,
+      "ltv_cac_ratio": 1.24,
+      "payback_months": 1.2,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
     },
     {
       "channel": "Sklik (seznam)",
@@ -35,14 +40,19 @@
       "estimated_new_customers": 72,
       "new_customer_factor": 0.85,
       "cac_kc": 812,
-      "ltv_kc": 1351,
-      "ltv_cac_ratio": 1.66,
-      "payback_months_if_repeat": 1.7,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
       "ltv_erp_kc": 945,
       "ltv_erp_cac_ratio": 1.16,
       "payback_months_erp": 1.2,
-      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_sql_kc": 1351,
+      "ltv_sql_cac_ratio": 1.66,
+      "payback_months_sql": 1.7,
+      "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_kc": 945,
+      "ltv_cac_ratio": 1.16,
+      "payback_months": 1.2,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
     },
     {
       "channel": "Heuréka.cz",
@@ -51,24 +61,32 @@
       "estimated_new_customers": 11,
       "new_customer_factor": 0.95,
       "cac_kc": 788,
-      "ltv_kc": 1351,
-      "ltv_cac_ratio": 1.71,
-      "payback_months_if_repeat": 1.7,
-      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
       "ltv_erp_kc": 945,
       "ltv_erp_cac_ratio": 1.2,
       "payback_months_erp": 1.2,
-      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1"
+      "verdict_erp": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_sql_kc": 1351,
+      "ltv_sql_cac_ratio": 1.71,
+      "payback_months_sql": 1.7,
+      "verdict_sql": "🟡 Hraniční: LTV:CAC < 3:1",
+      "ltv_kc": 945,
+      "ltv_cac_ratio": 1.2,
+      "payback_months": 1.2,
+      "verdict": "🟡 Hraniční: LTV:CAC < 3:1",
+      "source": "ERP-aligned (primární) · SQL pro cross-check viz _sql pole"
     }
   ],
   "blended": {
     "total_spend_kc": 305799,
     "total_estimated_new_customers": 395,
     "blended_cac_kc": 774,
-    "blended_ltv_cac_ratio": 1.75,
     "ppc_share_of_total_customers_pct": 31.9,
     "blended_ltv_erp_kc": 945,
-    "blended_ltv_erp_cac_ratio": 1.22
+    "blended_ltv_erp_cac_ratio": 1.22,
+    "blended_ltv_sql_kc": null,
+    "blended_ltv_sql_cac_ratio": 1.75,
+    "blended_ltv_kc": 945,
+    "blended_ltv_cac_ratio": 1.22
   },
   "blockers": [
     "Klient nemá UTM/source tracking pro nové vs. vracející se zákazníky",
@@ -87,5 +105,7 @@
       "Fix UTM tracking → reálná čísla za 2 měsíce → realokace spendu"
     ],
     "newsletter_arpu_potential": "Pokud by klient měl newsletter na 1239 kontaktů × 2 % CTR × 5 % CR × 1351 Kč LTV = 1,674 Kč/měsíc bez akviziční akce"
-  }
+  },
+  "primary_source": "ERP-aligned (audit obrat 1 170 741 Kč)",
+  "secondary_source": "SQL kosik (cross-check — vyšší o ~30 % vč. storna/vrátek/COD)"
 }

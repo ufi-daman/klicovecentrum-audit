@@ -154,7 +154,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "RTG",
       "name": "5 VG DRMKT (D)",
       "campaign_type": "",
@@ -169,7 +170,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "RTG",
       "name": "5 VG DRMKT (M)",
       "campaign_type": "",
@@ -184,7 +186,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "BRAND",
       "name": "0 VG Brand",
       "campaign_type": "",
@@ -199,7 +202,8 @@
       "budget_lost_pct": 36.4
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Zboží.cz",
       "category": "PRODUCT",
       "name": "Zboží.cz: Klicovecentrum.cz",
       "campaign_type": "",
@@ -214,7 +218,8 @@
       "budget_lost_pct": 28.3
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "JOK_Chomutov_Akv",
       "campaign_type": "",
@@ -229,7 +234,8 @@
       "budget_lost_pct": 68.1
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "RTG",
       "name": "RTG_Chomutov",
       "campaign_type": "",
@@ -244,7 +250,8 @@
       "budget_lost_pct": 5.3
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "SEA_Chomutov",
       "campaign_type": "",
@@ -259,7 +266,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "SEA_Brno",
       "campaign_type": "",
@@ -274,7 +282,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "JOK_Brno",
       "campaign_type": "",
@@ -289,7 +298,8 @@
       "budget_lost_pct": 85.1
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "RTG",
       "name": "Display_RTG_Gravírování",
       "campaign_type": "",
@@ -304,7 +314,8 @@
       "budget_lost_pct": 56.0
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "P4M_SZ_ACQ_DSP_All_pobočka Plzeň Lochotín",
       "campaign_type": "",
@@ -319,7 +330,8 @@
       "budget_lost_pct": 23.7
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "P4M_SZ_ACQ_SR_All_pobočka Plzeň Lochotín",
       "campaign_type": "",
@@ -334,7 +346,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "P4M_SZ_ACQ_DSP_All_pobočka Chomutov",
       "campaign_type": "",
@@ -349,7 +362,8 @@
       "budget_lost_pct": 30.9
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "LOCAL",
       "name": "P4M_SZ_ACQ_SR_All_pobočka Chomutov",
       "campaign_type": "",
@@ -364,7 +378,8 @@
       "budget_lost_pct": null
     },
     {
-      "channel": "Sklik",
+      "channel": "Sklik+Zboží",
+      "sub_channel": "Sklik (vyhledávání + display)",
       "category": "SEARCH",
       "name": "P4M_SZ_CZ_CZ_ACQ_DSP_DinBanner",
       "campaign_type": "",
@@ -467,7 +482,7 @@
         "count": 5
       }
     },
-    "Sklik": {
+    "Sklik+Zboží": {
       "RTG": {
         "cost": 4026.88,
         "value": 5139.0,
