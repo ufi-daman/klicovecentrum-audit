@@ -1,0 +1,426 @@
+{
+  "generated": "2026-04-29T12:16:52",
+  "scope": "Eshop MO+VO obrat — 2025 historie (12 měsíců) + 12M forecast",
+  "method": "Seasonal naive + YoY trend extrapolace (3 scénáře: optimistic/baseline/pessimistic)",
+  "data_source": "monthly_2025.json (Eshop objednávky MO+VO 2025)",
+  "history_2025": [
+    {
+      "ym": "2025-01",
+      "total_kc": 1032157,
+      "mo_kc": 159007,
+      "vo_kc": 873150,
+      "seasonal_index": 1.119
+    },
+    {
+      "ym": "2025-02",
+      "total_kc": 949385,
+      "mo_kc": 304033,
+      "vo_kc": 645352,
+      "seasonal_index": 1.029
+    },
+    {
+      "ym": "2025-03",
+      "total_kc": 934955,
+      "mo_kc": 256896,
+      "vo_kc": 678060,
+      "seasonal_index": 1.014
+    },
+    {
+      "ym": "2025-04",
+      "total_kc": 748200,
+      "mo_kc": 238656,
+      "vo_kc": 509544,
+      "seasonal_index": 0.811
+    },
+    {
+      "ym": "2025-05",
+      "total_kc": 849431,
+      "mo_kc": 220148,
+      "vo_kc": 629283,
+      "seasonal_index": 0.921
+    },
+    {
+      "ym": "2025-06",
+      "total_kc": 1141646,
+      "mo_kc": 243701,
+      "vo_kc": 897945,
+      "seasonal_index": 1.238
+    },
+    {
+      "ym": "2025-07",
+      "total_kc": 952663,
+      "mo_kc": 246980,
+      "vo_kc": 705683,
+      "seasonal_index": 1.033
+    },
+    {
+      "ym": "2025-08",
+      "total_kc": 979223,
+      "mo_kc": 244641,
+      "vo_kc": 734582,
+      "seasonal_index": 1.062
+    },
+    {
+      "ym": "2025-09",
+      "total_kc": 1193815,
+      "mo_kc": 259364,
+      "vo_kc": 934451,
+      "seasonal_index": 1.294
+    },
+    {
+      "ym": "2025-10",
+      "total_kc": 977519,
+      "mo_kc": 285832,
+      "vo_kc": 691687,
+      "seasonal_index": 1.06
+    },
+    {
+      "ym": "2025-11",
+      "total_kc": 712939,
+      "mo_kc": 143464,
+      "vo_kc": 569475,
+      "seasonal_index": 0.773
+    },
+    {
+      "ym": "2025-12",
+      "total_kc": 597485,
+      "mo_kc": 156718,
+      "vo_kc": 440767,
+      "seasonal_index": 0.648
+    }
+  ],
+  "forecast_12m_total": [
+    {
+      "ym": "2026-01",
+      "month_num": 1,
+      "predicted_revenue_kc": 1016675,
+      "lower_kc": 980549,
+      "upper_kc": 1083765,
+      "based_on_2025_month": 1032157,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-02",
+      "month_num": 2,
+      "predicted_revenue_kc": 935144,
+      "lower_kc": 901916,
+      "upper_kc": 996854,
+      "based_on_2025_month": 949385,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-03",
+      "month_num": 3,
+      "predicted_revenue_kc": 920931,
+      "lower_kc": 888207,
+      "upper_kc": 981703,
+      "based_on_2025_month": 934955,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-04",
+      "month_num": 4,
+      "predicted_revenue_kc": 736977,
+      "lower_kc": 710790,
+      "upper_kc": 785610,
+      "based_on_2025_month": 748200,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-05",
+      "month_num": 5,
+      "predicted_revenue_kc": 836690,
+      "lower_kc": 806959,
+      "upper_kc": 891903,
+      "based_on_2025_month": 849431,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-06",
+      "month_num": 6,
+      "predicted_revenue_kc": 1124521,
+      "lower_kc": 1084564,
+      "upper_kc": 1198728,
+      "based_on_2025_month": 1141646,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-07",
+      "month_num": 7,
+      "predicted_revenue_kc": 938373,
+      "lower_kc": 905030,
+      "upper_kc": 1000296,
+      "based_on_2025_month": 952663,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-08",
+      "month_num": 8,
+      "predicted_revenue_kc": 964535,
+      "lower_kc": 930262,
+      "upper_kc": 1028184,
+      "based_on_2025_month": 979223,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-09",
+      "month_num": 9,
+      "predicted_revenue_kc": 1175908,
+      "lower_kc": 1134124,
+      "upper_kc": 1253506,
+      "based_on_2025_month": 1193815,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-10",
+      "month_num": 10,
+      "predicted_revenue_kc": 962856,
+      "lower_kc": 928643,
+      "upper_kc": 1026395,
+      "based_on_2025_month": 977519,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-11",
+      "month_num": 11,
+      "predicted_revenue_kc": 702245,
+      "lower_kc": 677292,
+      "upper_kc": 748586,
+      "based_on_2025_month": 712939,
+      "yoy_factor_used": 0.985
+    },
+    {
+      "ym": "2026-12",
+      "month_num": 12,
+      "predicted_revenue_kc": 588523,
+      "lower_kc": 567611,
+      "upper_kc": 627359,
+      "based_on_2025_month": 597485,
+      "yoy_factor_used": 0.985
+    }
+  ],
+  "forecast_12m_mo": [
+    {
+      "ym": "2026-01",
+      "predicted_kc": 156622
+    },
+    {
+      "ym": "2026-02",
+      "predicted_kc": 299473
+    },
+    {
+      "ym": "2026-03",
+      "predicted_kc": 253043
+    },
+    {
+      "ym": "2026-04",
+      "predicted_kc": 235076
+    },
+    {
+      "ym": "2026-05",
+      "predicted_kc": 216846
+    },
+    {
+      "ym": "2026-06",
+      "predicted_kc": 240045
+    },
+    {
+      "ym": "2026-07",
+      "predicted_kc": 243275
+    },
+    {
+      "ym": "2026-08",
+      "predicted_kc": 240971
+    },
+    {
+      "ym": "2026-09",
+      "predicted_kc": 255474
+    },
+    {
+      "ym": "2026-10",
+      "predicted_kc": 281545
+    },
+    {
+      "ym": "2026-11",
+      "predicted_kc": 141312
+    },
+    {
+      "ym": "2026-12",
+      "predicted_kc": 154367
+    }
+  ],
+  "forecast_12m_vo": [
+    {
+      "ym": "2026-01",
+      "predicted_kc": 860053
+    },
+    {
+      "ym": "2026-02",
+      "predicted_kc": 635672
+    },
+    {
+      "ym": "2026-03",
+      "predicted_kc": 667889
+    },
+    {
+      "ym": "2026-04",
+      "predicted_kc": 501901
+    },
+    {
+      "ym": "2026-05",
+      "predicted_kc": 619844
+    },
+    {
+      "ym": "2026-06",
+      "predicted_kc": 884476
+    },
+    {
+      "ym": "2026-07",
+      "predicted_kc": 695098
+    },
+    {
+      "ym": "2026-08",
+      "predicted_kc": 723563
+    },
+    {
+      "ym": "2026-09",
+      "predicted_kc": 920434
+    },
+    {
+      "ym": "2026-10",
+      "predicted_kc": 681312
+    },
+    {
+      "ym": "2026-11",
+      "predicted_kc": 560933
+    },
+    {
+      "ym": "2026-12",
+      "predicted_kc": 434155
+    }
+  ],
+  "seasonal_index_per_month": [
+    {
+      "month_num": 1,
+      "month_name": "Leden",
+      "index": 1.119,
+      "vs_avg_pct": 11.9,
+      "flag": "🟢 nadprůměrný",
+      "value_2025_kc": 1032157
+    },
+    {
+      "month_num": 2,
+      "month_name": "Únor",
+      "index": 1.029,
+      "vs_avg_pct": 2.9,
+      "flag": "🟡 průměrný",
+      "value_2025_kc": 949385
+    },
+    {
+      "month_num": 3,
+      "month_name": "Březen",
+      "index": 1.014,
+      "vs_avg_pct": 1.4,
+      "flag": "🟡 průměrný",
+      "value_2025_kc": 934955
+    },
+    {
+      "month_num": 4,
+      "month_name": "Duben",
+      "index": 0.811,
+      "vs_avg_pct": -18.9,
+      "flag": "🔴 podprůměrný",
+      "value_2025_kc": 748200
+    },
+    {
+      "month_num": 5,
+      "month_name": "Květen",
+      "index": 0.921,
+      "vs_avg_pct": -7.9,
+      "flag": "🔴 podprůměrný",
+      "value_2025_kc": 849431
+    },
+    {
+      "month_num": 6,
+      "month_name": "Červen",
+      "index": 1.238,
+      "vs_avg_pct": 23.8,
+      "flag": "🟢 nadprůměrný",
+      "value_2025_kc": 1141646
+    },
+    {
+      "month_num": 7,
+      "month_name": "Červenec",
+      "index": 1.033,
+      "vs_avg_pct": 3.3,
+      "flag": "🟡 průměrný",
+      "value_2025_kc": 952663
+    },
+    {
+      "month_num": 8,
+      "month_name": "Srpen",
+      "index": 1.062,
+      "vs_avg_pct": 6.2,
+      "flag": "🟢 nadprůměrný",
+      "value_2025_kc": 979223
+    },
+    {
+      "month_num": 9,
+      "month_name": "Září",
+      "index": 1.294,
+      "vs_avg_pct": 29.4,
+      "flag": "🟢 nadprůměrný",
+      "value_2025_kc": 1193815
+    },
+    {
+      "month_num": 10,
+      "month_name": "Říjen",
+      "index": 1.06,
+      "vs_avg_pct": 6.0,
+      "flag": "🟢 nadprůměrný",
+      "value_2025_kc": 977519
+    },
+    {
+      "month_num": 11,
+      "month_name": "Listopad",
+      "index": 0.773,
+      "vs_avg_pct": -22.7,
+      "flag": "🔴 podprůměrný",
+      "value_2025_kc": 712939
+    },
+    {
+      "month_num": 12,
+      "month_name": "Prosinec",
+      "index": 0.648,
+      "vs_avg_pct": -35.2,
+      "flag": "🔴 podprůměrný",
+      "value_2025_kc": 597485
+    }
+  ],
+  "yoy_scenarios": {
+    "optimistic_pct": 5.0,
+    "baseline_pct": -1.5,
+    "pessimistic_pct": -5.0
+  },
+  "interpretation": {
+    "best_months": [
+      "Září",
+      "Červen",
+      "Leden"
+    ],
+    "worst_months": [
+      "Prosinec",
+      "Listopad",
+      "Duben"
+    ],
+    "next_12m_total_baseline_kc": 10903378,
+    "next_12m_total_optimistic_kc": 11622889,
+    "next_12m_total_pessimistic_kc": 10515947
+  },
+  "limitations": [
+    "Jen 12 měsíců 2025 historie → SARIMA nelze použít, používáme seasonal naive + YoY trend",
+    "Pro přesný forecast je potřeba ≥ 24 měsíců reálných měsíčních dat (2024 měsíčně)",
+    "YoY trend -1.5 % pochází z H&B Group total (vč. VO+MO všech), ne čistě eshop trend",
+    "Forecast nezahrnuje externí vlivy (recese, marketing kampaně, sezona ne-cyklická)"
+  ]
+}

@@ -477,7 +477,7 @@
   <div class="tab" data-cat="data">🛡️ Data quality <span class="tab-badge" id="count-data">4</span></div>
   <div class="tab" data-view="competitors">🥊 Konkurence</div>
   <div class="tab" data-view="yearly">📅 3-letý přehled</div>
-  <div class="tab" data-view="topb2b">👥 Top 20 B2B</div>
+  <div class="tab" data-view="topcustomers">👥 Top zákazníci</div>
   <div class="tab" data-view="returns_detail">📦 Vratky 3Y</div>
   <div class="tab" data-view="campaigns">📊 Kampaně (data)</div>
   <div class="tab" data-view="products">📦 Produkty (data)</div>
@@ -1064,14 +1064,24 @@
     <h3>🏬 Per podsklad — distribuce obratu (2025)</h3>
     <div class="chart-wrap" style="height:340px"><canvas id="chart-podsklady"></canvas></div>
   </div>
+
+  <div class="chart-card" id="forecast-card">
+    <h3>📈 Sezónnost + 12M Forecast (2026 prediction)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
+      Forecast eshop MO+VO obratu z 2025 měsíčních dat × YoY trend (3 scénáře). Pro přesný SARIMA model je potřeba ≥ 24 měsíců reálných dat — nyní použit seasonal naive.
+    </p>
+    <div class="metrics-grid" id="forecast-summary"></div>
+    <div class="chart-wrap" style="height:380px;margin-top:18px"><canvas id="chart-forecast"></canvas></div>
+    <div id="forecast-seasonal-table" style="margin-top:18px"></div>
+  </div>
 </section>
 
 <!-- ═══════════════ TOP 20 B2B ZÁKAZNÍKŮ ═══════════════ -->
 <section id="topb2b-view" class="view-section hidden">
   <div class="chart-card">
-    <h3>👥 Top 20 B2B zákazníků (VO eshop 2025)</h3>
-    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px">
-      Z e-shop velkoobchodních objednávek 2025 (1 786 obj). Fuzzy dedup jmen (Levenshtein > 0,85). IČO není v zdroji — pro přesný customer ID je potřeba CRM integrace.
+    <h3 id="topcust-title">👥 Top zákazníci</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="topcust-subtitle">
+      Přepínej v hlavičce: B2C nebo B2B segment. Fuzzy dedup jmen (Levenshtein > 0,85).
     </p>
     <div class="metrics-grid" id="topb2b-summary-grid"></div>
   </div>
@@ -1143,6 +1153,13 @@
         <tbody></tbody>
       </table>
     </div>
+  </div>
+
+  <div class="chart-card">
+    <h3>🔧 Reklamace + dopravné vratek (odhad)</h3>
+    <p style="color:#94a3b8;font-size:13px;margin-bottom:14px" id="complaints-status">—</p>
+    <div class="metrics-grid" id="complaints-grid"></div>
+    <div id="complaints-detail-2" style="margin-top:14px"></div>
   </div>
 </section>
 
@@ -2125,7 +2142,7 @@ function showView(view) {
   document.getElementById('journeys-view').classList.toggle('hidden', view !== 'journeys');
   document.getElementById('competitors-view').classList.toggle('hidden', view !== 'competitors');
   document.getElementById('yearly-view').classList.toggle('hidden', view !== 'yearly');
-  document.getElementById('topb2b-view').classList.toggle('hidden', view !== 'topb2b');
+  document.getElementById('topb2b-view').classList.toggle('hidden', view !== 'topcustomers');
   document.getElementById('returns_detail-view').classList.toggle('hidden', view !== 'returns_detail');
 }
 
@@ -2159,9 +2176,9 @@ document.querySelectorAll('.tab').forEach(tab => {
     } else if (tab.dataset.view === 'yearly') {
       showView('yearly');
       loadYearly();
-    } else if (tab.dataset.view === 'topb2b') {
-      showView('topb2b');
-      loadTopB2B();
+    } else if (tab.dataset.view === 'topcustomers') {
+      showView('topcustomers');
+      loadTopCustomers();
     } else if (tab.dataset.view === 'returns_detail') {
       showView('returns_detail');
       loadReturnsDetail();
@@ -3208,14 +3225,87 @@ let yearlyData = null;
 async function loadYearly() {
   if (!yearlyData) {
     try {
-      const [yt, ym] = await Promise.all([
+      const [yt, ym, fc] = await Promise.all([
         fetch('data/yearly_trend.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/yearly_master.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/seasonality_forecast.json?v='+Date.now()).then(r=>r.json()),
       ]);
-      yearlyData = {trend: yt, master: ym};
+      yearlyData = {trend: yt, master: ym, forecast: fc};
     } catch(e){ console.error('yearly', e); return; }
   }
   renderYearly();
+  renderForecast();
+}
+
+function renderForecast() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const f = yearlyData.forecast;
+  if (!f) return;
+
+  const i = f.interpretation;
+  document.getElementById('forecast-summary').innerHTML = `
+    <div class="metric-box" style="background:rgba(239,68,68,.08);border-color:#ef4444">
+      <div class="metric-label">🔴 Pesimistický (-5% YoY)</div>
+      <div class="metric-value" style="color:#fca5a5">${fmt(i.next_12m_total_pessimistic_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">12M dopředu</div>
+    </div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">🟡 Baseline (${f.yoy_scenarios.baseline_pct}%)</div>
+      <div class="metric-value" style="color:#fcd34d">${fmt(i.next_12m_total_baseline_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">2026 dle YoY trendu</div>
+    </div>
+    <div class="metric-box" style="background:rgba(34,197,94,.08);border-color:#22c55e">
+      <div class="metric-label">🟢 Optimistický (+5%)</div>
+      <div class="metric-value" style="color:#4ade80">${fmt(i.next_12m_total_optimistic_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">při růstovém scénáři</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">🏆 Best měsíce</div>
+      <div class="metric-value" style="font-size:16px;color:#4ade80">${i.best_months.join(' · ')}</div>
+      <div style="color:#64748b;font-size:11px">sezónnost 2025</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-label">📉 Worst měsíce</div>
+      <div class="metric-value" style="font-size:16px;color:#fca5a5">${i.worst_months.join(' · ')}</div>
+      <div style="color:#64748b;font-size:11px">sezónnost 2025</div>
+    </div>
+  `;
+
+  // Chart
+  if (window.forecastChart) window.forecastChart.destroy();
+  const labels = f.history_2025.map(h=>h.ym).concat(f.forecast_12m_total.map(x=>x.ym));
+  const histLine = f.history_2025.map(h=>h.total_kc).concat(new Array(12).fill(null));
+  const baseLine = new Array(f.history_2025.length).fill(null).concat(f.forecast_12m_total.map(x=>x.predicted_revenue_kc));
+  const lowerLine = new Array(f.history_2025.length).fill(null).concat(f.forecast_12m_total.map(x=>x.lower_kc));
+  const upperLine = new Array(f.history_2025.length).fill(null).concat(f.forecast_12m_total.map(x=>x.upper_kc));
+  const ctx = document.getElementById('chart-forecast').getContext('2d');
+  window.forecastChart = new Chart(ctx, {
+    type:'line',
+    data:{labels:labels, datasets:[
+      {label:'2025 historie', data:histLine, borderColor:'#3b82f6', backgroundColor:'#3b82f6', tension:0.2},
+      {label:'Baseline forecast', data:baseLine, borderColor:'#fbbf24', backgroundColor:'#fbbf24', borderDash:[6,3], tension:0.2},
+      {label:'Pesimistický', data:lowerLine, borderColor:'#ef4444', borderDash:[2,2], tension:0.2, fill:false, pointRadius:0},
+      {label:'Optimistický', data:upperLine, borderColor:'#22c55e', borderDash:[2,2], tension:0.2, fill:false, pointRadius:0},
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:'#e2e8f0'}}},
+      scales:{x:{ticks:{color:'#cbd5e1',maxRotation:45}},
+              y:{ticks:{color:'#cbd5e1',callback:v=>(v/1000).toFixed(0)+'k'}}}}
+  });
+
+  // Seasonal table
+  document.getElementById('forecast-seasonal-table').innerHTML = `
+    <h4 style="color:#cbd5e1;font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin:0 0 10px">Sezónní indexy 2025 (1.0 = průměr)</h4>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px">
+      ${f.seasonal_index_per_month.map(s=>`
+        <div style="background:rgba(15,23,42,.6);border:1px solid #334155;border-radius:6px;padding:8px;text-align:center">
+          <div style="color:#94a3b8;font-size:11px">${s.month_name}</div>
+          <div style="color:${s.index>1.05?'#4ade80':s.index<0.95?'#fca5a5':'#cbd5e1'};font-size:18px;font-weight:600">${s.index}×</div>
+          <div style="color:#64748b;font-size:10px">${s.vs_avg_pct>0?'+':''}${s.vs_avg_pct}%</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
 function renderYearly() {
@@ -3355,32 +3445,55 @@ function renderYearly() {
   });
 }
 
-// ─── TOP 20 B2B ──────────────────────────────────────────────
-let topB2BData = null;
-async function loadTopB2B() {
-  if (!topB2BData) {
-    try { topB2BData = await fetch('data/top_b2b_customers.json?v='+Date.now()).then(r=>r.json()); }
-    catch(e){ console.error('topb2b', e); return; }
+// ─── TOP ZÁKAZNÍCI (segment-aware) ───────────────────────────
+let topCustomersData = null;
+async function loadTopCustomers() {
+  if (!topCustomersData) {
+    try { topCustomersData = await fetch('data/top_customers.json?v='+Date.now()).then(r=>r.json()); }
+    catch(e){ console.error('topcust', e); return; }
   }
-  renderTopB2B();
+  renderTopCustomers();
 }
 
-function renderTopB2B() {
+function renderTopCustomers() {
   const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
-  const d = topB2BData;
-  // Summary
-  document.getElementById('topb2b-summary-grid').innerHTML = `
-    <div class="metric-box"><div class="metric-label">Total B2B obrat 2025</div><div class="metric-value" style="color:#a78bfa">${fmt(d.total_b2b_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders)} obj. · ${d.total_unique_customers_after_dedup} zákazníků</div></div>
-    <div class="metric-box"><div class="metric-label">Top 5</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-    <div class="metric-box"><div class="metric-label">Top 20</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-    <div class="metric-box"><div class="metric-label">Top 50</div><div class="metric-value" style="color:#10b981">${d.pareto.top_50_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
-    <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Dedup</div><div class="metric-value" style="color:#a78bfa">${d.dedup_stats.merge_count}</div><div style="color:#64748b;font-size:11px">jmen sloučeno (${d.dedup_stats.merge_rate_pct}%)</div></div>
-  `;
+  const seg = (window.dashState?.segment === 'b2b') ? 'B2B' : 'B2C';
+  const D = topCustomersData;
+  if (!D) return;
+  const d = D[seg];
+  if (!d) return;
+
+  // Title + subtitle
+  document.getElementById('topcust-title').innerHTML = seg === 'B2B'
+    ? '👥 Top 20 B2B zákazníků (VO eshop 2025)'
+    : '👥 Top 20 B2C zákazníků (MO eshop 2025, guest checkout)';
+  document.getElementById('topcust-subtitle').innerHTML = seg === 'B2B'
+    ? `B2B z e-shop velkoobchodních objednávek 2025 (${fmt(d.total_orders)} obj). Fuzzy dedup jmen (Levenshtein > 0,85).`
+    : `B2C z e-shop maloobchodních objednávek 2025. <strong>${d.anonymous_share_pct} %</strong> objednávek je anonymní pokladenský prodej (\"[Maloobchodní prodej]\"). Top 20 níže = guest checkout / registrovaní zákazníci kteří uvedli jméno.`;
+
+  // Summary cards
+  if (seg === 'B2B') {
+    document.getElementById('topb2b-summary-grid').innerHTML = `
+      <div class="metric-box"><div class="metric-label">B2B obrat 2025</div><div class="metric-value" style="color:#a78bfa">${fmt(d.total_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders)} obj. · ${d.unique_customers_after_dedup} zákazníků</div></div>
+      <div class="metric-box"><div class="metric-label">Top 5</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+      <div class="metric-box"><div class="metric-label">Top 20</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+      <div class="metric-box"><div class="metric-label">Top 50</div><div class="metric-value" style="color:#10b981">${d.pareto.top_50_share_pct}%</div><div style="color:#64748b;font-size:11px">share obratu</div></div>
+      <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Dedup</div><div class="metric-value" style="color:#a78bfa">${d.merge_count}</div><div style="color:#64748b;font-size:11px">jmen sloučeno (z ${d.raw_unique_names})</div></div>
+    `;
+  } else {
+    document.getElementById('topb2b-summary-grid').innerHTML = `
+      <div class="metric-box"><div class="metric-label">B2C celkem 2025</div><div class="metric-value" style="color:#10b981">${fmt(d.named_revenue_kc + d.anonymous_revenue_kc)} Kč</div><div style="color:#64748b;font-size:11px">${fmt(d.total_orders_all)} obj. (vše MO)</div></div>
+      <div class="metric-box" style="background:rgba(168,85,247,.06)"><div class="metric-label">Pokladenský anonym</div><div class="metric-value" style="color:#a78bfa">${d.anonymous_share_pct}%</div><div style="color:#64748b;font-size:11px">${fmt(d.anonymous_pos_orders)} obj. · ${fmt(d.anonymous_revenue_kc)} Kč</div></div>
+      <div class="metric-box"><div class="metric-label">S identifikací</div><div class="metric-value" style="color:#10b981">${fmt(d.named_orders)}</div><div style="color:#64748b;font-size:11px">${fmt(d.named_revenue_kc)} Kč · ${d.unique_customers_after_dedup} zákaz.</div></div>
+      <div class="metric-box"><div class="metric-label">Top 5 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_5_share_pct||0}%</div><div style="color:#64748b;font-size:11px">z named B2C</div></div>
+      <div class="metric-box"><div class="metric-label">Top 20 share</div><div class="metric-value" style="color:#fbbf24">${d.pareto.top_20_share_pct||0}%</div><div style="color:#64748b;font-size:11px">z named B2C</div></div>
+    `;
+  }
 
   // Pareto chart
   let cumul = 0;
-  const total = d.total_b2b_revenue_kc;
-  const top50 = d.top_50_lite;
+  const total = seg === 'B2B' ? d.total_revenue_kc : d.named_revenue_kc;
+  const top50 = d.top_50_lite || [];
   const paretoPoints = top50.map(c => { cumul += c.revenue_kc; return {name: c.name.substring(0,25), revenue:c.revenue_kc, cumul_pct: cumul/total*100}; });
   if (window.topb2bParetoChart) window.topb2bParetoChart.destroy();
   const ctx = document.getElementById('chart-topb2b-pareto').getContext('2d');
@@ -3426,17 +3539,71 @@ function renderTopB2B() {
 
 // ─── VRATKY DETAIL ──────────────────────────────────────────
 let returnsDetailData = null, postage3yData = null;
+let complaintsData = null;
 async function loadReturnsDetail() {
-  if (!returnsDetailData || !postage3yData) {
+  if (!returnsDetailData || !postage3yData || !complaintsData) {
     try {
-      const [rd, p3y] = await Promise.all([
+      const [rd, p3y, cc] = await Promise.all([
         fetch('data/returns_detail.json?v='+Date.now()).then(r=>r.json()),
         fetch('data/postage_3y.json?v='+Date.now()).then(r=>r.json()),
+        fetch('data/complaints_returns_cost.json?v='+Date.now()).then(r=>r.json()),
       ]);
-      returnsDetailData = rd; postage3yData = p3y;
+      returnsDetailData = rd; postage3yData = p3y; complaintsData = cc;
     } catch(e){ console.error('returns_detail', e); return; }
   }
   renderReturnsDetail();
+  renderComplaints();
+}
+
+function renderComplaints() {
+  const fmt = n => n==null?'—':Number(n).toLocaleString('cs-CZ');
+  const c = complaintsData;
+  if (!c) return;
+  document.getElementById('complaints-status').innerHTML =
+    `<strong style="color:#fcd34d">Reklamace:</strong> ${c.complaints.data_status} — ${c.complaints.missing_data_action}`;
+
+  const cmp = c.complaints.heuristic_estimate;
+  const sh = c.return_shipping_costs;
+  document.getElementById('complaints-grid').innerHTML = `
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">🔧 Reklamace MO (odhad ${cmp.MO_complaint_rate_pct}%)</div>
+      <div class="metric-value" style="color:#fcd34d">~${fmt(cmp.MO_estimated_complaints)}</div>
+      <div style="color:#64748b;font-size:11px">z ${fmt(cmp.MO_orders_total)} obj. (heuristika)</div>
+    </div>
+    <div class="metric-box" style="background:rgba(251,191,36,.08);border-color:#fbbf24">
+      <div class="metric-label">🔧 Reklamace VO (odhad ${cmp.VO_complaint_rate_pct}%)</div>
+      <div class="metric-value" style="color:#fcd34d">~${fmt(cmp.VO_estimated_complaints)}</div>
+      <div style="color:#64748b;font-size:11px">z ${fmt(cmp.VO_orders_total)} obj. (heuristika)</div>
+    </div>
+    <div class="metric-box" style="background:rgba(239,68,68,.06);border-color:#ef4444">
+      <div class="metric-label">🚚 Dopravné MO vratek</div>
+      <div class="metric-value" style="color:#fca5a5">~${fmt(sh.MO.estimated_total_cost_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">${fmt(sh.MO.estimated_eshop_shipping_back_orders)} ks × ${sh.MO.avg_shipping_back_kc} Kč</div>
+    </div>
+    <div class="metric-box" style="background:rgba(239,68,68,.06);border-color:#ef4444">
+      <div class="metric-label">🚚 Dopravné VO vratek</div>
+      <div class="metric-value" style="color:#fca5a5">~${fmt(sh.VO.estimated_total_cost_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">${fmt(sh.VO.estimated_eshop_shipping_back_orders)} ks × ${sh.VO.avg_shipping_back_kc} Kč</div>
+    </div>
+    <div class="metric-box" style="background:rgba(168,85,247,.08);border-color:#a78bfa">
+      <div class="metric-label">💰 Celkem ztráta odhad</div>
+      <div class="metric-value" style="color:#a78bfa">${fmt(c.summary.total_lost_value_estimate_kc)} Kč</div>
+      <div style="color:#64748b;font-size:11px">vratky + dopravné</div>
+    </div>
+  `;
+
+  document.getElementById('complaints-detail-2').innerHTML = `
+    <div style="background:rgba(239,68,68,.05);border-left:3px solid #ef4444;padding:14px;border-radius:6px;margin-bottom:10px">
+      <strong style="color:#fca5a5">⚠️ Otevřené datové díry</strong>
+      <ul style="color:#cbd5e1;font-size:13px;margin:8px 0 0;padding-left:20px">
+        ${c.open_issues.map(i => `<li style="margin-bottom:4px">${i}</li>`).join('')}
+      </ul>
+    </div>
+    <div style="background:rgba(15,23,42,.6);padding:12px;border-radius:6px;border:1px solid #334155;font-size:12px;color:#94a3b8">
+      <strong>Metodologie:</strong> ${c.return_shipping_costs.method}<br>
+      Heuristika reklamací: ${c.complaints.heuristic_estimate.method}
+    </div>
+  `;
 }
 
 function renderReturnsDetail() {

@@ -1,0 +1,1658 @@
+{
+  "generated": "2026-04-29T12:11:03",
+  "period": "2025 (celý rok)",
+  "source": "ERP Eshop objednávky MO + VO 2025 (per-objednávka)",
+  "B2C": {
+    "total_orders_all": 2289,
+    "anonymous_pos_orders": 242,
+    "anonymous_share_pct": 10.6,
+    "anonymous_revenue_kc": 165531,
+    "named_orders": 2047,
+    "named_revenue_kc": 2593908,
+    "unique_customers_after_dedup": 1759,
+    "raw_unique_names": 1876,
+    "merge_count": 117,
+    "pareto": {
+      "top_5_share_pct": 7.7,
+      "top_10_share_pct": 12.5,
+      "top_20_share_pct": 19.1,
+      "top_50_share_pct": 31.7,
+      "all_customers_count": 1759
+    },
+    "rfm_distribution": [
+      {
+        "segment": "💤 Hibernating",
+        "count": 1149,
+        "revenue": 1466118,
+        "share_pct": 56.5
+      },
+      {
+        "segment": "🆕 Casual",
+        "count": 570,
+        "revenue": 962893,
+        "share_pct": 37.1
+      },
+      {
+        "segment": "📊 Regular",
+        "count": 5,
+        "revenue": 92716,
+        "share_pct": 3.6
+      },
+      {
+        "segment": "🔴 Lost High Value",
+        "count": 1,
+        "revenue": 50523,
+        "share_pct": 1.9
+      },
+      {
+        "segment": "🌱 New",
+        "count": 34,
+        "revenue": 21663,
+        "share_pct": 0.8
+      }
+    ],
+    "top_20": [
+      {
+        "canonical_name": "\"ondrej sokoli\"",
+        "primary_name": "\"Ondrej Sokoli\"",
+        "aliases": [
+          "\"Ondrej Sokoli\"",
+          "\"Ondřej Sokol\""
+        ],
+        "alias_count": 2,
+        "revenue_kc": 50523,
+        "profit_kc": 36092,
+        "margin_pct": 71.4,
+        "orders": 3,
+        "items": 11,
+        "aov_kc": 16841,
+        "first_order": "2025-02-26",
+        "last_order": "2025-05-06",
+        "months_active": 4,
+        "frequency_per_month": 0.75,
+        "recency_days": 351,
+        "rfm_segment": "🔴 Lost High Value",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"kovovyroba zidek\"",
+        "primary_name": "\"Kovovýroba Žídek\"",
+        "aliases": [
+          "\"Kovovýroba Žídek\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 49512,
+        "profit_kc": 34162,
+        "margin_pct": 69.0,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 24756,
+        "first_order": "2025-06-11",
+        "last_order": "2025-10-13",
+        "months_active": 5,
+        "frequency_per_month": 0.4,
+        "recency_days": 191,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "renapa",
+        "primary_name": "Renapa s.r.o.",
+        "aliases": [
+          "Renapa s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 34876,
+        "profit_kc": 18023,
+        "margin_pct": 51.7,
+        "orders": 9,
+        "items": 40,
+        "aov_kc": 3875,
+        "first_order": "2025-05-27",
+        "last_order": "2025-10-29",
+        "months_active": 6,
+        "frequency_per_month": 1.5,
+        "recency_days": 175,
+        "rfm_segment": "📊 Regular",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"autoservis brany\"",
+        "primary_name": "\"Autoservis Braný s.r.o.\"",
+        "aliases": [
+          "\"Autoservis Braný s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 32099,
+        "profit_kc": 20932,
+        "margin_pct": 65.2,
+        "orders": 1,
+        "items": 4,
+        "aov_kc": 32099,
+        "first_order": "2025-10-23",
+        "last_order": "2025-10-23",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 181,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"milon kucera\"",
+        "primary_name": "\"Miloň Kučera\"",
+        "aliases": [
+          "\"Miloň Kučera\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 31794,
+        "profit_kc": 15856,
+        "margin_pct": 49.9,
+        "orders": 3,
+        "items": 8,
+        "aov_kc": 10598,
+        "first_order": "2025-04-04",
+        "last_order": "2025-10-08",
+        "months_active": 7,
+        "frequency_per_month": 0.43,
+        "recency_days": 196,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"tormatic\"",
+        "primary_name": "\"TORMATIC s.r.o.\"",
+        "aliases": [
+          "\"TORMATIC s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 26530,
+        "profit_kc": 9548,
+        "margin_pct": 36.0,
+        "orders": 1,
+        "items": 5,
+        "aov_kc": 26530,
+        "first_order": "2025-03-10",
+        "last_order": "2025-03-10",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 408,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"wood time\"",
+        "primary_name": "\"Wood Time s.r.o.\"",
+        "aliases": [
+          "\"Wood Time s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 26198,
+        "profit_kc": 12104,
+        "margin_pct": 46.2,
+        "orders": 4,
+        "items": 12,
+        "aov_kc": 6550,
+        "first_order": "2025-02-28",
+        "last_order": "2025-10-02",
+        "months_active": 9,
+        "frequency_per_month": 0.44,
+        "recency_days": 202,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"spolecenstvi vlastniku jeseniova 519 19 518 23 praha 3\"",
+        "primary_name": "\"Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3\"",
+        "aliases": [
+          "\"Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 25610,
+        "profit_kc": 16352,
+        "margin_pct": 63.9,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 12805,
+        "first_order": "2025-08-13",
+        "last_order": "2025-12-11",
+        "months_active": 5,
+        "frequency_per_month": 0.4,
+        "recency_days": 132,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"sea enterprises\"",
+        "primary_name": "\"SEA Enterprises a.s.\"",
+        "aliases": [
+          "\"SEA Enterprises a.s.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 23323,
+        "profit_kc": 12018,
+        "margin_pct": 51.5,
+        "orders": 1,
+        "items": 2,
+        "aov_kc": 23323,
+        "first_order": "2025-10-10",
+        "last_order": "2025-10-10",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 194,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"botode\"",
+        "primary_name": "\"BOTODE s.r.o.\"",
+        "aliases": [
+          "\"BOTODE s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 22803,
+        "profit_kc": 14578,
+        "margin_pct": 63.9,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 11402,
+        "first_order": "2025-09-05",
+        "last_order": "2025-10-10",
+        "months_active": 2,
+        "frequency_per_month": 1.0,
+        "recency_days": 194,
+        "rfm_segment": "🆕 Casual",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"pavel ledl\"",
+        "primary_name": "\"Pavel Lédl\"",
+        "aliases": [
+          "\"Pavel Lédl\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 21897,
+        "profit_kc": 11608,
+        "margin_pct": 53.0,
+        "orders": 1,
+        "items": 2,
+        "aov_kc": 21897,
+        "first_order": "2025-05-23",
+        "last_order": "2025-05-23",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 334,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "dkn hill",
+        "primary_name": "DKN-Hill s.r.o.",
+        "aliases": [
+          "DKN-Hill s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 19981,
+        "profit_kc": 2579,
+        "margin_pct": 12.9,
+        "orders": 11,
+        "items": 47,
+        "aov_kc": 1816,
+        "first_order": "2025-09-25",
+        "last_order": "2025-11-06",
+        "months_active": 3,
+        "frequency_per_month": 3.67,
+        "recency_days": 167,
+        "rfm_segment": "📊 Regular",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"exps\"",
+        "primary_name": "\"ExPS s.r.o.\"",
+        "aliases": [
+          "\"ExPS s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 18564,
+        "profit_kc": 9373,
+        "margin_pct": 50.5,
+        "orders": 1,
+        "items": 3,
+        "aov_kc": 18564,
+        "first_order": "2025-02-18",
+        "last_order": "2025-02-18",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 428,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"jan mazanec\"",
+        "primary_name": "\"Jan Mazanec\"",
+        "aliases": [
+          "\"Jan Mazanec\"",
+          "\"Jan Mazánek\""
+        ],
+        "alias_count": 2,
+        "revenue_kc": 17684,
+        "profit_kc": 6477,
+        "margin_pct": 36.6,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 8842,
+        "first_order": "2025-01-08",
+        "last_order": "2025-08-07",
+        "months_active": 8,
+        "frequency_per_month": 0.25,
+        "recency_days": 258,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"pramos \"",
+        "primary_name": "\"Pramos, a.s.\"",
+        "aliases": [
+          "\"Pramos, a.s.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 17405,
+        "profit_kc": 10209,
+        "margin_pct": 58.7,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 8702,
+        "first_order": "2025-06-30",
+        "last_order": "2025-07-21",
+        "months_active": 2,
+        "frequency_per_month": 1.0,
+        "recency_days": 275,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"martin halamicek\"",
+        "primary_name": "\"Martin Halamicek\"",
+        "aliases": [
+          "\"Martin Halamicek\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 16612,
+        "profit_kc": 6931,
+        "margin_pct": 41.7,
+        "orders": 1,
+        "items": 2,
+        "aov_kc": 16612,
+        "first_order": "2025-05-26",
+        "last_order": "2025-05-26",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 331,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"siko koupelny\"",
+        "primary_name": "\"SIKO KOUPELNY a.s.\"",
+        "aliases": [
+          "\"SIKO KOUPELNY a.s.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 15960,
+        "profit_kc": 8294,
+        "margin_pct": 52.0,
+        "orders": 1,
+        "items": 2,
+        "aov_kc": 15960,
+        "first_order": "2025-04-29",
+        "last_order": "2025-04-29",
+        "months_active": 1,
+        "frequency_per_month": 1.0,
+        "recency_days": 358,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"miloslav juska\"",
+        "primary_name": "\"Miloslav Juška\"",
+        "aliases": [
+          "\"Miloslav Juška\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 15310,
+        "profit_kc": 6487,
+        "margin_pct": 42.4,
+        "orders": 3,
+        "items": 8,
+        "aov_kc": 5103,
+        "first_order": "2025-02-25",
+        "last_order": "2025-03-17",
+        "months_active": 2,
+        "frequency_per_month": 1.5,
+        "recency_days": 401,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"oknostudio \"",
+        "primary_name": "\"OKNOSTUDIO, s.r.o.\"",
+        "aliases": [
+          "\"OKNOSTUDIO, s.r.o.\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 15090,
+        "profit_kc": 5285,
+        "margin_pct": 35.0,
+        "orders": 2,
+        "items": 4,
+        "aov_kc": 7545,
+        "first_order": "2025-07-17",
+        "last_order": "2025-08-07",
+        "months_active": 2,
+        "frequency_per_month": 1.0,
+        "recency_days": 258,
+        "rfm_segment": "💤 Hibernating",
+        "segment": "B2C"
+      },
+      {
+        "canonical_name": "\"milan zahorsky\"",
+        "primary_name": "\"Milan Záhorský\"",
+        "aliases": [
+          "\"Milan Záhorský\""
+        ],
+        "alias_count": 1,
+        "revenue_kc": 14833,
+        "profit_kc": 8478,
+        "margin_pct": 57.2,
+        "orders": 8,
+        "items": 18,
+        "aov_kc": 1854,
+        "first_order": "2025-01-10",
+        "last_order": "2025-12-18",
+        "months_active": 12,
+        "frequency_per_month": 0.67,
+        "recency_days": 125,
+        "rfm_segment": "📊 Regular",
+        "segment": "B2C"
+      }
+    ],
+    "top_50_lite": [
+      {
+        "rank": 1,
+        "name": "\"Ondrej Sokoli\"",
+        "revenue_kc": 50523,
+        "orders": 3,
+        "rfm": "🔴 Lost High Value"
+      },
+      {
+        "rank": 2,
+        "name": "\"Kovovýroba Žídek\"",
+        "revenue_kc": 49512,
+        "orders": 2,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 3,
+        "name": "Renapa s.r.o.",
+        "revenue_kc": 34876,
+        "orders": 9,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 4,
+        "name": "\"Autoservis Braný s.r.o.\"",
+        "revenue_kc": 32099,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 5,
+        "name": "\"Miloň Kučera\"",
+        "revenue_kc": 31794,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 6,
+        "name": "\"TORMATIC s.r.o.\"",
+        "revenue_kc": 26530,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 7,
+        "name": "\"Wood Time s.r.o.\"",
+        "revenue_kc": 26198,
+        "orders": 4,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 8,
+        "name": "\"Společenství vlastníků Jeseniova 519/19, 518/23, Praha 3\"",
+        "revenue_kc": 25610,
+        "orders": 2,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 9,
+        "name": "\"SEA Enterprises a.s.\"",
+        "revenue_kc": 23323,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 10,
+        "name": "\"BOTODE s.r.o.\"",
+        "revenue_kc": 22803,
+        "orders": 2,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 11,
+        "name": "\"Pavel Lédl\"",
+        "revenue_kc": 21897,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 12,
+        "name": "DKN-Hill s.r.o.",
+        "revenue_kc": 19981,
+        "orders": 11,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 13,
+        "name": "\"ExPS s.r.o.\"",
+        "revenue_kc": 18564,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 14,
+        "name": "\"Jan Mazanec\"",
+        "revenue_kc": 17684,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 15,
+        "name": "\"Pramos, a.s.\"",
+        "revenue_kc": 17405,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 16,
+        "name": "\"Martin Halamicek\"",
+        "revenue_kc": 16612,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 17,
+        "name": "\"SIKO KOUPELNY a.s.\"",
+        "revenue_kc": 15960,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 18,
+        "name": "\"Miloslav Juška\"",
+        "revenue_kc": 15310,
+        "orders": 3,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 19,
+        "name": "\"OKNOSTUDIO, s.r.o.\"",
+        "revenue_kc": 15090,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 20,
+        "name": "\"Milan Záhorský\"",
+        "revenue_kc": 14833,
+        "orders": 8,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 21,
+        "name": "3D Manufaktura s.r.o.",
+        "revenue_kc": 14826,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 22,
+        "name": "\"SVOS, spol. s r.o.\"",
+        "revenue_kc": 14631,
+        "orders": 7,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 23,
+        "name": "\"Josef Ambroz\"",
+        "revenue_kc": 14421,
+        "orders": 2,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 24,
+        "name": "\"Miroslav Zamazal\"",
+        "revenue_kc": 13850,
+        "orders": 6,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 25,
+        "name": "\"Ricochetový a sportovní klub, spol. s r.o.\"",
+        "revenue_kc": 13495,
+        "orders": 4,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 26,
+        "name": "\"Josef Žolna\"",
+        "revenue_kc": 13070,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 27,
+        "name": "\"Silokost s.r.o.\"",
+        "revenue_kc": 13036,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 28,
+        "name": "\"Jiří Huml\"",
+        "revenue_kc": 11995,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 29,
+        "name": "\"Darovanský Dvůr Resort s.r.o.\"",
+        "revenue_kc": 11905,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 30,
+        "name": "\"Ema Maslanová\"",
+        "revenue_kc": 11704,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 31,
+        "name": "\"Longinex trade s.r.o.\"",
+        "revenue_kc": 11704,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 32,
+        "name": "Ordinace Bakaláře s.r.o.",
+        "revenue_kc": 11556,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 33,
+        "name": "\"Studio Náskok s.r.o.\"",
+        "revenue_kc": 11362,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 34,
+        "name": "\"Dodávka,montáž+servis PVC výplní\"",
+        "revenue_kc": 11321,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 35,
+        "name": "\"Lukáš Stropnický\"",
+        "revenue_kc": 10755,
+        "orders": 2,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 36,
+        "name": "\"MORAVA STAVBY s.r.o.\"",
+        "revenue_kc": 10560,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 37,
+        "name": "\"Waterdee s.r.o.\"",
+        "revenue_kc": 10300,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 38,
+        "name": "\"CARLA spol. s r.o.\"",
+        "revenue_kc": 10153,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 39,
+        "name": "\"Martin Kriška\"",
+        "revenue_kc": 9752,
+        "orders": 4,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 40,
+        "name": "\"Jan Chudoba\"",
+        "revenue_kc": 9608,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 41,
+        "name": "\"Tereza Talichová\"",
+        "revenue_kc": 9603,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 42,
+        "name": "\"Jiří Smolák\"",
+        "revenue_kc": 9358,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 43,
+        "name": "\"rekonstrukce - modernizace - stavby s. r. o.\"",
+        "revenue_kc": 8921,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 44,
+        "name": "\"Jsme k světu s.r.o.\"",
+        "revenue_kc": 8672,
+        "orders": 1,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 45,
+        "name": "\"Jan Tomáš\"",
+        "revenue_kc": 8504,
+        "orders": 3,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 46,
+        "name": "\"Tibor Tóth\"",
+        "revenue_kc": 8459,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 47,
+        "name": "\"Petr Kuběna\"",
+        "revenue_kc": 8395,
+        "orders": 5,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 48,
+        "name": "\"Petra Vojtová\"",
+        "revenue_kc": 8129,
+        "orders": 3,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 49,
+        "name": "\"Thessia s.r.o.\"",
+        "revenue_kc": 8099,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 50,
+        "name": "\"Grand Facility s.r.o.\"",
+        "revenue_kc": 7569,
+        "orders": 1,
+        "rfm": "🆕 Casual"
+      }
+    ],
+    "note": "Většina B2C MO objednávek je anonymních ('[Maloobchodní prodej]') — pokladenský prodej z poboček bez identifikace. Top zákazníci níže = B2C eshop guest checkout (jméno vyplněno)."
+  },
+  "B2B": {
+    "total_orders": 1786,
+    "named_orders": 1784,
+    "unique_customers_after_dedup": 115,
+    "raw_unique_names": 116,
+    "merge_count": 1,
+    "total_revenue_kc": 8309295,
+    "pareto": {
+      "top_5_share_pct": 32.3,
+      "top_10_share_pct": 51.8,
+      "top_20_share_pct": 70.7,
+      "top_50_share_pct": 91.2,
+      "all_customers_count": 115
+    },
+    "rfm_distribution": [
+      {
+        "segment": "💎 Loyal",
+        "count": 34,
+        "revenue": 6791097,
+        "share_pct": 81.7
+      },
+      {
+        "segment": "📊 Regular",
+        "count": 31,
+        "revenue": 809693,
+        "share_pct": 9.7
+      },
+      {
+        "segment": "💤 Hibernating",
+        "count": 32,
+        "revenue": 345987,
+        "share_pct": 4.2
+      },
+      {
+        "segment": "🆕 Casual",
+        "count": 17,
+        "revenue": 220880,
+        "share_pct": 2.7
+      },
+      {
+        "segment": "🏆 Champions",
+        "count": 1,
+        "revenue": 141644,
+        "share_pct": 1.7
+      }
+    ],
+    "top_20": [
+      {
+        "canonical_name": "tocik pelhrimov",
+        "primary_name": "Točík Pelhřimov s.r.o.",
+        "aliases": [
+          "Točík Pelhřimov s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 763129,
+        "profit_kc": 341529,
+        "margin_pct": 44.8,
+        "orders": 66,
+        "items": 1310,
+        "aov_kc": 11563,
+        "first_order": "2025-01-06",
+        "last_order": "2025-12-22",
+        "months_active": 12,
+        "frequency_per_month": 5.5,
+        "recency_days": 121,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "altara dc",
+        "primary_name": "ALTARA DC s.r.o.",
+        "aliases": [
+          "ALTARA DC s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 608227,
+        "profit_kc": 270457,
+        "margin_pct": 44.5,
+        "orders": 81,
+        "items": 2567,
+        "aov_kc": 7509,
+        "first_order": "2025-01-02",
+        "last_order": "2025-12-15",
+        "months_active": 12,
+        "frequency_per_month": 6.75,
+        "recency_days": 128,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "jiri hamouz",
+        "primary_name": "Jiří Hamouz",
+        "aliases": [
+          "Jiří Hamouz"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 509435,
+        "profit_kc": 182355,
+        "margin_pct": 35.8,
+        "orders": 112,
+        "items": 831,
+        "aov_kc": 4549,
+        "first_order": "2025-01-07",
+        "last_order": "2025-12-09",
+        "months_active": 12,
+        "frequency_per_month": 9.33,
+        "recency_days": 134,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "jiri slovak",
+        "primary_name": "Jiří Slovák",
+        "aliases": [
+          "Jiří Slovák"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 458283,
+        "profit_kc": 205889,
+        "margin_pct": 44.9,
+        "orders": 53,
+        "items": 902,
+        "aov_kc": 8647,
+        "first_order": "2025-01-06",
+        "last_order": "2025-12-22",
+        "months_active": 12,
+        "frequency_per_month": 4.42,
+        "recency_days": 121,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "vaclav krouzek zamecnicke centrum votice",
+        "primary_name": "Václav Kroužek - zámečnické centrum Votice",
+        "aliases": [
+          "Václav Kroužek - zámečnické centrum Votice"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 347081,
+        "profit_kc": 162590,
+        "margin_pct": 46.8,
+        "orders": 69,
+        "items": 1277,
+        "aov_kc": 5030,
+        "first_order": "2025-01-07",
+        "last_order": "2025-12-16",
+        "months_active": 12,
+        "frequency_per_month": 5.75,
+        "recency_days": 127,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "trezorservis",
+        "primary_name": "TREZORSERVIS s.r.o.",
+        "aliases": [
+          "TREZORSERVIS s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 342971,
+        "profit_kc": 159448,
+        "margin_pct": 46.5,
+        "orders": 49,
+        "items": 1463,
+        "aov_kc": 6999,
+        "first_order": "2025-01-06",
+        "last_order": "2025-11-24",
+        "months_active": 11,
+        "frequency_per_month": 4.45,
+        "recency_days": 149,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "matejka zamkarstvi",
+        "primary_name": "Matějka zámkařství s.r.o.",
+        "aliases": [
+          "Matějka zámkařství s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 339136,
+        "profit_kc": 147759,
+        "margin_pct": 43.6,
+        "orders": 58,
+        "items": 504,
+        "aov_kc": 5847,
+        "first_order": "2025-01-03",
+        "last_order": "2025-12-15",
+        "months_active": 12,
+        "frequency_per_month": 4.83,
+        "recency_days": 128,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "vit walter",
+        "primary_name": "Vít Walter",
+        "aliases": [
+          "Vít Walter"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 323730,
+        "profit_kc": 124586,
+        "margin_pct": 38.5,
+        "orders": 74,
+        "items": 804,
+        "aov_kc": 4375,
+        "first_order": "2025-01-06",
+        "last_order": "2025-12-15",
+        "months_active": 12,
+        "frequency_per_month": 6.17,
+        "recency_days": 128,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "sabata",
+        "primary_name": "ŠABATA s.r.o.",
+        "aliases": [
+          "ŠABATA s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 321451,
+        "profit_kc": 87940,
+        "margin_pct": 27.4,
+        "orders": 46,
+        "items": 536,
+        "aov_kc": 6988,
+        "first_order": "2025-01-14",
+        "last_order": "2025-12-09",
+        "months_active": 12,
+        "frequency_per_month": 3.83,
+        "recency_days": 134,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "zamecnictvi peceny",
+        "primary_name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
+        "aliases": [
+          "ZÁMEČNICTVÍ PEČENÝ s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 287269,
+        "profit_kc": 122131,
+        "margin_pct": 42.5,
+        "orders": 86,
+        "items": 659,
+        "aov_kc": 3340,
+        "first_order": "2025-01-03",
+        "last_order": "2025-12-19",
+        "months_active": 12,
+        "frequency_per_month": 7.17,
+        "recency_days": 124,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "klicove a trezorove centrum hausner plny",
+        "primary_name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+        "aliases": [
+          "Klíčové a trezorové centrum Hausner-Plný s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 265427,
+        "profit_kc": 86248,
+        "margin_pct": 32.5,
+        "orders": 50,
+        "items": 416,
+        "aov_kc": 5309,
+        "first_order": "2025-01-06",
+        "last_order": "2025-12-08",
+        "months_active": 12,
+        "frequency_per_month": 4.17,
+        "recency_days": 135,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "tomas zelinka",
+        "primary_name": "Tomáš Zelinka",
+        "aliases": [
+          "Tomáš Zelinka"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 258531,
+        "profit_kc": 154213,
+        "margin_pct": 59.6,
+        "orders": 36,
+        "items": 267,
+        "aov_kc": 7181,
+        "first_order": "2025-01-06",
+        "last_order": "2025-12-08",
+        "months_active": 12,
+        "frequency_per_month": 3.0,
+        "recency_days": 135,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "petr kucera",
+        "primary_name": "Petr Kučera",
+        "aliases": [
+          "Petr Kučera"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 194056,
+        "profit_kc": 71088,
+        "margin_pct": 36.6,
+        "orders": 30,
+        "items": 379,
+        "aov_kc": 6469,
+        "first_order": "2025-01-10",
+        "last_order": "2025-12-22",
+        "months_active": 12,
+        "frequency_per_month": 2.5,
+        "recency_days": 121,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "vladimira mojcherova",
+        "primary_name": "Vladimíra Mojcherová",
+        "aliases": [
+          "Vladimíra Mojcherová"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 159295,
+        "profit_kc": 89366,
+        "margin_pct": 56.1,
+        "orders": 46,
+        "items": 1151,
+        "aov_kc": 3463,
+        "first_order": "2025-01-08",
+        "last_order": "2025-12-10",
+        "months_active": 12,
+        "frequency_per_month": 3.83,
+        "recency_days": 133,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "tomas kraupner",
+        "primary_name": "Tomáš Kraupner",
+        "aliases": [
+          "Tomáš Kraupner"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 141644,
+        "profit_kc": 75209,
+        "margin_pct": 53.1,
+        "orders": 35,
+        "items": 285,
+        "aov_kc": 4047,
+        "first_order": "2025-01-09",
+        "last_order": "2025-12-30",
+        "months_active": 12,
+        "frequency_per_month": 2.92,
+        "recency_days": 113,
+        "rfm_segment": "🏆 Champions",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "zamkarstvi jiro",
+        "primary_name": "ZÁMKAŘSTVÍ JIRO, s.r.o.",
+        "aliases": [
+          "ZÁMKAŘSTVÍ JIRO, s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 120430,
+        "profit_kc": 45881,
+        "margin_pct": 38.1,
+        "orders": 73,
+        "items": 306,
+        "aov_kc": 1650,
+        "first_order": "2025-01-30",
+        "last_order": "2025-11-27",
+        "months_active": 11,
+        "frequency_per_month": 6.64,
+        "recency_days": 146,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "pasomaso",
+        "primary_name": "PasoMaso s.r.o.",
+        "aliases": [
+          "PasoMaso s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 116033,
+        "profit_kc": 44437,
+        "margin_pct": 38.3,
+        "orders": 27,
+        "items": 296,
+        "aov_kc": 4298,
+        "first_order": "2025-01-07",
+        "last_order": "2025-12-05",
+        "months_active": 12,
+        "frequency_per_month": 2.25,
+        "recency_days": 138,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "klicarstvi",
+        "primary_name": "Klíčařství s.r.o.",
+        "aliases": [
+          "Klíčařství s.r.o."
+        ],
+        "alias_count": 1,
+        "revenue_kc": 115949,
+        "profit_kc": 73353,
+        "margin_pct": 63.3,
+        "orders": 27,
+        "items": 243,
+        "aov_kc": 4294,
+        "first_order": "2025-01-03",
+        "last_order": "2025-12-18",
+        "months_active": 12,
+        "frequency_per_month": 2.25,
+        "recency_days": 125,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "petr brabenec zamkarstvi",
+        "primary_name": "Petr Brabenec, zámkařství",
+        "aliases": [
+          "Petr Brabenec, zámkařství"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 103918,
+        "profit_kc": 43485,
+        "margin_pct": 41.8,
+        "orders": 62,
+        "items": 695,
+        "aov_kc": 1676,
+        "first_order": "2025-03-27",
+        "last_order": "2025-12-19",
+        "months_active": 10,
+        "frequency_per_month": 6.2,
+        "recency_days": 124,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      },
+      {
+        "canonical_name": "petr molek",
+        "primary_name": "Petr Molek",
+        "aliases": [
+          "Petr Molek"
+        ],
+        "alias_count": 1,
+        "revenue_kc": 99811,
+        "profit_kc": 38844,
+        "margin_pct": 38.9,
+        "orders": 9,
+        "items": 342,
+        "aov_kc": 11090,
+        "first_order": "2025-01-22",
+        "last_order": "2025-12-05",
+        "months_active": 12,
+        "frequency_per_month": 0.75,
+        "recency_days": 138,
+        "rfm_segment": "💎 Loyal",
+        "segment": "B2B"
+      }
+    ],
+    "top_50_lite": [
+      {
+        "rank": 1,
+        "name": "Točík Pelhřimov s.r.o.",
+        "revenue_kc": 763129,
+        "orders": 66,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 2,
+        "name": "ALTARA DC s.r.o.",
+        "revenue_kc": 608227,
+        "orders": 81,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 3,
+        "name": "Jiří Hamouz",
+        "revenue_kc": 509435,
+        "orders": 112,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 4,
+        "name": "Jiří Slovák",
+        "revenue_kc": 458283,
+        "orders": 53,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 5,
+        "name": "Václav Kroužek - zámečnické centrum Votice",
+        "revenue_kc": 347081,
+        "orders": 69,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 6,
+        "name": "TREZORSERVIS s.r.o.",
+        "revenue_kc": 342971,
+        "orders": 49,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 7,
+        "name": "Matějka zámkařství s.r.o.",
+        "revenue_kc": 339136,
+        "orders": 58,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 8,
+        "name": "Vít Walter",
+        "revenue_kc": 323730,
+        "orders": 74,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 9,
+        "name": "ŠABATA s.r.o.",
+        "revenue_kc": 321451,
+        "orders": 46,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 10,
+        "name": "ZÁMEČNICTVÍ PEČENÝ s.r.o.",
+        "revenue_kc": 287269,
+        "orders": 86,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 11,
+        "name": "Klíčové a trezorové centrum Hausner-Plný s.r.o.",
+        "revenue_kc": 265427,
+        "orders": 50,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 12,
+        "name": "Tomáš Zelinka",
+        "revenue_kc": 258531,
+        "orders": 36,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 13,
+        "name": "Petr Kučera",
+        "revenue_kc": 194056,
+        "orders": 30,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 14,
+        "name": "Vladimíra Mojcherová",
+        "revenue_kc": 159295,
+        "orders": 46,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 15,
+        "name": "Tomáš Kraupner",
+        "revenue_kc": 141644,
+        "orders": 35,
+        "rfm": "🏆 Champions"
+      },
+      {
+        "rank": 16,
+        "name": "ZÁMKAŘSTVÍ JIRO, s.r.o.",
+        "revenue_kc": 120430,
+        "orders": 73,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 17,
+        "name": "PasoMaso s.r.o.",
+        "revenue_kc": 116033,
+        "orders": 27,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 18,
+        "name": "Klíčařství s.r.o.",
+        "revenue_kc": 115949,
+        "orders": 27,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 19,
+        "name": "Petr Brabenec, zámkařství",
+        "revenue_kc": 103918,
+        "orders": 62,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 20,
+        "name": "Petr Molek",
+        "revenue_kc": 99811,
+        "orders": 9,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 21,
+        "name": "Mirka Khunová",
+        "revenue_kc": 96988,
+        "orders": 33,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 22,
+        "name": "Josef Šikula",
+        "revenue_kc": 86348,
+        "orders": 14,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 23,
+        "name": "Tomáš Vyhnal",
+        "revenue_kc": 86171,
+        "orders": 46,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 24,
+        "name": "Břenda - velkoobchod,spol. s r.o.",
+        "revenue_kc": 76512,
+        "orders": 32,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 25,
+        "name": "I.P.CONNECT, s.r.o.",
+        "revenue_kc": 74634,
+        "orders": 17,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 26,
+        "name": "Jiří Hlad",
+        "revenue_kc": 73370,
+        "orders": 9,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 27,
+        "name": "František Šimšálek",
+        "revenue_kc": 71971,
+        "orders": 12,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 28,
+        "name": "Radek Habla",
+        "revenue_kc": 71631,
+        "orders": 10,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 29,
+        "name": "DD Technik s.r.o.",
+        "revenue_kc": 66954,
+        "orders": 10,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 30,
+        "name": "Petr Mertlík",
+        "revenue_kc": 61756,
+        "orders": 8,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 31,
+        "name": "Jiří Růžička",
+        "revenue_kc": 60865,
+        "orders": 17,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 32,
+        "name": "\"LIFTEX PRO s.r.o.\"",
+        "revenue_kc": 60698,
+        "orders": 4,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 33,
+        "name": "Milan Vacovský",
+        "revenue_kc": 60347,
+        "orders": 12,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 34,
+        "name": "SPLITTER s.r.o.",
+        "revenue_kc": 59896,
+        "orders": 18,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 35,
+        "name": "Petr Rapčan",
+        "revenue_kc": 57339,
+        "orders": 11,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 36,
+        "name": "Family Factory s.r.o.",
+        "revenue_kc": 52153,
+        "orders": 18,
+        "rfm": "💎 Loyal"
+      },
+      {
+        "rank": 37,
+        "name": "\"Miva Bílovec s.r.o.\"",
+        "revenue_kc": 48559,
+        "orders": 19,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 38,
+        "name": "Růžena Bártová",
+        "revenue_kc": 47388,
+        "orders": 10,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 39,
+        "name": "Jan Štěpánek",
+        "revenue_kc": 45802,
+        "orders": 14,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 40,
+        "name": "Martin Lacina",
+        "revenue_kc": 45574,
+        "orders": 37,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 41,
+        "name": "DELAREN s.r.o.",
+        "revenue_kc": 43790,
+        "orders": 2,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 42,
+        "name": "M & S, spol. s r.o.",
+        "revenue_kc": 43084,
+        "orders": 13,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 43,
+        "name": "Mark2 Corporation Czech a.s.",
+        "revenue_kc": 43054,
+        "orders": 5,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 44,
+        "name": "Marcel Gerla",
+        "revenue_kc": 41858,
+        "orders": 9,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 45,
+        "name": "Zámky Fikeis Jiří",
+        "revenue_kc": 41816,
+        "orders": 14,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 46,
+        "name": "UNIBRICK s.r.o.",
+        "revenue_kc": 41116,
+        "orders": 6,
+        "rfm": "💤 Hibernating"
+      },
+      {
+        "rank": 47,
+        "name": "Oldřich Pokorný",
+        "revenue_kc": 37747,
+        "orders": 5,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 48,
+        "name": "Zámečnictví Orság",
+        "revenue_kc": 37488,
+        "orders": 6,
+        "rfm": "📊 Regular"
+      },
+      {
+        "rank": 49,
+        "name": "Jana Vokounová FAPO",
+        "revenue_kc": 33898,
+        "orders": 3,
+        "rfm": "🆕 Casual"
+      },
+      {
+        "rank": 50,
+        "name": "Ladislav Šrámek",
+        "revenue_kc": 32047,
+        "orders": 15,
+        "rfm": "📊 Regular"
+      }
+    ]
+  },
+  "limitations": [
+    "B2C MO: většina je anonymní pokladenský prodej, top 20 ukazuje jen guest checkout / registrované zákazníky",
+    "B2B VO: bez IČO — fuzzy dedup s ~5 % false-positives",
+    "Pro plný customer ID lookup je nutná CRM integrace nebo IČO pole v ERP exportu"
+  ]
+}

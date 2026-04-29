@@ -1,0 +1,61 @@
+{
+  "generated": "2026-04-29T12:18:31",
+  "scope": "Reklamace + dopravní náklady vratek/reklamací (heuristický odhad)",
+  "primary_source": "ERP Vratky 2025.csv + heuristika (chybí samostatný systém pro reklamace)",
+  "year": 2025,
+  "complaints": {
+    "data_status": "✗ NENÍ DOSTUPNO",
+    "missing_data_action": "Klient by měl exportovat seznam reklamací z helpdesk / CRM / Zendesk / interní systém",
+    "heuristic_estimate": {
+      "method": "Industry benchmark: B2C 5-15 % objednávek (vybrali jsme 8 %), B2B 3-8 % (5 %)",
+      "MO_estimated_complaints": 183,
+      "MO_complaint_rate_pct": 8.0,
+      "MO_orders_total": 2289,
+      "VO_estimated_complaints": 89,
+      "VO_complaint_rate_pct": 5.0,
+      "VO_orders_total": 1786,
+      "total_estimated": 272,
+      "note": "Reálná hodnota se může lišit ±50 % — bez reálných dat to je odhad"
+    },
+    "what_to_track": [
+      "Reklamace per produkt (top 10 problémových SKU)",
+      "Reklamační poměr (% objednávek)",
+      "Doba vyřízení (avg dny)",
+      "Důvody (kvalita, poškození, neúplné dodání, ...)",
+      "Náklady na reklamace (vrácené peníze + dopravné + náklady na zaměstnance)"
+    ]
+  },
+  "return_shipping_costs": {
+    "data_status": "🟡 ODHAD (ERP nedělí dopravné na vrátky)",
+    "method": "Heuristika: MO zákazník hradí dopravu zpět (kromě reklamace, kde eshop platí). VO eshop hradí dopravu vratek.",
+    "MO": {
+      "returns_count": 1001,
+      "estimated_eshop_shipping_back_orders": 183,
+      "avg_shipping_back_kc": 130,
+      "estimated_total_cost_kc": 23790,
+      "note": "Z 1001 vratek MO eshop hradí dopravu jen u reklamací (~183 = 8.0 % objednávek)"
+    },
+    "VO": {
+      "returns_count": 1674,
+      "estimated_eshop_shipping_back_orders": 1674,
+      "avg_shipping_back_kc": 250,
+      "estimated_total_cost_kc": 418500,
+      "note": "VO typicky hradí eshop (storno/přefakturace) — průměr 250 Kč/vratka"
+    },
+    "total_estimated_cost_kc": 442290,
+    "as_pct_of_revenue": 4.0
+  },
+  "open_issues": [
+    "1. Reklamace — vyžádat samostatný systém / export (helpdesk / Zendesk / interní)",
+    "2. Dopravné per vratka — vyžádat zaúčtované náklady přepravců (PPL, Zásilkovna invoice rozpis)",
+    "3. Náklady na zpracování vratky/reklamace — work hours zaměstnanců (CRM/HR data)",
+    "4. Refund processing fee (poplatky platebních bran za vrácení peněz)"
+  ],
+  "summary": {
+    "vratky_count_total": 2675,
+    "vratky_value_total_kc": 5925792,
+    "estimated_complaints_total": 272,
+    "estimated_shipping_cost_total_kc": 442290,
+    "total_lost_value_estimate_kc": 6368082
+  }
+}
